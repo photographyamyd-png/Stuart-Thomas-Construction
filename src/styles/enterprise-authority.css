@@ -2096,12 +2096,16 @@ button:focus-visible {
 /* Inner page heroes */
 .stc-enterprise-hero {
   position: relative;
-  min-height: var(--ent-hero-min-height);
-  min-height: var(--ent-hero-min-height-dvh);
-  background: var(--stc-black);
+  min-height: clamp(280px, 38vh, 420px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+}
+
+.stc-enterprise-hero--media {
+  min-height: var(--ent-hero-min-height);
+  min-height: var(--ent-hero-min-height-dvh);
+  background: var(--stc-black);
 }
 
 .stc-enterprise-hero > img {

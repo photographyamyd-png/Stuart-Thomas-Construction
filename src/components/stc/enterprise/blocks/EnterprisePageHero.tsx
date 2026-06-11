@@ -22,7 +22,10 @@ export function EnterprisePageHero({
   children,
 }: Props) {
   return (
-    <section className="stc-enterprise-hero turner-band turner-band--dark" aria-labelledby="enterprise-hero-heading">
+    <section
+      className={`stc-enterprise-hero turner-band turner-band--dark${imageSrc ? " stc-enterprise-hero--media" : ""}`}
+      aria-labelledby="enterprise-hero-heading"
+    >
       {imageSrc ? (
         <>
           <Image src={imageSrc} alt={imageAlt} fill priority sizes="100vw" className="object-cover" />
