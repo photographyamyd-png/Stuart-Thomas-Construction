@@ -1,0 +1,227 @@
+import Image from "next/image";
+import Link from "next/link";
+import { areas } from "@/data/areas";
+import { conversion } from "@/data/conversion";
+import {
+  enterpriseFeaturedProject,
+  enterpriseInsights,
+  enterpriseQuote,
+  enterpriseServiceGridOrder,
+} from "@/data/enterprise";
+import { media } from "@/data/media";
+import { getServiceBySlug } from "@/data/services";
+import { CommitmentsAccordion } from "./blocks/CommitmentsAccordion";
+import { ServiceOverlayGrid } from "./blocks/ServiceOverlayGrid";
+import { TurnerHero } from "./blocks/TurnerHero";
+import { EnterpriseContactForm } from "./EnterpriseContactForm";
+import { LinkArrow } from "./primitives";
+
+export function EnterpriseHome() {
+  return (
+    <>
+      <TurnerHero />
+
+      <section
+        className="turner-pathfinder turner-band turner-band--light turner-band--seam"
+        id="pathfinder"
+        aria-label="Choose your path"
+      >
+        <ul className="turner-pathfinder__grid">
+          <li>
+            <Link className="turner-pathfinder__card" href="/projects">
+              <h2>A Project</h2>
+              <p>
+                Browse completed armour stone, waterfront, and landscape builds across our service
+                area.
+              </p>
+              <span className="link-arrow">
+                Browse Our Projects{" "}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link className="turner-pathfinder__card" href="#services">
+              <h2>Our Services</h2>
+              <p>Six disciplines from excavation through commercial snow — one accountable team on site.</p>
+              <span className="link-arrow">
+                Explore Services{" "}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link className="turner-pathfinder__card" href="/about">
+              <h2>About STC</h2>
+              <p>Twenty years of honest work, local relationships, and builds engineered to last.</p>
+              <span className="link-arrow">
+                Learn More{" "}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </Link>
+          </li>
+        </ul>
+      </section>
+
+      <section
+        className="turner-featured turner-band turner-band--dark turner-band--seam"
+        id="featured"
+        aria-labelledby="featured-heading"
+      >
+        <div className="turner-featured__media">
+          <Image src={enterpriseFeaturedProject.image} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
+        </div>
+        <div className="turner-featured__copy container">
+          <p className="eyebrow eyebrow--on-dark">{enterpriseFeaturedProject.eyebrow}</p>
+          <h2 id="featured-heading" className="text-display">
+            {enterpriseFeaturedProject.title} <span>{enterpriseFeaturedProject.titleAccent}</span>
+          </h2>
+          <p>{enterpriseFeaturedProject.description}</p>
+          <LinkArrow href={enterpriseFeaturedProject.href}>View Project</LinkArrow>
+        </div>
+      </section>
+
+      <section
+        className="turner-insights turner-band turner-band--light turner-band--seam"
+        id="insights"
+        aria-labelledby="insights-heading"
+      >
+        <div className="container">
+          <header className="turner-insights__head">
+            <p className="eyebrow">From The Field</p>
+            <h2 id="insights-heading" className="text-display">
+              Recent <span className="text-accent-gold">Highlights</span>
+            </h2>
+          </header>
+          <div className="turner-insights__track" role="list">
+            {enterpriseInsights.map((card) => (
+              <article key={card.title} className="turner-insight-card" role="listitem">
+                <Image src={card.image} alt="" width={320} height={200} loading="lazy" />
+                <div className="turner-insight-card__body">
+                  <p className="eyebrow eyebrow--plain">{card.category}</p>
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                  <LinkArrow href={card.href}>Read More</LinkArrow>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="turner-band turner-band--dark turner-band--seam" id="services" aria-label="Our services">
+        <ServiceOverlayGrid />
+      </section>
+
+      <section className="stc-showcase turner-band turner-band--seam-thin" id="showcase" aria-label="Project showcase">
+        <div className="stc-showcase__panorama">
+          <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="100vw" className="object-cover" />
+        </div>
+        <nav className="stc-icon-strip stc-icon-strip--dark" aria-label="Service quick links">
+          <ul className="stc-icon-strip__grid">
+            {enterpriseServiceGridOrder.slice(0, 5).map((slug) => {
+              const service = getServiceBySlug(slug);
+              if (!service) return null;
+              return (
+                <li key={slug}>
+                  <Link className="stc-icon-strip__item" href={`/services/${slug}`}>
+                    <span className="stc-icon-strip__icon" aria-hidden>
+                      <svg viewBox="0 0 24 24">
+                        <path d="m8 3 4 8 5 2-2 8h6l-2-8 4-2-3-8z" />
+                      </svg>
+                    </span>
+                    <span className="stc-icon-strip__label">{service.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </section>
+
+      <section className="stc-built-strong turner-band turner-band--seam" id="built-strong" aria-labelledby="built-strong-heading">
+        <div className="stc-built-strong__bg">
+          <Image src={media.integritySection} alt="" fill loading="lazy" sizes="100vw" className="object-cover" />
+        </div>
+        <div className="stc-built-strong__scrim" aria-hidden />
+        <div className="stc-built-strong__inner">
+          <h2 id="built-strong-heading">Built Strong. Built Right.</h2>
+          <p>
+            We deliver armour stone, waterfront assemblies, and full-site outdoor construction with
+            the discipline and honesty your property deserves.
+          </p>
+          <Link href="/contact" className="btn-green">
+            Get a Quote
+          </Link>
+        </div>
+      </section>
+
+      <section
+        className="turner-regional turner-band turner-band--green turner-band--seam"
+        id="regional"
+        aria-labelledby="regional-heading"
+      >
+        <div className="turner-regional__media">
+          <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
+        </div>
+        <div className="turner-regional__copy">
+          <p className="eyebrow eyebrow--on-dark">Muskoka &amp; South Georgian Bay</p>
+          <h2 id="regional-heading" className="text-display">
+            Our Work In Your <span className="accent text-accent-gold">Community</span>
+          </h2>
+          <p>
+            Together we strengthen shorelines, elevate estates, and deliver outdoor builds neighbours
+            can trust across Tiny Township, Wasaga Beach, Collingwood, and Muskoka.
+          </p>
+          <ul className="area-pills">
+            {areas.map((area, i) => (
+              <li key={area.slug}>
+                <Link href={`/areas/${area.slug}`} className={i === 0 ? "is-active" : undefined}>
+                  {area.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <CommitmentsAccordion />
+
+      <section className="turner-quote turner-band turner-band--dark turner-band--seam-thin" id="quote" aria-label="Client testimonial">
+        <blockquote>
+          &ldquo;Stuart Thomas delivered exactly what they promised —{" "}
+          <span className="hl">{enterpriseQuote.highlight}</span>, honest communication, and a shoreline
+          we are proud of.&rdquo;
+        </blockquote>
+        <footer>{enterpriseQuote.attribution}</footer>
+      </section>
+
+      <section
+        className="turner-contact turner-band turner-band--green turner-band--seam"
+        id="contact"
+        aria-labelledby="contact-heading"
+      >
+        <div className="turner-contact__copy">
+          <p className="eyebrow eyebrow--on-dark">Start Your Project</p>
+          <h2 id="contact-heading" className="text-display stack-title">
+            Ready To <span>Build?</span>
+          </h2>
+          <p>{conversion.contactIntro}</p>
+          <Link
+            href="/contact"
+            className="btn-ghost btn-ghost--on-green stack-cta cta-self-start"
+          >
+            Request a Quote
+          </Link>
+        </div>
+        <EnterpriseContactForm />
+      </section>
+    </>
+  );
+}

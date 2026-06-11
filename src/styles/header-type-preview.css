@@ -1,0 +1,208 @@
+/**
+ * Scoped header typography variants for /design/type-preview only.
+ * Does not affect the live site — overrides apply inside .header-type-preview-panel only.
+ */
+
+.header-type-preview-page {
+  min-height: 100vh;
+  background: #0f0f0f;
+  color: var(--stc-white);
+  padding: var(--ent-space-3xl) var(--pad-x) var(--ent-space-4xl);
+}
+
+.header-type-preview-page__intro {
+  max-width: 42rem;
+  margin-bottom: var(--ent-space-3xl);
+}
+
+.header-type-preview-page__intro h1 {
+  font-family: var(--ent-font-display);
+  font-size: var(--ent-section-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ent-display-tracking);
+}
+
+.header-type-preview-page__intro p {
+  margin-top: var(--ent-space-md);
+  font-family: var(--ent-font-body);
+  font-size: var(--ent-body-size);
+  line-height: var(--ent-body-leading);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.header-type-preview-panel {
+  margin-bottom: var(--ent-space-3xl);
+  border: 1px solid rgba(176, 141, 87, 0.25);
+  background: rgba(26, 26, 26, 0.6);
+}
+
+.header-type-preview-panel__label {
+  padding: var(--ent-space-md) var(--ent-space-lg);
+  border-bottom: 1px solid rgba(176, 141, 87, 0.2);
+  font-family: var(--ent-font-label);
+  font-size: var(--ent-label-md-size);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stc-gold);
+}
+
+.header-type-preview-panel__caption {
+  padding: var(--ent-space-md) var(--ent-space-lg) var(--ent-space-lg);
+  font-family: var(--ent-font-body);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-type-preview-panel__viewport {
+  position: relative;
+  min-height: 22rem;
+  overflow: hidden;
+  background: var(--stc-black);
+}
+
+/* Contain production fixed chrome inside the preview frame */
+.header-type-preview-panel .enterprise-layout {
+  position: relative;
+  min-height: 22rem;
+  padding-bottom: 0;
+}
+
+.header-type-preview-panel .enterprise-layout > main {
+  display: none;
+}
+
+.header-type-preview-panel .turner-header {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+}
+
+.header-type-preview-panel .stc-lux-wrap {
+  position: absolute;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.header-type-preview-panel .stc-lux-wrap.is-open {
+  pointer-events: auto;
+}
+
+.header-type-preview-panel .stc-lux-nav {
+  display: flex !important;
+}
+
+.header-type-preview-panel .turner-header__toggle {
+  display: none !important;
+}
+
+.header-type-preview-panel .turner-header .btn-green {
+  display: inline-flex !important;
+}
+
+.header-type-preview-panel__drawer-sample {
+  position: absolute;
+  top: var(--header-h);
+  right: 0;
+  bottom: 0;
+  width: min(13.5rem, 38%);
+  z-index: 15;
+  pointer-events: none;
+}
+
+.header-type-preview-panel__drawer-sample .turner-drawer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  padding: 1rem 1.1rem 1.25rem;
+  border-left: 1px solid rgba(176, 141, 87, 0.35);
+}
+
+.header-type-preview-panel__drawer-sample .turner-drawer__nav a,
+.header-type-preview-panel__drawer-sample .turner-drawer__nav > span:not(.turner-drawer__section-label) {
+  display: block;
+  padding: 0.55rem 0;
+  font-family: var(--ent-header-font-drawer);
+  font-weight: var(--ent-header-weight-drawer);
+  font-size: 0.72rem;
+  letter-spacing: var(--ent-header-drawer-tracking);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-type-preview-panel .stc-lux-nav__link,
+.header-type-preview-panel .stc-lux-nav__trigger {
+  cursor: default;
+  pointer-events: none;
+}
+
+.header-type-preview-panel__drawer-sample .turner-drawer .btn-green {
+  display: none;
+}
+
+/* Variant A — current (explicit defaults, same as :root) */
+.header-type-preview-panel--current {
+  --ent-header-weight-wordmark-primary: 600;
+  --ent-header-weight-wordmark-secondary: 500;
+  --ent-header-font-nav: var(--ent-font-label);
+  --ent-header-weight-nav: 600;
+  --ent-header-nav-tracking: 0.12em;
+  --ent-header-font-mega-title: var(--ent-font-label);
+  --ent-header-weight-mega-title: 600;
+  --ent-header-font-mega-link: var(--ent-font-label);
+  --ent-header-weight-mega-link: 600;
+  --ent-header-font-drawer: var(--ent-font-label);
+  --ent-header-weight-drawer: 600;
+  --ent-header-drawer-tracking: 0.12em;
+}
+
+/* Variant B — lighter weights, same families */
+.header-type-preview-panel--light-a {
+  --ent-header-weight-wordmark-primary: 500;
+  --ent-header-weight-wordmark-secondary: 500;
+  --ent-header-font-nav: var(--ent-font-label);
+  --ent-header-weight-nav: 500;
+  --ent-header-nav-tracking: 0.08em;
+  --ent-header-font-mega-title: var(--ent-font-label);
+  --ent-header-weight-mega-title: 500;
+  --ent-header-font-mega-link: var(--ent-font-label);
+  --ent-header-weight-mega-link: 500;
+  --ent-header-font-drawer: var(--ent-font-label);
+  --ent-header-weight-drawer: 500;
+  --ent-header-drawer-tracking: 0.08em;
+}
+
+/* Variant C — Open Sans nav (matches live site defaults) */
+.header-type-preview-panel--light-b {
+  --ent-header-weight-wordmark-primary: 500;
+  --ent-header-weight-wordmark-secondary: 500;
+  --ent-header-font-nav: var(--ent-font-body);
+  --ent-header-weight-nav: 500;
+  --ent-header-nav-tracking: 0.06em;
+  --ent-header-font-mega-title: var(--ent-font-body);
+  --ent-header-weight-mega-title: 600;
+  --ent-header-font-mega-link: var(--ent-font-body);
+  --ent-header-weight-mega-link: 500;
+  --ent-header-font-drawer: var(--ent-font-body);
+  --ent-header-weight-drawer: 500;
+  --ent-header-drawer-tracking: 0.06em;
+}
+
+@media (max-width: 900px) {
+  .header-type-preview-panel__viewport {
+    min-height: 26rem;
+  }
+
+  .header-type-preview-panel__drawer-sample {
+    width: min(11rem, 42%);
+  }
+}
