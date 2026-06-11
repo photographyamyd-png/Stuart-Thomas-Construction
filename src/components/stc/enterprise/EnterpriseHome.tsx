@@ -6,11 +6,10 @@ import {
   enterpriseFeaturedProject,
   enterpriseInsights,
   enterpriseQuote,
-  enterpriseServiceGridOrder,
 } from "@/data/enterprise";
 import { media } from "@/data/media";
-import { getServiceBySlug } from "@/data/services";
 import { CommitmentsAccordion } from "./blocks/CommitmentsAccordion";
+import { ServiceIconStrip } from "./blocks/ServiceIconStrip";
 import { ServiceOverlayGrid } from "./blocks/ServiceOverlayGrid";
 import { TurnerHero } from "./blocks/TurnerHero";
 import { EnterpriseContactForm } from "./EnterpriseContactForm";
@@ -116,36 +115,18 @@ export function EnterpriseHome() {
       </section>
 
       <section className="turner-band turner-band--dark turner-band--seam" id="services" aria-label="Our services">
-        <ServiceOverlayGrid />
+        <ServiceOverlayGrid showHeader />
       </section>
 
-      <section className="stc-showcase turner-band turner-band--seam-thin" id="showcase" aria-label="Project showcase">
+      <section className="stc-showcase" id="showcase" aria-label="Project showcase">
         <div className="stc-showcase__panorama">
           <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="100vw" className="object-cover" />
         </div>
-        <nav className="stc-icon-strip stc-icon-strip--dark" aria-label="Service quick links">
-          <ul className="stc-icon-strip__grid">
-            {enterpriseServiceGridOrder.slice(0, 5).map((slug) => {
-              const service = getServiceBySlug(slug);
-              if (!service) return null;
-              return (
-                <li key={slug}>
-                  <Link className="stc-icon-strip__item" href={`/services/${slug}`}>
-                    <span className="stc-icon-strip__icon" aria-hidden>
-                      <svg viewBox="0 0 24 24">
-                        <path d="m8 3 4 8 5 2-2 8h6l-2-8 4-2-3-8z" />
-                      </svg>
-                    </span>
-                    <span className="stc-icon-strip__label">{service.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
       </section>
 
-      <section className="stc-built-strong turner-band turner-band--seam" id="built-strong" aria-labelledby="built-strong-heading">
+      <ServiceIconStrip />
+
+      <section className="stc-built-strong" id="built-strong" aria-labelledby="built-strong-heading">
         <div className="stc-built-strong__bg">
           <Image src={media.integritySection} alt="" fill loading="lazy" sizes="100vw" className="object-cover" />
         </div>
@@ -156,7 +137,7 @@ export function EnterpriseHome() {
             We deliver armour stone, waterfront assemblies, and full-site outdoor construction with
             the discipline and honesty your property deserves.
           </p>
-          <Link href="/contact" className="btn-green">
+          <Link href="/contact" className="btn-beige btn-beige--lg">
             Get a Quote
           </Link>
         </div>

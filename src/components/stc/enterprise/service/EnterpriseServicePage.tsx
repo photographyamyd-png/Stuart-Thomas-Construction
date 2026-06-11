@@ -9,19 +9,31 @@ import {
 } from "@/components/ui/accordion";
 import { areas } from "@/data/areas";
 import { conversion } from "@/data/conversion";
-import { getServiceCapabilityImages, getServiceHero, media } from "@/data/media";
-import type { ServiceDetail } from "@/data/services";
+import type { GalleryItem } from "@/data/gallery";
+import { getServiceCapabilityImages, getServiceHero, getServiceWorkShowcase, media } from "@/data/media";
+import { rediRockServiceCallouts } from "@/data/redi-rock";
+import type { ServiceDetail, ServiceSlug } from "@/data/services";
 import { getAdjacentServices, getServiceBySlug } from "@/data/services";
 import { ServiceCapabilitiesBand } from "./ServiceCapabilitiesBand";
 import { ServicePager } from "./ServicePager";
+import { ServiceRediRockCallout } from "./ServiceRediRockCallout";
+import { ServiceWorkShowcase } from "./ServiceWorkShowcase";
+
+type RediRockServiceSlug = keyof typeof rediRockServiceCallouts;
+
+function isRediRockServiceSlug(slug: ServiceSlug): slug is RediRockServiceSlug {
+  return slug in rediRockServiceCallouts;
+}
 
 type Props = {
   service: ServiceDetail;
+  rediRockInstallPhoto?: GalleryItem;
 };
 
-export function EnterpriseServicePage({ service }: Props) {
+export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) {
   const heroSrc = getServiceHero(service.slug);
   const capImages = getServiceCapabilityImages(service.slug);
+  const workShowcase = getServiceWorkShowcase(service.slug);
   const { prev, next } = getAdjacentServices(service.slug);
   const isImmersiveHero = service.slug === "landscaping";
 
@@ -113,6 +125,13 @@ export function EnterpriseServicePage({ service }: Props) {
         heroFallback={heroSrc}
       />
 
+      {isRediRockServiceSlug(service.slug) && (
+        <ServiceRediRockCallout
+          callout={rediRockServiceCallouts[service.slug]}
+          installPhoto={rediRockInstallPhoto}
+        />
+      )}
+
       <section
         className="stc-svc-page__process turner-band turner-band--dark turner-band--seam"
         aria-labelledby="process-heading"
@@ -133,6 +152,8 @@ export function EnterpriseServicePage({ service }: Props) {
           </ol>
         </div>
       </section>
+
+      {workShowcase && <ServiceWorkShowcase data={workShowcase} />}
 
       {service.faqs.length > 0 && (
         <section className="stc-svc-page__faq turner-band turner-band--light turner-band--seam">
@@ -166,6 +187,11 @@ export function EnterpriseServicePage({ service }: Props) {
                 </li>
               );
             })}
+            {isRediRockServiceSlug(service.slug) && (
+              <li>
+                <Link href="/materials/redi-rock">Redi-Rock Installation</Link>
+              </li>
+            )}
           </ul>
           <p className="eyebrow eyebrow--on-dark stack-section-lg">Areas We Serve</p>
           <ul className="stc-svc-page__related-pills">

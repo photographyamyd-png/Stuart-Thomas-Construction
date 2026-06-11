@@ -11,7 +11,7 @@ export function ConversionBar() {
         <p className="stc-conversion-bar__message">
           {conversion.homeCta.headline}{" "}
           <Link href="/contact" className="stc-conversion-bar__contact-link">
-            Contact us today
+            {conversion.homeCta.contactLink}
           </Link>
         </p>
         <a className="stc-conversion-bar__phone" href={`tel:${site.phoneTel}`}>

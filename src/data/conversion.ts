@@ -9,14 +9,15 @@ export const conversion = {
   },
   homeCta: {
     headline: "Ready to build something extraordinary?",
-    subline: "Tell us about your property — we'll respond with clear next steps.",
+    contactLink: "Contact us today",
+    subline: "Tell us about your property — call for clear next steps.",
     button: "Get in Touch",
   },
   serviceCta: {
     headline: "Let's scope your project",
-    subline: "Share your site, timeline, and goals. We'll follow up promptly.",
+    subline: "Share your site, timeline, and goals. Call us to follow up promptly.",
     button: "Request a Quote",
   },
   contactIntro:
-    "Request a quote for armour stone, waterfront work, landscaping, hardscaping, excavation, or commercial snow removal.",
+    "Call for a quote on armour stone, waterfront work, landscaping, hardscaping, excavation, or commercial snow removal.",
 } as const;

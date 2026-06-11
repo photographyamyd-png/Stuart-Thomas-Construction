@@ -4,17 +4,20 @@ import { ProjectsExplorer } from "@/components/gallery/ProjectsExplorer";
 import { EnterpriseCtaBand } from "./blocks/EnterpriseCtaBand";
 import { EnterprisePageHero } from "./blocks/EnterprisePageHero";
 
+import type { GalleryCategoryId } from "@/data/gallery";
+
 type Props = {
   galleryItems: GalleryItem[];
+  initialCategory?: GalleryCategoryId;
 };
 
-export function EnterpriseProjectsPage({ galleryItems }: Props) {
+export function EnterpriseProjectsPage({ galleryItems, initialCategory }: Props) {
   return (
     <>
       <EnterprisePageHero
         eyebrow="Portfolio"
         title="Project Gallery"
-        description={`${galleryItems.length} photos from armour stone, waterfront, landscaping, hardscaping, excavation, and snow removal sites across South Georgian Bay.`}
+        description={`${galleryItems.length} photos from armour stone, waterfront, landscaping, hardscaping, excavation, Redi-Rock installs, and snow removal sites across South Georgian Bay.`}
         imageSrc={media.projectsHero}
         imageAlt="Construction project gallery"
         breadcrumbs={[
@@ -24,7 +27,7 @@ export function EnterpriseProjectsPage({ galleryItems }: Props) {
       />
       <section className="stc-projects-explorer turner-band turner-band--light">
         <div className="container">
-          <ProjectsExplorer items={galleryItems} />
+          <ProjectsExplorer items={galleryItems} initialCategory={initialCategory} />
         </div>
       </section>
       <EnterpriseCtaBand />

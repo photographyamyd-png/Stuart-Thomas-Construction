@@ -32,7 +32,7 @@ export function PromoCard({
       <Link
         href={href}
         className={cn(
-          "group block overflow-hidden border border-stc-black/15 bg-stc-beige",
+          "group block overflow-hidden border border-stc-black/15 bg-stc-white",
           className,
         )}
       >

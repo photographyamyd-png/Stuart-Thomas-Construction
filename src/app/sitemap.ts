@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/projects",
     "/contact",
     "/areas",
+    "/materials/redi-rock",
     "/privacy",
     "/terms",
   ];

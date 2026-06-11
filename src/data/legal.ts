@@ -18,7 +18,7 @@ export const privacyPolicy: LegalPageContent = {
     {
       heading: "Information We Collect",
       paragraphs: [
-        "When you request a quote or contact us, we may collect your name, email address, phone number, property location, project details, and any photos or documents you choose to share.",
+        "When you request a quote or contact us by phone, we may collect your name, phone number, property location, project details, and any photos or documents you choose to share.",
         "When you browse our website, standard server logs and analytics may record your IP address, browser type, pages visited, and referring URL.",
       ],
     },

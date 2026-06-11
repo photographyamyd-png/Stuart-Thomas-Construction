@@ -1,4 +1,3 @@
-import { ActionSolid } from "@/components/stc/primitives/Action";
 import { site } from "@/data/site";
 
 export function ContactPanel({ intro }: { intro: string }) {
@@ -19,17 +18,6 @@ export function ContactPanel({ intro }: { intro: string }) {
             </dd>
           </div>
           <div>
-            <dt className="stc-label text-stc-dark-green">Email</dt>
-            <dd className="mt-2">
-              <a
-                href={`mailto:${site.email}`}
-                className="stc-body font-medium text-stc-charcoal hover:text-stc-lime"
-              >
-                {site.email}
-              </a>
-            </dd>
-          </div>
-          <div>
             <dt className="stc-label text-stc-dark-green">Service Area</dt>
             <dd className="stc-body mt-2 text-stc-charcoal/75">
               Tiny Township, Wasaga Beach, Collingwood, and South Georgian Bay
@@ -39,60 +27,15 @@ export function ContactPanel({ intro }: { intro: string }) {
       </div>
       <div className="border-2 border-stc-border-strong bg-stc-white p-6 sm:p-10">
         <h2 className="stc-display-md text-xl">Request a Quote</h2>
-        <form
-          className="mt-8 space-y-5"
-          action={`mailto:${site.email}`}
-          method="post"
-          encType="text/plain"
+        <p className="stc-body mt-4 text-stc-charcoal/75">
+          Call us to discuss your project scope, timeline, and site conditions.
+        </p>
+        <a
+          href={`tel:${site.phoneTel}`}
+          className="mt-8 inline-flex min-h-12 w-full items-center justify-center bg-stc-lime px-8 font-display text-sm font-bold uppercase tracking-[0.1em] text-stc-white transition-colors hover:bg-stc-lime-hover sm:w-auto"
         >
-          <div className="grid gap-5 sm:grid-cols-2">
-            <label className="block">
-              <span className="stc-label mb-2 block text-stc-charcoal">Name</span>
-              <input
-                name="name"
-                required
-                className="w-full border-2 border-stc-border-strong bg-stc-surface px-3 py-3 font-body text-sm outline-none focus:border-stc-lime"
-              />
-            </label>
-            <label className="block">
-              <span className="stc-label mb-2 block text-stc-charcoal">Phone</span>
-              <input
-                name="phone"
-                type="tel"
-                className="w-full border-2 border-stc-border-strong bg-stc-surface px-3 py-3 font-body text-sm outline-none focus:border-stc-lime"
-              />
-            </label>
-          </div>
-          <label className="block">
-            <span className="stc-label mb-2 block text-stc-charcoal">Email</span>
-            <input
-              name="email"
-              type="email"
-              required
-              className="w-full border-2 border-stc-border-strong bg-stc-surface px-3 py-3 font-body text-sm outline-none focus:border-stc-lime"
-            />
-          </label>
-          <label className="block">
-            <span className="stc-label mb-2 block text-stc-charcoal">Service</span>
-            <input
-              name="service"
-              placeholder="Armour stone, waterfront, landscaping..."
-              className="w-full border-2 border-stc-border-strong bg-stc-surface px-3 py-3 font-body text-sm outline-none focus:border-stc-lime"
-            />
-          </label>
-          <label className="block">
-            <span className="stc-label mb-2 block text-stc-charcoal">Project Details</span>
-            <textarea
-              name="message"
-              required
-              rows={5}
-              className="w-full border-2 border-stc-border-strong bg-stc-surface px-3 py-3 font-body text-sm outline-none focus:border-stc-lime"
-            />
-          </label>
-          <ActionSolid type="submit" className="w-full sm:w-auto">
-            Send Message
-          </ActionSolid>
-        </form>
+          Call {site.phoneDisplay}
+        </a>
       </div>
     </div>
   );

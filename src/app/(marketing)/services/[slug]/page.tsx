@@ -6,6 +6,7 @@ import {
   getAllServiceSlugs,
   getServiceBySlug,
 } from "@/data/services";
+import { getGalleryItemsByCategory } from "@/data/gallery.server";
 import { getServiceHero } from "@/data/media";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildServiceJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -32,6 +33,9 @@ export default async function ServicePage({ params }: Props) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
+  const rediRockInstalls = getGalleryItemsByCategory("redi-rock");
+  const rediRockInstallPhoto = rediRockInstalls[0];
+
   return (
     <>
       <JsonLdScript
@@ -49,7 +53,7 @@ export default async function ServicePage({ params }: Props) {
           ...(service.faqs.length ? [buildFaqJsonLd(service.faqs)] : []),
         ]}
       />
-      <EnterpriseServicePage service={service} />
+      <EnterpriseServicePage service={service} rediRockInstallPhoto={rediRockInstallPhoto} />
     </>
   );
 }

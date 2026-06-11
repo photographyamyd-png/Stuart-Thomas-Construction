@@ -7,8 +7,13 @@ import type { GalleryItem, GalleryCategoryId } from "@/data/gallery";
 import { galleryCategories } from "@/data/gallery";
 import { cn } from "@/lib/utils";
 
-export function ProjectsExplorer({ items }: { items: GalleryItem[] }) {
-  const [filter, setFilter] = useState<GalleryCategoryId | "all">("all");
+type Props = {
+  items: GalleryItem[];
+  initialCategory?: GalleryCategoryId;
+};
+
+export function ProjectsExplorer({ items, initialCategory }: Props) {
+  const [filter, setFilter] = useState<GalleryCategoryId | "all">(initialCategory ?? "all");
   const [lightbox, setLightbox] = useState<GalleryItem | null>(null);
 
   const filtered = useMemo(() => {
@@ -24,7 +29,7 @@ export function ProjectsExplorer({ items }: { items: GalleryItem[] }) {
           onClick={() => setFilter("all")}
           className={cn(
             "text-utility px-3 py-1.5 text-xs",
-            filter === "all" ? "bg-stc-black text-stc-white" : "bg-stc-beige text-stc-black",
+            filter === "all" ? "bg-stc-black text-stc-white" : "border border-stc-black/15 bg-stc-white text-stc-black",
           )}
         >
           All ({items.length})
@@ -36,7 +41,7 @@ export function ProjectsExplorer({ items }: { items: GalleryItem[] }) {
             onClick={() => setFilter(c.id)}
             className={cn(
               "text-utility px-3 py-1.5 text-xs",
-              filter === c.id ? "bg-stc-black text-stc-white" : "bg-stc-beige text-stc-black",
+              filter === c.id ? "bg-stc-black text-stc-white" : "border border-stc-black/15 bg-stc-white text-stc-black",
             )}
           >
             {c.label}
@@ -49,7 +54,7 @@ export function ProjectsExplorer({ items }: { items: GalleryItem[] }) {
             key={item.id}
             type="button"
             onClick={() => setLightbox(item)}
-            className="mb-4 block w-full break-inside-avoid overflow-hidden border border-stc-black/15 bg-stc-beige text-left"
+            className="mb-4 block w-full break-inside-avoid overflow-hidden border border-stc-black/15 bg-stc-white text-left"
           >
             <div className="relative aspect-[4/3] w-full sm:aspect-auto sm:min-h-[200px]">
               <Image

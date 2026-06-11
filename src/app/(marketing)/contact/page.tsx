@@ -31,12 +31,6 @@ export default function ContactPage() {
               <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
             </dd>
           </div>
-          <div>
-            <dt className="text-utility">Email</dt>
-            <dd>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
-            </dd>
-          </div>
         </dl>
         <Link href="/services" className="btn-ghost btn-ghost--on-green stack-cta cta-self-start">
           View Services

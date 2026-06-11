@@ -5,11 +5,8 @@ export const site = {
     "Premium armour stone, luxury waterfront stone work, landscaping, hardscaping, excavation, and commercial snow removal serving Tiny Township, Wasaga Beach, Collingwood, and South Georgian Bay.",
   /** Production URL — set NEXT_PUBLIC_SITE_URL at deploy time */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://stuartthomasconstruction.com",
-  /** Replace with client phone before launch */
-  phoneDisplay: "(705) 555-0142",
-  phoneTel: "+17055550142",
-  email: "info@stuartthomasconstruction.com",
-  /** Contact form uses mailto: until a backend (Resend/Formspree) is added post-launch */
+  phoneDisplay: "(705) 727-7308",
+  phoneTel: "+17057277308",
   address: {
     street: "",
     area: "Tiny Township",

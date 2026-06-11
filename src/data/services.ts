@@ -20,6 +20,8 @@ export type ServiceDetail = {
   slug: ServiceSlug;
   title: string;
   shortLabel: string;
+  /** Homepage service grid card button */
+  gridCtaLabel: string;
   /** Wireframe icon row — one or two lines under each service icon */
   iconRowLabelLines: string[];
   /** Tailwind text color class for homepage icon row */
@@ -42,6 +44,7 @@ export const services: ServiceDetail[] = [
     slug: "armour-stone",
     title: "Armour Stone",
     shortLabel: "Armour Stone",
+    gridCtaLabel: "Explore Armour Stone",
     iconRowLabelLines: ["ARMOUR", "STONE"],
     homeIconColor: "text-stc-dark-green",
     shortDescription:
@@ -53,7 +56,7 @@ export const services: ServiceDetail[] = [
     heroAlt: "Heavy armour stone wall with precise cap and drainage reveal",
     overview: [
       "Armour stone work is where geology meets structure. We build walls that read as permanent — correct batter, clean coursing, and drainage that survives Canadian winters.",
-      "From lake-effect wind exposure to tight cottage access, we plan lifts, protection, and staging so the finished wall feels inevitable, not improvised.",
+      "From lake-effect wind exposure to tight cottage access, we plan lifts, protection, and staging so the finished wall feels inevitable, not improvised. When engineers specify modular retaining, we also install Redi-Rock® systems supplied by The Sarjeant Co.",
     ],
     subServices: [
       { title: "Structural retention & terracing", description: "Tiered walls, load distribution, and clean transitions for driveways and living spaces." },
@@ -62,7 +65,7 @@ export const services: ServiceDetail[] = [
     ],
     process: [
       { title: "Site review", description: "Access, equipment pathing, drainage exits, and protection for existing features." },
-      { title: "Excavation & base", description: "Structural base, drainage aggregate, and compaction to spec." },
+      { title: "Excavation & base", description: "Structural base, drainage aggregate, and compaction to spec — including engineered block footings." },
       { title: "Stone placement", description: "Mass-first sequencing, interlock discipline, and constant checks on line and plane." },
       { title: "Final interface", description: "Top of wall meets landscape cleanly — ready for the next trade without rework." },
     ],
@@ -76,12 +79,14 @@ export const services: ServiceDetail[] = [
     faqs: [
       { q: "Do you work on waterfront retaining walls in Tiny Township?", a: "Yes — shoreline sites are a core focus. We plan for ice, wind, and drainage realities common to Georgian Bay properties." },
       { q: "Can you coordinate with an engineer?", a: "Absolutely. We're accustomed to stamped drawings, inspection schedules, and spec-driven placement." },
+      { q: "Do you install Redi-Rock as well as natural armour stone?", a: "Yes. Stuart Thomas Construction installs Redi-Rock retaining systems supplied by The Sarjeant Co. Natural armour stone remains our core craft — we help you choose the right approach for your site and drawings. See our Redi-Rock installation page for details." },
     ],
   },
   {
     slug: "waterfront-stone-work",
     title: "Luxury Waterfront Stone Work",
     shortLabel: "Waterfront Stone",
+    gridCtaLabel: "Waterfront Stone Work",
     iconRowLabelLines: ["WATERFRONT", "STONE WORK"],
     homeIconColor: "text-stc-icon-waterfront",
     shortDescription:
@@ -97,7 +102,7 @@ export const services: ServiceDetail[] = [
     ],
     subServices: [
       { title: "Stone stairs & access", description: "Safe, beautiful transitions from cottage to shoreline with correct rise/run and drainage." },
-      { title: "Shoreline retention", description: "Mass walls and transitions that respect wave action and municipal setbacks." },
+      { title: "Shoreline retention", description: "Mass walls and transitions that respect wave action and municipal setbacks — including engineered Redi-Rock assemblies when specified." },
       { title: "Cottage interface work", description: "Patios, landings, and walls that tie hardscape to the home's architecture." },
     ],
     process: [
@@ -116,12 +121,14 @@ export const services: ServiceDetail[] = [
     faqs: [
       { q: "Do you handle steep waterfront lots?", a: "Yes. Terracing, stairs, and retention are common on Georgian Bay slopes." },
       { q: "Can you match existing stone on a renovation?", a: "We work with you on colour, scale, and coursing to blend new work with existing features." },
+      { q: "Can you install engineered retaining at the shoreline?", a: "Yes. When drawings call for Redi-Rock or modular retention, STC installs systems supplied by The Sarjeant Co. with the same waterfront sequencing discipline as our natural stone work." },
     ],
   },
   {
     slug: "landscaping",
     title: "Landscaping",
     shortLabel: "Landscaping",
+    gridCtaLabel: "See Landscaping",
     iconRowLabelLines: ["LANDSCAPING"],
     homeIconColor: "text-stc-icon-landscape",
     shortDescription:
@@ -136,7 +143,7 @@ export const services: ServiceDetail[] = [
       "We coordinate earthwork, stone, and finishing so the property reads as one composed outdoor environment.",
     ],
     subServices: [
-      { title: "Site grading & drainage", description: "Positive drainage, swales, and interfaces that protect structures and plantings." },
+      { title: "Site grading & drainage", description: "Positive drainage, swales, and interfaces that protect structures and plantings — including terraces tied to retaining and Redi-Rock walls." },
       { title: "Planting beds & finishing", description: "Topsoil, edging, and detail work that complements stone and architecture." },
       { title: "Outdoor living integration", description: "Patios, steps, and transitions tied to retaining and waterfront features." },
     ],
@@ -162,6 +169,7 @@ export const services: ServiceDetail[] = [
     slug: "hardscaping",
     title: "Hardscaping",
     shortLabel: "Hardscaping",
+    gridCtaLabel: "View Hardscaping",
     iconRowLabelLines: ["HARDSCAPING"],
     homeIconColor: "text-stc-icon-hardscape",
     shortDescription:
@@ -182,7 +190,7 @@ export const services: ServiceDetail[] = [
     ],
     process: [
       { title: "Layout & grades", description: "Establish elevations, drainage direction, and edge conditions." },
-      { title: "Base construction", description: "Excavation, aggregate, and compaction to performance standards." },
+      { title: "Base construction", description: "Excavation, aggregate, and compaction to performance standards for natural stone and Redi-Rock assemblies." },
       { title: "Surface installation", description: "Stone or unit placement with alignment and joint discipline." },
       { title: "Detail & seal", description: "Edges, cuts, and protection before handoff." },
     ],
@@ -194,7 +202,7 @@ export const services: ServiceDetail[] = [
     ],
     relatedSlugs: ["landscaping", "armour-stone", "waterfront-stone-work"],
     faqs: [
-      { q: "What materials do you work with?", a: "Natural stone, armour stone caps, and premium unit pavers — selected for site conditions and aesthetics." },
+      { q: "What materials do you work with?", a: "Natural stone, armour stone caps, premium unit pavers, and Redi-Rock freestanding walls and columns — installed by STC and supplied by The Sarjeant Co. when engineered systems are specified." },
       { q: "How long does a typical patio take?", a: "Timeline depends on access, size, and weather. We provide a clear schedule after site review." },
     ],
   },
@@ -202,6 +210,7 @@ export const services: ServiceDetail[] = [
     slug: "excavation",
     title: "Excavation",
     shortLabel: "Excavation",
+    gridCtaLabel: "Excavation & Grading",
     iconRowLabelLines: ["EXCAVATION"],
     homeIconColor: "text-stc-icon-excavation",
     shortDescription:
@@ -242,6 +251,7 @@ export const services: ServiceDetail[] = [
     slug: "commercial-snow-removal",
     title: "Commercial Snow Removal",
     shortLabel: "Snow Removal",
+    gridCtaLabel: "Snow Services",
     iconRowLabelLines: ["SNOW REMOVAL"],
     homeIconColor: "text-stc-icon-snow",
     shortDescription:

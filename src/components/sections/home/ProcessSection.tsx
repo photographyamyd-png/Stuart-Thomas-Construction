@@ -17,7 +17,7 @@ export function ProcessSection() {
               <li
                 key={step.title}
                 className={`relative border-t-[3px] bg-stc-green/15 p-7 ${
-                  i === 0 ? "border-stc-gold bg-stc-gold/5" : "border-stc-green"
+                  i === 0 ? "border-stc-gold bg-stc-green/5" : "border-stc-green"
                 }`}
               >
                 <span className="text-display pointer-events-none absolute top-5 right-5 text-5xl text-stc-gold/15">

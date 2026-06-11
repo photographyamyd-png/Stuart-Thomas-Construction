@@ -7,7 +7,7 @@ export function HeroServicesStrip() {
   return (
     <section
       id="hero-services"
-      className="border-y border-stc-black/15 bg-stc-beige"
+      className="border-y border-stc-black/15 bg-stc-white"
       aria-label="Our services"
     >
       <Container className="py-0">

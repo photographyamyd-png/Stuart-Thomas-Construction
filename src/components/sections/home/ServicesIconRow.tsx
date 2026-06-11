@@ -17,7 +17,7 @@ export function ServicesIconRow() {
               <li key={s.slug}>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="flex aspect-square flex-col items-center justify-start bg-stc-beige p-6 text-center transition-opacity hover:opacity-90"
+                  className="flex aspect-square flex-col items-center justify-start border border-stc-black/10 bg-stc-white p-6 text-center transition-opacity hover:opacity-90"
                 >
                   <Icon
                     className="mb-4 size-10 text-stc-green md:size-12"

@@ -8,6 +8,9 @@ import {
 
 const IMAGE_EXT = new Set([".jpg", ".jpeg", ".png", ".webp"]);
 
+/** Folders excluded from the STC project gallery (manufacturer refs, partner assets). */
+const SKIP_DIR_NAMES = new Set(["reference", "partners"]);
+
 const categoryIdSet = new Set<string>(
   galleryCategories.map((c) => c.id),
 );
@@ -32,6 +35,7 @@ function walkDir(absDir: string, relSegments: string[]): ProjectImageFile[] {
 
     const absChild = path.join(absDir, ent.name);
     if (ent.isDirectory()) {
+      if (SKIP_DIR_NAMES.has(ent.name)) continue;
       out.push(...walkDir(absChild, [...relSegments, ent.name]));
       continue;
     }

@@ -20,9 +20,9 @@ const buttonVariants = cva(
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
         stc:
-          "rounded-sm border-2 border-stc-gold bg-transparent font-utility text-stc-gold tracking-wider hover:bg-stc-gold hover:text-stc-black active:bg-[var(--stc-copper)] active:border-[var(--stc-copper)] active:text-stc-black",
+          "rounded-sm border-2 border-stc-gold bg-transparent font-utility text-stc-gold tracking-wider hover:bg-stc-green hover:border-stc-green hover:text-stc-white active:bg-[var(--stc-copper)] active:border-[var(--stc-copper)] active:text-stc-white",
         stcSolid:
-          "rounded-sm border-2 border-stc-gold bg-stc-gold font-utility text-stc-black tracking-wider hover:bg-stc-gold/90 hover:border-stc-gold/90 active:bg-[var(--stc-copper)] active:border-[var(--stc-copper)]",
+          "rounded-sm border-2 border-stc-gold bg-stc-green font-utility text-stc-white tracking-wider hover:bg-stc-green/90 hover:border-stc-gold/90 active:bg-[var(--stc-copper)] active:border-[var(--stc-copper)]",
         stcGhost:
           "rounded-sm border border-stc-white/30 bg-transparent font-utility text-stc-white tracking-wider hover:border-stc-gold hover:text-stc-gold",
         stcGreen:

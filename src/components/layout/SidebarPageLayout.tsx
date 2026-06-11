@@ -21,7 +21,7 @@ export function SidebarPageLayout({
   className?: string;
 }) {
   const pillarEl = (
-    <aside className="bg-stc-beige p-8 lg:sticky lg:top-20 lg:self-start lg:min-h-[calc(100vh-5rem)]">
+    <aside className="border-r border-stc-black/10 bg-stc-white p-8 lg:sticky lg:top-20 lg:self-start lg:min-h-[calc(100vh-5rem)]">
       {pillar}
     </aside>
   );

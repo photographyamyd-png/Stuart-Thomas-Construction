@@ -21,7 +21,7 @@ export function BrandStamp({
         "inline-flex size-12 shrink-0 items-center justify-center rounded-full border-2 shadow-md sm:size-14",
         ring === "dark"
           ? "border-stc-white/20 bg-stc-black"
-          : "border-stc-black/15 bg-stc-beige",
+          : "border-stc-black/15 bg-stc-white",
         className,
       )}
     >

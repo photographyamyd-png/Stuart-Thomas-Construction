@@ -23,7 +23,7 @@ const masonryTones = [
     title: "text-stc-white group-hover:text-stc-gold",
   },
   {
-    bg: "bg-stc-beige",
+    bg: "bg-stc-white",
     border: "border-stc-black/20",
     title: "text-stc-black group-hover:text-stc-green",
   },
@@ -98,7 +98,7 @@ export function ServiceCard({
           className,
         )}
       >
-        <span className="flex size-10 shrink-0 items-center justify-center bg-stc-beige text-stc-gold">
+        <span className="flex size-10 shrink-0 items-center justify-center border border-stc-black/10 bg-stc-white text-stc-gold">
           <Icon className="size-5" strokeWidth={1.25} />
         </span>
         <span className="min-w-0">
@@ -136,7 +136,7 @@ export function ServiceCard({
         </div>
       )}
       <div className="flex flex-1 flex-col p-5">
-        <span className="flex size-10 items-center justify-center bg-stc-beige text-stc-gold">
+        <span className="flex size-10 items-center justify-center border border-stc-black/10 bg-stc-white text-stc-gold">
           <Icon className="size-5" strokeWidth={1.25} />
         </span>
         <h3 className="text-utility mt-4 text-stc-black group-hover:text-stc-green">{title}</h3>

@@ -32,8 +32,8 @@ export function EnterpriseLegalPage({ content, path }: Props) {
             </article>
           ))}
           <p className="stc-enterprise-body stack-section">
-            Questions? Contact us at{" "}
-            <a href={`mailto:${site.email}`}>{site.email}</a> or visit our{" "}
+            Questions? Call us at{" "}
+            <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a> or visit our{" "}
             <Link href="/contact">Contact page</Link>.
           </p>
         </div>

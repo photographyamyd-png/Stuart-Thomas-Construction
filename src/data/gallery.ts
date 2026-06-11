@@ -4,7 +4,8 @@ export type GalleryCategoryId =
   | "landscaping"
   | "hardscaping"
   | "excavation"
-  | "snow-removal";
+  | "snow-removal"
+  | "redi-rock";
 
 export type GalleryItem = {
   id: string;
@@ -22,6 +23,7 @@ export const galleryCategories: { id: GalleryCategoryId; label: string }[] = [
   { id: "hardscaping", label: "Hardscaping" },
   { id: "excavation", label: "Excavation" },
   { id: "snow-removal", label: "Snow Removal" },
+  { id: "redi-rock", label: "Redi-Rock Installs" },
 ];
 
 export const galleryItems: GalleryItem[] = [];

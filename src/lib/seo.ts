@@ -117,7 +117,6 @@ export function buildLocalBusinessJsonLd() {
     description: site.description,
     url: site.url,
     telephone: site.phoneTel,
-    email: site.email,
     image: `${site.url.replace(/\/$/, "")}${site.logo.src}`,
     areaServed: [
       { "@type": "AdministrativeArea", name: "Tiny Township" },

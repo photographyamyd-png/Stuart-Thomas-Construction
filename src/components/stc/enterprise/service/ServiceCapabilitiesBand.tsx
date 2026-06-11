@@ -13,6 +13,9 @@ type Props = {
 };
 
 export function ServiceCapabilitiesBand({ subServices, images, imageAlts, heroFallback }: Props) {
+  const [lead, ...cards] = subServices;
+  const leadImage = images[0] ?? heroFallback;
+
   return (
     <section
       className="stc-svc-capabilities turner-band turner-band--light turner-band--seam"
@@ -23,37 +26,47 @@ export function ServiceCapabilitiesBand({ subServices, images, imageAlts, heroFa
         <h2 id="svc-capabilities-heading" className="text-display text-display--section stack-title">
           What We <span className="text-accent-green">Deliver</span>
         </h2>
-        <div className="stc-svc-capabilities__stack">
-          {subServices.map((sub, i) => {
-            const imageSrc = images[i] ?? heroFallback;
+        <div className="stc-svc-capabilities__bento">
+          {lead && (
+            <article className="stc-svc-capabilities__tile stc-svc-capabilities__tile--lead">
+              <div className="stc-svc-capabilities__lead-media">
+                <Image
+                  src={leadImage}
+                  alt={imageAlts?.[0] ?? lead.title}
+                  fill
+                  loading="lazy"
+                  sizes="(min-width: 900px) 55vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="stc-svc-capabilities__tile-scrim" aria-hidden />
+              </div>
+              <div className="stc-svc-capabilities__tile-body stc-svc-capabilities__tile-body--overlay">
+                <span className="stc-svc-capabilities__num">01</span>
+                <h3 className="stc-svc-capabilities__title">{lead.title}</h3>
+                <p>{lead.description}</p>
+              </div>
+            </article>
+          )}
+          {cards.map((sub, i) => {
+            const index = i + 1;
+            const imageSrc = images[index] ?? heroFallback;
             return (
-              <article
-                key={sub.title}
-                className={`stc-svc-capabilities__item${i > 0 ? " stc-svc-capabilities__item--divider" : ""}`}
-              >
-                <div className="stc-svc-capabilities__item-head">
-                  <span className="stc-svc-capabilities__num">0{i + 1}</span>
-                  <span className="stc-svc-capabilities__item-label">{sub.title}</span>
+              <article key={sub.title} className="stc-svc-capabilities__tile stc-svc-capabilities__tile--card">
+                <div className="stc-svc-capabilities__card-media">
+                  <Image
+                    src={imageSrc}
+                    alt={imageAlts?.[index] ?? sub.title}
+                    width={640}
+                    height={400}
+                    loading="lazy"
+                    sizes="(min-width: 900px) 30vw, 100vw"
+                    className="stc-svc-capabilities__card-img"
+                  />
                 </div>
-                <div
-                  className={`stc-svc-capabilities__item-body${i % 2 === 1 ? " stc-svc-capabilities__item-body--flip" : ""}`}
-                >
-                  <div className="stc-svc-capabilities__copy">
-                    <p className="eyebrow eyebrow--plain green">Capability</p>
-                    <h3 className="text-display text-display--subsection stack-eyebrow">{sub.title}</h3>
-                    <p>{sub.description}</p>
-                  </div>
-                  <div className="stc-svc-capabilities__media">
-                    <Image
-                      src={imageSrc}
-                      alt={imageAlts?.[i] ?? sub.title}
-                      width={640}
-                      height={400}
-                      loading="lazy"
-                      sizes="(min-width: 900px) 40vw, 100vw"
-                      className="stc-svc-capabilities__img"
-                    />
-                  </div>
+                <div className="stc-svc-capabilities__tile-body stc-svc-capabilities__tile-body--card">
+                  <span className="stc-svc-capabilities__num">0{index + 1}</span>
+                  <h3 className="stc-svc-capabilities__title">{sub.title}</h3>
+                  <p>{sub.description}</p>
                 </div>
               </article>
             );

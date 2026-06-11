@@ -43,9 +43,6 @@ export function EnterpriseFooter() {
               <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
             </li>
             <li>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
-            </li>
-            <li>
               <Link href="/contact">Request a Quote</Link>
             </li>
           </ul>

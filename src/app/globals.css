@@ -13,11 +13,11 @@
   --card-foreground: var(--stc-black);
   --popover: var(--stc-white);
   --popover-foreground: var(--stc-black);
-  --primary: var(--stc-gold);
-  --primary-foreground: var(--stc-black);
-  --secondary: var(--stc-beige);
+  --primary: var(--ent-cta-fill);
+  --primary-foreground: var(--ent-cta-text-on-fill);
+  --secondary: var(--ent-band-alt);
   --secondary-foreground: var(--stc-black);
-  --muted: var(--stc-beige);
+  --muted: var(--ent-band-alt);
   --muted-foreground: #4a4a4a;
   --accent: var(--stc-green);
   --accent-foreground: var(--stc-white);
@@ -85,7 +85,7 @@
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--stc-gold) 35%, white);
+    background: color-mix(in srgb, var(--stc-green) 28%, white);
     color: var(--stc-black);
   }
 
@@ -141,5 +141,14 @@
     letter-spacing: var(--ent-eyebrow-tracking);
     text-transform: uppercase;
     line-height: 1.45;
+  }
+
+  /* Token-wide: beige/gold are accents — never surface fills */
+  .bg-stc-beige {
+    background-color: var(--ent-band-light);
+  }
+
+  .bg-stc-gold {
+    background-color: var(--ent-cta-fill);
   }
 }

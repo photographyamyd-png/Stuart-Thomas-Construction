@@ -57,7 +57,7 @@ export function SiteHeader() {
                             <NavigationMenuLink asChild>
                               <Link
                                 href={s.href}
-                                className="flex items-center gap-3 px-3 py-3 transition hover:bg-stc-beige/60"
+                                className="flex items-center gap-3 px-3 py-3 transition hover:bg-stc-black/5"
                               >
                                 <Icon className="size-5 shrink-0 text-stc-gold" strokeWidth={1.25} />
                                 <span className="text-utility text-sm text-stc-black hover:text-stc-green">

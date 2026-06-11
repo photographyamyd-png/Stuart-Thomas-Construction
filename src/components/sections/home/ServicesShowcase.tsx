@@ -7,7 +7,7 @@ import { services } from "@/data/services";
 
 export function ServicesShowcase() {
   return (
-    <section id="services" className="bg-stc-beige text-stc-black">
+    <section id="services" className="bg-stc-white text-stc-black">
       <Container>
         <SectionBlock>
           <SectionEyebrow accent="green">What We Do</SectionEyebrow>
@@ -31,7 +31,7 @@ export function ServicesShowcase() {
                       className="absolute inset-0 bg-stc-green opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                       aria-hidden
                     />
-                    <span className="relative z-[1] flex size-12 items-center justify-center border border-stc-gold/30 bg-stc-gold/15 text-stc-gold">
+                    <span className="relative z-[1] flex size-12 items-center justify-center border border-stc-gold/30 bg-stc-green/15 text-stc-gold">
                       <Icon className="size-6" strokeWidth={1.5} />
                     </span>
                     <span className="relative z-[1]">
@@ -40,7 +40,7 @@ export function ServicesShowcase() {
                         {s.shortDescription}
                       </span>
                     </span>
-                    <span className="relative z-[1] flex size-7 items-center justify-center self-end rounded-full border border-stc-gold/40 text-stc-gold transition group-hover:border-stc-gold group-hover:bg-stc-gold group-hover:text-stc-black">
+                    <span className="relative z-[1] flex size-7 items-center justify-center self-end rounded-full border border-stc-gold/40 text-stc-gold transition group-hover:border-stc-green group-hover:bg-stc-green group-hover:text-stc-white">
                       <ArrowRight className="size-3.5" />
                     </span>
                   </Link>

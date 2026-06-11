@@ -45,7 +45,7 @@ export function AreasTeaser() {
           <li>
             <Link
               href="/services"
-              className="text-utility inline-block border border-stc-gold bg-stc-gold px-4 py-2 text-xs text-stc-black"
+              className="text-utility inline-block border border-stc-gold bg-stc-green px-4 py-2 text-xs text-stc-white"
             >
               All Services
             </Link>

@@ -149,6 +149,22 @@
   /* —— Seam / divider —— */
   --ent-seam-height: 4px;
   --ent-seam-thin-height: 1px;
+  --ent-seam-accent: var(--stc-green);
+  --ent-seam-accent-thin: color-mix(in srgb, var(--stc-green) 45%, transparent);
+
+  /*
+   * Band & control fills — dark / light / green only.
+   * Beige and gold remain accent colors (text, borders, eyebrows, thin rules).
+   * Never use --stc-beige or --stc-gold as section, card, or button backgrounds.
+   */
+  --ent-band-dark: var(--stc-black);
+  --ent-band-light: var(--stc-white);
+  --ent-band-green: var(--stc-green);
+  --ent-band-alt: color-mix(in srgb, var(--stc-black) 4%, var(--stc-white));
+  --ent-cta-fill: var(--stc-green);
+  --ent-cta-fill-on-light: var(--stc-white);
+  --ent-cta-fill-on-dark: var(--stc-white);
+  --ent-cta-text-on-fill: var(--stc-white);
 }
 
 @media (min-width: 1024px) {

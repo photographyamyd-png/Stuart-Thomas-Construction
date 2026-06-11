@@ -8,7 +8,7 @@ type Props = {
 
 export function ServicePager({ prev, next }: Props) {
   return (
-    <nav className="stc-svc-page__pager turner-band turner-band--beige" aria-label="Service navigation">
+    <nav className="stc-svc-page__pager turner-band turner-band--light" aria-label="Service navigation">
       <div className="container stc-svc-page__pager-inner">
         {prev ? (
           <Link href={`/services/${prev.slug}`} className="stc-svc-page__pager-link stc-svc-page__pager-link--prev">

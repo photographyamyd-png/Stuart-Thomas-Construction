@@ -26,7 +26,7 @@ export type QuadrantCell =
 const toneBg = {
   dark: "bg-stc-black text-stc-white border-stc-white/15",
   green: "bg-stc-green text-stc-white border-stc-white/15",
-  gold: "bg-stc-gold text-stc-black border-stc-black/10",
+  gold: "bg-stc-white text-stc-black border-stc-black/10",
 };
 
 export function QuadrantGrid({

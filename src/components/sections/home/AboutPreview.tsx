@@ -27,7 +27,7 @@ export function AboutPreview() {
                   <BrandStamp ring="beige" className="size-40 sm:size-48" />
                 </div>
               </div>
-              <div className="absolute -right-2 -bottom-4 flex size-24 flex-col items-center justify-center rounded-full bg-stc-gold text-stc-black sm:size-28">
+              <div className="absolute -right-2 -bottom-4 flex size-24 flex-col items-center justify-center rounded-full bg-stc-green text-stc-white sm:size-28">
                 <span className="text-display text-3xl leading-none">{stats[0].value}</span>
                 <span className="mt-1 text-center font-utility text-[0.5rem] leading-tight tracking-wide uppercase">
                   Years

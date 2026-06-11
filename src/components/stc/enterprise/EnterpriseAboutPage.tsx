@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { areas } from "@/data/areas";
 import { media } from "@/data/media";
+import { rediRockLinks } from "@/data/redi-rock";
 import { services } from "@/data/services";
+import { ManufacturerAttribution } from "./blocks/ManufacturerAttribution";
 import { site } from "@/data/site";
 import { stats } from "@/data/sections";
 import { EnterpriseCtaBand } from "./blocks/EnterpriseCtaBand";
@@ -57,6 +59,27 @@ export function EnterpriseAboutPage() {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="turner-band turner-band--light turner-band--seam" aria-label="Materials partners">
+        <div className="container">
+          <p className="eyebrow green">Materials Partners</p>
+          <h2 className="text-display text-display--section stack-title">
+            Redi-Rock via <span className="text-accent-green">The Sarjeant Co.</span>
+          </h2>
+          <p className="stc-enterprise-body stack-title">
+            Stuart Thomas Construction installs Redi-Rock retaining and freestanding systems.
+            Materials are supplied by{" "}
+            <a href={rediRockLinks.supplier} target="_blank" rel="noopener noreferrer">
+              The Sarjeant Co.
+            </a>
+            . Product information is courtesy of Redi-Rock.
+          </p>
+          <ManufacturerAttribution variant="compact" className="stack-title" />
+          <Link href={rediRockLinks.materialsPage} className="btn-green stack-section cta-inline">
+            Redi-Rock installation services
+          </Link>
         </div>
       </section>
 

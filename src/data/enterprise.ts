@@ -10,10 +10,10 @@ export const enterpriseInsights = [
   },
   {
     image: media.featuredGalleryPaths[1],
-    category: "Armour Stone",
-    title: "Retaining Wall Milestone",
-    description: "Structural mass and drainage integrated on a Muskoka estate.",
-    href: "/services/armour-stone",
+    category: "Redi-Rock",
+    title: "Engineered Retaining Installation",
+    description: "Redi-Rock systems installed by STC — materials supplied by The Sarjeant Co.",
+    href: "/materials/redi-rock",
   },
   {
     image: media.featuredGalleryPaths[2],

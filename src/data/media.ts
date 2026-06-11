@@ -20,6 +20,9 @@ const img = {
   pergolaRockGarden: "/images/20260508_110330.jpg",
   projectsCourtShed: "/images/20260508_105445.jpg",
   waterfrontWalkway: "/images/20260508_105835.jpg",
+  rediRockLogo: "/images/partners/redi-rock-logo.png",
+  sarjeantCoLogo: "/images/partners/sarjeant-co-logo.png",
+  rediRockReferenceHero: "/images/redi-rock/reference/hero-waterfront-reference.jpg",
 } as const;
 
 /**
@@ -101,6 +104,9 @@ export const media = {
     "wasaga-beach": "/images/20260508_105448.jpg",
     collingwood: img.armourStoneStairsSlope,
   },
+  rediRockLogo: img.rediRockLogo,
+  sarjeantCoLogo: img.sarjeantCoLogo,
+  rediRockReferenceHero: img.rediRockReferenceHero,
 } as const;
 
 export function getServiceHero(slug: ServiceSlug): string {
@@ -109,4 +115,39 @@ export function getServiceHero(slug: ServiceSlug): string {
 
 export function getServiceCapabilityImages(slug: ServiceSlug): string[] {
   return [...media.serviceCapabilityImages[slug]];
+}
+
+export type ServiceWorkShowcase = {
+  eyebrow: string;
+  headline: string;
+  statement?: string;
+  leadImage: string;
+  leadAlt: string;
+  supporting: { src: string; alt: string; caption: string }[];
+};
+
+export const serviceWorkShowcase: Partial<Record<ServiceSlug, ServiceWorkShowcase>> = {
+  "armour-stone": {
+    eyebrow: "On Site",
+    headline: "Armour Stone In Practice",
+    statement: "Structural mass and clean coursing on Georgian Bay properties.",
+    leadImage: img.armourStoneStairsSlope,
+    leadAlt: "Tiered armour stone stairs and retaining on slope",
+    supporting: [
+      {
+        src: img.armourRiverRockRetaining,
+        alt: "River rock armour stone retaining wall",
+        caption: "River rock retention",
+      },
+      {
+        src: img.armourStoneStairs,
+        alt: "Finished armour stone stair interface",
+        caption: "Finished stair interface",
+      },
+    ],
+  },
+};
+
+export function getServiceWorkShowcase(slug: ServiceSlug): ServiceWorkShowcase | null {
+  return serviceWorkShowcase[slug] ?? null;
 }

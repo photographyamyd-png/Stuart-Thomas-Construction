@@ -12,6 +12,8 @@ All marketing UI lives in `src/components/stc/enterprise/`. See `docs/ARCHITECTU
 
 **Forbidden:** Headline + paragraph + button only; keyword middot lines as sole description; identical weight/color across levels.
 
+**Surfaces:** Band and control backgrounds use `--ent-band-dark`, `--ent-band-light`, or `--ent-band-green` only. No beige or gold section fills (`turner-band--beige`, `bg-stc-beige`, gold CTA fills). Gold/beige are accent colors (eyebrows, `text-accent-gold`, borders, 1–4px seams).
+
 **Data:** `src/data/services.ts`, `src/data/media.ts`, `src/data/enterprise.ts`, `src/data/site.ts`.
 
 **After CSS edits:** `npm run build` to verify.
