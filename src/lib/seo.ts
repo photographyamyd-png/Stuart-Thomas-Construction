@@ -7,7 +7,7 @@ const defaultTitle = {
 };
 
 /** Default social share image — homepage hero still */
-export const DEFAULT_OG_IMAGE = "/images/20260508_110755.jpg";
+export const DEFAULT_OG_IMAGE = "/images/20260508_110051.jpg";
 
 function absoluteImageUrl(imagePath: string): string {
   const base = site.url.replace(/\/$/, "");

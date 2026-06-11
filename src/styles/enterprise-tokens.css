@@ -73,12 +73,17 @@
   --ent-label-lg-size: 0.9375rem;
 
   /* —— Header chrome typography (nav, wordmark, mega-menu, drawer) —— */
+  --ent-header-font-wordmark-name: var(--ent-font-label);
+  --ent-header-wordmark-name-size: clamp(0.58rem, 0.9vw, 0.6875rem);
+  --ent-header-wordmark-name-tracking: 0.16em;
   --ent-header-font-wordmark-primary: var(--ent-font-display);
   --ent-header-weight-wordmark-primary: 500;
-  --ent-header-font-wordmark-secondary: var(--ent-font-body);
-  --ent-header-weight-wordmark-secondary: 500;
-  --ent-header-wordmark-primary-size: clamp(0.875rem, 1.25vw, 1.0625rem);
-  --ent-header-wordmark-secondary-size: clamp(0.6rem, 0.95vw, 0.75rem);
+  --ent-header-wordmark-primary-size: clamp(1.1rem, 2.2vw, 1.65rem);
+  --ent-header-wordmark-primary-tracking: -0.02em;
+  --ent-header-font-wordmark-secondary: var(--ent-font-label);
+  --ent-header-weight-wordmark-secondary: 400;
+  --ent-header-wordmark-secondary-size: clamp(0.65rem, 1vw, 0.8125rem);
+  --ent-header-wordmark-secondary-tracking: 0.1em;
   --ent-header-font-nav: var(--ent-font-body);
   --ent-header-weight-nav: 500;
   --ent-header-nav-size: 0.8125rem;
@@ -121,8 +126,11 @@
   --max-w: 80rem;
   --pad-x: 1.5rem;
   --pad-x-lg: 3rem;
-  --header-h: 4.5rem;
+  --header-h: 5rem;
   --mega-top: var(--header-h);
+  --ent-hero-min-height: calc(100vh - var(--header-h));
+  --ent-hero-min-height-dvh: calc(100dvh - var(--header-h));
+  --ent-hero-scrim: linear-gradient(180deg, rgba(26, 26, 26, 0.55) 0%, rgba(26, 26, 26, 0.75) 100%);
   --prose-narrow: 40rem;
   --prose-medium: 48rem;
   --lead-max-w: 32rem;

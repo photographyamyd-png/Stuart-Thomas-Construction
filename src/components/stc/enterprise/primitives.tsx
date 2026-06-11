@@ -38,8 +38,9 @@ export function Wordmark({ compact, href = "/", className = "" }: WordmarkProps)
       className={classes}
       aria-label="Stuart Thomas Construction and Landscaping — home"
     >
-      <span className="stc-wordmark__primary">Stuart Thomas</span>
-      <span className="stc-wordmark__secondary">Construction &amp; Landscaping</span>
+      <span className="stc-wordmark__name">Stuart Thomas</span>
+      <span className="stc-wordmark__primary">Construction</span>
+      <span className="stc-wordmark__secondary">&amp; Landscaping</span>
     </Link>
   );
 }

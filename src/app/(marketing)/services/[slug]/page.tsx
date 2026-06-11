@@ -6,7 +6,7 @@ import {
   getAllServiceSlugs,
   getServiceBySlug,
 } from "@/data/services";
-import { media } from "@/data/media";
+import { getServiceHero } from "@/data/media";
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildServiceJsonLd, pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: service.metaTitle,
     description: service.metaDescription,
     path: `/services/${slug}`,
-    image: media.serviceDefaults[service.slug],
+    image: getServiceHero(service.slug),
   });
 }
 

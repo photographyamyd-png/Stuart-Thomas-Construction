@@ -135,7 +135,7 @@ export function EnterpriseHeader() {
           </nav>
 
           <div className="turner-header__actions">
-            <Link href="/contact" className="btn-green">
+            <Link href="/contact" className="btn-header-cta">
               Get a Quote
             </Link>
             <button
@@ -326,7 +326,7 @@ export function EnterpriseHeader() {
             Contact
           </Link>
         </nav>
-        <Link href="/contact" className="btn-green" onClick={closeDrawer}>
+        <Link href="/contact" className="btn-header-cta" onClick={closeDrawer}>
           Get a Quote
         </Link>
       </aside>

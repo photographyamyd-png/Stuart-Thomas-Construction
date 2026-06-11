@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BackgroundVideo } from "@/components/media/BackgroundVideo";
 import {
   Accordion,
   AccordionContent,
@@ -8,9 +9,10 @@ import {
 } from "@/components/ui/accordion";
 import { areas } from "@/data/areas";
 import { conversion } from "@/data/conversion";
-import { media } from "@/data/media";
+import { getServiceCapabilityImages, getServiceHero, media } from "@/data/media";
 import type { ServiceDetail } from "@/data/services";
 import { getAdjacentServices, getServiceBySlug } from "@/data/services";
+import { ServiceCapabilitiesBand } from "./ServiceCapabilitiesBand";
 import { ServicePager } from "./ServicePager";
 
 type Props = {
@@ -18,38 +20,69 @@ type Props = {
 };
 
 export function EnterpriseServicePage({ service }: Props) {
-  const heroSrc = media.serviceDefaults[service.slug];
+  const heroSrc = getServiceHero(service.slug);
+  const capImages = getServiceCapabilityImages(service.slug);
   const { prev, next } = getAdjacentServices(service.slug);
-  const capImages = [
-    heroSrc,
-    media.serviceDefaults[service.relatedSlugs[0] ?? service.slug] ?? heroSrc,
-    media.featuredGalleryPaths[2] ?? heroSrc,
-  ];
+  const isImmersiveHero = service.slug === "landscaping";
 
   return (
     <>
-      <section className="stc-svc-page__hero turner-band turner-band--dark" aria-labelledby="svc-heading">
-        <Image src={heroSrc} alt="" fill priority sizes="100vw" className="object-cover" />
+      <section
+        className={`stc-svc-page__hero turner-band turner-band--dark${isImmersiveHero ? " stc-svc-page__hero--immersive" : ""}`}
+        aria-labelledby="svc-heading"
+      >
+        {isImmersiveHero ? (
+          <BackgroundVideo
+            mp4Src={media.landscapingHeroVideo}
+            posterSrc={heroSrc}
+            posterAlt=""
+          />
+        ) : (
+          <Image src={heroSrc} alt={service.heroAlt} fill priority sizes="100vw" className="object-cover" />
+        )}
         <div className="stc-svc-page__hero-scrim" aria-hidden />
-        <div className="stc-svc-page__hero-copy">
-          <Link className="stc-page-back" href="/">
-            ← Back to homepage
-          </Link>
-          <p className="stc-svc-page__breadcrumb">
-            <Link href="/services">Services</Link> / {service.title}
-          </p>
-          <p className="eyebrow eyebrow--on-dark">Structural Stone</p>
-          <h1 id="svc-heading" className="text-display stack-eyebrow">
-            {service.title}
-          </h1>
-          <p className="lead-on-dark">{service.shortDescription}</p>
-          <Link href="/contact" className="btn-green stack-cta cta-inline">
-            Get a Quote
-          </Link>
-        </div>
+        {isImmersiveHero ? (
+          <>
+            <div className="stc-svc-page__hero-nav">
+              <Link className="stc-page-back" href="/">
+                ← Back to homepage
+              </Link>
+              <p className="stc-svc-page__breadcrumb">
+                <Link href="/services">Services</Link> / {service.title}
+              </p>
+            </div>
+            <div className="stc-svc-page__hero-copy">
+              <p className="eyebrow eyebrow--on-dark">Structural Stone</p>
+              <h1 id="svc-heading" className="text-display stack-eyebrow">
+                {service.title}
+              </h1>
+              <p className="lead-on-dark">{service.shortDescription}</p>
+              <Link href="/contact" className="btn-green stack-cta cta-inline">
+                Get a Quote
+              </Link>
+            </div>
+          </>
+        ) : (
+          <div className="stc-svc-page__hero-copy">
+            <Link className="stc-page-back" href="/">
+              ← Back to homepage
+            </Link>
+            <p className="stc-svc-page__breadcrumb">
+              <Link href="/services">Services</Link> / {service.title}
+            </p>
+            <p className="eyebrow eyebrow--on-dark">Structural Stone</p>
+            <h1 id="svc-heading" className="text-display stack-eyebrow">
+              {service.title}
+            </h1>
+            <p className="lead-on-dark">{service.shortDescription}</p>
+            <Link href="/contact" className="btn-green stack-cta cta-inline">
+              Get a Quote
+            </Link>
+          </div>
+        )}
       </section>
 
-      <section className="stc-svc-page__intro turner-band turner-band--light">
+      <section className="stc-svc-page__intro turner-band turner-band--light turner-band--seam">
         <div className="container">
           <div className="stc-svc-page__intro-grid">
             <div>
@@ -73,23 +106,12 @@ export function EnterpriseServicePage({ service }: Props) {
         </div>
       </section>
 
-      <section className="turner-band turner-band--light" aria-label="Capabilities">
-        {service.subServices.map((sub, i) => (
-          <div
-            key={sub.title}
-            className={`stc-svc-page__cap-row${i % 2 === 1 ? " stc-svc-page__cap-row--flip" : ""}`}
-          >
-            <div className="stc-svc-page__cap-media">
-              <Image src={capImages[i] ?? heroSrc} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
-            </div>
-            <div className="stc-svc-page__cap-copy">
-              <p className="eyebrow green">Capability</p>
-              <h3>{sub.title}</h3>
-              <p>{sub.description}</p>
-            </div>
-          </div>
-        ))}
-      </section>
+      <ServiceCapabilitiesBand
+        subServices={service.subServices}
+        images={capImages}
+        imageAlts={service.subServices.map((sub) => `${sub.title} — ${service.title}`)}
+        heroFallback={heroSrc}
+      />
 
       <section
         className="stc-svc-page__process turner-band turner-band--dark turner-band--seam"
@@ -113,7 +135,7 @@ export function EnterpriseServicePage({ service }: Props) {
       </section>
 
       {service.faqs.length > 0 && (
-        <section className="stc-svc-page__faq turner-band turner-band--light">
+        <section className="stc-svc-page__faq turner-band turner-band--light turner-band--seam">
           <div className="container">
             <p className="eyebrow green">FAQ</p>
             <h2 className="text-display text-display--faq stack-title">
@@ -131,9 +153,9 @@ export function EnterpriseServicePage({ service }: Props) {
         </section>
       )}
 
-      <section className="stc-svc-page__related turner-band turner-band--light">
+      <section className="stc-svc-page__related turner-band turner-band--dark turner-band--seam">
         <div className="container">
-          <p className="eyebrow">Related Services</p>
+          <p className="eyebrow eyebrow--on-dark">Related Services</p>
           <ul className="stc-svc-page__related-pills">
             {service.relatedSlugs.map((rel) => {
               const r = getServiceBySlug(rel);
@@ -145,7 +167,7 @@ export function EnterpriseServicePage({ service }: Props) {
               );
             })}
           </ul>
-          <p className="eyebrow stack-section-lg">Areas We Serve</p>
+          <p className="eyebrow eyebrow--on-dark stack-section-lg">Areas We Serve</p>
           <ul className="stc-svc-page__related-pills">
             {areas.map((area) => (
               <li key={area.slug}>
@@ -153,7 +175,23 @@ export function EnterpriseServicePage({ service }: Props) {
               </li>
             ))}
           </ul>
-          <Link href="/contact" className="btn-green stack-section cta-inline">
+        </div>
+      </section>
+
+      <section
+        className="stc-svc-page__cta turner-regional turner-band turner-band--green turner-band--seam"
+        aria-label="Contact call to action"
+      >
+        <div className="turner-regional__media">
+          <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
+        </div>
+        <div className="turner-regional__copy">
+          <p className="eyebrow eyebrow--on-dark">Start Your Project</p>
+          <h2 className="text-display stack-title">
+            {conversion.serviceCta.headline}
+          </h2>
+          <p>{conversion.serviceCta.subline}</p>
+          <Link href="/contact" className="btn-ghost btn-ghost--on-green stack-cta cta-self-start">
             {conversion.serviceCta.button}
           </Link>
         </div>

@@ -48,8 +48,9 @@ export function HeaderTypePreviewPanel({ variant }: Props) {
           <header className="turner-header" aria-hidden="true">
             <div className="container turner-header__inner">
               <span className="turner-header__logo stc-wordmark">
-                <span className="stc-wordmark__primary">Stuart Thomas</span>
-                <span className="stc-wordmark__secondary">Construction &amp; Landscaping</span>
+                <span className="stc-wordmark__name">Stuart Thomas</span>
+                <span className="stc-wordmark__primary">Construction</span>
+                <span className="stc-wordmark__secondary">&amp; Landscaping</span>
               </span>
 
               <nav className="stc-lux-nav" aria-label="Primary preview">
@@ -109,8 +110,9 @@ export function HeaderTypePreviewPanel({ variant }: Props) {
             <aside className="turner-drawer is-open" aria-label="Mobile drawer preview">
               <div className="turner-drawer__wordmark">
                 <span className="stc-wordmark stc-wordmark--compact">
-                  <span className="stc-wordmark__primary">Stuart Thomas</span>
-                  <span className="stc-wordmark__secondary">Construction &amp; Landscaping</span>
+                  <span className="stc-wordmark__name">Stuart Thomas</span>
+                  <span className="stc-wordmark__primary">Construction</span>
+                  <span className="stc-wordmark__secondary">&amp; Landscaping</span>
                 </span>
               </div>
               <nav className="turner-drawer__nav">

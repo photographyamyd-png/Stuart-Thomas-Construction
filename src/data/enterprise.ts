@@ -38,7 +38,7 @@ export const enterpriseCommitments = [
     title: "Honest Work On Every Site",
     body: "We quote clearly, communicate directly, and stand behind the work we put in the ground.",
     cta: { label: "Learn More", href: "/about" },
-    image: "/images/20260508_102632.jpg",
+    image: media.serviceDefaults.hardscaping,
   },
   {
     id: "2",
@@ -46,7 +46,7 @@ export const enterpriseCommitments = [
     title: "Built To Last Generations",
     body: "Correct bases, proper drainage, and stone placement engineered for Canadian seasons.",
     cta: { label: "See Our Work", href: "/projects" },
-    image: "/images/20260508_105454.jpg",
+    image: media.serviceDefaults["armour-stone"],
   },
   {
     id: "3",
@@ -54,7 +54,7 @@ export const enterpriseCommitments = [
     title: "Disciplined Sites Every Day",
     body: "Equipment protocols, clear zones, and trained crews on every residential and commercial project.",
     cta: { label: "Our Approach", href: "/about" },
-    image: "/images/20260508_105835.jpg",
+    image: media.serviceDefaults.excavation,
   },
   {
     id: "4",
@@ -62,7 +62,7 @@ export const enterpriseCommitments = [
     title: "Rooted In Muskoka",
     body: "Local relationships, regional suppliers, and builds that strengthen the communities we serve.",
     cta: { label: "Our Areas", href: "/areas" },
-    image: "/images/20260508_105228.jpg",
+    image: media.serviceDefaults.landscaping,
   },
   {
     id: "5",
@@ -70,7 +70,7 @@ export const enterpriseCommitments = [
     title: "Stonecraft You Can See",
     body: "Mass placement, joint discipline, and finishing details that elevate every outdoor space.",
     cta: { label: "Explore Services", href: "/services" },
-    image: "/images/20260508_110755.jpg",
+    image: media.serviceDefaults["waterfront-stone-work"],
   },
   {
     id: "6",
@@ -78,7 +78,7 @@ export const enterpriseCommitments = [
     title: "Responsible Land Stewardship",
     body: "Erosion control, native planting, and durable builds that reduce long-term site disturbance.",
     cta: { label: "Learn More", href: "/about" },
-    image: "/images/20260508_102504.jpg",
+    image: media.serviceCapabilityImages.landscaping[2],
   },
 ] as const;
 
