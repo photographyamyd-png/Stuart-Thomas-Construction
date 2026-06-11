@@ -58,7 +58,7 @@ export const termsOfUse: LegalPageContent = {
     {
       heading: "Acceptance",
       paragraphs: [
-        "By accessing stuartthomasconstruction.com you agree to these Terms of Use. If you do not agree, please do not use the site.",
+        "By accessing www.stuartthomasconstruction.ca you agree to these Terms of Use. If you do not agree, please do not use the site.",
       ],
     },
     {
