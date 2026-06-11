@@ -244,21 +244,7 @@
   opacity: 0.85;
 }
 
-.text-statement {
-  font-family: var(--ent-font-body);
-  font-weight: var(--ent-weight-ui);
-  font-size: var(--ent-statement-size);
-  line-height: var(--ent-statement-leading);
-  color: var(--ent-statement-color);
-}
-
-.text-supporting {
-  font-family: var(--ent-font-body);
-  font-weight: var(--ent-weight-body);
-  font-size: var(--ent-body-size);
-  line-height: var(--ent-body-leading);
-  color: var(--ent-body-muted);
-}
+/* Typography for .text-statement / .text-supporting: see L6 block in enterprise-authority.css */
 
 .cta-inline {
   display: inline-flex;

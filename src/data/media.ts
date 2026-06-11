@@ -23,16 +23,18 @@ const img = {
   rediRockLogo: "/images/partners/redi-rock-logo.png",
   sarjeantCoLogo: "/images/partners/sarjeant-co-logo.png",
   rediRockReferenceHero: "/images/redi-rock/reference/hero-waterfront-reference.jpg",
+  /** Unsplash — commercial snow removal (Unsplash License) */
+  snowRemovalLoaderHero:
+    "https://images.unsplash.com/photo-1629818571588-65407f9dd1a5?auto=format&fit=crop&w=1920&q=80",
+  snowRemovalIndustrialLot:
+    "https://images.unsplash.com/photo-1769701000453-e306362a7d03?auto=format&fit=crop&w=1920&q=80",
+  snowRemovalPlowFleet:
+    "https://images.unsplash.com/photo-1769254740231-f726fe21a516?auto=format&fit=crop&w=1920&q=80",
+  snowRemovalNightPlow:
+    "https://images.unsplash.com/photo-1771865200657-22e127497422?auto=format&fit=crop&w=1920&q=80",
 } as const;
 
-/**
- * Winter photography still needed for commercial snow removal.
- * Interim images use commercial-scale property surfaces until these are shot:
- * - Hero: loader/plow clearing lot (night or dawn)
- * - Cap 1: seasonal contract lot / equipment lineup
- * - Cap 2: salt spreader on parking lot or treated walk
- * - Cap 3: loader moving snow pile or blower on commercial walk
- */
+/** Replace with on-site STC photography when available. */
 export const snowRemovalShotTargets = {
   hero: "Commercial loader or plow clearing a parking lot",
   seasonalContracts: "Signed commercial lot or retail frontage in winter",
@@ -57,7 +59,7 @@ export const media = {
     landscaping: img.landscapeFinishEstablish,
     hardscaping: img.waterfrontWalkway,
     excavation: img.excavationGradedPad,
-    "commercial-snow-removal": img.excavationGradedPad,
+    "commercial-snow-removal": img.snowRemovalLoaderHero,
   } satisfies Record<ServiceSlug, string>,
   serviceCapabilityImages: {
     "armour-stone": [
@@ -86,9 +88,9 @@ export const media = {
       img.landscapeFinishEstablish,
     ],
     "commercial-snow-removal": [
-      img.excavationGradedPad,
-      img.excavationLongDrive,
-      img.excavationGravelDrive,
+      img.snowRemovalIndustrialLot,
+      img.snowRemovalPlowFleet,
+      img.snowRemovalNightPlow,
     ],
   } satisfies Record<ServiceSlug, readonly [string, string, string]>,
   featuredGalleryPaths: [
