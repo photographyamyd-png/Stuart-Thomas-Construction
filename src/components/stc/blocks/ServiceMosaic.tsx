@@ -87,8 +87,8 @@ function ServiceTile({
             <h3
               className={cn(
                 mockup
-                  ? "stc-mockup-headline text-stc-white transition-transform duration-300 group-hover:-translate-y-0.5"
-                  : "font-display font-bold uppercase tracking-wide text-stc-white transition-transform duration-300 group-hover:-translate-y-0.5",
+                  ? "stc-mockup-headline text-role-headline-on-dark transition-transform duration-300 group-hover:-translate-y-0.5"
+                  : "font-display font-bold uppercase tracking-wide text-role-headline-on-dark transition-transform duration-300 group-hover:-translate-y-0.5",
                 isLarge ? "text-xl leading-[0.85] sm:text-2xl lg:text-3xl" : "text-base sm:text-lg",
               )}
             >
@@ -100,7 +100,7 @@ function ServiceTile({
                 "max-w-sm text-sm leading-relaxed",
                 mockup
                   ? "stc-mockup-body stc-mockup-body--on-dark text-[0.9375rem]"
-                  : "stc-body-sm text-stc-white/0 transition-all duration-300 group-hover:text-stc-white/75 group-focus-visible:text-stc-white/75 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100",
+                  : "stc-body-sm text-stc-white/0 transition-all duration-300 group-hover:text-role-statement-on-dark group-focus-visible:text-role-statement-on-dark sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100",
               )}
             >
               {service.shortDescription}

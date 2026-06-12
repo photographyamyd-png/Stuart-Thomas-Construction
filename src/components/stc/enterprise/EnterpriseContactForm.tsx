@@ -8,7 +8,7 @@ export function EnterpriseContactForm() {
         Call us to discuss your project, timeline, and site conditions. We&apos;ll walk through scope
         and next steps by phone.
       </p>
-      <a href={`tel:${site.phoneTel}`} className="btn-ghost btn-ghost--on-green stack-cta">
+      <a href={`tel:${site.phoneTel}`} className="btn-green stack-cta">
         Call {site.phoneDisplay}
       </a>
     </div>

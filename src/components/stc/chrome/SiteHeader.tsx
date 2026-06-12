@@ -37,11 +37,11 @@ export function SiteHeader() {
 
   const navLinkClass = lightHome
     ? "stc-mockup-eyebrow text-charcoal/90 hover:text-forest"
-    : "stc-label text-stc-white/90 hover:text-stc-lime";
+    : "stc-label text-role-statement-on-dark hover:text-stc-lime";
 
   const phoneClass = lightHome
     ? "stc-mockup-eyebrow hidden text-charcoal/70 hover:text-forest xl:block"
-    : "stc-label hidden text-stc-white/80 hover:text-stc-lime xl:block";
+    : "stc-label hidden text-role-statement-on-dark hover:text-stc-lime xl:block";
 
   return (
     <>
@@ -120,7 +120,7 @@ export function SiteHeader() {
             type="button"
             className={cn(
               "inline-flex min-h-11 min-w-11 items-center justify-center lg:hidden",
-              lightHome ? "text-charcoal" : "text-stc-white",
+              lightHome ? "text-charcoal" : "text-role-headline-on-dark",
             )}
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
@@ -138,7 +138,7 @@ export function SiteHeader() {
               type="button"
               onClick={() => setMenuOpen(false)}
               aria-label="Close menu"
-              className="text-stc-white"
+              className="text-role-headline-on-dark"
             >
               <X className="size-7" />
             </button>
@@ -149,7 +149,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="border-b border-stc-white/10 py-4 font-display text-2xl font-bold uppercase tracking-wide text-stc-white hover:text-stc-lime"
+                className="border-b border-stc-white/10 py-4 font-display text-2xl font-bold uppercase tracking-wide text-role-headline-on-dark hover:text-stc-lime"
               >
                 {item.label}
               </Link>

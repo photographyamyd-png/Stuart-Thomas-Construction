@@ -68,7 +68,7 @@ export function ProcessStack({
                   "max-w-[28ch] leading-relaxed",
                   mockup
                     ? "stc-mockup-body stc-mockup-body--on-dark text-base"
-                    : "stc-body-sm text-sm text-stc-white/60",
+                    : "stc-body-sm text-sm text-role-body-on-dark",
                 )}
               >
                 {step.description}

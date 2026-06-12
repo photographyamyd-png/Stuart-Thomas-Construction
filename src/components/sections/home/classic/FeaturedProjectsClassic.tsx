@@ -20,7 +20,7 @@ export function FeaturedProjectsClassic({ paths }: { paths: readonly string[] })
         <SectionHeading tone="black" align="left">
           Recent Projects
         </SectionHeading>
-        <p className="mt-4 max-w-2xl font-body text-base text-stc-black/70">
+        <p className="mt-4 max-w-2xl font-body text-base text-role-body-on-light">
           Representative work across armour stone, waterfront, landscaping, and excavation
           throughout South Georgian Bay.
         </p>

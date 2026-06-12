@@ -19,17 +19,17 @@ export function FeaturedProjects({ paths }: { paths: readonly string[] }) {
   const tiles = paths.slice(0, 5);
 
   return (
-    <section id="projects" className="bg-stc-black text-stc-white">
+    <section id="projects" className="bg-stc-black text-role-body-on-dark">
       <Container>
         <SectionBlock pad="lg">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <SectionEyebrow>Our Work</SectionEyebrow>
               <h2 className="text-display mt-6">
-                Featured <span className="text-stc-gold">Projects</span>
+                Featured <span className="text-accent-gold">Projects</span>
               </h2>
             </div>
-            <Button asChild variant="stcGhost" size="lg" className="shrink-0">
+            <Button asChild variant="stcLight" size="lg" className="shrink-0">
               <Link href={cta.secondaryHref}>
                 View All Projects
                 <ArrowRight className="size-4" />
@@ -62,10 +62,10 @@ export function FeaturedProjects({ paths }: { paths: readonly string[] }) {
                     aria-hidden
                   />
                   <span className="absolute inset-x-0 bottom-0 p-6">
-                    <span className="font-utility text-[0.625rem] tracking-[0.2em] text-stc-gold uppercase">
+                    <span className="font-utility text-[0.625rem] tracking-[0.2em] text-accent-gold uppercase">
                       {meta.cat}
                     </span>
-                    <span className="text-utility mt-2 block text-lg text-stc-white">
+                    <span className="text-utility mt-2 block text-lg text-role-headline-on-dark">
                       {meta.title}
                     </span>
                   </span>

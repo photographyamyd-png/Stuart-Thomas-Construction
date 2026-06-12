@@ -61,20 +61,20 @@ export function HeroHome({
             </motion.div>
             <motion.h1
               variants={heroItem}
-              className="mt-6 text-display-lg text-stc-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]"
+              className="mt-6 text-display-lg text-role-headline-on-dark drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]"
             >
               Building With
-              <span className="mt-1 block text-stc-gold">Integrity</span>
+              <span className="mt-1 block text-accent-gold">Integrity</span>
             </motion.h1>
             <motion.p
               variants={heroItem}
-              className="text-utility mt-5 text-stc-white/90 drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]"
+              className="text-utility mt-5 text-role-statement-on-dark drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]"
             >
               {site.name}
             </motion.p>
             <motion.p
               variants={heroItem}
-              className="mt-5 max-w-lg font-body text-base leading-relaxed text-stc-white/80 drop-shadow-md"
+              className="mt-5 max-w-lg font-body text-base leading-relaxed text-role-statement-on-dark drop-shadow-md"
             >
               Premium armour stone, waterfront stone work, and full outdoor construction across
               Tiny Township, Wasaga Beach, and Collingwood.
@@ -86,7 +86,7 @@ export function HeroHome({
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>
-              <Button asChild variant="stcGhost" size="lg">
+              <Button asChild variant="stcLight" size="lg">
                 <Link href={cta.secondaryHref}>View Our Work</Link>
               </Button>
             </motion.div>
@@ -99,15 +99,15 @@ export function HeroHome({
         >
           {stats.map((s) => (
             <div key={s.label} className="text-right">
-              <p className="text-stat text-stc-gold">{s.value}</p>
-              <p className="text-utility mt-1 text-[0.625rem] text-stc-white/50">{s.label}</p>
+              <p className="text-stat text-accent-gold">{s.value}</p>
+              <p className="text-utility mt-1 text-[0.625rem] text-role-body-on-dark">{s.label}</p>
             </div>
           ))}
         </div>
 
         <div className="absolute bottom-8 left-6 hidden items-end gap-3 lg:left-16 lg:flex" aria-hidden>
           <div className="h-12 w-px bg-gradient-to-b from-stc-gold to-transparent" />
-          <span className="font-utility text-[0.625rem] tracking-[0.2em] text-stc-white/40 uppercase [writing-mode:vertical-rl]">
+          <span className="font-utility text-[0.625rem] tracking-[0.2em] text-role-body-on-dark uppercase [writing-mode:vertical-rl]">
             Scroll
           </span>
         </div>

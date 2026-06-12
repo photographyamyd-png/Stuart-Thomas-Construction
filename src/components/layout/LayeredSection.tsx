@@ -3,10 +3,10 @@ import { cn } from "@/lib/utils";
 type Tone = "dark" | "light" | "beige" | "green";
 
 const toneBg: Record<Tone, string> = {
-  dark: "bg-stc-black text-stc-white",
-  light: "bg-stc-white text-stc-black",
-  beige: "bg-stc-white text-stc-black",
-  green: "bg-stc-green text-stc-white",
+  dark: "bg-stc-black text-role-body-on-dark",
+  light: "bg-stc-white text-role-body-on-light",
+  beige: "bg-stc-white text-role-body-on-light",
+  green: "bg-stc-green text-role-body-on-dark",
 };
 
 export function LayeredSection({

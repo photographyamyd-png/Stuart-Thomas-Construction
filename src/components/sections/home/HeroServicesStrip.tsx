@@ -23,18 +23,18 @@ export function HeroServicesStrip() {
                   href={`/services/${s.slug}`}
                   className="group flex items-start gap-3 p-6 transition hover:bg-stc-white/40 sm:p-8"
                 >
-                  <span className="flex size-9 shrink-0 items-center justify-center text-stc-gold">
+                  <span className="flex size-9 shrink-0 items-center justify-center text-accent-gold">
                     <Icon className="size-5" strokeWidth={1.5} />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="text-utility block text-stc-black group-hover:text-stc-green">
+                    <span className="text-utility block text-role-headline-on-light group-hover:text-stc-green">
                       {s.shortLabel}
                     </span>
-                    <span className="mt-1 block font-body text-xs leading-relaxed text-stc-black/65">
+                    <span className="mt-1 block font-body text-xs leading-relaxed text-role-body-on-light">
                       {s.shortDescription}
                     </span>
                   </span>
-                  <ArrowRight className="mt-1 size-4 shrink-0 text-stc-gold opacity-0 transition group-hover:opacity-100" />
+                  <ArrowRight className="mt-1 size-4 shrink-0 text-accent-gold opacity-0 transition group-hover:opacity-100" />
                 </Link>
               </li>
             );

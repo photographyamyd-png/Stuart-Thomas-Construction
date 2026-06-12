@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { enterpriseServiceGridOrder } from "@/data/enterprise";
 import { getServiceBySlug } from "@/data/services";
@@ -11,8 +12,12 @@ export function ServiceIconStrip() {
           if (!service) return null;
           const Icon = service.icon;
           return (
-            <li key={slug}>
-              <Link className="stc-icon-strip__item" href={`/services/${slug}`}>
+            <li key={slug} data-service={slug}>
+              <Link
+                className="stc-icon-strip__item"
+                href={`/services/${slug}`}
+                style={{ "--icon-strip-accent": service.iconStripAccent } as CSSProperties}
+              >
                 <span className="stc-icon-strip__icon" aria-hidden>
                   <Icon strokeWidth={1.5} />
                 </span>

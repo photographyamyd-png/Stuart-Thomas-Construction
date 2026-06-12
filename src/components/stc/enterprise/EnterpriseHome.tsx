@@ -8,6 +8,8 @@ import {
   enterpriseQuote,
 } from "@/data/enterprise";
 import { media } from "@/data/media";
+import { site } from "@/data/site";
+import { CapabilityFeatureStrip } from "./blocks/CapabilityFeatureStrip";
 import { CommitmentsAccordion } from "./blocks/CommitmentsAccordion";
 import { ServiceIconStrip } from "./blocks/ServiceIconStrip";
 import { ServiceOverlayGrid } from "./blocks/ServiceOverlayGrid";
@@ -120,7 +122,14 @@ export function EnterpriseHome() {
 
       <section className="stc-showcase" id="showcase" aria-label="Project showcase">
         <div className="stc-showcase__panorama">
-          <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="100vw" className="object-cover" />
+          <Image
+            src={media.homeShowcasePanorama}
+            alt=""
+            fill
+            loading="lazy"
+            sizes="100vw"
+            className="object-cover"
+          />
         </div>
       </section>
 
@@ -132,16 +141,18 @@ export function EnterpriseHome() {
         </div>
         <div className="stc-built-strong__scrim" aria-hidden />
         <div className="stc-built-strong__inner">
-          <h2 id="built-strong-heading">Built Strong. Built Right.</h2>
+          <h2 id="built-strong-heading">{site.tagline}</h2>
           <p>
             We deliver armour stone, waterfront assemblies, and full-site outdoor construction with
             the discipline and honesty your property deserves.
           </p>
-          <Link href="/contact" className="btn-beige btn-beige--lg">
+          <Link href="/contact" className="btn-accent btn-accent--lg">
             Get a Quote
           </Link>
         </div>
       </section>
+
+      <CapabilityFeatureStrip />
 
       <section
         className="turner-regional turner-band turner-band--green turner-band--seam"
@@ -183,8 +194,10 @@ export function EnterpriseHome() {
         <footer>{enterpriseQuote.attribution}</footer>
       </section>
 
+      <div className="turner-band-divider turner-band-divider--white" aria-hidden />
+
       <section
-        className="turner-contact turner-band turner-band--green turner-band--seam"
+        className="turner-contact turner-band turner-band--green"
         id="contact"
         aria-labelledby="contact-heading"
       >
@@ -196,7 +209,7 @@ export function EnterpriseHome() {
           <p>{conversion.contactIntro}</p>
           <Link
             href="/contact"
-            className="btn-ghost btn-ghost--on-green stack-cta cta-self-start"
+            className="btn-green stack-cta cta-self-start"
           >
             Request a Quote
           </Link>

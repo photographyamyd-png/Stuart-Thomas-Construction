@@ -40,7 +40,7 @@ export function ProcessBand({
             </p>
             <p
               className={cn(
-                "mt-2 text-xl text-stc-white sm:text-2xl",
+                "mt-2 text-xl text-role-headline-on-dark sm:text-2xl",
                 mockup ? "stc-mockup-headline" : "stc-display-md",
               )}
             >

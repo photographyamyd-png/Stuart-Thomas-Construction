@@ -98,6 +98,14 @@ export const enterpriseQuote = {
   attribution: "Residential Client · Tiny Township",
 } as const;
 
+/** Homepage capability divider — four service cards between built-strong and regional */
+export const enterpriseCapabilityStrip = [
+  "armour-stone",
+  "waterfront-stone-work",
+  "hardscaping",
+  "landscaping",
+] as const;
+
 /** Homepage service grid display order (matches Hybrid F mockup) */
 export const enterpriseServiceGridOrder = [
   "armour-stone",

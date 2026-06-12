@@ -11,6 +11,9 @@
   --stc-green: #2d5a27;
   --stc-beige: #d9cdbf;
   --stc-gold: #b08d57;
+  /* Brighter warm accent — eyebrows, links, overlay CTAs, hero emphasis (not flat gold) */
+  --stc-accent: #d4a24e;
+  --stc-accent-hover: #e0b35c;
   --stc-copper: #b87333;
   --stc-charcoal: #111111;
 
@@ -71,6 +74,13 @@
   --ent-label-sm-size: 0.6875rem;
   --ent-label-md-size: 0.8125rem;
   --ent-label-lg-size: 0.9375rem;
+
+  /* —— Image-overlay card type (large headline / small body) —— */
+  --ent-overlay-card-title-size: clamp(1.75rem, 3.2vw, 2.625rem);
+  --ent-overlay-card-title-weight: 500;
+  --ent-overlay-card-title-leading: 1.04;
+  --ent-overlay-card-desc-size: 0.8125rem;
+  --ent-overlay-card-desc-leading: 1.45;
 
   /* —— Header chrome typography (nav, wordmark, mega-menu, drawer) —— */
   --ent-header-font-wordmark-name: var(--ent-font-label);
@@ -151,6 +161,8 @@
   --ent-seam-thin-height: 1px;
   --ent-seam-accent: var(--stc-green);
   --ent-seam-accent-thin: color-mix(in srgb, var(--stc-green) 45%, transparent);
+  --ent-seam-accent-white: var(--stc-white);
+  --ent-band-divider-white-height: clamp(0.5rem, 1.5vw, 0.75rem);
 
   /*
    * Band & control fills — dark / light / green only.
@@ -165,6 +177,44 @@
   --ent-cta-fill-on-light: var(--stc-white);
   --ent-cta-fill-on-dark: var(--stc-white);
   --ent-cta-text-on-fill: var(--stc-white);
+
+  /*
+   * Typography color roles — single dial for headline / body / CTA per surface.
+   * Accent (--stc-accent): brighter gold for eyebrows, links, overlay CTAs, emphasis.
+   * White: large overlay headlines + small overlay body copy.
+   * Green: primary CTAs on bands. Black: headlines on light.
+   */
+  --ent-role-accent: var(--stc-accent);
+  --ent-role-headline-on-overlay: var(--stc-white);
+  --ent-role-headline-on-dark: var(--ent-text-on-dark);
+  --ent-role-headline-on-light: var(--stc-black);
+  --ent-role-body-on-overlay: rgba(255, 255, 255, 0.88);
+  --ent-role-body-on-dark: var(--ent-text-on-dark-muted);
+  --ent-role-body-on-light: var(--ent-body-muted);
+  --ent-role-statement-on-dark: var(--ent-text-on-dark-subtle);
+  --ent-role-statement-on-light: var(--ent-statement-color);
+  --ent-role-cta-bg: var(--stc-green);
+  --ent-role-cta-text: var(--stc-white);
+  --ent-role-cta-border: var(--stc-gold);
+  /* Overlay card CTA — accent fill pops on dark scrims (mockup: tan button, dark label) */
+  --ent-role-cta-on-overlay-bg: var(--stc-accent);
+  --ent-role-cta-on-overlay-text: var(--stc-white);
+  --ent-role-cta-on-overlay-border: color-mix(in srgb, var(--stc-accent) 55%, var(--stc-black));
+  --ent-role-link: var(--stc-accent);
+  --ent-role-eyebrow-on-dark: var(--stc-accent);
+  --ent-role-eyebrow-on-light: var(--stc-green);
+  --ent-role-emphasis-on-overlay: var(--stc-accent);
+  /* Legacy aliases */
+  --ent-role-cta-primary-bg: var(--ent-role-cta-bg);
+  --ent-role-cta-secondary-bg-on-dark: var(--ent-cta-fill-on-dark);
+
+  /* Homepage service icon strip — per-service accent (text/icon only) */
+  --ent-icon-strip-armour: var(--stc-green);
+  --ent-icon-strip-hardscape: var(--stc-copper);
+  --ent-icon-strip-landscape: var(--stc-accent);
+  --ent-icon-strip-snow: var(--stc-charcoal);
+  --ent-icon-strip-excavation: var(--stc-gold);
+  --ent-icon-strip-waterfront: color-mix(in srgb, var(--stc-green) 55%, var(--stc-accent));
 }
 
 @media (min-width: 1024px) {
@@ -191,19 +241,19 @@
 }
 
 .text-accent-gold {
-  color: var(--stc-gold);
+  color: var(--ent-role-accent);
 }
 
 .text-accent-green {
-  color: var(--stc-green);
+  color: var(--ent-role-eyebrow-on-light);
 }
 
 .text-on-dark-subtle {
-  color: var(--ent-text-on-dark-subtle);
+  color: var(--ent-role-statement-on-dark);
 }
 
 .text-utility-on-dark {
-  color: var(--stc-white);
+  color: var(--ent-role-headline-on-dark);
 }
 
 .stack-eyebrow {

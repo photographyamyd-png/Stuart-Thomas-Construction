@@ -13,7 +13,7 @@ const base =
   "inline-flex min-h-12 items-center justify-center px-8 font-display text-sm font-bold uppercase tracking-[0.1em] transition-colors";
 
 export function ActionSolid({ href, children, className, type, onClick }: ActionProps) {
-  const cls = cn(base, "bg-stc-lime text-stc-white hover:bg-stc-lime-hover", className);
+  const cls = cn(base, "bg-stc-lime text-role-headline-on-dark hover:bg-stc-lime-hover", className);
   if (href) return <Link href={href} className={cls}>{children}</Link>;
   return (
     <button type={type ?? "button"} onClick={onClick} className={cls}>
@@ -47,8 +47,8 @@ export function ActionOutline({
     base,
     "border-2 bg-transparent",
     light
-      ? "border-stc-white text-stc-white hover:bg-stc-white hover:text-stc-charcoal"
-      : "border-stc-dark-green text-stc-dark-green hover:bg-stc-dark-green hover:text-stc-white",
+      ? "border-stc-white text-role-headline-on-dark hover:bg-stc-white hover:text-stc-charcoal"
+      : "border-stc-dark-green text-stc-dark-green hover:bg-stc-dark-green hover:text-role-headline-on-dark",
     className,
   );
   if (!href) return null;
@@ -84,7 +84,7 @@ export function ActionMockupOutline({ href, children, className }: ActionProps) 
 export function ActionGhost({ href, children, className }: ActionProps) {
   const cls = cn(
     base,
-    "px-4 text-stc-white/90 hover:text-stc-lime",
+    "px-4 text-role-statement-on-dark hover:text-stc-lime",
     className,
   );
   if (!href) return null;

@@ -5,8 +5,8 @@ export type BandTone = "white" | "surface" | "charcoal" | "green" | "forest" | "
 const tones: Record<BandTone, string> = {
   white: "bg-stc-white text-stc-charcoal border-stc-border-strong",
   surface: "bg-stc-surface text-stc-charcoal border-stc-border-strong",
-  charcoal: "bg-stc-charcoal text-stc-white border-stc-charcoal",
-  green: "bg-stc-dark-green text-stc-white border-stc-dark-green",
+  charcoal: "bg-stc-charcoal text-role-body-on-dark border-stc-charcoal",
+  green: "bg-stc-dark-green text-role-body-on-dark border-stc-dark-green",
   forest: "bg-forest text-white border-forest",
   beige: "bg-beige text-charcoal border-stc-border-strong",
 };

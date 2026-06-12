@@ -7,26 +7,26 @@ export function AreasTeaser() {
   return (
     <LayeredSection id="areas-teaser" tone="dark" pad="lg">
       <Container>
-        <h2 className="text-display text-stc-white">Serving South Georgian Bay</h2>
-        <p className="mt-4 max-w-2xl text-base text-stc-white/75">
+        <h2 className="text-display text-role-headline-on-dark">Serving South Georgian Bay</h2>
+        <p className="mt-4 max-w-2xl text-base text-role-statement-on-dark">
           From cottage-country shorelines in{" "}
-          <Link href="/areas/tiny-township" className="text-stc-gold underline-offset-2 hover:underline">
+          <Link href="/areas/tiny-township" className="text-role-link underline-offset-2 hover:underline">
             Tiny Township
           </Link>{" "}
           to coastal properties in{" "}
-          <Link href="/areas/wasaga-beach" className="text-stc-gold underline-offset-2 hover:underline">
+          <Link href="/areas/wasaga-beach" className="text-role-link underline-offset-2 hover:underline">
             Wasaga Beach
           </Link>{" "}
           and luxury builds in{" "}
-          <Link href="/areas/collingwood" className="text-stc-gold underline-offset-2 hover:underline">
+          <Link href="/areas/collingwood" className="text-role-link underline-offset-2 hover:underline">
             Collingwood
           </Link>
           — we deliver{" "}
-          <Link href="/services/armour-stone" className="text-stc-gold underline-offset-2 hover:underline">
+          <Link href="/services/armour-stone" className="text-role-link underline-offset-2 hover:underline">
             armour stone
           </Link>
           ,{" "}
-          <Link href="/services/waterfront-stone-work" className="text-stc-gold underline-offset-2 hover:underline">
+          <Link href="/services/waterfront-stone-work" className="text-role-link underline-offset-2 hover:underline">
             waterfront stone work
           </Link>
           , and full outdoor construction.
@@ -36,7 +36,7 @@ export function AreasTeaser() {
             <li key={a.slug}>
               <Link
                 href={`/areas/${a.slug}`}
-                className="text-utility inline-block border border-stc-white/25 px-4 py-2 text-xs text-stc-white transition hover:border-stc-gold hover:text-stc-gold"
+                className="text-utility inline-block border border-stc-white/25 px-4 py-2 text-xs text-role-headline-on-dark transition hover:border-stc-gold hover:text-role-link"
               >
                 {a.name}
               </Link>
@@ -45,13 +45,13 @@ export function AreasTeaser() {
           <li>
             <Link
               href="/services"
-              className="text-utility inline-block border border-stc-gold bg-stc-green px-4 py-2 text-xs text-stc-white"
+              className="text-utility inline-block border border-stc-gold bg-stc-green px-4 py-2 text-xs text-role-headline-on-dark"
             >
               All Services
             </Link>
           </li>
         </ul>
-        <p className="mt-8 text-sm text-stc-white/50">
+        <p className="mt-8 text-sm text-role-body-on-dark">
           Also serving Perkinsfield, Midland, Penetanguishene, and surrounding areas.
         </p>
       </Container>

@@ -36,7 +36,7 @@ export function ServiceOverlayGrid({ id = "services", className = "", showHeader
                 <span className="stc-svc-overlay__body">
                   <h3 className="stc-svc-overlay__title">{service.title}</h3>
                   <p className="stc-svc-overlay__desc">{service.shortDescription}</p>
-                  <span className="btn-beige">{service.gridCtaLabel}</span>
+                  <span className="btn-accent">{service.gridCtaLabel}</span>
                 </span>
               </Link>
             </li>

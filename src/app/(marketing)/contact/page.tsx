@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { EnterpriseContactForm } from "@/components/stc/enterprise/EnterpriseContactForm";
+import { LinkArrow } from "@/components/stc/enterprise/primitives";
 import { conversion } from "@/data/conversion";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
@@ -32,9 +32,9 @@ export default function ContactPage() {
             </dd>
           </div>
         </dl>
-        <Link href="/services" className="btn-ghost btn-ghost--on-green stack-cta cta-self-start">
+        <LinkArrow href="/services" className="stack-cta cta-self-start">
           View Services
-        </Link>
+        </LinkArrow>
       </div>
       <EnterpriseContactForm />
     </section>

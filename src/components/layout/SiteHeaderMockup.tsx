@@ -60,10 +60,10 @@ export function SiteHeaderMockup() {
         <Link href="/" className="flex items-center gap-3">
           <BrandStamp priority ring="beige" link={false} />
           <span className="hidden flex-col leading-none sm:flex">
-            <span className="font-utility text-base font-semibold tracking-wide text-stc-white uppercase">
+            <span className="font-utility text-base font-semibold tracking-wide text-role-headline-on-dark uppercase">
               Stuart Thomas
             </span>
-            <span className="mt-1 font-utility text-[0.625rem] font-medium tracking-[0.2em] text-stc-gold uppercase">
+            <span className="mt-1 font-utility text-[0.625rem] font-medium tracking-[0.2em] text-accent-gold uppercase">
               Construction
             </span>
           </span>
@@ -74,7 +74,7 @@ export function SiteHeaderMockup() {
             {mockupNav.map((item) =>
               "mega" in item && item.mega ? (
                 <NavigationMenuItem key={item.href}>
-                  <NavigationMenuTrigger className="text-utility bg-transparent text-stc-white/90 hover:bg-stc-white/10 hover:text-stc-white data-[state=open]:bg-stc-white/10">
+                  <NavigationMenuTrigger className="text-utility bg-transparent text-role-statement-on-dark hover:bg-stc-white/10 hover:text-role-headline-on-dark data-[state=open]:bg-stc-white/10">
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -90,8 +90,8 @@ export function SiteHeaderMockup() {
                                 href={s.href}
                                 className="flex items-center gap-3 px-3 py-3 transition hover:bg-stc-black/5"
                               >
-                                <Icon className="size-5 shrink-0 text-stc-gold" strokeWidth={1.25} />
-                                <span className="text-utility text-sm text-stc-black hover:text-stc-green">
+                                <Icon className="size-5 shrink-0 text-accent-gold" strokeWidth={1.25} />
+                                <span className="text-utility text-sm text-role-headline-on-light hover:text-stc-green">
                                   {s.label}
                                 </span>
                               </Link>
@@ -103,7 +103,7 @@ export function SiteHeaderMockup() {
                     <div className="border-t border-stc-black/10 px-6 py-3">
                       <Link
                         href="/services"
-                        className="text-utility text-stc-gold hover:underline"
+                        className="text-utility text-role-link hover:underline"
                       >
                         View all services →
                       </Link>
@@ -115,7 +115,7 @@ export function SiteHeaderMockup() {
                   <NavigationMenuLink asChild>
                     <Link
                       href={item.href}
-                      className="text-utility inline-flex h-9 items-center px-3 text-stc-white/90 transition hover:text-stc-white"
+                      className="text-utility inline-flex h-9 items-center px-3 text-role-statement-on-dark transition hover:text-role-headline-on-dark"
                     >
                       {item.label}
                     </Link>
@@ -129,7 +129,7 @@ export function SiteHeaderMockup() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href={`tel:${site.phoneTel}`}
-            className="text-utility inline-flex items-center gap-2 text-stc-white/85 hover:text-stc-white"
+            className="text-utility inline-flex items-center gap-2 text-role-statement-on-dark hover:text-role-headline-on-dark"
           >
             <Phone className="size-4" />
             {site.phoneDisplay}
@@ -141,14 +141,14 @@ export function SiteHeaderMockup() {
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon" className="text-stc-white hover:bg-stc-white/10">
+            <Button variant="ghost" size="icon" className="text-role-headline-on-dark hover:bg-stc-white/10">
               <Menu className="size-6" />
               <span className="sr-only">Open menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-full max-w-sm bg-stc-black text-stc-white">
+          <SheetContent side="right" className="w-full max-w-sm bg-stc-black text-role-body-on-dark">
             <SheetHeader>
-              <SheetTitle className="text-left text-stc-white">Menu</SheetTitle>
+              <SheetTitle className="text-left text-role-headline-on-dark">Menu</SheetTitle>
             </SheetHeader>
             <nav className="mt-8 flex flex-col gap-1">
               {mockupNav.map((item) => (
@@ -161,13 +161,13 @@ export function SiteHeaderMockup() {
                   {item.label}
                 </Link>
               ))}
-              <p className="label-stamp mt-6 text-stc-gold">Services</p>
+              <p className="label-stamp mt-6 text-accent-gold">Services</p>
               {navServices.map((s) => (
                 <Link
                   key={s.href}
                   href={s.href}
                   onClick={() => setOpen(false)}
-                  className="py-2 font-body text-sm text-stc-white/80 hover:text-stc-gold"
+                  className="py-2 font-body text-sm text-role-statement-on-dark hover:text-role-link"
                 >
                   {s.label}
                 </Link>

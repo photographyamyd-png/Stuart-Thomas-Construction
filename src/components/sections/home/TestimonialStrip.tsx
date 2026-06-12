@@ -10,12 +10,12 @@ export function TestimonialStrip() {
       <Container>
         <SectionBlock>
           <blockquote className="mx-auto max-w-3xl text-center">
-            <p className="font-utility text-xl leading-relaxed font-normal text-stc-white sm:text-2xl lg:text-3xl">
+            <p className="font-utility text-xl leading-relaxed font-normal text-role-statement-on-dark sm:text-2xl lg:text-3xl">
               &ldquo;{parts[0]}
-              <span className="font-semibold text-stc-gold">{featuredTestimonial.highlight}</span>
+              <span className="font-semibold text-accent-gold">{featuredTestimonial.highlight}</span>
               {parts[1]}&rdquo;
             </p>
-            <footer className="text-utility mt-6 text-xs tracking-[0.2em] text-stc-white/45 uppercase">
+            <footer className="text-utility mt-6 text-xs tracking-[0.2em] text-role-body-on-dark uppercase">
               — {featuredTestimonial.author}
             </footer>
           </blockquote>

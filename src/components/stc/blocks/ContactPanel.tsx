@@ -32,7 +32,7 @@ export function ContactPanel({ intro }: { intro: string }) {
         </p>
         <a
           href={`tel:${site.phoneTel}`}
-          className="mt-8 inline-flex min-h-12 w-full items-center justify-center bg-stc-lime px-8 font-display text-sm font-bold uppercase tracking-[0.1em] text-stc-white transition-colors hover:bg-stc-lime-hover sm:w-auto"
+          className="mt-8 inline-flex min-h-12 w-full items-center justify-center bg-stc-lime px-8 font-display text-sm font-bold uppercase tracking-[0.1em] text-role-headline-on-dark transition-colors hover:bg-stc-lime-hover sm:w-auto"
         >
           Call {site.phoneDisplay}
         </a>

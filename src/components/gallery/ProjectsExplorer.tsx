@@ -29,7 +29,7 @@ export function ProjectsExplorer({ items, initialCategory }: Props) {
           onClick={() => setFilter("all")}
           className={cn(
             "text-utility px-3 py-1.5 text-xs",
-            filter === "all" ? "bg-stc-black text-stc-white" : "border border-stc-black/15 bg-stc-white text-stc-black",
+            filter === "all" ? "bg-stc-black text-role-body-on-dark" : "border border-stc-black/15 bg-stc-white text-role-body-on-light",
           )}
         >
           All ({items.length})
@@ -41,7 +41,7 @@ export function ProjectsExplorer({ items, initialCategory }: Props) {
             onClick={() => setFilter(c.id)}
             className={cn(
               "text-utility px-3 py-1.5 text-xs",
-              filter === c.id ? "bg-stc-black text-stc-white" : "border border-stc-black/15 bg-stc-white text-stc-black",
+              filter === c.id ? "bg-stc-black text-role-body-on-dark" : "border border-stc-black/15 bg-stc-white text-role-body-on-light",
             )}
           >
             {c.label}
@@ -66,7 +66,7 @@ export function ProjectsExplorer({ items, initialCategory }: Props) {
                 quality={70}
               />
             </div>
-            <p className="text-utility p-2 text-xs text-stc-black/70">
+            <p className="text-utility p-2 text-xs text-role-body-on-light">
               {item.title}
             </p>
           </button>
@@ -80,7 +80,7 @@ export function ProjectsExplorer({ items, initialCategory }: Props) {
         >
           <button
             type="button"
-            className="absolute right-4 top-4 text-stc-white"
+            className="absolute right-4 top-4 text-role-headline-on-dark"
             onClick={() => setLightbox(null)}
             aria-label="Close"
           >

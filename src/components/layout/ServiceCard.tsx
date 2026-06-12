@@ -20,17 +20,17 @@ const masonryTones = [
   {
     bg: "bg-stc-black",
     border: "border-white/20",
-    title: "text-stc-white group-hover:text-stc-gold",
+    title: "text-role-headline-on-dark group-hover:text-role-link",
   },
   {
     bg: "bg-stc-white",
     border: "border-stc-black/20",
-    title: "text-stc-black group-hover:text-stc-green",
+    title: "text-role-headline-on-light group-hover:text-stc-green",
   },
   {
     bg: "bg-stc-green",
     border: "border-white/20",
-    title: "text-stc-white group-hover:text-stc-gold",
+    title: "text-role-headline-on-dark group-hover:text-role-link",
   },
 ] as const;
 
@@ -57,7 +57,7 @@ export function ServiceCard({
           className,
         )}
       >
-        <Icon className="size-8 text-stc-gold" strokeWidth={1.25} />
+        <Icon className="size-8 text-accent-gold" strokeWidth={1.25} />
         <h3 className={cn("text-utility", tone.title)}>{title}</h3>
       </Link>
     );
@@ -82,8 +82,8 @@ export function ServiceCard({
         />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-stc-black/95 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-5">
-          <Icon className="mb-3 size-8 text-stc-gold" strokeWidth={1.25} />
-          <h3 className="text-utility text-stc-white">{title}</h3>
+          <Icon className="mb-3 size-8 text-accent-gold" strokeWidth={1.25} />
+          <h3 className="text-utility text-role-headline-on-dark">{title}</h3>
         </div>
       </Link>
     );
@@ -98,15 +98,15 @@ export function ServiceCard({
           className,
         )}
       >
-        <span className="flex size-10 shrink-0 items-center justify-center border border-stc-black/10 bg-stc-white text-stc-gold">
+        <span className="flex size-10 shrink-0 items-center justify-center border border-stc-black/10 bg-stc-white text-accent-gold">
           <Icon className="size-5" strokeWidth={1.25} />
         </span>
         <span className="min-w-0">
-          <span className="text-utility block text-stc-black group-hover:text-stc-green">
+          <span className="text-utility block text-role-headline-on-light group-hover:text-stc-green">
             {title}
           </span>
           {description && (
-            <span className="mt-1 block font-body text-xs leading-relaxed text-stc-black/65">
+            <span className="mt-1 block font-body text-xs leading-relaxed text-role-body-on-light">
               {description}
             </span>
           )}
@@ -136,16 +136,16 @@ export function ServiceCard({
         </div>
       )}
       <div className="flex flex-1 flex-col p-5">
-        <span className="flex size-10 items-center justify-center border border-stc-black/10 bg-stc-white text-stc-gold">
+        <span className="flex size-10 items-center justify-center border border-stc-black/10 bg-stc-white text-accent-gold">
           <Icon className="size-5" strokeWidth={1.25} />
         </span>
-        <h3 className="text-utility mt-4 text-stc-black group-hover:text-stc-green">{title}</h3>
+        <h3 className="text-utility mt-4 text-role-headline-on-light group-hover:text-stc-green">{title}</h3>
         {description && (
-          <p className="mt-2 flex-1 font-body text-sm leading-relaxed text-stc-black/70">
+          <p className="mt-2 flex-1 font-body text-sm leading-relaxed text-role-body-on-light">
             {description}
           </p>
         )}
-        <span className="mt-4 text-xs font-semibold uppercase tracking-wider text-stc-gold">
+        <span className="mt-4 text-xs font-semibold uppercase tracking-wider text-accent-gold">
           Learn more →
         </span>
       </div>

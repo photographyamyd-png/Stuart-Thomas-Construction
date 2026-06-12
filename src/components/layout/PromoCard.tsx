@@ -48,7 +48,7 @@ export function PromoCard({
         </div>
         {caption && (
           <div className="bg-stc-black px-4 py-3">
-            <p className="text-utility text-sm text-stc-white">{caption}</p>
+            <p className="text-utility text-sm text-role-headline-on-dark">{caption}</p>
           </div>
         )}
       </Link>
@@ -74,12 +74,12 @@ export function PromoCard({
         />
       </div>
       <div className="flex flex-1 flex-col bg-stc-black p-5 sm:p-6">
-        <h3 className="text-utility text-stc-white">{title}</h3>
+        <h3 className="text-utility text-role-headline-on-dark">{title}</h3>
         {bullets && bullets.length > 0 && (
-          <ul className="mt-3 space-y-1.5 font-body text-sm text-stc-white/75">
+          <ul className="mt-3 space-y-1.5 font-body text-sm text-role-statement-on-dark">
             {bullets.map((b) => (
               <li key={b} className="flex gap-2">
-                <span className="text-stc-gold" aria-hidden>
+                <span className="text-accent-gold" aria-hidden>
                   •
                 </span>
                 <span>{b}</span>

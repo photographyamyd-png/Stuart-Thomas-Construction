@@ -24,9 +24,9 @@ export type QuadrantCell =
     };
 
 const toneBg = {
-  dark: "bg-stc-black text-stc-white border-stc-white/15",
-  green: "bg-stc-green text-stc-white border-stc-white/15",
-  gold: "bg-stc-white text-stc-black border-stc-black/10",
+  dark: "bg-stc-black text-role-body-on-dark border-stc-white/15",
+  green: "bg-stc-green text-role-body-on-dark border-stc-white/15",
+  gold: "bg-stc-white text-role-body-on-light border-stc-black/10",
 };
 
 export function QuadrantGrid({
@@ -70,7 +70,7 @@ function QuadrantCellView({ cell }: { cell: QuadrantCell }) {
             asChild
             variant={tone === "gold" ? "stc" : "stcSolid"}
             size="lg"
-            className={cn("mt-8 w-fit", tone === "gold" && "border-stc-black text-stc-black hover:bg-stc-black hover:text-stc-gold")}
+            className={cn("mt-8 w-fit", tone === "gold" && "border-stc-black text-role-headline-on-light hover:bg-stc-black hover:text-role-link")}
           >
             <Link href={cell.cta.href}>{cell.cta.label}</Link>
           </Button>

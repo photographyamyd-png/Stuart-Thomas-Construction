@@ -42,7 +42,7 @@ function ProjectTile({
         </p>
         <h3
           className={cn(
-            "mt-2 font-bold uppercase tracking-wide text-stc-white transition-transform duration-300 group-hover:-translate-y-1",
+            "mt-2 font-bold uppercase tracking-wide text-role-headline-on-dark transition-transform duration-300 group-hover:-translate-y-1",
             mockup ? "font-oswald" : "font-display",
             isHero ? "text-2xl sm:text-3xl lg:text-4xl" : "text-lg sm:text-xl",
           )}

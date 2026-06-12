@@ -10,12 +10,12 @@ export function IntegritySection({ imageSrc }: { imageSrc: string }) {
       imageAlt="Stone walkway and landscape craftsmanship"
       imagePosition="right"
     >
-      <h2 className="text-display text-stc-white">Built on Integrity</h2>
-      <p className="mt-5 font-body text-base leading-relaxed text-stc-white/85">
+      <h2 className="text-display text-role-headline-on-dark">Built on Integrity</h2>
+      <p className="mt-5 font-body text-base leading-relaxed text-role-statement-on-dark">
         We combine heavy equipment capability with refined finishing — armour stone, waterfront
         assemblies, and full-site outdoor builds executed with discipline and honesty.
       </p>
-      <Button asChild variant="stc" size="lg" className="mt-8">
+      <Button asChild variant="stcLight" size="lg" className="mt-8">
         <Link href="/about">Learn More</Link>
       </Button>
     </SplitContentSection>

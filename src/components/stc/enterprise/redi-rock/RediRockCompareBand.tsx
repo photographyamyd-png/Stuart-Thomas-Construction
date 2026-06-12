@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { rediRockComparison } from "@/data/redi-rock";
+import { LinkArrow } from "../primitives";
 
 export function RediRockCompareBand() {
   const { natural, engineered } = rediRockComparison;
@@ -29,9 +30,9 @@ export function RediRockCompareBand() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <Link href={natural.href} className="btn-ghost btn-ghost--on-dark cta-inline">
+            <LinkArrow href={natural.href} className="cta-inline">
               Explore Armour Stone
-            </Link>
+            </LinkArrow>
           </article>
           <article className={`stc-rr-compare__panel stc-rr-compare__panel--${engineered.accent}`}>
             <p className="eyebrow eyebrow--on-dark">{engineered.eyebrow}</p>

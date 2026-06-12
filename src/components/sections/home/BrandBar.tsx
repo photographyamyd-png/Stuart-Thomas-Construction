@@ -12,7 +12,7 @@ export function BrandBar() {
       <div className="container mx-auto flex max-w-[80rem] flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6 lg:gap-x-10 lg:px-8">
         {items.map((label, i) => (
           <span key={`${label}-${i}`} className="flex items-center gap-3">
-            <span className="font-utility text-[0.6875rem] tracking-[0.2em] text-stc-white/40 uppercase">
+            <span className="font-utility text-[0.6875rem] tracking-[0.2em] text-role-body-on-dark uppercase">
               {label}
             </span>
             {i < items.length - 1 && (

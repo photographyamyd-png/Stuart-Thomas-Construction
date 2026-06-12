@@ -1,16 +1,18 @@
 import Link from "next/link";
 import { conversion } from "@/data/conversion";
 import { site } from "@/data/site";
-import { PhoneIcon, Wordmark } from "./primitives";
+import { PhoneIcon } from "./primitives";
 
 export function ConversionBar() {
   return (
-    <div className="stc-conversion-bar">
-      <div className="stc-conversion-bar__inner">
-        <Wordmark compact href="/" />
+    <section
+      className="stc-conversion-bar turner-band turner-band--dark turner-band--seam-thin"
+      aria-label="Contact call to action"
+    >
+      <div className="stc-conversion-bar__inner container">
         <p className="stc-conversion-bar__message">
           {conversion.homeCta.headline}{" "}
-          <Link href="/contact" className="stc-conversion-bar__contact-link">
+          <Link href="/contact" className="stc-conversion-bar__contact">
             {conversion.homeCta.contactLink}
           </Link>
         </p>
@@ -18,6 +20,6 @@ export function ConversionBar() {
           <PhoneIcon /> {site.phoneDisplay}
         </a>
       </div>
-    </div>
+    </section>
   );
 }

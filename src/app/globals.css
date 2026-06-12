@@ -34,6 +34,7 @@
   --color-stc-green: var(--stc-green);
   --color-stc-beige: var(--stc-beige);
   --color-stc-gold: var(--stc-gold);
+  --color-stc-accent: var(--stc-accent);
   --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-utility: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
@@ -150,5 +151,118 @@
 
   .bg-stc-gold {
     background-color: var(--ent-cta-fill);
+  }
+
+  /* Surface-aware typography color roles */
+  .text-role-headline-on-dark {
+    color: var(--ent-role-headline-on-dark);
+  }
+  .text-role-headline-on-light {
+    color: var(--ent-role-headline-on-light);
+  }
+  .text-role-body-on-dark {
+    color: var(--ent-role-body-on-dark);
+  }
+  .text-role-body-on-light {
+    color: var(--ent-role-body-on-light);
+  }
+  .text-role-statement-on-dark {
+    color: var(--ent-role-statement-on-dark);
+  }
+  .text-role-statement-on-light {
+    color: var(--ent-role-statement-on-light);
+  }
+  .text-role-headline-on-overlay {
+    color: var(--ent-role-headline-on-overlay);
+  }
+  .text-role-body-on-overlay {
+    color: var(--ent-role-body-on-overlay);
+  }
+  .text-role-link {
+    color: var(--ent-role-link);
+  }
+  .text-role-eyebrow-on-dark {
+    color: var(--ent-role-eyebrow-on-dark);
+  }
+  .text-role-eyebrow-on-light {
+    color: var(--ent-role-eyebrow-on-light);
+  }
+  .text-role-accent {
+    color: var(--ent-role-accent);
+  }
+
+  /* Legacy stc-* typography aliases → enterprise tokens */
+  .stc-display-md,
+  .stc-display-lg,
+  .stc-display-xl {
+    font-family: var(--ent-font-display);
+    font-weight: var(--ent-weight-display);
+    letter-spacing: var(--ent-display-tracking);
+    text-transform: uppercase;
+    line-height: var(--ent-display-leading);
+  }
+  .stc-display-md { font-size: var(--ent-section-size); }
+  .stc-display-lg { font-size: var(--ent-display-lg-size); }
+  .stc-display-xl { font-size: var(--ent-display-xl-size); }
+
+  .stc-body,
+  .stc-body-lg {
+    font-family: var(--ent-font-body);
+    font-weight: var(--ent-weight-body);
+    line-height: var(--ent-body-leading);
+  }
+  .stc-body { font-size: var(--ent-body-size); }
+  .stc-body-lg { font-size: 1.125rem; }
+
+  .stc-body-sm {
+    font-family: var(--ent-font-body);
+    font-weight: var(--ent-weight-body);
+    font-size: 0.875rem;
+    line-height: var(--ent-body-leading);
+  }
+
+  .stc-label {
+    font-family: var(--ent-font-eyebrow);
+    font-size: var(--ent-eyebrow-size);
+    font-weight: var(--ent-weight-ui-strong);
+    letter-spacing: var(--ent-eyebrow-tracking);
+    text-transform: uppercase;
+    line-height: 1.45;
+  }
+
+  .stc-mockup-headline {
+    font-family: var(--ent-font-display);
+    font-weight: var(--ent-weight-display);
+    letter-spacing: var(--ent-display-tracking);
+    text-transform: uppercase;
+    line-height: var(--ent-display-leading);
+  }
+
+  .stc-mockup-display {
+    font-family: var(--ent-font-display);
+    font-weight: var(--ent-weight-display);
+    letter-spacing: var(--ent-display-tracking);
+    text-transform: uppercase;
+    line-height: var(--ent-display-leading);
+  }
+
+  .stc-mockup-body {
+    font-family: var(--ent-font-body);
+    font-weight: var(--ent-weight-body);
+    font-size: var(--ent-body-size);
+    line-height: var(--ent-body-leading);
+  }
+
+  .stc-mockup-body--on-dark {
+    color: var(--ent-role-body-on-dark);
+  }
+
+  .stc-mockup-eyebrow {
+    font-family: var(--ent-font-eyebrow);
+    font-size: var(--ent-eyebrow-size);
+    font-weight: var(--ent-weight-ui-strong);
+    letter-spacing: var(--ent-eyebrow-tracking);
+    text-transform: uppercase;
+    line-height: 1.45;
   }
 }

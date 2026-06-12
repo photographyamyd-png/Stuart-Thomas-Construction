@@ -15,8 +15,8 @@ export function SectionHeading({
 }) {
   const toneClass = {
     green: "text-stc-green",
-    black: "text-stc-black",
-    white: "text-stc-white",
+    black: "text-role-headline-on-light",
+    white: "text-role-headline-on-dark",
   }[tone];
 
   return (

@@ -21,13 +21,13 @@ export function CtaBanner({
 }) {
   if (variant === "solidGreen") {
     return (
-      <section className="bg-stc-green text-stc-white">
+      <section className="bg-stc-green text-role-body-on-dark">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 px-6 py-14 sm:px-10 lg:flex-row lg:items-center lg:px-20 lg:py-16">
             <div>
-              <h2 className="text-display text-stc-white">{headline}</h2>
+              <h2 className="text-display text-role-headline-on-dark">{headline}</h2>
               {subline && (
-                <p className="mt-2 font-body text-base text-stc-white/85">{subline}</p>
+                <p className="mt-2 font-body text-base text-role-statement-on-dark">{subline}</p>
               )}
             </div>
             <Button asChild variant="stcSolid" size="lg" className="shrink-0">
@@ -54,9 +54,9 @@ export function CtaBanner({
     >
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-display text-stc-white">{headline}</h2>
+          <h2 className="text-display text-role-headline-on-dark">{headline}</h2>
           {subline && (
-            <p className="mt-4 font-body text-base leading-relaxed text-stc-white/80">{subline}</p>
+            <p className="mt-4 font-body text-base leading-relaxed text-role-statement-on-dark">{subline}</p>
           )}
           <Button asChild variant="stcSolid" size="lg" className="mt-8">
             <Link href={buttonHref}>{buttonLabel}</Link>

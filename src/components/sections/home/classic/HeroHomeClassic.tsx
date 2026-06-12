@@ -41,13 +41,13 @@ export function HeroHomeClassic({
             variants={fadeUp}
             transition={transition}
           >
-            <p className="label-stamp text-stc-gold drop-shadow-[0_1px_6px_rgba(0,0,0,0.75)]">
+            <p className="label-stamp text-accent-gold drop-shadow-[0_1px_6px_rgba(0,0,0,0.75)]">
               {site.name}
             </p>
-            <h1 className="mt-4 text-display-lg text-stc-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+            <h1 className="mt-4 text-display-lg text-role-headline-on-dark drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
               {site.tagline}
             </h1>
-            <p className="text-utility mx-auto mt-5 max-w-lg text-stc-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]">
+            <p className="text-utility mx-auto mt-5 max-w-lg text-role-headline-on-dark drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]">
               Quality craftsmanship. Reliable service. Exceptional results across Tiny Township,
               Wasaga Beach, and Collingwood.
             </p>

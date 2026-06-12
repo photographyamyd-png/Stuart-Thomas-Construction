@@ -34,9 +34,9 @@ export function CtaBannerClassic({
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
           <div>
-            <h2 className="text-display text-stc-white">{headline}</h2>
+            <h2 className="text-display text-role-headline-on-dark">{headline}</h2>
             {subline && (
-              <p className="mt-3 font-body text-base leading-relaxed text-stc-white/85">
+              <p className="mt-3 font-body text-base leading-relaxed text-role-statement-on-dark">
                 {subline}
               </p>
             )}

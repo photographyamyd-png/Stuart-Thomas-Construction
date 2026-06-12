@@ -53,11 +53,11 @@ export function GateHero({
         {breadcrumbs ? <PageBreadcrumbs items={breadcrumbs} inverted /> : null}
         {meta ? <p className="stc-label text-stc-lime">{meta}</p> : null}
         {icon ? <div className="mb-4 text-stc-lime">{icon}</div> : null}
-        <h1 className={cn("stc-display-xl max-w-5xl text-stc-white", meta && "mt-3")}>
+        <h1 className={cn("stc-display-xl max-w-5xl text-role-headline-on-dark", meta && "mt-3")}>
           {title}
         </h1>
         {description ? (
-          <p className="stc-body-lg mt-5 max-w-xl text-stc-white/85">{description}</p>
+          <p className="stc-body-lg mt-5 max-w-xl text-role-statement-on-dark">{description}</p>
         ) : null}
         {actions ? (
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">{actions}</div>

@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 type MainTone = "light" | "dark";
 
 const mainToneClass: Record<MainTone, string> = {
-  light: "bg-stc-white text-stc-black",
-  dark: "bg-stc-black text-stc-white",
+  light: "bg-stc-white text-role-body-on-light",
+  dark: "bg-stc-black text-role-body-on-dark",
 };
 
 export function SidebarPageLayout({

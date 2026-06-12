@@ -24,8 +24,8 @@ export type ServiceDetail = {
   gridCtaLabel: string;
   /** Wireframe icon row — one or two lines under each service icon */
   iconRowLabelLines: string[];
-  /** Tailwind text color class for homepage icon row */
-  homeIconColor: string;
+  /** CSS custom property for homepage icon strip accent (e.g. var(--ent-icon-strip-armour)) */
+  iconStripAccent: string;
   shortDescription: string;
   metaTitle: string;
   metaDescription: string;
@@ -46,7 +46,7 @@ export const services: ServiceDetail[] = [
     shortLabel: "Armour Stone",
     gridCtaLabel: "Explore Armour Stone",
     iconRowLabelLines: ["ARMOUR", "STONE"],
-    homeIconColor: "text-stc-dark-green",
+    iconStripAccent: "var(--ent-icon-strip-armour)",
     shortDescription:
       "Structural mass, engineered aesthetics, and freeze–thaw discipline for Georgian Bay country.",
     metaTitle: "Armour Stone & Retaining Walls | Tiny Township & Collingwood",
@@ -88,7 +88,7 @@ export const services: ServiceDetail[] = [
     shortLabel: "Waterfront Stone",
     gridCtaLabel: "Waterfront Stone Work",
     iconRowLabelLines: ["WATERFRONT", "STONE WORK"],
-    homeIconColor: "text-stc-icon-waterfront",
+    iconStripAccent: "var(--ent-icon-strip-waterfront)",
     shortDescription:
       "Stone stairs, shoreline transitions, and durable waterfront detailing for cottage country.",
     metaTitle: "Luxury Waterfront Stone Work | Wasaga Beach & Tiny Township",
@@ -130,7 +130,7 @@ export const services: ServiceDetail[] = [
     shortLabel: "Landscaping",
     gridCtaLabel: "See Landscaping",
     iconRowLabelLines: ["LANDSCAPING"],
-    homeIconColor: "text-stc-icon-landscape",
+    iconStripAccent: "var(--ent-icon-strip-landscape)",
     shortDescription:
       "Premium landscape construction integrated with stone, grade, and long-term site performance.",
     metaTitle: "Luxury Landscaping | Collingwood & South Georgian Bay",
@@ -171,7 +171,7 @@ export const services: ServiceDetail[] = [
     shortLabel: "Hardscaping",
     gridCtaLabel: "View Hardscaping",
     iconRowLabelLines: ["HARDSCAPING"],
-    homeIconColor: "text-stc-icon-hardscape",
+    iconStripAccent: "var(--ent-icon-strip-hardscape)",
     shortDescription:
       "Patios, walkways, steps, and architectural stone assemblies with precision and durability.",
     metaTitle: "Hardscaping Contractor | Tiny Township & Collingwood",
@@ -212,7 +212,7 @@ export const services: ServiceDetail[] = [
     shortLabel: "Excavation",
     gridCtaLabel: "Excavation & Grading",
     iconRowLabelLines: ["EXCAVATION"],
-    homeIconColor: "text-stc-icon-excavation",
+    iconStripAccent: "var(--ent-icon-strip-excavation)",
     shortDescription:
       "Precision cuts, drainage-aware grading, and site-ready finishes for stone and landscape trades.",
     metaTitle: "Excavation & Grading | South Georgian Bay",
@@ -253,14 +253,15 @@ export const services: ServiceDetail[] = [
     shortLabel: "Snow Removal",
     gridCtaLabel: "Snow Services",
     iconRowLabelLines: ["SNOW REMOVAL"],
-    homeIconColor: "text-stc-icon-snow",
+    iconStripAccent: "var(--ent-icon-strip-snow)",
     shortDescription:
       "Reliable commercial routes, heavy equipment, and night-clear protocols for South Georgian Bay.",
     metaTitle: "Commercial Snow Removal | Tiny Township & Wasaga Beach",
     metaDescription:
       "Commercial snow removal and winter property maintenance in Tiny Township, Wasaga Beach, Collingwood, and surrounding areas.",
     icon: Snowflake,
-    heroAlt: "Commercial snow removal equipment clearing a property",
+    heroAlt:
+      "Stuart Thomas Construction commercial snow removal loader clearing snow in Midland, Ontario",
     overview: [
       "Winter reliability is a contract, not a promise. We run commercial routes with defined trigger depths, equipment redundancy, and clear communication.",
       "From retail frontages to multi-unit sites, our crews prioritize safety, access, and liability-aware clearing.",

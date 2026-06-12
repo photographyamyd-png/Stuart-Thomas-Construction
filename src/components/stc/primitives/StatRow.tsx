@@ -19,7 +19,7 @@ export function StatRow({
         {items.map((item) => (
           <div key={item.label} className="px-2 py-6 text-center sm:py-8">
             <p className="stc-stat text-stc-lime">{item.value}</p>
-            <p className="stc-label mt-2 text-stc-white/60">{item.label}</p>
+            <p className="stc-label mt-2 text-role-body-on-dark">{item.label}</p>
           </div>
         ))}
       </Container>

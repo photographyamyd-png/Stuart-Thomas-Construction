@@ -11,6 +11,7 @@ const img = {
   excavationGravelDrive: "/images/20260508_105213.jpg",
   excavationLongDrive: "/images/20260508_110917.jpg",
   firePitGravel: "/images/20260508_102632.jpg",
+  homeShowcasePanorama: "/images/20260508_102657.jpg",
   gravelPadFinish: "/images/20260508_105454.jpg",
   landscapeEarthworkBerm: "/images/20260508_105643.jpg",
   landscapeFinishEstablish: "/images/20260508_110636.jpg",
@@ -23,23 +24,10 @@ const img = {
   rediRockLogo: "/images/partners/redi-rock-logo.png",
   sarjeantCoLogo: "/images/partners/sarjeant-co-logo.png",
   rediRockReferenceHero: "/images/redi-rock/reference/hero-waterfront-reference.jpg",
-  /** Unsplash — commercial snow removal (Unsplash License) */
-  snowRemovalLoaderHero:
-    "https://images.unsplash.com/photo-1629818571588-65407f9dd1a5?auto=format&fit=crop&w=1920&q=80",
-  snowRemovalIndustrialLot:
-    "https://images.unsplash.com/photo-1769701000453-e306362a7d03?auto=format&fit=crop&w=1920&q=80",
-  snowRemovalPlowFleet:
-    "https://images.unsplash.com/photo-1769254740231-f726fe21a516?auto=format&fit=crop&w=1920&q=80",
-  snowRemovalNightPlow:
-    "https://images.unsplash.com/photo-1771865200657-22e127497422?auto=format&fit=crop&w=1920&q=80",
-} as const;
-
-/** Replace with on-site STC photography when available. */
-export const snowRemovalShotTargets = {
-  hero: "Commercial loader or plow clearing a parking lot",
-  seasonalContracts: "Signed commercial lot or retail frontage in winter",
-  salting: "Salt spreader on parking lot or treated walkway",
-  loaderBlower: "Loader relocating snow or blower on commercial walk",
+  snowRemovalLoaderHero: "/images/snow-removal/hero-storm-plow.png",
+  snowRemovalIndustrialLot: "/images/snow-removal/commercial-lot-loader.png",
+  snowRemovalPlowFleet: "/images/snow-removal/rural-road-clearing.png",
+  snowRemovalNightPlow: "/images/snow-removal/hero-storm-plow.png",
 } as const;
 
 export const media = {
@@ -50,6 +38,7 @@ export const media = {
   landscapingHeroVideo: "/video/landscaping-hero.mp4",
   integritySection: img.armourBoulderWallWaterfront,
   ctaBanner: img.landscapeOutdoorLiving,
+  homeShowcasePanorama: img.homeShowcasePanorama,
   aboutHero: img.patioWaterfront,
   projectsHero: img.projectsCourtShed,
   contactHero: img.firePitGravel,

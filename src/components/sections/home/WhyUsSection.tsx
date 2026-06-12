@@ -5,7 +5,7 @@ import { whyUsCards } from "@/data/sections";
 
 export function WhyUsSection() {
   return (
-    <section className="bg-stc-black text-stc-white">
+    <section className="bg-stc-black text-role-body-on-dark">
       <Container>
         <SectionBlock pad="lg">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
@@ -14,11 +14,11 @@ export function WhyUsSection() {
               <h2 className="text-display mt-6">
                 Quality.
                 <br />
-                <span className="text-stc-gold">Integrity.</span>
+                <span className="text-accent-gold">Integrity.</span>
                 <br />
                 Results.
               </h2>
-              <p className="mt-6 max-w-lg font-body text-base leading-relaxed text-stc-white/75">
+              <p className="mt-6 max-w-lg font-body text-base leading-relaxed text-role-statement-on-dark">
                 We have built our reputation one project at a time. Every site is treated with
                 the same respect and craftsmanship — from a cottage retaining wall to a full
                 waterfront assembly.
@@ -33,8 +33,8 @@ export function WhyUsSection() {
                   <span className="text-display pointer-events-none absolute top-4 right-4 text-4xl text-stc-gold/20">
                     {card.num}
                   </span>
-                  <h3 className="text-utility relative text-base text-stc-white">{card.title}</h3>
-                  <p className="relative mt-3 font-body text-sm leading-relaxed text-stc-white/55">
+                  <h3 className="text-utility relative text-base text-role-headline-on-dark">{card.title}</h3>
+                  <p className="relative mt-3 font-body text-sm leading-relaxed text-role-body-on-dark">
                     {card.description}
                   </p>
                 </div>

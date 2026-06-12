@@ -217,7 +217,7 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
             {conversion.serviceCta.headline}
           </h2>
           <p>{conversion.serviceCta.subline}</p>
-          <Link href="/contact" className="btn-ghost btn-ghost--on-green stack-cta cta-self-start">
+          <Link href="/contact" className="btn-green stack-cta cta-self-start">
             {conversion.serviceCta.button}
           </Link>
         </div>

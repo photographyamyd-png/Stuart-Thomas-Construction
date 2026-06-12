@@ -8,6 +8,7 @@ export const conversion = {
     pathfinderLabel: "What do you want to build?",
   },
   homeCta: {
+    eyebrow: "Get In Touch",
     headline: "Ready to build something extraordinary?",
     contactLink: "Contact us today",
     subline: "Tell us about your property — call for clear next steps.",

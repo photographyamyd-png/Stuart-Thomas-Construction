@@ -10,7 +10,7 @@ import { site } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-stc-dark-green text-stc-white">
+    <footer className="bg-stc-dark-green text-role-body-on-dark">
       {/* Band 1 — Image CTA slab */}
       <LayerStack
         imageSrc={media.ctaBanner}
@@ -24,7 +24,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="stc-label text-stc-lime">Ready to Build</p>
-              <h2 className="stc-display-lg mt-3 max-w-xl text-stc-white">
+              <h2 className="stc-display-lg mt-3 max-w-xl text-role-headline-on-dark">
                 {conversion.stickyBar.headline}
               </h2>
               <a
@@ -46,11 +46,11 @@ export function SiteFooter() {
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
           <div>
             <BrandLogo variant="full" />
-            <p className="stc-body-sm mt-4 max-w-sm text-stc-white/60">
+            <p className="stc-body-sm mt-4 max-w-sm text-role-body-on-dark">
               {site.tagline}. Premium stone, waterfront, and outdoor construction across South
               Georgian Bay.
             </p>
-            <p className="stc-body-sm mt-3 text-stc-white/45">
+            <p className="stc-body-sm mt-3 text-role-body-on-dark">
               {site.address.area}, {site.address.region}
             </p>
           </div>
@@ -63,7 +63,7 @@ export function SiteFooter() {
                   <Link
                     key={s.href}
                     href={s.href}
-                    className="border border-stc-white/20 bg-stc-white/5 px-3 py-1.5 stc-body-sm text-stc-white/80 transition hover:border-stc-lime hover:bg-stc-lime/10 hover:text-stc-lime"
+                    className="border border-stc-white/20 bg-stc-white/5 px-3 py-1.5 stc-body-sm text-role-statement-on-dark transition hover:border-stc-lime hover:bg-stc-lime/10 hover:text-stc-lime"
                   >
                     {s.label}
                   </Link>
@@ -79,7 +79,7 @@ export function SiteFooter() {
                     <li key={l.href}>
                       <Link
                         href={l.href}
-                        className="stc-body-sm text-stc-white/70 hover:text-stc-lime"
+                        className="stc-body-sm text-role-body-on-dark hover:text-stc-lime"
                       >
                         {l.label}
                       </Link>
@@ -94,7 +94,7 @@ export function SiteFooter() {
                     <li key={l.href}>
                       <Link
                         href={l.href}
-                        className="stc-body-sm text-stc-white/70 hover:text-stc-lime"
+                        className="stc-body-sm text-role-body-on-dark hover:text-stc-lime"
                       >
                         {l.label}
                       </Link>
@@ -110,7 +110,7 @@ export function SiteFooter() {
       {/* Band 3 — Legal rail */}
       <div className="stc-divide-lime">
         <Container className="flex flex-col gap-3 py-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="stc-body-sm text-stc-white/45">
+          <p className="stc-body-sm text-role-body-on-dark">
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
           <a

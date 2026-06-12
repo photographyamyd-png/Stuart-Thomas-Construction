@@ -35,9 +35,9 @@ export function PageHero({
       <Container className="flex items-end py-12 sm:py-14" style={{ minHeight }}>
         <div>
           <PageBreadcrumbs items={breadcrumbs} inverted={!!imageSrc} />
-          <h1 className="text-display-lg text-stc-white">{title}</h1>
+          <h1 className="text-display-lg text-role-headline-on-dark">{title}</h1>
           {description && (
-            <p className="mt-3 max-w-xl font-body text-sm text-stc-white/80">{description}</p>
+            <p className="mt-3 max-w-xl font-body text-sm text-role-statement-on-dark">{description}</p>
           )}
         </div>
       </Container>

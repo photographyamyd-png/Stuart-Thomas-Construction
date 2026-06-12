@@ -9,8 +9,8 @@ export function StatsRow() {
         <div className="grid gap-8 sm:grid-cols-3 sm:gap-4">
           {stats.map((s) => (
             <div key={s.label} className="text-center sm:text-left">
-              <p className="text-stat text-stc-gold">{s.value}</p>
-              <p className="text-utility mt-2 text-stc-white/80">{s.label}</p>
+              <p className="text-stat text-accent-gold">{s.value}</p>
+              <p className="text-utility mt-2 text-role-statement-on-dark">{s.label}</p>
             </div>
           ))}
         </div>

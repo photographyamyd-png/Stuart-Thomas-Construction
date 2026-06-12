@@ -10,7 +10,7 @@ export function SectionEyebrow({
   className?: string;
 }) {
   const lineClass = accent === "green" ? "bg-stc-green" : "bg-stc-gold";
-  const textClass = accent === "green" ? "text-stc-green" : "text-stc-gold";
+  const textClass = accent === "green" ? "text-stc-green" : "text-accent-gold";
 
   return (
     <div className={cn("flex items-center gap-3", className)}>

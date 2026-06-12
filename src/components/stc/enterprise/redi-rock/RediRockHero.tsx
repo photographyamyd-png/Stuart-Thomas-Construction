@@ -3,6 +3,7 @@ import Link from "next/link";
 import { media } from "@/data/media";
 import { rediRockAttribution } from "@/data/redi-rock";
 import { ManufacturerAttribution } from "../blocks/ManufacturerAttribution";
+import { LinkArrow } from "../primitives";
 
 export function RediRockHero() {
   return (
@@ -31,9 +32,9 @@ export function RediRockHero() {
             <Link href="/contact" className="btn-green cta-inline">
               Request an Install Quote
             </Link>
-            <Link href="#install" className="btn-ghost btn-ghost--on-dark cta-inline">
+            <LinkArrow href="#install" className="cta-inline">
               Explore This Page
-            </Link>
+            </LinkArrow>
           </div>
         </div>
         <div className="stc-rr-hero__media">

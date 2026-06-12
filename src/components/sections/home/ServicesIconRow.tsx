@@ -7,7 +7,7 @@ export function ServicesIconRow() {
   return (
     <section id="services-icons" className="bg-stc-white py-16 md:py-24">
       <Container>
-        <h2 className="text-utility mb-12 text-center text-2xl font-medium tracking-[0.08em] text-stc-black uppercase md:text-3xl">
+        <h2 className="text-utility mb-12 text-center text-2xl font-medium tracking-[0.08em] text-role-headline-on-light uppercase md:text-3xl">
           Our Services
         </h2>
         <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-6">
@@ -23,7 +23,7 @@ export function ServicesIconRow() {
                     className="mb-4 size-10 text-stc-green md:size-12"
                     strokeWidth={1.5}
                   />
-                  <span className="font-utility mx-auto max-w-[100px] text-xs leading-[1.35] font-medium tracking-[0.04em] text-stc-black uppercase">
+                  <span className="font-utility mx-auto max-w-[100px] text-xs leading-[1.35] font-medium tracking-[0.04em] text-role-headline-on-light uppercase">
                     {s.iconRowLabelLines.map((line, i) => (
                       <span key={line}>
                         {i > 0 && <br />}

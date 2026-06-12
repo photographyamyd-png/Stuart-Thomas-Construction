@@ -22,10 +22,10 @@ export function ServicesMegaMenu() {
                   strokeWidth={1.25}
                 />
                 <span className="min-w-0 text-left">
-                  <span className="font-utility block text-xs font-semibold tracking-wide text-stc-black uppercase">
+                  <span className="font-utility block text-xs font-semibold tracking-wide text-role-headline-on-light uppercase">
                     {s.label}
                   </span>
-                  <span className="font-body mt-1 line-clamp-2 text-xs leading-relaxed text-stc-black/60">
+                  <span className="font-body mt-1 line-clamp-2 text-xs leading-relaxed text-role-body-on-light">
                     {service.shortDescription}
                   </span>
                 </span>

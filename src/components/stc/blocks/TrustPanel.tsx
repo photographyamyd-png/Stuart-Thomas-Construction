@@ -32,10 +32,10 @@ export function TrustPanel({
                     key={item.title}
                     className="border-l-4 border-stc-lime py-4 pl-5 first:pt-0 last:pb-0"
                   >
-                    <h3 className="stc-display-md text-lg text-stc-white sm:text-xl">
+                    <h3 className="stc-display-md text-lg text-role-headline-on-dark sm:text-xl">
                       {item.title}
                     </h3>
-                    <p className="stc-body-sm mt-2 text-stc-white/70">{item.description}</p>
+                    <p className="stc-body-sm mt-2 text-role-body-on-dark">{item.description}</p>
                   </div>
                 ))}
               </div>

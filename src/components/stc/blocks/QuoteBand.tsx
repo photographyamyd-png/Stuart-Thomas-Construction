@@ -31,8 +31,8 @@ export function QuoteBand({
           <Container className="py-16 sm:py-20">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl">
-                <h2 className="stc-display-lg text-stc-white">{headline}</h2>
-                {subline ? <p className="stc-body mt-4 text-stc-white/80">{subline}</p> : null}
+                <h2 className="stc-display-lg text-role-headline-on-dark">{headline}</h2>
+                {subline ? <p className="stc-body mt-4 text-role-statement-on-dark">{subline}</p> : null}
               </div>
               <ActionSolid href={buttonHref} className="shrink-0 px-10">
                 {buttonLabel}
@@ -49,8 +49,8 @@ export function QuoteBand({
       <Container>
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl">
-            <h2 className="stc-display-lg text-stc-white">{headline}</h2>
-            {subline ? <p className="stc-body mt-4 text-stc-white/75">{subline}</p> : null}
+            <h2 className="stc-display-lg text-role-headline-on-dark">{headline}</h2>
+            {subline ? <p className="stc-body mt-4 text-role-statement-on-dark">{subline}</p> : null}
           </div>
           <ActionSolid href={buttonHref} className="shrink-0 px-10">
             {buttonLabel}

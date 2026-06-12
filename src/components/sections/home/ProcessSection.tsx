@@ -5,12 +5,12 @@ import { homeProcess } from "@/data/sections";
 
 export function ProcessSection() {
   return (
-    <section id="process" className="bg-stc-black text-stc-white">
+    <section id="process" className="bg-stc-black text-role-body-on-dark">
       <Container>
         <SectionBlock pad="lg">
           <SectionEyebrow>How We Work</SectionEyebrow>
           <h2 className="text-display mt-6">
-            Our <span className="text-stc-gold">Process</span>
+            Our <span className="text-accent-gold">Process</span>
           </h2>
           <ol className="mt-12 grid grid-cols-1 gap-0.5 sm:grid-cols-2 lg:grid-cols-4">
             {homeProcess.map((step, i) => (
@@ -24,7 +24,7 @@ export function ProcessSection() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="text-utility relative text-base">{step.title}</h3>
-                <p className="relative mt-3 font-body text-sm leading-relaxed text-stc-white/55">
+                <p className="relative mt-3 font-body text-sm leading-relaxed text-role-body-on-dark">
                   {step.description}
                 </p>
               </li>

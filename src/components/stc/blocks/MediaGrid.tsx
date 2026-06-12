@@ -25,7 +25,7 @@ export function MediaGrid({ items }: { items: GalleryItem[] }) {
           className={cn(
             "stc-label min-h-10 px-4 transition-colors",
             filter === "all"
-              ? "bg-stc-charcoal text-stc-white"
+              ? "bg-stc-charcoal text-role-body-on-dark"
               : "border-2 border-stc-border-strong bg-stc-white text-stc-charcoal hover:border-stc-lime",
           )}
         >
@@ -39,7 +39,7 @@ export function MediaGrid({ items }: { items: GalleryItem[] }) {
             className={cn(
               "stc-label min-h-10 px-4 transition-colors",
               filter === c.id
-                ? "bg-stc-charcoal text-stc-white"
+                ? "bg-stc-charcoal text-role-body-on-dark"
                 : "border-2 border-stc-border-strong bg-stc-white text-stc-charcoal hover:border-stc-lime",
             )}
           >
@@ -65,7 +65,7 @@ export function MediaGrid({ items }: { items: GalleryItem[] }) {
                 quality={75}
               />
             </div>
-            <p className="border-t-2 border-stc-lime bg-stc-charcoal px-3 py-2 font-display text-xs font-bold uppercase tracking-wide text-stc-white">
+            <p className="border-t-2 border-stc-lime bg-stc-charcoal px-3 py-2 font-display text-xs font-bold uppercase tracking-wide text-role-headline-on-dark">
               {item.title}
             </p>
           </button>
@@ -79,7 +79,7 @@ export function MediaGrid({ items }: { items: GalleryItem[] }) {
         >
           <button
             type="button"
-            className="absolute right-4 top-4 text-stc-white"
+            className="absolute right-4 top-4 text-role-headline-on-dark"
             onClick={() => setLightbox(null)}
             aria-label="Close"
           >
