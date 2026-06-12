@@ -37,7 +37,7 @@ export function TurnerHero() {
         <h1 id="hero-heading" className="text-display text-display-xl">
           {hero.headline} <span className="accent">{hero.headlineAccent}</span>
         </h1>
-        <p className="lead">{hero.lead}</p>
+        <p className="wf-type-supporting">{hero.lead}</p>
         <Link href="#pathfinder" className="turner-hero__pathfinder">
           {hero.pathfinderLabel}{" "}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>

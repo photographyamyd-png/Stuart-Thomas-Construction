@@ -4,6 +4,7 @@ import { areas } from "@/data/areas";
 import { conversion } from "@/data/conversion";
 import {
   enterpriseFeaturedProject,
+  enterpriseHomeShowcase,
   enterpriseInsights,
   enterpriseQuote,
 } from "@/data/enterprise";
@@ -120,16 +121,33 @@ export function EnterpriseHome() {
         <ServiceOverlayGrid showHeader />
       </section>
 
-      <section className="stc-showcase" id="showcase" aria-label="Project showcase">
-        <div className="stc-showcase__panorama">
+      <section
+        className="stc-showcase"
+        id="showcase"
+        aria-labelledby="showcase-heading"
+      >
+        <div className="stc-showcase__bg">
           <Image
             src={media.homeShowcasePanorama}
-            alt=""
+            alt={enterpriseHomeShowcase.imageAlt}
             fill
             loading="lazy"
             sizes="100vw"
             className="object-cover"
           />
+        </div>
+        <div className="stc-showcase__scrim" aria-hidden />
+        <div className="stc-showcase__inner">
+          <p className="eyebrow eyebrow--on-dark">{enterpriseHomeShowcase.eyebrow}</p>
+          <h2 id="showcase-heading" className="text-display">
+            {enterpriseHomeShowcase.headline}{" "}
+            <span className="text-accent-gold">{enterpriseHomeShowcase.headlineAccent}</span>
+          </h2>
+          <p className="wf-type-supporting stc-showcase__statement">{enterpriseHomeShowcase.statement}</p>
+          <p className="wf-type-supporting stc-showcase__body">{enterpriseHomeShowcase.body}</p>
+          <Link href={enterpriseHomeShowcase.cta.href} className="btn-accent btn-accent--lg">
+            {enterpriseHomeShowcase.cta.label}
+          </Link>
         </div>
       </section>
 

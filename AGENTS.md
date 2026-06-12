@@ -8,7 +8,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 All marketing UI lives in `src/components/stc/enterprise/`. See `docs/ARCHITECTURE.md`.
 
-**Typography on enterprise pages:** Use distinct levels — eyebrow (L1), display headline (L2), statement (L3), optional feature labels (L4), supporting body (L5), short CTA (L6). Classes: `eyebrow`, `text-display`, `lead`, `wf-type-supporting` where applicable in `enterprise-authority.css`.
+**Typography on enterprise pages:** Use distinct levels — eyebrow (L1), display headline (L2), optional feature labels (L4), supporting body (L5), short CTA (L6). Intro copy under headlines uses `wf-type-supporting` only (do not use `.lead`, `.lead-on-dark`, or `.text-statement`). Classes: `eyebrow`, `text-display`, `wf-type-supporting` where applicable in `enterprise-authority.css`.
 
 **Forbidden:** Headline + paragraph + button only; keyword middot lines as sole description; identical weight/color across levels.
 

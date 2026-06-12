@@ -1,25 +1,22 @@
-import type { CSSProperties } from "react";
 import Link from "next/link";
-import { enterpriseServiceGridOrder } from "@/data/enterprise";
+import { enterpriseIconStripOrder } from "@/data/enterprise";
 import { getServiceBySlug } from "@/data/services";
+import { serviceStripIcons } from "@/components/stc/enterprise/icons/ServiceStripIcons";
 
 export function ServiceIconStrip() {
   return (
-    <nav className="stc-icon-strip stc-icon-strip--beige stc-icon-strip--divided" aria-label="Service quick links">
+    <nav className="stc-icon-strip stc-icon-strip--beige" aria-label="Service quick links">
+      <h2 className="stc-icon-strip__title">Our Services</h2>
       <ul className="stc-icon-strip__grid">
-        {enterpriseServiceGridOrder.slice(0, 5).map((slug) => {
+        {enterpriseIconStripOrder.map((slug) => {
           const service = getServiceBySlug(slug);
           if (!service) return null;
-          const Icon = service.icon;
+          const Icon = serviceStripIcons[slug];
           return (
             <li key={slug} data-service={slug}>
-              <Link
-                className="stc-icon-strip__item"
-                href={`/services/${slug}`}
-                style={{ "--icon-strip-accent": service.iconStripAccent } as CSSProperties}
-              >
+              <Link className="stc-icon-strip__item" href={`/services/${slug}`}>
                 <span className="stc-icon-strip__icon" aria-hidden>
-                  <Icon strokeWidth={1.5} />
+                  <Icon />
                 </span>
                 <span className="stc-icon-strip__label">
                   {service.iconRowLabelLines.map((line, i) => (

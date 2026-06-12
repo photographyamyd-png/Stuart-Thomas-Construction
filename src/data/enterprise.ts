@@ -1,4 +1,5 @@
 import { media } from "./media";
+import { cta } from "./nav";
 
 export const enterpriseInsights = [
   {
@@ -92,6 +93,17 @@ export const enterpriseFeaturedProject = {
   href: "/projects",
 } as const;
 
+export const enterpriseHomeShowcase = {
+  eyebrow: "Residential Build",
+  headline: "Custom Homes",
+  headlineAccent: "& Estates",
+  statement: "From foundation to finish — one accountable team on your property.",
+  body:
+    "Full-site excavation, hardscaping, and landscape establishment for custom residential builds across Muskoka and South Georgian Bay.",
+  imageAlt: "Modern three-storey residential home built by Stuart Thomas Construction",
+  cta: { label: cta.primaryLabel, href: cta.primaryHref },
+} as const;
+
 export const enterpriseQuote = {
   text: "Stuart Thomas delivered exactly what they promised — quality work, honest communication, and a shoreline we are proud of.",
   highlight: "quality work",
@@ -104,6 +116,16 @@ export const enterpriseCapabilityStrip = [
   "waterfront-stone-work",
   "hardscaping",
   "landscaping",
+] as const;
+
+/** Homepage icon strip — six tiles below showcase panorama */
+export const enterpriseIconStripOrder = [
+  "armour-stone",
+  "waterfront-stone-work",
+  "landscaping",
+  "hardscaping",
+  "excavation",
+  "commercial-snow-removal",
 ] as const;
 
 /** Homepage service grid display order (matches Hybrid F mockup) */

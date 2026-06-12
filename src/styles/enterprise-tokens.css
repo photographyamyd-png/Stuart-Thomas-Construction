@@ -288,13 +288,7 @@
   max-width: var(--prose-medium);
 }
 
-.lead-on-dark {
-  margin-top: var(--ent-space-stack-md);
-  max-width: var(--lead-max-w);
-  opacity: 0.85;
-}
-
-/* Typography for .text-statement / .text-supporting: see L6 block in enterprise-authority.css */
+/* Typography for .text-supporting: see L5 block in enterprise-authority.css */
 
 .cta-inline {
   display: inline-flex;

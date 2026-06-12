@@ -22,7 +22,7 @@ export function RediRockHero() {
           <h1 id="redi-rock-heading" className="text-display stack-eyebrow">
             Redi-Rock Installation by <span className="text-accent-gold">Stuart Thomas Construction</span>
           </h1>
-          <p className="lead-on-dark">
+          <p className="wf-type-supporting">
             We install engineered Redi-Rock retaining and freestanding systems sourced through
             The Sarjeant Co. for structural grade changes, waterfront terraces, and outdoor
             living across South Georgian Bay.

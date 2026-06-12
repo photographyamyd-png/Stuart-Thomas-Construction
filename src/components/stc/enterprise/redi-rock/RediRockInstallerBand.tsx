@@ -30,7 +30,7 @@ export function RediRockInstallerBand() {
         <h2 id="rr-install-heading" className="text-display text-display--section stack-title">
           Installer Scope, <span className="text-accent-gold">Not Supply</span>
         </h2>
-        <p className="lead-on-dark">
+        <p className="wf-type-supporting">
           Stuart Thomas Construction is your installation partner. Redi-Rock® is the engineered
           product. The Sarjeant Co. supplies materials for our region.
         </p>

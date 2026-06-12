@@ -17,7 +17,7 @@ export function RediRockReferenceStrip() {
           <h2 id="rr-reference-heading" className="text-display text-display--section stack-title">
             Manufacturer <span className="text-accent-gold">Showcase</span>
           </h2>
-          <p className="lead-on-dark">
+          <p className="wf-type-supporting">
             This image illustrates Redi-Rock® product appearance and waterfront application — not
             Stuart Thomas Construction project photography.
           </p>

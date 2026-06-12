@@ -16,7 +16,7 @@ export function RediRockCompareBand() {
         <h2 id="rr-compare-heading" className="text-display text-display--section stack-title">
           Natural Mass vs. <span className="text-accent-gold">Engineered System</span>
         </h2>
-        <p className="lead-on-dark stc-rr-compare__intro">
+        <p className="wf-type-supporting stc-rr-compare__intro">
           STC installs both. The right choice depends on engineering requirements, timeline, and
           the character you want on site.
         </p>

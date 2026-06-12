@@ -68,7 +68,7 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
               <h1 id="svc-heading" className="text-display stack-eyebrow">
                 {service.title}
               </h1>
-              <p className="lead-on-dark">{service.shortDescription}</p>
+              <p className="wf-type-supporting">{service.shortDescription}</p>
               <Link href="/contact" className="btn-green stack-cta cta-inline">
                 Get a Quote
               </Link>
@@ -86,7 +86,7 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
             <h1 id="svc-heading" className="text-display stack-eyebrow">
               {service.title}
             </h1>
-            <p className="lead-on-dark">{service.shortDescription}</p>
+            <p className="wf-type-supporting">{service.shortDescription}</p>
             <Link href="/contact" className="btn-green stack-cta cta-inline">
               Get a Quote
             </Link>

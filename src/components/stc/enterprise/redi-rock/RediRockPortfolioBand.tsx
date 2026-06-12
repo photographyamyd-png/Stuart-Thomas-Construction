@@ -23,7 +23,7 @@ export function RediRockPortfolioBand({ installs = [] }: Props) {
           <h2 id="rr-portfolio-heading" className="text-display text-display--section stack-title">
             Our Redi-Rock <span className="text-accent-gold">Installations</span>
           </h2>
-          <p className="lead-on-dark">
+          <p className="wf-type-supporting">
             Stuart Thomas Construction install photography — clearly separated from manufacturer
             reference imagery elsewhere on this page.
           </p>
