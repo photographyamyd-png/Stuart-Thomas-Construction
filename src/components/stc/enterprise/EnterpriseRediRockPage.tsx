@@ -26,6 +26,7 @@ export function EnterpriseRediRockPage({ stcInstalls = [] }: Props) {
         <RediRockCompareBand />
         <RediRockResourcesBand />
         <RediRockReferenceStrip />
+        <div className="stc-rr-divider stc-rr-divider--white" aria-hidden />
         <RediRockPortfolioBand installs={stcInstalls} />
         <RediRockRelatedBand />
         <EnterpriseCtaBand

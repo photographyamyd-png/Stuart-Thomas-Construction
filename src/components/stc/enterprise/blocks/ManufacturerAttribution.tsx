@@ -21,9 +21,10 @@ export function ManufacturerAttribution({ variant = "full", className = "" }: Pr
           <Image
             src={media.rediRockLogo}
             alt="Redi-Rock"
-            width={compact ? 120 : 160}
-            height={compact ? 40 : 52}
-            className="stc-mfr-attribution__logo"
+            width={compact ? 140 : 180}
+            height={compact ? 79 : 101}
+            unoptimized
+            className="stc-mfr-attribution__logo stc-mfr-attribution__logo--redi-rock"
           />
         </Link>
         <Link href={rediRockLinks.supplier} target="_blank" rel="noopener noreferrer">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { rediRockAttribution, rediRockBrochures, rediRockLinks } from "@/data/redi-rock";
 
@@ -9,24 +10,50 @@ export function RediRockResourcesBand() {
       aria-labelledby="rr-resources-heading"
     >
       <div className="container">
-        <p className="eyebrow green">Manufacturer Literature</p>
-        <h2 id="rr-resources-heading" className="text-display text-display--section stack-title">
-          Brochures & <span className="text-accent-green">Specifications</span>
-        </h2>
-        <p className="lead stc-rr-resources__intro">{rediRockAttribution.brochureLabel}</p>
+        <header className="stc-rr-resources__header">
+          <div className="stc-rr-resources__header-copy">
+            <p className="eyebrow green">Manufacturer Literature</p>
+            <h2 id="rr-resources-heading" className="stc-rr-resources__heading stack-title">
+              Brochures & <span className="text-accent-green">Specifications</span>
+            </h2>
+          </div>
+          <p className="wf-type-supporting stc-rr-resources__intro">
+            {rediRockAttribution.brochureLabel}
+          </p>
+        </header>
+
+        <div className="stc-rr-resources__rule" aria-hidden />
+
         <div className="stc-rr-resources__grid">
           {rediRockBrochures.map((brochure) => (
-            <article key={brochure.href} className="stc-rr-resources__card">
-              <span className="stc-rr-resources__badge">PDF</span>
-              <h3 className="text-display text-display--subsection stack-eyebrow">{brochure.shortLabel}</h3>
-              <p>{brochure.description}</p>
-              <Link href={brochure.href} download className="link-arrow">
-                {brochure.label.replace(/^Download — /, "")} →
-              </Link>
-            </article>
+            <Link
+              key={brochure.href}
+              href={brochure.href}
+              download
+              className="stc-rr-resources__card"
+            >
+              <div className="stc-rr-resources__card-media">
+                <Image
+                  src={brochure.coverImage}
+                  alt={brochure.coverAlt}
+                  fill
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                  className="object-cover"
+                />
+                <span className="stc-rr-resources__badge">PDF</span>
+              </div>
+              <div className="stc-rr-resources__card-body">
+                <h3 className="stc-rr-resources__card-title">{brochure.shortLabel}</h3>
+                <p className="stc-rr-resources__card-desc">{brochure.description}</p>
+                <span className="stc-rr-resources__download link-arrow">Download PDF →</span>
+                <p className="stc-rr-resources__card-credit">{brochure.coverCredit}</p>
+              </div>
+            </Link>
           ))}
         </div>
-        <div className="stc-rr-resources__footer stack-section">
+
+        <footer className="stc-rr-resources__footer">
           <p className="wf-type-supporting">{rediRockAttribution.supplierNote}</p>
           <div className="stc-rr-resources__links">
             <Link href={rediRockLinks.supplier} target="_blank" rel="noopener noreferrer" className="link-arrow">
@@ -36,7 +63,7 @@ export function RediRockResourcesBand() {
               Redi-Rock.com →
             </Link>
           </div>
-        </div>
+        </footer>
       </div>
     </section>
   );

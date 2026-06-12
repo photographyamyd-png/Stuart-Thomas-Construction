@@ -6,7 +6,8 @@ import { media } from "@/data/media";
 import { useTurnerHeroVideo } from "@/hooks/use-turner-hero-video";
 
 export function TurnerHero() {
-  const { videoRef, userPlaying, videoReady, showPoster, toggleVideo } = useTurnerHeroVideo();
+  const { videoRef, userPlaying, videoReady, showPoster, shouldLoadVideo, toggleVideo } =
+    useTurnerHeroVideo();
   const { hero } = conversion;
 
   return (
@@ -14,21 +15,22 @@ export function TurnerHero() {
       <video
         ref={videoRef}
         className={`turner-hero__video${videoReady ? " is-ready" : ""}${!userPlaying ? " is-paused" : ""}`}
-        autoPlay
         muted
         loop
         playsInline
-        preload="auto"
+        preload="none"
       >
-        <source src={media.homeHeroVideo} type="video/mp4" />
+        {shouldLoadVideo && <source src={media.homeHeroVideo} type="video/mp4" />}
       </video>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        className={`turner-hero__poster${showPoster ? " is-visible" : ""}`}
-        src={media.homeHeroPoster}
-        alt=""
-        aria-hidden
-      />
+      {showPoster && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          className="turner-hero__poster is-visible"
+          src={media.homeHeroPoster}
+          alt=""
+          aria-hidden
+        />
+      )}
       <div className="turner-hero__scrim" aria-hidden />
       <div className="turner-hero__inner">
         <p className="eyebrow">{hero.eyebrow}</p>

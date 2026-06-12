@@ -14,7 +14,7 @@ export function RediRockPortfolioBand({ installs = [] }: Props) {
   return (
     <section
       id="portfolio"
-      className="stc-rr-portfolio turner-band turner-band--dark turner-band--seam"
+      className="stc-rr-portfolio turner-band turner-band--dark"
       aria-labelledby="rr-portfolio-heading"
     >
       <div className="container stc-rr-portfolio__inner">
@@ -56,7 +56,7 @@ export function RediRockPortfolioBand({ installs = [] }: Props) {
               <span />
               <span />
             </div>
-            <p className="stc-rr-portfolio__placeholder-note">
+            <p className="wf-type-supporting stc-rr-portfolio__placeholder-note">
               Install photos coming soon — check Projects for the latest STC work.
             </p>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { scheduleDeferredVideoLoad, shouldSkipVideoLoad } from "@/lib/defer-video-load";
 import { applyVideoClip } from "@/lib/video-clip";
 import { media } from "@/data/media";
 
@@ -9,9 +10,11 @@ const CLIP_TOLERANCE = 0.25;
 
 export function useTurnerHeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const userPlayingRef = useRef(true);
   const [userPlaying, setUserPlaying] = useState(true);
   const [videoReady, setVideoReady] = useState(false);
   const [usePosterFallback, setUsePosterFallback] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
 
   const showPoster = !userPlaying || usePosterFallback;
 
@@ -19,6 +22,7 @@ export function useTurnerHeroVideo() {
     const video = videoRef.current;
     if (video) video.pause();
     setUserPlaying(false);
+    userPlayingRef.current = false;
     setVideoReady(false);
   }, []);
 
@@ -32,6 +36,7 @@ export function useTurnerHeroVideo() {
     if (!video) return;
     video.play().catch(markPosterFallback);
     setUserPlaying(true);
+    userPlayingRef.current = true;
   }, [markPosterFallback]);
 
   const toggleVideo = useCallback(() => {
@@ -40,6 +45,45 @@ export function useTurnerHeroVideo() {
   }, [userPlaying, playVideo, showPosterOnly]);
 
   useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const enterPosterMode = () => {
+      setUsePosterFallback(true);
+      showPosterOnly();
+    };
+
+    const tryStartVideo = () => {
+      if (shouldSkipVideoLoad() || reducedMotion.matches) {
+        enterPosterMode();
+        return;
+      }
+      setUsePosterFallback(false);
+      setShouldLoadVideo(true);
+    };
+
+    let cleanupDefer: (() => void) | undefined;
+
+    if (shouldSkipVideoLoad() || reducedMotion.matches) {
+      enterPosterMode();
+    } else {
+      cleanupDefer = scheduleDeferredVideoLoad(() => setShouldLoadVideo(true));
+    }
+
+    const onMotionChange = (e: MediaQueryListEvent) => {
+      if (e.matches) enterPosterMode();
+      else tryStartVideo();
+    };
+    reducedMotion.addEventListener("change", onMotionChange);
+
+    return () => {
+      cleanupDefer?.();
+      reducedMotion.removeEventListener("change", onMotionChange);
+    };
+  }, [showPosterOnly]);
+
+  useEffect(() => {
+    if (!shouldLoadVideo) return;
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -63,33 +107,25 @@ export function useTurnerHeroVideo() {
     video.addEventListener("timeupdate", onTimeUpdate);
     video.addEventListener("error", onError);
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    playVideo();
 
-    const applyMotionPreference = (matches: boolean) => {
-      if (matches) {
-        setUsePosterFallback(true);
-        showPosterOnly();
-      } else {
-        setUsePosterFallback(false);
-        playVideo();
+    const onVisibility = () => {
+      if (document.hidden) {
+        video.pause();
+      } else if (userPlayingRef.current) {
+        void video.play().catch(markPosterFallback);
       }
     };
-
-    applyMotionPreference(reducedMotion.matches);
-
-    const onMotionChange = (e: MediaQueryListEvent) => {
-      applyMotionPreference(e.matches);
-    };
-    reducedMotion.addEventListener("change", onMotionChange);
+    document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
       cleanupClip();
       video.removeEventListener("playing", onPlaying);
       video.removeEventListener("timeupdate", onTimeUpdate);
       video.removeEventListener("error", onError);
-      reducedMotion.removeEventListener("change", onMotionChange);
+      document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [playVideo, showPosterOnly, markPosterFallback]);
+  }, [shouldLoadVideo, playVideo, markPosterFallback]);
 
-  return { videoRef, userPlaying, videoReady, showPoster, toggleVideo };
+  return { videoRef, userPlaying, videoReady, showPoster, shouldLoadVideo, toggleVideo };
 }
