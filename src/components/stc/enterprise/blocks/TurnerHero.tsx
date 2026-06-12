@@ -1,30 +1,30 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { conversion } from "@/data/conversion";
 import { media } from "@/data/media";
 import { useTurnerHeroVideo } from "@/hooks/use-turner-hero-video";
 
 export function TurnerHero() {
-  const { videoRef, playing, toggleVideo } = useTurnerHeroVideo();
+  const { videoRef, userPlaying, videoReady, showPoster, toggleVideo } = useTurnerHeroVideo();
   const { hero } = conversion;
 
   return (
     <section className="turner-hero" id="hero" aria-labelledby="hero-heading">
       <video
         ref={videoRef}
-        className="turner-hero__video"
+        className={`turner-hero__video${videoReady ? " is-ready" : ""}${!userPlaying ? " is-paused" : ""}`}
+        autoPlay
         muted
         loop
         playsInline
-        poster={media.homeHeroPoster}
+        preload="auto"
       >
         <source src={media.homeHeroVideo} type="video/mp4" />
       </video>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className={`turner-hero__poster${playing ? "" : " is-visible"}`}
+        className={`turner-hero__poster${showPoster ? " is-visible" : ""}`}
         src={media.homeHeroPoster}
         alt=""
         aria-hidden
@@ -49,10 +49,10 @@ export function TurnerHero() {
       <button
         type="button"
         className="turner-hero__video-btn"
-        aria-pressed={playing}
+        aria-pressed={userPlaying}
         onClick={toggleVideo}
       >
-        {playing ? "Pause video" : "Play video"}
+        {userPlaying ? "Pause video" : "Play video"}
       </button>
     </section>
   );
