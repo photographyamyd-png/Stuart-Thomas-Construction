@@ -7,7 +7,7 @@ const defaultTitle = {
 };
 
 /** Default social share image — homepage hero still */
-export const DEFAULT_OG_IMAGE = "/images/20260508_110051.jpg";
+export const DEFAULT_OG_IMAGE = "/images/retouched/stc-tiny-township-landscaping.jpg";
 
 function absoluteImageUrl(imagePath: string): string {
   const base = site.url.replace(/\/$/, "");
@@ -16,7 +16,12 @@ function absoluteImageUrl(imagePath: string): string {
 
 function buildSocialImages(imagePath?: string) {
   const src = absoluteImageUrl(imagePath ?? DEFAULT_OG_IMAGE);
-  return [{ url: src, width: 1200, height: 630, alt: site.name }];
+  return [{
+    url: src,
+    width: 1200,
+    height: 630,
+    alt: `${site.name} — Tiny Township construction and landscaping, South Georgian Bay`,
+  }];
 }
 
 export function rootMetadata(): Metadata {
@@ -104,7 +109,13 @@ export function buildServiceJsonLd(opts: {
     name: opts.name,
     description: opts.description,
     provider: { "@type": "LocalBusiness", name: site.name, url: site.url },
-    areaServed: ["Tiny Township", "Wasaga Beach", "Collingwood"],
+    areaServed: [
+      "Tiny Township",
+      "Wasaga Beach",
+      "Collingwood",
+      "Perkinsfield",
+      "South Georgian Bay",
+    ],
     url: `${base}${opts.path}`,
   };
 }
@@ -122,6 +133,17 @@ export function buildLocalBusinessJsonLd() {
       { "@type": "AdministrativeArea", name: "Tiny Township" },
       { "@type": "AdministrativeArea", name: "Wasaga Beach" },
       { "@type": "AdministrativeArea", name: "Collingwood" },
+      { "@type": "Place", name: "South Georgian Bay" },
+      { "@type": "Place", name: "Perkinsfield" },
+    ],
+    knowsAbout: [
+      "Tiny Township construction",
+      "Tiny Township landscaping",
+      "Armour stone retaining walls",
+      "Waterfront stone work",
+      "Hardscaping",
+      "Excavation and grading",
+      "Commercial snow removal",
     ],
     address: {
       "@type": "PostalAddress",
@@ -129,6 +151,22 @@ export function buildLocalBusinessJsonLd() {
       addressRegion: site.address.region,
       addressCountry: site.address.country,
     },
+  };
+}
+
+export function buildAreaJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  const base = site.url.replace(/\/$/, "");
+  return {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    name: opts.name,
+    description: opts.description,
+    url: `${base}${opts.path.startsWith("/") ? opts.path : `/${opts.path}`}`,
+    containedInPlace: { "@type": "Place", name: "South Georgian Bay, Ontario" },
   };
 }
 

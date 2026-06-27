@@ -23,9 +23,9 @@ export function RediRockHero() {
             Redi-Rock Installation by <span className="text-accent-gold">Stuart Thomas Construction</span>
           </h1>
           <p className="wf-type-supporting">
-            We install engineered Redi-Rock retaining and freestanding systems sourced through
-            The Sarjeant Co. for structural grade changes, waterfront terraces, and outdoor
-            living across South Georgian Bay.
+            We install Redi-Rock retaining and freestanding walls for slopes, waterfront terraces, and
+            outdoor spaces across Tiny Township and South Georgian Bay. Materials supplied by The
+            Sarjeant Co.
           </p>
           <ManufacturerAttribution variant="compact" className="stack-title" />
           <div className="stc-rr-hero__actions stack-cta">

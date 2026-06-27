@@ -6,7 +6,7 @@ import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact & Request a Quote",
+  title: "Contact & Request a Quote | Tiny Township Construction",
   description: conversion.contactIntro,
   path: "/contact",
 });

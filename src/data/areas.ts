@@ -17,54 +17,55 @@ export const areas: AreaDetail[] = [
   {
     slug: "tiny-township",
     name: "Tiny Township",
-    metaTitle: "Construction & Stone Work in Tiny Township | Stuart Thomas Construction",
+    metaTitle: "Tiny Township Construction & Landscaping | Stuart Thomas Construction",
     metaDescription:
-      "Armour stone, waterfront work, landscaping, and excavation in Tiny Township and Georgian Bay cottage country.",
-    headline: "Premium outdoor construction in Tiny Township",
+      "Tiny Township construction and landscaping — armour stone, waterfront stone work, hardscaping, excavation, and commercial snow removal.",
+    headline: "Tiny Township construction and landscaping",
     intro: [
-      "Tiny Township demands work that respects shoreline exposure, seasonal access, and the expectations of cottage-country homeowners.",
-      "Stuart Thomas Construction delivers armour stone, waterfront assemblies, and full-site outdoor builds with equipment discipline and refined finishing.",
+      "Tiny Township properties sit on shoreline, sandy lots, and tight cottage access. We build armour stone walls, waterfront stairs, patios, and full outdoor sites here.",
+      "We also run commercial snow routes in Tiny Township in winter — from Balm Beach and Thunder Beach to Perkinsfield and Lafontaine.",
     ],
     highlights: [
-      "Waterfront retention and stone stairs",
-      "Cottage access and tight-lot equipment work",
+      "Waterfront retaining walls and stone stairs",
+      "Tiny Township landscaping — grading, beds, and finishing",
+      "Tight-lot excavation and site prep",
       "Commercial snow routes in winter",
     ],
-    relatedServices: ["armour-stone", "waterfront-stone-work", "excavation", "commercial-snow-removal"],
+    relatedServices: ["armour-stone", "waterfront-stone-work", "landscaping", "excavation", "commercial-snow-removal"],
   },
   {
     slug: "wasaga-beach",
     name: "Wasaga Beach",
-    metaTitle: "Landscaping & Stone Work in Wasaga Beach | Stuart Thomas Construction",
+    metaTitle: "Construction & Landscaping in Wasaga Beach | Stuart Thomas Construction",
     metaDescription:
-      "Luxury hardscaping, waterfront stone, and excavation serving Wasaga Beach and the South Georgian Bay coast.",
-    headline: "Built for coastal exposure in Wasaga Beach",
+      "Armour stone, waterfront stone work, hardscaping, and excavation in Wasaga Beach and along the South Georgian Bay coast.",
+    headline: "Outdoor builds for Wasaga Beach properties",
     intro: [
-      "Wasaga Beach properties face wind, sand-base challenges, and high visibility finishes. We detail drainage and interfaces for long-term stability.",
-      "From shoreline transitions to premium patios, our crews bring industrial capability and architectural precision.",
+      "Wasaga Beach lots deal with wind off the bay, sandy soil, and finishes that get noticed. We plan drainage and stone work that holds up over time.",
+      "From shoreline steps to patios and retaining walls, our crews handle the full outdoor scope.",
     ],
     highlights: [
-      "Shoreline stone and access work",
-      "Hardscaping for coastal homes",
-      "Grading and drainage-aware earthwork",
+      "Shoreline stone and waterfront access",
+      "Patios and hardscaping for coastal homes",
+      "Grading and drainage-aware excavation",
     ],
     relatedServices: ["waterfront-stone-work", "hardscaping", "landscaping", "excavation"],
   },
   {
     slug: "collingwood",
     name: "Collingwood",
-    metaTitle: "Luxury Hardscaping & Stone in Collingwood | Stuart Thomas Construction",
+    metaTitle: "Hardscaping & Stone Work in Collingwood | Stuart Thomas Construction",
     metaDescription:
-      "High-end hardscaping, armour stone, and landscape construction in Collingwood and Blue Mountain country.",
-    headline: "Luxury outdoor builds in Collingwood",
+      "Armour stone, hardscaping, landscaping, and excavation in Collingwood and Blue Mountain country.",
+    headline: "Stone work and outdoor builds in Collingwood",
     intro: [
-      "Collingwood homeowners expect outdoor spaces that match the calibre of the home — clean lines, premium materials, and reliable execution.",
-      "We integrate stone, grade, and hardscape into cohesive environments built to perform through Ontario seasons.",
+      "Collingwood properties often sit on sloped lots near the escarpment. We build retaining walls, patios, and outdoor spaces that match the home and handle Ontario winters.",
+      "One crew handles grading, stone, and landscape finishing so your property comes together as one project.",
     ],
     highlights: [
-      "Upscale patios and architectural stone",
-      "Retaining and terracing on sloped lots",
-      "Full-site landscape and hardscape integration",
+      "Patios and natural stone hardscaping",
+      "Retaining walls and terracing on sloped lots",
+      "Full-site landscaping and hardscape integration",
     ],
     relatedServices: ["hardscaping", "landscaping", "armour-stone", "excavation"],
   },
@@ -73,7 +74,7 @@ export const areas: AreaDetail[] = [
 export const areasHubCopy = {
   title: "Service Areas",
   description:
-    "We serve Tiny Township, Wasaga Beach, Collingwood, Perkinsfield, and the broader South Georgian Bay corridor.",
+    "Tiny Township construction and landscaping, plus stone work and excavation in Wasaga Beach, Collingwood, Perkinsfield, and South Georgian Bay.",
 };
 
 export function getAreaBySlug(slug: string): AreaDetail | undefined {

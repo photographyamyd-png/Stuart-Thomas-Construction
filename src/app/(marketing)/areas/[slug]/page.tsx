@@ -4,7 +4,7 @@ import { EnterpriseAreaPage } from "@/components/stc/enterprise/EnterpriseAreaPa
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { getAllAreaSlugs, getAreaBySlug } from "@/data/areas";
 import { media } from "@/data/media";
-import { buildBreadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { buildAreaJsonLd, buildBreadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -32,11 +32,18 @@ export default async function AreaPage({ params }: Props) {
   return (
     <>
       <JsonLdScript
-        data={buildBreadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Areas", path: "/areas" },
-          { name: area.name, path: `/areas/${area.slug}` },
-        ])}
+        data={[
+          buildBreadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Areas", path: "/areas" },
+            { name: area.name, path: `/areas/${area.slug}` },
+          ]),
+          buildAreaJsonLd({
+            name: area.name,
+            description: area.metaDescription,
+            path: `/areas/${area.slug}`,
+          }),
+        ]}
       />
       <EnterpriseAreaPage area={area} />
     </>

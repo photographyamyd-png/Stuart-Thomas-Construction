@@ -4,7 +4,7 @@ import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: `${site.tagline} | Premium Construction`,
+  title: `${site.tagline} | Tiny Township Construction & Landscaping`,
   description: site.description,
   path: "/",
 });

@@ -16,8 +16,8 @@ export function EnterpriseAboutPage() {
     <>
       <EnterprisePageHero
         eyebrow="About STC"
-        title="Built On Integrity. Engineered To Last."
-        description={`${site.name} delivers armour stone, luxury waterfront assemblies, landscaping, hardscaping, excavation, and commercial snow removal with equipment discipline and architectural finishing standards.`}
+        title="Built On Integrity. Built To Last."
+        description={`${site.name} delivers armour stone, waterfront stone work, landscaping, hardscaping, excavation, and commercial snow removal — with clear communication and careful work on every site.`}
         imageSrc={media.aboutHero}
         imageAlt="Stuart Thomas Construction team and project site"
         breadcrumbs={[
@@ -32,20 +32,17 @@ export function EnterpriseAboutPage() {
             <p className="eyebrow green">Our Story</p>
             <h2 className="text-display text-display--section stack-title">{site.tagline}</h2>
             <p className="stc-enterprise-body">
-              Stuart Thomas Construction delivers armour stone, luxury waterfront assemblies,
-              landscaping, hardscaping, excavation, and commercial snow removal with equipment
-              discipline and architectural finishing standards.
-            </p>
-            <p className="stc-enterprise-body">
-              We serve homeowners and commercial clients across{" "}
+              We&apos;re a Tiny Township construction company that handles outdoor work from the ground
+              up — grading, stone, landscaping, and winter snow routes. We serve homeowners and
+              commercial clients across{" "}
               {areas.map((a, i) => (
                 <span key={a.slug}>
                   {i > 0 ? (i === areas.length - 1 ? ", and " : ", ") : null}
                   <Link href={`/areas/${a.slug}`}>{a.name}</Link>
                 </span>
               ))}
-              . Whether you need a structural retaining wall or a full outdoor transformation, our
-              crews bring unyielding capability and honest communication to every site.
+              . Whether you need a retaining wall or a full outdoor transformation, our crews bring
+              capable equipment and honest communication to every site.
             </p>
           </div>
           <div>
@@ -113,8 +110,8 @@ export function EnterpriseAboutPage() {
             Rooted In <span className="text-accent-gold">South Georgian Bay</span>
           </h2>
           <p>
-            Together we strengthen shorelines, elevate estates, and deliver outdoor builds neighbours
-            can trust across Tiny Township, Wasaga Beach, Collingwood, and Muskoka.
+            Shoreline walls, patios, and landscaping that hold up through Georgian Bay winters across
+            Tiny Township, Wasaga Beach, Collingwood, and surrounding areas.
           </p>
           <ul className="area-pills">
             {areas.map((area, i) => (

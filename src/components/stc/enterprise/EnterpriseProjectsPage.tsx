@@ -17,7 +17,7 @@ export function EnterpriseProjectsPage({ galleryItems, initialCategory }: Props)
       <EnterprisePageHero
         eyebrow="Portfolio"
         title="Project Gallery"
-        description={`${galleryItems.length} photos from armour stone, waterfront, landscaping, hardscaping, excavation, Redi-Rock installs, and snow removal sites across South Georgian Bay.`}
+        description={`${galleryItems.length} photos from Tiny Township construction and landscaping — armour stone, waterfront, hardscaping, excavation, Redi-Rock, and snow removal across South Georgian Bay.`}
         imageSrc={media.projectsHero}
         imageAlt="Construction project gallery"
         breadcrumbs={[

@@ -9,7 +9,7 @@ import { buildBreadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Project Gallery",
   description:
-    "Explore Stuart Thomas Construction project photography — armour stone, waterfront, landscaping, hardscaping, excavation, Redi-Rock installs, and snow removal.",
+    "Photos from Tiny Township construction and landscaping projects — armour stone, waterfront, hardscaping, excavation, Redi-Rock, and snow removal across South Georgian Bay.",
   path: "/projects",
 });
 

@@ -21,6 +21,13 @@ import { ServiceWorkShowcase } from "./ServiceWorkShowcase";
 
 type RediRockServiceSlug = keyof typeof rediRockServiceCallouts;
 
+const VIDEO_HERO_SLUGS = new Set<ServiceSlug>(["landscaping", "hardscaping"]);
+
+function serviceHeroVideo(slug: ServiceSlug): string {
+  if (slug === "hardscaping") return media.hardscapingHeroVideo;
+  return media.landscapingHeroVideo;
+}
+
 function isRediRockServiceSlug(slug: ServiceSlug): slug is RediRockServiceSlug {
   return slug in rediRockServiceCallouts;
 }
@@ -35,7 +42,7 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
   const capImages = getServiceCapabilityImages(service.slug);
   const workShowcase = getServiceWorkShowcase(service.slug);
   const { prev, next } = getAdjacentServices(service.slug);
-  const isImmersiveHero = service.slug === "landscaping";
+  const isImmersiveHero = VIDEO_HERO_SLUGS.has(service.slug);
 
   return (
     <>
@@ -45,9 +52,9 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
       >
         {isImmersiveHero ? (
           <BackgroundVideo
-            mp4Src={media.landscapingHeroVideo}
+            mp4Src={serviceHeroVideo(service.slug)}
             posterSrc={heroSrc}
-            posterAlt=""
+            posterAlt={service.heroAlt}
           />
         ) : (
           <Image src={heroSrc} alt={service.heroAlt} fill priority sizes="100vw" className="object-cover" />
@@ -64,7 +71,7 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
               </p>
             </div>
             <div className="stc-svc-page__hero-copy">
-              <p className="eyebrow eyebrow--on-dark">Structural Stone</p>
+              <p className="eyebrow eyebrow--on-dark">{service.shortLabel}</p>
               <h1 id="svc-heading" className="text-display stack-eyebrow">
                 {service.title}
               </h1>

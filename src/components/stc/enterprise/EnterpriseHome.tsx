@@ -47,7 +47,7 @@ export function EnterpriseHome() {
           <li>
             <Link className="turner-pathfinder__card" href="#services">
               <h2>Our Services</h2>
-              <p>Six disciplines from excavation through commercial snow — one accountable team on site.</p>
+              <p>Six services, one crew — excavation, stone, landscaping, and snow removal.</p>
               <span className="link-arrow">
                 Explore Services{" "}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
@@ -59,7 +59,7 @@ export function EnterpriseHome() {
           <li>
             <Link className="turner-pathfinder__card" href="/about">
               <h2>About STC</h2>
-              <p>Twenty years of honest work, local relationships, and builds engineered to last.</p>
+              <p>Twenty years of honest work on local properties.</p>
               <span className="link-arrow">
                 Learn More{" "}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
@@ -161,8 +161,8 @@ export function EnterpriseHome() {
         <div className="stc-built-strong__inner">
           <h2 id="built-strong-heading">{site.tagline}</h2>
           <p>
-            We deliver armour stone, waterfront assemblies, and full-site outdoor construction with
-            the discipline and honesty your property deserves.
+            Armour stone, waterfront steps, and full outdoor builds — with straight talk from quote to
+            finish.
           </p>
           <Link href="/contact" className="btn-accent btn-accent--lg">
             Get a Quote
@@ -181,13 +181,13 @@ export function EnterpriseHome() {
           <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
         </div>
         <div className="turner-regional__copy">
-          <p className="eyebrow eyebrow--on-dark">Muskoka &amp; South Georgian Bay</p>
+          <p className="eyebrow eyebrow--on-dark">Tiny Township &amp; South Georgian Bay</p>
           <h2 id="regional-heading" className="text-display">
             Our Work In Your <span className="accent text-accent-gold">Community</span>
           </h2>
           <p>
-            Together we strengthen shorelines, elevate estates, and deliver outdoor builds neighbours
-            can trust across Tiny Township, Wasaga Beach, Collingwood, and Muskoka.
+            We build retaining walls, patios, and waterfront stone across Tiny Township, Wasaga Beach,
+            and Collingwood — including Balm Beach, Thunder Beach, and Perkinsfield.
           </p>
           <ul className="area-pills">
             {areas.map((area, i) => (

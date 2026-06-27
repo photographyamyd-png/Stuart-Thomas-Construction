@@ -13,13 +13,13 @@ const MEGA_PROJECTS = [
   {
     image: media.featuredGalleryPaths[0],
     category: "Waterfront",
-    title: "Georgian Bay Assembly",
+    title: "Georgian Bay Shoreline",
     href: "/projects",
   },
   {
     image: media.featuredGalleryPaths[1],
     category: "Armour Stone",
-    title: "Estate Retaining Wall",
+    title: "Armour Stone Retaining Wall",
     href: "/projects",
   },
   {
@@ -198,7 +198,7 @@ export function EnterpriseHeader() {
                   height={260}
                   loading="lazy"
                 />
-                <p>Armour stone placement and shoreline protection on a Muskoka estate build.</p>
+                <p>Armour stone retaining and shoreline protection on Georgian Bay.</p>
                 <LinkArrow href="/projects" className="link-arrow stack-cta" onClick={closeLux}>
                   View project
                 </LinkArrow>
@@ -273,8 +273,7 @@ export function EnterpriseHeader() {
               <div className="stc-lux-panel__col">
                 <p className="eyebrow eyebrow--plain eyebrow--on-dark">Since 2004</p>
                 <p className="stc-lux-panel__blurb">
-                  Premium outdoor construction across South Georgian Bay — armour stone, waterfront
-                  assemblies, and full-site builds with honest communication on every site.
+                  Outdoor construction across South Georgian Bay — armour stone, landscaping, and full outdoor builds from our base in Tiny Township.
                 </p>
                 <LinkArrow href="/about" className="stack-cta" onClick={closeLux}>
                   Get to know us

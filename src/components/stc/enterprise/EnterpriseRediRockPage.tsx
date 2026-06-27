@@ -31,7 +31,7 @@ export function EnterpriseRediRockPage({ stcInstalls = [] }: Props) {
         <RediRockRelatedBand />
         <EnterpriseCtaBand
           headline="Discuss Your Redi-Rock Project"
-          subline="Tell us about grade changes, waterfront interfaces, or engineered wall requirements. We coordinate installation with materials sourced through The Sarjeant Co."
+          subline="Tell us about grade changes, waterfront work, or retaining wall requirements. We coordinate installation with materials sourced through The Sarjeant Co."
           buttonLabel="Request an Install Quote"
         />
         <footer className="stc-rr-page__disclaimer turner-band turner-band--dark">

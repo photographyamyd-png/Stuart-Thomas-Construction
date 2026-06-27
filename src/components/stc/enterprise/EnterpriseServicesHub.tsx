@@ -8,8 +8,8 @@ export function EnterpriseServicesHub() {
     <>
       <EnterprisePageHero
         eyebrow="Our Services"
-        title="Six Disciplines. One Accountable Team."
-        description="Industrial capability meets architectural precision — armour stone, waterfront assemblies, landscaping, hardscaping, excavation, and commercial snow removal across South Georgian Bay."
+        title="Six Services. One Crew."
+        description="Armour stone, waterfront stone work, landscaping, hardscaping, excavation, and commercial snow removal across Tiny Township and South Georgian Bay."
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Services", path: "/services" },
@@ -25,8 +25,8 @@ export function EnterpriseServicesHub() {
             Each Service Has Its <span className="text-accent-green">Own Page</span>
           </h2>
           <p className="stc-enterprise-body prose-narrow stack-body">
-            Select a discipline above for scope, process, FAQs, and related services. Every page links to
-            the areas we serve and a direct path to request a quote.
+            Pick a service above for details, photos, and common questions. Every page links to the
+            areas we serve and a direct path to request a quote.
           </p>
           <Link href="/contact" className="btn-green stack-cta cta-inline">
             Request a Quote
