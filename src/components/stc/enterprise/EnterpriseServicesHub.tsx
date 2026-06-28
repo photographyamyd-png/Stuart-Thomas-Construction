@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { conversion } from "@/data/conversion";
+import { pageHeadlines } from "@/data/copy";
 import { ServiceOverlayGrid } from "./blocks/ServiceOverlayGrid";
 import { EnterpriseCtaBand } from "./blocks/EnterpriseCtaBand";
 import { EnterprisePageHero } from "./blocks/EnterprisePageHero";
@@ -8,8 +10,8 @@ export function EnterpriseServicesHub() {
     <>
       <EnterprisePageHero
         eyebrow="Our Services"
-        title="Six Services. One Crew."
-        description="Armour stone, waterfront stone work, landscaping, hardscaping, excavation, and commercial snow removal across Tiny Township and South Georgian Bay."
+        title={pageHeadlines.servicesHub.title}
+        description={pageHeadlines.servicesHub.description}
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Services", path: "/services" },
@@ -29,7 +31,7 @@ export function EnterpriseServicesHub() {
             areas we serve and a direct path to request a quote.
           </p>
           <Link href="/contact" className="btn-green stack-cta cta-inline">
-            Request a Quote
+            {conversion.serviceCta.button}
           </Link>
         </div>
       </section>

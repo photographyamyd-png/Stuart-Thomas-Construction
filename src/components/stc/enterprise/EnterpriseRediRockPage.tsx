@@ -1,4 +1,6 @@
 import type { GalleryItem } from "@/data/gallery";
+import { pageHeadlines } from "@/data/copy";
+import { conversion } from "@/data/conversion";
 import { rediRockAttribution } from "@/data/redi-rock";
 import { EnterpriseCtaBand } from "./blocks/EnterpriseCtaBand";
 import { RediRockCompareBand } from "./redi-rock/RediRockCompareBand";
@@ -32,7 +34,9 @@ export function EnterpriseRediRockPage({ stcInstalls = [] }: Props) {
         <EnterpriseCtaBand
           headline="Discuss Your Redi-Rock Project"
           subline="Tell us about grade changes, waterfront work, or retaining wall requirements. We coordinate installation with materials sourced through The Sarjeant Co."
-          buttonLabel="Request an Install Quote"
+          buttonLabel={conversion.consultCta.label}
+          buttonHref={conversion.consultCta.href}
+          eyebrow={pageHeadlines.ctaEyebrows.nextStep}
         />
         <footer className="stc-rr-page__disclaimer turner-band turner-band--dark">
           <div className="container">

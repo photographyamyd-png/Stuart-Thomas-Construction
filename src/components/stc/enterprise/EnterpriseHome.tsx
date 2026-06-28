@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { areas } from "@/data/areas";
+import { areaCopy, pageHeadlines } from "@/data/copy";
 import { conversion } from "@/data/conversion";
 import {
   enterpriseFeaturedProject,
@@ -9,6 +10,7 @@ import {
   enterpriseQuote,
 } from "@/data/enterprise";
 import { media } from "@/data/media";
+import { cta } from "@/data/nav";
 import { site } from "@/data/site";
 import { CapabilityFeatureStrip } from "./blocks/CapabilityFeatureStrip";
 import { CommitmentsAccordion } from "./blocks/CommitmentsAccordion";
@@ -23,8 +25,30 @@ export function EnterpriseHome() {
     <>
       <TurnerHero />
 
+      <ServiceIconStrip />
+
+      <div className="turner-band-divider turner-band-divider--dark" aria-hidden />
+
       <section
-        className="turner-pathfinder turner-band turner-band--light turner-band--seam"
+        className="turner-featured turner-band turner-band--dark turner-band--seam"
+        id="featured"
+        aria-labelledby="featured-heading"
+      >
+        <div className="turner-featured__media">
+          <Image src={enterpriseFeaturedProject.image} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
+        </div>
+        <div className="turner-featured__copy container">
+          <p className="eyebrow eyebrow--on-dark">{enterpriseFeaturedProject.eyebrow}</p>
+          <h2 id="featured-heading" className="text-display">
+            {enterpriseFeaturedProject.title} <span>{enterpriseFeaturedProject.titleAccent}</span>
+          </h2>
+          <p>{enterpriseFeaturedProject.description}</p>
+          <LinkArrow href={enterpriseFeaturedProject.href}>View Project</LinkArrow>
+        </div>
+      </section>
+
+      <section
+        className="turner-pathfinder turner-band turner-band--light"
         id="pathfinder"
         aria-label="Choose your path"
       >
@@ -47,7 +71,7 @@ export function EnterpriseHome() {
           <li>
             <Link className="turner-pathfinder__card" href="#services">
               <h2>Our Services</h2>
-              <p>Six services, one crew — excavation, stone, landscaping, and snow removal.</p>
+              <p>{pageHeadlines.home.pathfinderServices}</p>
               <span className="link-arrow">
                 Explore Services{" "}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
@@ -72,24 +96,6 @@ export function EnterpriseHome() {
       </section>
 
       <section
-        className="turner-featured turner-band turner-band--dark turner-band--seam"
-        id="featured"
-        aria-labelledby="featured-heading"
-      >
-        <div className="turner-featured__media">
-          <Image src={enterpriseFeaturedProject.image} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
-        </div>
-        <div className="turner-featured__copy container">
-          <p className="eyebrow eyebrow--on-dark">{enterpriseFeaturedProject.eyebrow}</p>
-          <h2 id="featured-heading" className="text-display">
-            {enterpriseFeaturedProject.title} <span>{enterpriseFeaturedProject.titleAccent}</span>
-          </h2>
-          <p>{enterpriseFeaturedProject.description}</p>
-          <LinkArrow href={enterpriseFeaturedProject.href}>View Project</LinkArrow>
-        </div>
-      </section>
-
-      <section
         className="turner-insights turner-band turner-band--light turner-band--seam"
         id="insights"
         aria-labelledby="insights-heading"
@@ -98,7 +104,7 @@ export function EnterpriseHome() {
           <header className="turner-insights__head">
             <p className="eyebrow">From The Field</p>
             <h2 id="insights-heading" className="text-display">
-              Recent <span className="text-accent-gold">Highlights</span>
+              Recent <span className="text-accent-green">Highlights</span>
             </h2>
           </header>
           <div className="turner-insights__track" role="list">
@@ -141,7 +147,7 @@ export function EnterpriseHome() {
           <p className="eyebrow eyebrow--on-dark">{enterpriseHomeShowcase.eyebrow}</p>
           <h2 id="showcase-heading" className="text-display">
             {enterpriseHomeShowcase.headline}{" "}
-            <span className="text-accent-gold">{enterpriseHomeShowcase.headlineAccent}</span>
+            <span className="text-accent-green">{enterpriseHomeShowcase.headlineAccent}</span>
           </h2>
           <p className="wf-type-supporting stc-showcase__statement">{enterpriseHomeShowcase.statement}</p>
           <p className="wf-type-supporting stc-showcase__body">{enterpriseHomeShowcase.body}</p>
@@ -150,8 +156,6 @@ export function EnterpriseHome() {
           </Link>
         </div>
       </section>
-
-      <ServiceIconStrip />
 
       <section className="stc-built-strong" id="built-strong" aria-labelledby="built-strong-heading">
         <div className="stc-built-strong__bg">
@@ -164,8 +168,8 @@ export function EnterpriseHome() {
             Armour stone, waterfront steps, and full outdoor builds — with straight talk from quote to
             finish.
           </p>
-          <Link href="/contact" className="btn-accent btn-accent--lg">
-            Get a Quote
+          <Link href={cta.primaryHref} className="btn-accent btn-accent--lg">
+            {cta.primaryLabel}
           </Link>
         </div>
       </section>
@@ -181,14 +185,11 @@ export function EnterpriseHome() {
           <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
         </div>
         <div className="turner-regional__copy">
-          <p className="eyebrow eyebrow--on-dark">Tiny Township &amp; South Georgian Bay</p>
+          <p className="eyebrow eyebrow--on-dark">Simcoe County &amp; South Georgian Bay</p>
           <h2 id="regional-heading" className="text-display">
-            Our Work In Your <span className="accent text-accent-gold">Community</span>
+            Our Work In Your <span className="text-accent-green">Community</span>
           </h2>
-          <p>
-            We build retaining walls, patios, and waterfront stone across Tiny Township, Wasaga Beach,
-            and Collingwood — including Balm Beach, Thunder Beach, and Perkinsfield.
-          </p>
+          <p>{areaCopy.corridorBlurb()}</p>
           <ul className="area-pills">
             {areas.map((area, i) => (
               <li key={area.slug}>
@@ -220,16 +221,16 @@ export function EnterpriseHome() {
         aria-labelledby="contact-heading"
       >
         <div className="turner-contact__copy">
-          <p className="eyebrow eyebrow--on-dark">Start Your Project</p>
+          <p className="eyebrow eyebrow--on-dark">{pageHeadlines.ctaEyebrows.startProject}</p>
           <h2 id="contact-heading" className="text-display stack-title">
-            Ready To <span>Build?</span>
+            Ready to Talk About <span>Your Project?</span>
           </h2>
           <p>{conversion.contactIntro}</p>
           <Link
             href="/contact"
             className="btn-green stack-cta cta-self-start"
           >
-            Request a Quote
+            {conversion.serviceCta.button}
           </Link>
         </div>
         <EnterpriseContactForm />

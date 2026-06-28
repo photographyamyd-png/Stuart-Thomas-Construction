@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { BackgroundVideo } from "@/components/media/BackgroundVideo";
 import {
   Accordion,
@@ -7,10 +7,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { areas } from "@/data/areas";
+import { areas, getAreaBySlug } from "@/data/areas";
+import { pageHeadlines } from "@/data/copy";
 import { conversion } from "@/data/conversion";
+import { getFeaturedAreaSlugsForService } from "@/data/geo";
 import type { GalleryItem } from "@/data/gallery";
 import { getServiceCapabilityImages, getServiceHero, getServiceWorkShowcase, media } from "@/data/media";
+import { cta } from "@/data/nav";
 import { rediRockServiceCallouts } from "@/data/redi-rock";
 import type { ServiceDetail, ServiceSlug } from "@/data/services";
 import { getAdjacentServices, getServiceBySlug } from "@/data/services";
@@ -43,6 +46,12 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
   const workShowcase = getServiceWorkShowcase(service.slug);
   const { prev, next } = getAdjacentServices(service.slug);
   const isImmersiveHero = VIDEO_HERO_SLUGS.has(service.slug);
+  const featuredAreaSlugs = getFeaturedAreaSlugsForService(service.slug);
+  const featuredAreas = featuredAreaSlugs
+    .map((slug) => getAreaBySlug(slug))
+    .filter((area): area is NonNullable<typeof area> => Boolean(area));
+  const isCommercialCorridor =
+    service.slug === "commercial-snow-removal" || service.slug === "excavation";
 
   return (
     <>
@@ -76,8 +85,8 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
                 {service.title}
               </h1>
               <p className="wf-type-supporting">{service.shortDescription}</p>
-              <Link href="/contact" className="btn-green stack-cta cta-inline">
-                Get a Quote
+              <Link href={cta.primaryHref} className="btn-green stack-cta cta-inline">
+                {cta.primaryLabel}
               </Link>
             </div>
           </>
@@ -94,8 +103,8 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
               {service.title}
             </h1>
             <p className="wf-type-supporting">{service.shortDescription}</p>
-            <Link href="/contact" className="btn-green stack-cta cta-inline">
-              Get a Quote
+            <Link href={cta.primaryHref} className="btn-green stack-cta cta-inline">
+              {cta.primaryLabel}
             </Link>
           </div>
         )}
@@ -107,7 +116,10 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
             <div>
               <p className="eyebrow green">Overview</p>
               <h2 className="text-display text-display--section stack-title">
-                Built To Read As <span className="text-accent-green">Permanent</span>
+                {service.overviewHeadline ?? "Built To Read As"}{" "}
+                <span className="text-accent-green">
+                  {service.overviewHeadlineAccent ?? "Permanent"}
+                </span>
               </h2>
               {service.overview.map((p) => (
                 <p key={p.slice(0, 40)}>{p}</p>
@@ -124,6 +136,33 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
           </div>
         </div>
       </section>
+
+      {featuredAreas.length > 0 && (
+        <section className="stc-svc-page__intro turner-band turner-band--light turner-band--seam">
+          <div className="container">
+            <p className="eyebrow green">
+              {isCommercialCorridor ? "Commercial Service Areas" : "Construction Service Areas"}
+            </p>
+            <h2 className="text-display text-display--subsection stack-title">
+              {isCommercialCorridor
+                ? "Midland, Penetanguishene & South Georgian Bay Routes"
+                : "Tiny Township, Wasaga Beach & Collingwood Builds"}
+            </h2>
+            <p className="stc-enterprise-body stack-title">
+              {isCommercialCorridor
+                ? "Seasonal snow contracts and commercial site prep across these corridors — see area pages for local detail."
+                : "Construction and landscaping across these communities — see area pages for local project scope."}
+            </p>
+            <ul className="stc-svc-page__related-pills">
+              {featuredAreas.map((area) => (
+                <li key={area.slug}>
+                  <Link href={`/areas/${area.slug}`}>{area.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <ServiceCapabilitiesBand
         subServices={service.subServices}
@@ -219,7 +258,7 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
           <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
         </div>
         <div className="turner-regional__copy">
-          <p className="eyebrow eyebrow--on-dark">Start Your Project</p>
+          <p className="eyebrow eyebrow--on-dark">{pageHeadlines.ctaEyebrows.nextStep}</p>
           <h2 className="text-display stack-title">
             {conversion.serviceCta.headline}
           </h2>

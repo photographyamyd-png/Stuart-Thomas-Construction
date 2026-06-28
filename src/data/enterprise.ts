@@ -97,7 +97,8 @@ export const enterpriseHomeShowcase = {
   eyebrow: "Full Outdoor Builds",
   headline: "From Grade",
   headlineAccent: "To Finish",
-  statement: "One crew on your property from excavation through stone and landscaping.",
+  statement:
+    "Rough grade through finished stone and landscape — handled as one outdoor build on your property.",
   body:
     "Tiny Township construction and landscaping for custom homes and cottages — grading, hardscaping, and outdoor finishing across South Georgian Bay.",
   imageAlt: "Modern three-storey residential home built by Stuart Thomas Construction",

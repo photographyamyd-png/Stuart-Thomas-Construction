@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { footerColumns } from "@/data/nav";
+import { conversion } from "@/data/conversion";
+import { footerColumns, cta } from "@/data/nav";
 import { site } from "@/data/site";
 
 export function EnterpriseFooter() {
@@ -43,7 +44,7 @@ export function EnterpriseFooter() {
               <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
             </li>
             <li>
-              <Link href="/contact">Request a Quote</Link>
+              <Link href={cta.primaryHref}>{conversion.serviceCta.button}</Link>
             </li>
           </ul>
         </div>

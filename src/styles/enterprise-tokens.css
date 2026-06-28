@@ -134,7 +134,7 @@
 
   /* —— Layout —— */
   --max-w: 80rem;
-  --pad-x: 1.5rem;
+  --pad-x: clamp(1rem, 4vw, 1.5rem);
   --pad-x-lg: 3rem;
   --header-h: 5rem;
   --mega-top: var(--header-h);
@@ -203,6 +203,7 @@
   --ent-role-link: var(--stc-accent);
   --ent-role-eyebrow-on-dark: var(--stc-accent);
   --ent-role-eyebrow-on-light: var(--stc-green);
+  --ent-role-accent-on-dark: color-mix(in srgb, var(--stc-green) 55%, white);
   --ent-role-emphasis-on-overlay: var(--stc-accent);
   /* Legacy aliases */
   --ent-role-cta-primary-bg: var(--ent-role-cta-bg);

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { areas } from "@/data/areas";
 import { media } from "@/data/media";
-import { footerColumns, navServices } from "@/data/nav";
+import { footerColumns, navServices, cta } from "@/data/nav";
 import { useEnterpriseNav } from "@/hooks/use-enterprise-nav";
 import { LinkArrow, Wordmark } from "./primitives";
 
@@ -135,8 +135,8 @@ export function EnterpriseHeader() {
           </nav>
 
           <div className="turner-header__actions">
-            <Link href="/contact" className="btn-header-cta">
-              Get a Quote
+            <Link href={cta.primaryHref} className="btn-header-cta">
+              {cta.primaryLabel}
             </Link>
             <button
               type="button"
@@ -325,8 +325,8 @@ export function EnterpriseHeader() {
             Contact
           </Link>
         </nav>
-        <Link href="/contact" className="btn-header-cta" onClick={closeDrawer}>
-          Get a Quote
+        <Link href={cta.primaryHref} className="btn-header-cta" onClick={closeDrawer}>
+          {cta.primaryLabel}
         </Link>
       </aside>
     </>

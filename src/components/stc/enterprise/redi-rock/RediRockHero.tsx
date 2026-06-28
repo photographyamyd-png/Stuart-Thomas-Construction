@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { conversion } from "@/data/conversion";
 import { media } from "@/data/media";
 import { rediRockAttribution } from "@/data/redi-rock";
 import { ManufacturerAttribution } from "../blocks/ManufacturerAttribution";
@@ -29,8 +30,8 @@ export function RediRockHero() {
           </p>
           <ManufacturerAttribution variant="compact" className="stack-title" />
           <div className="stc-rr-hero__actions stack-cta">
-            <Link href="/contact" className="btn-green cta-inline">
-              Request an Install Quote
+            <Link href={conversion.consultCta.href} className="btn-green cta-inline">
+              {conversion.consultCta.label}
             </Link>
             <LinkArrow href="#install" className="cta-inline">
               Explore This Page

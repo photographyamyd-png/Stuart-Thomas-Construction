@@ -27,6 +27,10 @@ export type ServiceDetail = {
   /** CSS custom property for homepage icon strip accent (e.g. var(--ent-icon-strip-armour)) */
   iconStripAccent: string;
   shortDescription: string;
+  /** Service page overview section headline (plain text before optional accent span). */
+  overviewHeadline?: string;
+  /** Optional accent span rendered in green on the overview headline. */
+  overviewHeadlineAccent?: string;
   metaTitle: string;
   metaDescription: string;
   icon: LucideIcon;
@@ -49,9 +53,11 @@ export const services: ServiceDetail[] = [
     iconStripAccent: "var(--ent-icon-strip-armour)",
     shortDescription:
       "Retaining walls and stone work built for Georgian Bay winters.",
+    overviewHeadline: "Built To Read As",
+    overviewHeadlineAccent: "Permanent",
     metaTitle: "Armour Stone & Retaining Walls | Tiny Township Construction",
     metaDescription:
-      "Armour stone and retaining walls in Tiny Township, Wasaga Beach, and Collingwood. Built for shoreline exposure and freeze-thaw.",
+      "Armour stone and retaining walls in Tiny Township, Wasaga Beach, Elmvale, and Collingwood. Built for shoreline exposure and freeze-thaw.",
     icon: Mountain,
     heroAlt: "Heavy armour stone wall with cap and drainage",
     overview: [
@@ -91,9 +97,11 @@ export const services: ServiceDetail[] = [
     iconStripAccent: "var(--ent-icon-strip-waterfront)",
     shortDescription:
       "Stone stairs, shoreline retaining, and waterfront details for cottage country.",
+    overviewHeadline: "Built For",
+    overviewHeadlineAccent: "Georgian Bay",
     metaTitle: "Waterfront Stone Work | Tiny Township & Wasaga Beach",
     metaDescription:
-      "Waterfront stone construction, stairs, and shoreline work in Tiny Township, Wasaga Beach, and Collingwood. Built for wind, ice, and Georgian Bay exposure.",
+      "Waterfront stone construction, stairs, and shoreline work in Tiny Township, Wasaga Beach, Elmvale, and Collingwood. Built for wind, ice, and Georgian Bay exposure.",
     icon: Waves,
     heroAlt: "Waterfront stone staircase and retaining detail",
     overview: [
@@ -133,9 +141,11 @@ export const services: ServiceDetail[] = [
     iconStripAccent: "var(--ent-icon-strip-landscape)",
     shortDescription:
       "Tiny Township landscaping that works with your stone, grade, and drainage.",
+    overviewHeadline: "Outdoor Spaces That",
+    overviewHeadlineAccent: "Fit Together",
     metaTitle: "Tiny Township Landscaping | Stuart Thomas Construction",
     metaDescription:
-      "Landscaping and outdoor finishing in Tiny Township, Wasaga Beach, and Collingwood. Grading, beds, and hardscape integration for cottage country.",
+      "Landscaping and outdoor finishing in Tiny Township, Wasaga Beach, Elmvale, and Collingwood. Grading, beds, and hardscape integration for Simcoe County cottage country.",
     icon: Trees,
     heroAlt: "Landscaped property with stone and plantings",
     overview: [
@@ -161,7 +171,7 @@ export const services: ServiceDetail[] = [
     ],
     relatedSlugs: ["hardscaping", "armour-stone", "excavation"],
     faqs: [
-      { q: "Do you do landscaping in Tiny Township?", a: "Yes — grading, beds, patios, and full outdoor finishing across Tiny Township and the Tiny Beaches area." },
+      { q: "Do you do landscaping in Tiny Township?", a: "Yes — grading, beds, patios, and full outdoor finishing across Tiny Township, Elmvale, and the Tiny Beaches area." },
       { q: "Do you offer design services?", a: "We collaborate with your designer or architect and advise on what will build well on your site." },
       { q: "Can landscaping follow a major stone wall project?", a: "Yes — we often finish grades and beds after retaining walls are complete." },
     ],
@@ -175,9 +185,11 @@ export const services: ServiceDetail[] = [
     iconStripAccent: "var(--ent-icon-strip-hardscape)",
     shortDescription:
       "Patios, walkways, and steps built with a solid base and clean finishes.",
+    overviewHeadline: "Surfaces Built To",
+    overviewHeadlineAccent: "Last",
     metaTitle: "Hardscaping Contractor | Tiny Township & Collingwood",
     metaDescription:
-      "Hardscaping in Tiny Township, Wasaga Beach, and Collingwood — patios, walkways, steps, and stone work built to last.",
+      "Hardscaping in Tiny Township, Wasaga Beach, Elmvale, and Collingwood — patios, walkways, steps, and stone work built to last.",
     icon: LayoutGrid,
     heroAlt: "Stone patio and walkway detail",
     overview: [
@@ -216,9 +228,11 @@ export const services: ServiceDetail[] = [
     iconStripAccent: "var(--ent-icon-strip-excavation)",
     shortDescription:
       "Grading and site prep that sets up stone and landscaping to last.",
+    overviewHeadline: "Solid Ground",
+    overviewHeadlineAccent: "From The Start",
     metaTitle: "Excavation & Grading | Tiny Township Construction",
     metaDescription:
-      "Excavation and grading in Tiny Township, Wasaga Beach, and Collingwood. Site prep for stone, landscaping, and outdoor builds.",
+      "Excavation and grading in Tiny Township, Wasaga Beach, Midland, Penetanguishene, and Collingwood. Site prep for stone, landscaping, and commercial outdoor builds.",
     icon: Tractor,
     heroAlt: "Excavation and grading on a residential site",
     overview: [
@@ -244,8 +258,12 @@ export const services: ServiceDetail[] = [
     ],
     relatedSlugs: ["armour-stone", "landscaping", "hardscaping"],
     faqs: [
-      { q: "Do you handle small residential digs?", a: "Yes — from trench work to full lot grading for outdoor projects." },
+      { q: "Do you handle small residential digs?", a: "Yes — from trench work to full lot grading for outdoor projects in Tiny Township, Wasaga Beach, and Elmvale." },
       { q: "Can excavation and stone be one contract?", a: "Yes. One contract reduces scheduling gaps and rework." },
+      {
+        q: "Do you excavate commercial sites in Midland or Penetanguishene?",
+        a: "Yes — commercial grading and site prep in Midland, Penetanguishene, and surrounding Simcoe County corridors.",
+      },
     ],
   },
   {
@@ -256,16 +274,18 @@ export const services: ServiceDetail[] = [
     iconRowLabelLines: ["SNOW REMOVAL"],
     iconStripAccent: "var(--ent-icon-strip-snow)",
     shortDescription:
-      "Reliable commercial snow clearing across Tiny Township and South Georgian Bay.",
-    metaTitle: "Commercial Snow Removal | Tiny Township & Wasaga Beach",
+      "Reliable commercial snow clearing across Tiny Township, Midland, and Simcoe County.",
+    overviewHeadline: "Winter Access",
+    overviewHeadlineAccent: "Kept Open",
+    metaTitle: "Commercial Snow Removal | Midland, Penetanguishene & Wasaga Beach",
     metaDescription:
-      "Commercial snow removal in Tiny Township, Wasaga Beach, Collingwood, and surrounding areas.",
+      "Commercial snow removal in Midland, Penetanguishene, Tiny Township, Wasaga Beach, and Collingwood. Seasonal contracts, salting, and loader service.",
     icon: Snowflake,
     heroAlt:
       "Stuart Thomas Construction commercial snow removal loader clearing snow in Midland, Ontario",
     overview: [
       "Winter service is a contract with clear expectations — trigger depths, response times, and a crew you can reach by phone.",
-      "From retail frontages to multi-unit sites, we clear safely and keep access open.",
+      "From retail frontages to multi-unit sites, we clear safely and keep access open across Midland, Penetanguishene, and our South Georgian Bay routes.",
     ],
     subServices: [
       { title: "Seasonal contracts", description: "Defined service levels, trigger depths, and priority response." },
@@ -281,12 +301,19 @@ export const services: ServiceDetail[] = [
     benefits: [
       "Night and early-morning clearing",
       "Commercial-grade equipment on every route",
-      "Local coverage across South Georgian Bay",
+      "Local coverage across Midland, Penetanguishene, and South Georgian Bay",
       "Accountability you can reach by phone",
     ],
     relatedSlugs: ["excavation"],
     faqs: [
-      { q: "What areas do you service in winter?", a: "Tiny Township, Wasaga Beach, Collingwood, Perkinsfield, and surrounding commercial corridors." },
+      {
+        q: "What areas do you service in winter?",
+        a: "Midland, Penetanguishene, Tiny Township, Wasaga Beach, Collingwood, Perkinsfield, and surrounding commercial corridors in Simcoe County.",
+      },
+      {
+        q: "Do you serve commercial snow routes in Midland and Penetanguishene?",
+        a: "Yes — seasonal contracts, salting, and loader clearing for business properties in Midland and Penetanguishene.",
+      },
       { q: "When do contracts typically start?", a: "We finalize routes in fall — contact us early to secure a spot on the schedule." },
     ],
   },

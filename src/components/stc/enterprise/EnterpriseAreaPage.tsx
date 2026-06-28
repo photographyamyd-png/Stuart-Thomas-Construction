@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { AreaDetail } from "@/data/areas";
+import { pageHeadlines } from "@/data/copy";
 import { conversion } from "@/data/conversion";
 import { media } from "@/data/media";
 import { getServiceBySlug } from "@/data/services";
@@ -77,6 +78,9 @@ export function EnterpriseAreaPage({ area }: Props) {
       <EnterpriseCtaBand
         headline={`Ready to build in ${area.name}?`}
         subline={conversion.serviceCta.subline}
+        buttonLabel={conversion.consultCta.label}
+        buttonHref={conversion.consultCta.href}
+        eyebrow={pageHeadlines.ctaEyebrows.nextStep}
       />
     </>
   );

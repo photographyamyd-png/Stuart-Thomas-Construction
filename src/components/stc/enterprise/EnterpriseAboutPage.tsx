@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { areas } from "@/data/areas";
+import { pageHeadlines } from "@/data/copy";
 import { media } from "@/data/media";
 import { rediRockLinks } from "@/data/redi-rock";
 import { services } from "@/data/services";
@@ -17,7 +18,7 @@ export function EnterpriseAboutPage() {
       <EnterprisePageHero
         eyebrow="About STC"
         title="Built On Integrity. Built To Last."
-        description={`${site.name} delivers armour stone, waterfront stone work, landscaping, hardscaping, excavation, and commercial snow removal — with clear communication and careful work on every site.`}
+        description={pageHeadlines.about.heroDescription}
         imageSrc={media.aboutHero}
         imageAlt="Stuart Thomas Construction team and project site"
         breadcrumbs={[
@@ -111,7 +112,7 @@ export function EnterpriseAboutPage() {
           </h2>
           <p>
             Shoreline walls, patios, and landscaping that hold up through Georgian Bay winters across
-            Tiny Township, Wasaga Beach, Collingwood, and surrounding areas.
+            Tiny Township, Wasaga Beach, Elmvale, Midland, Penetanguishene, and Simcoe County.
           </p>
           <ul className="area-pills">
             {areas.map((area, i) => (

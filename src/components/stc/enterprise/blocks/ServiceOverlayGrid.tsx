@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { pageHeadlines } from "@/data/copy";
 import { enterpriseServiceGridOrder } from "@/data/enterprise";
 import { media } from "@/data/media";
 import { getServiceBySlug } from "@/data/services";
@@ -17,7 +18,7 @@ export function ServiceOverlayGrid({ id = "services", className = "", showHeader
         <header className="stc-svc-overlay-grid__head container">
           <p className="eyebrow eyebrow--on-dark">Our Services</p>
           <h2 className="text-display">
-            Our Services. <span className="text-accent-gold">One Crew.</span>
+            {pageHeadlines.home.servicesGrid}
           </h2>
         </header>
       ) : null}

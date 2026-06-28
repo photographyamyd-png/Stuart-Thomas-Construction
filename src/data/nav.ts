@@ -39,11 +39,13 @@ export const footerColumns = {
     { label: "Tiny Township", href: "/areas/tiny-township" },
     { label: "Wasaga Beach", href: "/areas/wasaga-beach" },
     { label: "Collingwood", href: "/areas/collingwood" },
+    { label: "Midland", href: "/areas/midland" },
+    { label: "Penetanguishene", href: "/areas/penetanguishene" },
   ],
 } as const;
 
 export const cta = {
-  primaryLabel: "Get a Quote",
+  primaryLabel: "Get a Free Quote",
   primaryHref: "/contact",
   secondaryLabel: "View Projects",
   secondaryHref: "/projects",
