@@ -20,7 +20,7 @@ export function ContactPanel({ intro }: { intro: string }) {
           <div>
             <dt className="stc-label text-stc-dark-green">Service Area</dt>
             <dd className="stc-body mt-2 text-stc-charcoal/75">
-              Tiny Township, Wasaga Beach, Collingwood, and South Georgian Bay
+              Tiny Township, Wasaga Beach, Elmvale, Midland, Penetanguishene, and Simcoe County
             </dd>
           </div>
         </dl>

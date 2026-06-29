@@ -44,41 +44,17 @@ function altForCategories(title: string, categories: GalleryCategoryId[], public
   return `${site.name} — ${service} in ${area} — ${title}`;
 }
 
-function inferCategory(index: number, path: string): GalleryCategoryId[] {
+function inferCategoryFromPath(path: string): GalleryCategoryId[] {
   const lower = path.toLowerCase();
   if (lower.includes("snow")) return ["snow-removal"];
-  if (lower.includes("redi")) return ["redi-rock"];
-  if (lower.includes("/retouched/stc-")) {
-    const excavatorIds = new Set([
-      "015",
-      "058",
-      "090",
-      "114",
-      "116",
-      "120",
-      "214",
-      "228",
-      "250",
-      "275",
-    ]);
-    const match = lower.match(/stc-(\d{3})\.jpg/);
-    if (match && excavatorIds.has(match[1]!)) return ["excavation"];
-    if (lower.includes("landscaping")) return ["landscaping"];
-    if (
-      ["001", "006", "036", "040", "321"].some((id) =>
-        lower.includes(`stc-${id}.jpg`),
-      )
-    ) {
-      return lower.includes("006") ? ["hardscaping"] : ["landscaping"];
-    }
+  if (lower.includes("redi-rock") || lower.includes("/redi-rock/")) return ["redi-rock"];
+
+  const segment = path.split("/")[2];
+  if (segment && categoryIds.includes(segment as GalleryCategoryId)) {
+    return [segment as GalleryCategoryId];
   }
-  if (index % 7 === 0) return ["armour-stone"];
-  if (index % 7 === 1) return ["waterfront"];
-  if (index % 7 === 2) return ["landscaping"];
-  if (index % 7 === 3) return ["hardscaping"];
-  if (index % 7 === 4) return ["excavation"];
-  if (index % 7 === 5) return ["snow-removal"];
-  return [categoryIds[index % categoryIds.length]!];
+
+  return ["landscaping"];
 }
 
 export function getGalleryItems(): GalleryItem[] {
@@ -88,7 +64,7 @@ export function getGalleryItems(): GalleryItem[] {
   return files.map((f, idx) => {
     const title = titleFromPublicPath(f.publicPath);
     const categories =
-      f.categories.length > 0 ? f.categories : inferCategory(idx, f.publicPath);
+      f.categories.length > 0 ? f.categories : inferCategoryFromPath(f.publicPath);
     return {
       id: `local-${idx}`,
       title,

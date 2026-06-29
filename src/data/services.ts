@@ -103,7 +103,7 @@ export const services: ServiceDetail[] = [
     metaDescription:
       "Waterfront stone construction, stairs, and shoreline work in Tiny Township, Wasaga Beach, Elmvale, and Collingwood. Built for wind, ice, and Georgian Bay exposure.",
     icon: Waves,
-    heroAlt: "Waterfront stone staircase and retaining detail",
+    heroAlt: "Waterfront stone stairs leading to the shoreline on Georgian Bay",
     overview: [
       "Waterfront stone has to work hard — safe stairs, solid retaining, and finishes that stand up to wind and ice.",
       "Our crews know Georgian Bay conditions: lake-effect wind, ice push, and grade movement through the seasons. We build accordingly.",

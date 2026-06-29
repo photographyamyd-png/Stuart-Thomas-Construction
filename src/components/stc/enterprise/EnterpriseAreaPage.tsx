@@ -63,12 +63,8 @@ export function EnterpriseAreaPage({ area }: Props) {
             })}
           </ul>
           <p className="stc-enterprise-body stc-area-page__footer stack-section text-on-dark-subtle">
-            <Link href="/projects" className="text-accent-gold">
-              View our project gallery
-            </Link>{" "}
-            or{" "}
             <Link href="/contact" className="text-accent-gold">
-              request a quote
+              Request a quote
             </Link>{" "}
             for your {area.name} property.
           </p>

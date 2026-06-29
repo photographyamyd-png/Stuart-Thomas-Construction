@@ -1,4 +1,10 @@
 import type { Metadata } from "next";
+import {
+  getAreaServedForService,
+  localBusinessAreaServed,
+  localBusinessKnowsAbout,
+} from "@/data/geo";
+import type { ServiceSlug } from "@/data/services";
 import { site } from "@/data/site";
 
 const defaultTitle = {
@@ -6,8 +12,10 @@ const defaultTitle = {
   template: `%s | ${site.name}`,
 };
 
+import { media } from "@/data/media";
+
 /** Default social share image — homepage hero still */
-export const DEFAULT_OG_IMAGE = "/images/retouched/stc-tiny-township-landscaping.jpg";
+export const DEFAULT_OG_IMAGE = media.serviceDefaults.landscaping;
 
 function absoluteImageUrl(imagePath: string): string {
   const base = site.url.replace(/\/$/, "");
@@ -20,9 +28,11 @@ function buildSocialImages(imagePath?: string) {
     url: src,
     width: 1200,
     height: 630,
-    alt: `${site.name} — Tiny Township construction and landscaping, South Georgian Bay`,
+    alt: `${site.name} — Tiny Township construction and landscaping, Simcoe County`,
   }];
 }
+
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export function rootMetadata(): Metadata {
   const images = buildSocialImages();
@@ -34,6 +44,9 @@ export function rootMetadata(): Metadata {
       icon: site.logo.iconSrc,
       apple: site.logo.iconSrc,
     },
+    ...(googleSiteVerification
+      ? { verification: { google: googleSiteVerification } }
+      : {}),
     openGraph: {
       type: "website",
       locale: "en_CA",
@@ -101,6 +114,7 @@ export function buildServiceJsonLd(opts: {
   name: string;
   description: string;
   path: string;
+  serviceSlug: ServiceSlug;
 }) {
   const base = site.url.replace(/\/$/, "");
   return {
@@ -109,13 +123,7 @@ export function buildServiceJsonLd(opts: {
     name: opts.name,
     description: opts.description,
     provider: { "@type": "LocalBusiness", name: site.name, url: site.url },
-    areaServed: [
-      "Tiny Township",
-      "Wasaga Beach",
-      "Collingwood",
-      "Perkinsfield",
-      "South Georgian Bay",
-    ],
+    areaServed: getAreaServedForService(opts.serviceSlug),
     url: `${base}${opts.path}`,
   };
 }
@@ -129,27 +137,20 @@ export function buildLocalBusinessJsonLd() {
     url: site.url,
     telephone: site.phoneTel,
     image: `${site.url.replace(/\/$/, "")}${site.logo.src}`,
-    areaServed: [
-      { "@type": "AdministrativeArea", name: "Tiny Township" },
-      { "@type": "AdministrativeArea", name: "Wasaga Beach" },
-      { "@type": "AdministrativeArea", name: "Collingwood" },
-      { "@type": "Place", name: "South Georgian Bay" },
-      { "@type": "Place", name: "Perkinsfield" },
-    ],
-    knowsAbout: [
-      "Tiny Township construction",
-      "Tiny Township landscaping",
-      "Armour stone retaining walls",
-      "Waterfront stone work",
-      "Hardscaping",
-      "Excavation and grading",
-      "Commercial snow removal",
-    ],
+    areaServed: localBusinessAreaServed,
+    knowsAbout: [...localBusinessKnowsAbout],
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: site.geo.latitude,
+      longitude: site.geo.longitude,
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: site.address.area,
       addressRegion: site.address.region,
       addressCountry: site.address.country,
+      ...(site.address.street ? { streetAddress: site.address.street } : {}),
+      ...(site.address.postalCode ? { postalCode: site.address.postalCode } : {}),
     },
   };
 }
@@ -158,6 +159,7 @@ export function buildAreaJsonLd(opts: {
   name: string;
   description: string;
   path: string;
+  containedInPlace?: string;
 }) {
   const base = site.url.replace(/\/$/, "");
   return {
@@ -166,7 +168,27 @@ export function buildAreaJsonLd(opts: {
     name: opts.name,
     description: opts.description,
     url: `${base}${opts.path.startsWith("/") ? opts.path : `/${opts.path}`}`,
-    containedInPlace: { "@type": "Place", name: "South Georgian Bay, Ontario" },
+    containedInPlace: {
+      "@type": "Place",
+      name: opts.containedInPlace ?? "South Georgian Bay, Ontario",
+    },
+  };
+}
+
+export function buildContactPageJsonLd() {
+  const base = site.url.replace(/\/$/, "");
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: `Contact ${site.name}`,
+    description: site.description,
+    url: `${base}/contact`,
+    mainEntity: {
+      "@type": "GeneralContractor",
+      name: site.name,
+      telephone: site.phoneTel,
+      url: site.url,
+    },
   };
 }
 

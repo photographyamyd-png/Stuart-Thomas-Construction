@@ -1,12 +1,12 @@
 import { media } from "./media";
 
 const img = {
-  armourRiverRockRetaining: "/images/20260508_105516.jpg",
-  armourStoneStairs: "/images/20260508_110106.jpg",
-  landscapeOutdoorLiving: "/images/20260508_105741.jpg",
-  patioWaterfront: "/images/20260508_110051.jpg",
-  pergolaRockGarden: "/images/20260508_110330.jpg",
-  rediRockReferenceHero: "/images/redi-rock/reference/hero-waterfront-reference.jpg",
+  armourRiverRockRetaining: media.serviceCapabilityImages["armour-stone"][0],
+  armourStoneStairs: media.serviceCapabilityImages["armour-stone"][1],
+  landscapeOutdoorLiving: media.serviceDefaults.hardscaping,
+  patioWaterfront: media.serviceDefaults["waterfront-stone-work"],
+  pergolaRockGarden: media.featuredGalleryPaths[4],
+  rediRockReferenceHero: media.rediRockReferenceHero,
 } as const;
 
 export const rediRockLinks = {
@@ -65,7 +65,7 @@ export const rediRockProductLines = [
     title: "Freestanding Walls",
     description:
       "Property edges, patio enclosures, and outdoor room definition with ledgestone texture.",
-    image: img.landscapeOutdoorLiving,
+    image: media.featuredGalleryPaths[5],
     imageCredit: rediRockAttribution.applicationContext,
     isReference: false,
   },
@@ -80,9 +80,9 @@ export const rediRockProductLines = [
     title: "Ledgestone Texture",
     description:
       "Architectural-grade precast concrete with a natural limestone face at modular scale.",
-    image: img.pergolaRockGarden,
-    imageCredit: rediRockAttribution.applicationContext,
-    isReference: false,
+    image: img.rediRockReferenceHero,
+    imageCredit: rediRockAttribution.referenceCaption,
+    isReference: true,
   },
 ] as const;
 

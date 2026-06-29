@@ -5,10 +5,14 @@ import { scheduleDeferredVideoLoad, shouldSkipVideoLoad } from "@/lib/defer-vide
 import { applyVideoClip } from "@/lib/video-clip";
 import { media } from "@/data/media";
 
-const CLIP_START = media.homeHeroVideoStartSec;
 const CLIP_TOLERANCE = 0.25;
 
-export function useTurnerHeroVideo() {
+type TurnerHeroVideoOptions = {
+  clipStartSec?: number;
+};
+
+export function useTurnerHeroVideo(options: TurnerHeroVideoOptions = {}) {
+  const clipStart = options.clipStartSec ?? media.homeHeroVideoStartSec;
   const videoRef = useRef<HTMLVideoElement>(null);
   const userPlayingRef = useRef(true);
   const [userPlaying, setUserPlaying] = useState(true);
@@ -87,10 +91,10 @@ export function useTurnerHeroVideo() {
     const video = videoRef.current;
     if (!video) return;
 
-    const cleanupClip = applyVideoClip(video, CLIP_START);
+    const cleanupClip = applyVideoClip(video, clipStart);
 
     const tryMarkReady = () => {
-      if (video.currentTime >= CLIP_START - CLIP_TOLERANCE) {
+      if (video.currentTime >= clipStart - CLIP_TOLERANCE) {
         setVideoReady(true);
       }
     };
@@ -125,7 +129,7 @@ export function useTurnerHeroVideo() {
       video.removeEventListener("error", onError);
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [shouldLoadVideo, playVideo, markPosterFallback]);
+  }, [shouldLoadVideo, playVideo, markPosterFallback, clipStart]);
 
   return { videoRef, userPlaying, videoReady, showPoster, shouldLoadVideo, toggleVideo };
 }

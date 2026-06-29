@@ -17,7 +17,6 @@ export const navServices: NavService[] = services.map((s) => ({
 export const primaryNav = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services", mega: true as const },
-  { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Areas", href: "/areas" },
   { label: "Contact", href: "/contact" },
@@ -28,7 +27,6 @@ export const footerColumns = {
   company: [
     { label: "About Us", href: "/about" },
     { label: "Our Commitments", href: "/#commitments" },
-    { label: "Projects", href: "/projects" },
     { label: "Contact", href: "/contact" },
   ],
   legal: [
@@ -47,6 +45,6 @@ export const footerColumns = {
 export const cta = {
   primaryLabel: "Get a Free Quote",
   primaryHref: "/contact",
-  secondaryLabel: "View Projects",
-  secondaryHref: "/projects",
+  secondaryLabel: "Our Services",
+  secondaryHref: "/services",
 } as const;

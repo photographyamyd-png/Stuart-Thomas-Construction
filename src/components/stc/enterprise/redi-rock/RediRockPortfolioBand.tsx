@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { GalleryItem } from "@/data/gallery";
 import { rediRockLinks } from "@/data/redi-rock";
+import { site } from "@/data/site";
 
 type Props = {
   installs?: GalleryItem[];
@@ -27,25 +28,45 @@ export function RediRockPortfolioBand({ installs = [] }: Props) {
             Stuart Thomas Construction install photography — clearly separated from manufacturer
             reference imagery elsewhere on this page.
           </p>
-          <Link href={rediRockLinks.projectsFilter} className="btn-green cta-inline stack-cta">
-            View Redi-Rock Projects
-          </Link>
+          {site.projectsGalleryVisible ? (
+            <Link href={rediRockLinks.projectsFilter} className="btn-green cta-inline stack-cta">
+              View Redi-Rock Projects
+            </Link>
+          ) : (
+            <Link href="/contact" className="btn-green cta-inline stack-cta">
+              Discuss your project
+            </Link>
+          )}
         </div>
         {hasInstalls ? (
           <ul className="stc-rr-portfolio__grid">
             {preview.map((item) => (
               <li key={item.id}>
-                <Link href={rediRockLinks.projectsFilter} className="stc-rr-portfolio__tile">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    loading="lazy"
-                    sizes="(min-width: 900px) 20vw, 33vw"
-                    className="object-cover"
-                  />
-                  <span className="stc-rr-portfolio__tile-label">{item.title}</span>
-                </Link>
+                {site.projectsGalleryVisible ? (
+                  <Link href={rediRockLinks.projectsFilter} className="stc-rr-portfolio__tile">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      fill
+                      loading="lazy"
+                      sizes="(min-width: 900px) 20vw, 33vw"
+                      className="object-cover"
+                    />
+                    <span className="stc-rr-portfolio__tile-label">{item.title}</span>
+                  </Link>
+                ) : (
+                  <figure className="stc-rr-portfolio__tile">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      fill
+                      loading="lazy"
+                      sizes="(min-width: 900px) 20vw, 33vw"
+                      className="object-cover"
+                    />
+                    <span className="stc-rr-portfolio__tile-label">{item.title}</span>
+                  </figure>
+                )}
               </li>
             ))}
           </ul>
@@ -57,7 +78,7 @@ export function RediRockPortfolioBand({ installs = [] }: Props) {
               <span />
             </div>
             <p className="wf-type-supporting stc-rr-portfolio__placeholder-note">
-              Install photos coming soon — check Projects for the latest STC work.
+              Install photos coming soon — contact us to discuss Redi-Rock on your site.
             </p>
           </div>
         )}

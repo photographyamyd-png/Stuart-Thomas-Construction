@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "stuartthomasconstruction.ca" }],
+        destination: "https://www.stuartthomasconstruction.ca/:path*",
+        permanent: true,
+      },
       { source: "/service-areas", destination: "/areas", permanent: true },
       { source: "/services/armor-stone-retaining-walls", destination: "/services/armour-stone", permanent: true },
       { source: "/services/waterfront-construction", destination: "/services/waterfront-stone-work", permanent: true },

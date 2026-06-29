@@ -9,27 +9,6 @@ import { footerColumns, navServices, cta } from "@/data/nav";
 import { useEnterpriseNav } from "@/hooks/use-enterprise-nav";
 import { LinkArrow, Wordmark } from "./primitives";
 
-const MEGA_PROJECTS = [
-  {
-    image: media.featuredGalleryPaths[0],
-    category: "Waterfront",
-    title: "Georgian Bay Shoreline",
-    href: "/projects",
-  },
-  {
-    image: media.featuredGalleryPaths[1],
-    category: "Armour Stone",
-    title: "Armour Stone Retaining Wall",
-    href: "/projects",
-  },
-  {
-    image: media.featuredGalleryPaths[2],
-    category: "Hardscaping",
-    title: "Stone Patio Terrace",
-    href: "/projects",
-  },
-] as const;
-
 export function EnterpriseHeader() {
   const {
     luxOpen,
@@ -86,25 +65,6 @@ export function EnterpriseHeader() {
                 }}
               >
                 Services <span className="stc-lux-nav__caret" aria-hidden />
-              </button>
-            </div>
-            <div
-              className="stc-lux-nav__item"
-              data-lux="projects"
-              onMouseEnter={() => openLux("projects")}
-              onMouseLeave={scheduleCloseLux}
-            >
-              <button
-                type="button"
-                className="stc-lux-nav__trigger"
-                aria-expanded={isPanelOpen("projects")}
-                aria-controls="lux-projects"
-                onClick={(e) => {
-                  e.preventDefault();
-                  toggleLux("projects");
-                }}
-              >
-                Projects <span className="stc-lux-nav__caret" aria-hidden />
               </button>
             </div>
             <div
@@ -192,47 +152,21 @@ export function EnterpriseHeader() {
                   Georgian Bay Shoreline
                 </p>
                 <Image
-                  src={media.featuredGalleryPaths[0]}
+                  src={media.featuredNavWaterfront}
                   alt=""
                   width={400}
                   height={260}
                   loading="lazy"
                 />
                 <p>Armour stone retaining and shoreline protection on Georgian Bay.</p>
-                <LinkArrow href="/projects" className="link-arrow stack-cta" onClick={closeLux}>
-                  View project
+                <LinkArrow href="/services/waterfront-stone-work" className="link-arrow stack-cta" onClick={closeLux}>
+                  View service
                 </LinkArrow>
               </aside>
             </div>
             <div className="stc-lux-panel__foot">
               <LinkArrow href="/services" onClick={closeLux}>
                 View all services
-              </LinkArrow>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className={`stc-lux-panel${isPanelOpen("projects") ? " is-open" : ""}`}
-          id="lux-projects"
-          role="region"
-          aria-label="Projects"
-        >
-          <div className="stc-lux-panel__inner">
-            <div className="stc-lux-panel__grid stc-lux-panel__grid--projects">
-              {MEGA_PROJECTS.map((p) => (
-                <Link key={p.title} className="stc-lux-project" href={p.href} onClick={closeLux}>
-                  <Image src={p.image} alt="" width={320} height={200} loading="lazy" />
-                  <span className="stc-lux-project__cap">
-                    <span className="cat">{p.category}</span>
-                    <span className="title">{p.title}</span>
-                  </span>
-                </Link>
-              ))}
-            </div>
-            <div className="stc-lux-panel__foot">
-              <LinkArrow href="/projects" onClick={closeLux}>
-                Browse our portfolio
               </LinkArrow>
             </div>
           </div>
@@ -315,9 +249,6 @@ export function EnterpriseHeader() {
               {a.name}
             </Link>
           ))}
-          <Link href="/projects" onClick={closeDrawer}>
-            Projects
-          </Link>
           <Link href="/about" onClick={closeDrawer}>
             About
           </Link>

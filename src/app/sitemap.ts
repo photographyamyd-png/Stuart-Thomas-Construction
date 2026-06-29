@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/services",
-    "/projects",
+    ...(site.projectsGalleryVisible ? ["/projects"] : []),
     "/contact",
     "/areas",
     "/materials/redi-rock",

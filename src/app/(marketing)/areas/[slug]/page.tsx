@@ -42,6 +42,7 @@ export default async function AreaPage({ params }: Props) {
             name: area.name,
             description: area.metaDescription,
             path: `/areas/${area.slug}`,
+            containedInPlace: area.containedInPlace,
           }),
         ]}
       />

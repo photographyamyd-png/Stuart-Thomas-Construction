@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ServiceWorkShowcase } from "@/data/media";
+import { site } from "@/data/site";
 import { LinkArrow } from "../primitives";
 
 type Props = {
@@ -65,9 +66,11 @@ export function ServiceWorkShowcase({ data }: Props) {
               </figure>
             )}
           </div>
-          <LinkArrow href="/projects" className="stc-svc-work__link stack-title">
-            View project gallery
-          </LinkArrow>
+          {site.projectsGalleryVisible ? (
+            <LinkArrow href="/projects" className="stc-svc-work__link stack-title">
+              View project gallery
+            </LinkArrow>
+          ) : null}
         </div>
       </div>
     </section>

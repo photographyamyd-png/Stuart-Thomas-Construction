@@ -49,6 +49,7 @@ export default async function ServicePage({ params }: Props) {
             name: service.title,
             description: service.metaDescription,
             path: `/services/${service.slug}`,
+            serviceSlug: service.slug,
           }),
           ...(service.faqs.length ? [buildFaqJsonLd(service.faqs)] : []),
         ]}

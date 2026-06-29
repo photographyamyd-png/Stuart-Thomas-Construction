@@ -1,8 +1,8 @@
 # Google Business Profile — SEO Copy
 
-Paste-ready copy for Stuart Thomas Construction GBP setup. Aligned with [services.ts](../src/data/services.ts), [areas.ts](../src/data/areas.ts), and [site.ts](../src/data/site.ts).
+Paste-ready copy for Stuart Thomas Construction GBP setup. Aligned with [services.ts](../src/data/services.ts), [areas.ts](../src/data/areas.ts), [geo.ts](../src/data/geo.ts), and [site.ts](../src/data/site.ts).
 
-**Last verified:** Primary description 750 / 750 characters (plan draft was 868 — trimmed to fit GBP limit).
+**Last verified:** Primary description trimmed to fit GBP 750-character limit.
 
 ---
 
@@ -12,22 +12,26 @@ Paste-ready copy for Stuart Thomas Construction GBP setup. Aligned with [service
 - [ ] Set **Primary category:** Landscaper or Masonry contractor (stone/wall focus → Masonry contractor)
 - [ ] Add **Additional categories:** Excavating contractor, Snow removal service, Masonry contractor or Landscaper (whichever is not primary)
 - [ ] Add all **7 custom services** below under **Edit profile → Services**
-- [ ] Set **Service areas:** Tiny Township, Wasaga Beach, Collingwood, Perkinsfield (+ South Georgian Bay if available)
+- [ ] Set **Service areas:** Tiny Township, Wasaga Beach, Elmvale, Midland, Penetanguishene, Collingwood, Perkinsfield, Simcoe County (+ South Georgian Bay if available)
 - [ ] Fill dedicated fields for phone `(705) 727-7308` and website — do **not** put these in the description body
-- [ ] Upload photos tagged to armour stone, waterfront, hardscape, excavation, and snow projects
+- [ ] Upload photos tagged to armour stone, waterfront, hardscape, excavation, and snow projects (include Midland snow loader photo)
+- [ ] Replace placeholder social URLs in [site.ts](../src/data/site.ts) with real profiles before adding `sameAs` to schema
+- [ ] Verify domain in Google Search Console; submit `https://www.stuartthomasconstruction.ca/sitemap.xml`
+- [ ] Set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in production env for Search Console HTML tag verification
+- [ ] Solicit Google reviews from clients in each target town — mention service type and location in review text when natural
 
 ---
 
 ## Primary business description (750 / 750 chars)
 
 ```
-Stuart Thomas Construction delivers premium landscaping, waterfront hardscaping, armour stone retaining walls, excavation, and commercial snow removal in Tiny Township, Wasaga Beach, Collingwood, Perkinsfield, and South Georgian Bay. We build luxury waterfront stone stairs, shoreline retention, patios, walkways, and grading for Georgian Bay cottage country and luxury properties. We install natural armour stone and engineered Redi-Rock retaining systems with drainage-first earthwork for Ontario freeze-thaw cycles. Commercial snow removal includes salting, loader service, and reliable night-clear response for retail and multi-unit business properties. One accountable team for stone, grade, landscape structure, and winter property maintenance.
+Stuart Thomas Construction delivers landscaping, waterfront hardscaping, armour stone retaining walls, excavation, and commercial snow removal in Tiny Township, Wasaga Beach, Elmvale, Midland, Penetanguishene, Collingwood, and Simcoe County. We build waterfront stone stairs, shoreline retention, patios, walkways, and grading for Georgian Bay cottage country. We install natural armour stone and engineered Redi-Rock retaining systems with drainage-first earthwork for Ontario freeze-thaw cycles. Commercial snow removal includes salting, loader service, and reliable night-clear response for retail and multi-unit properties in Midland, Penetanguishene, and South Georgian Bay. One accountable team for stone, grade, landscape structure, and winter property maintenance.
 ```
 
 ### Alternate (680 chars — use if Google rejects primary length)
 
 ```
-Stuart Thomas Construction is a premium outdoor construction contractor serving Tiny Township, Wasaga Beach, Collingwood, and South Georgian Bay. We specialize in landscaping, waterfront hardscaping, armour stone retaining walls, excavation, grading, and commercial snow removal. From Georgian Bay shoreline stone stairs and retention to luxury patios and site prep, our crews build drainage-first outdoor environments for cottage country and high-end homes. We install natural armour stone and Redi-Rock retaining systems. Winter commercial routes include salting and night-clear snow service across the region.
+Stuart Thomas Construction serves Tiny Township, Wasaga Beach, Elmvale, Midland, Penetanguishene, Collingwood, and Simcoe County. We specialize in landscaping, waterfront hardscaping, armour stone retaining walls, excavation, grading, and commercial snow removal. From Georgian Bay shoreline stone stairs and retention to patios and site prep, our crews build drainage-first outdoor environments for cottage country properties. We install natural armour stone and Redi-Rock retaining systems. Winter commercial routes include salting and night-clear snow service in Midland, Penetanguishene, and the South Georgian Bay corridor.
 ```
 
 ---
@@ -35,7 +39,7 @@ Stuart Thomas Construction is a premium outdoor construction contractor serving 
 ## Tagline (optional field)
 
 ```
-Premium landscaping, waterfront hardscaping, excavation & commercial snow removal — Tiny Township, Wasaga Beach & Collingwood.
+Landscaping, stone work, excavation & commercial snow — Tiny Township, Wasaga Beach, Elmvale, Midland & Penetanguishene.
 ```
 
 ---
@@ -49,7 +53,7 @@ Add under **Edit profile → Services**. Use **Add custom service** when Google'
 **Description:**
 
 ```
-Premium landscape construction in Tiny Township, Wasaga Beach, and Collingwood — site grading, drainage, planting beds, and outdoor living integration tied to stone and hardscape. Built for South Georgian Bay soils and Ontario seasons.
+Landscape construction in Tiny Township, Wasaga Beach, Elmvale, and Collingwood — site grading, drainage, planting beds, and outdoor living integration tied to stone and hardscape. Built for Simcoe County and South Georgian Bay soils.
 ```
 
 ### 2. Waterfront hardscaping
@@ -57,7 +61,7 @@ Premium landscape construction in Tiny Township, Wasaga Beach, and Collingwood �
 **Description:**
 
 ```
-Luxury waterfront hardscaping and stone work on Georgian Bay — shoreline stairs, retention, patios, and cottage-to-water transitions in Tiny Township and Wasaga Beach. Engineered for wind, ice, and freeze-thaw exposure.
+Waterfront hardscaping and stone work on Georgian Bay — shoreline stairs, retention, patios, and cottage-to-water transitions in Tiny Township and Wasaga Beach. Engineered for wind, ice, and freeze-thaw exposure.
 ```
 
 ### 3. Hardscaping
@@ -65,7 +69,7 @@ Luxury waterfront hardscaping and stone work on Georgian Bay — shoreline stair
 **Description:**
 
 ```
-High-end hardscaping contractor for Collingwood, Tiny Township, and Wasaga Beach — natural stone patios, walkways, steps, and architectural assemblies with engineered base and drainage.
+Hardscaping contractor for Collingwood, Tiny Township, Wasaga Beach, and Elmvale — natural stone patios, walkways, steps, and assemblies with engineered base and drainage.
 ```
 
 ### 4. Armour stone & retaining walls
@@ -73,7 +77,7 @@ High-end hardscaping contractor for Collingwood, Tiny Township, and Wasaga Beach
 **Description:**
 
 ```
-Structural armour stone and retaining wall construction across South Georgian Bay. Terracing, waterfront-capable assemblies, caps, and drainage detailing for Tiny Township, Wasaga Beach, and Collingwood properties.
+Structural armour stone and retaining wall construction across South Georgian Bay and Simcoe County. Terracing, waterfront-capable assemblies, caps, and drainage detailing for Tiny Township, Wasaga Beach, and Collingwood properties.
 ```
 
 ### 5. Excavation & grading
@@ -81,7 +85,7 @@ Structural armour stone and retaining wall construction across South Georgian Ba
 **Description:**
 
 ```
-Excavation, cut-and-fill grading, and site preparation in Tiny Township, Wasaga Beach, and Collingwood. Drainage-first earthwork for stone, landscape, and hardscape projects — including tight cottage-country access.
+Excavation, cut-and-fill grading, and site preparation in Tiny Township, Wasaga Beach, Midland, Penetanguishene, and Collingwood. Drainage-first earthwork for stone, landscape, hardscape, and commercial site prep.
 ```
 
 ### 6. Redi-Rock installation
@@ -89,7 +93,7 @@ Excavation, cut-and-fill grading, and site preparation in Tiny Township, Wasaga 
 **Description:**
 
 ```
-Certified Redi-Rock retaining and freestanding wall installation in South Georgian Bay. Engineered modular retention for slopes, shorelines, and terraced outdoor living — installed by STC, materials supplied by The Sarjeant Co.
+Redi-Rock retaining and freestanding wall installation in South Georgian Bay and Simcoe County. Engineered modular retention for slopes, shorelines, and terraced outdoor living — installed by STC, materials supplied by The Sarjeant Co.
 ```
 
 ### 7. Commercial snow removal
@@ -97,7 +101,7 @@ Certified Redi-Rock retaining and freestanding wall installation in South Georgi
 **Description:**
 
 ```
-Commercial snow removal and winter property maintenance in Tiny Township, Wasaga Beach, Collingwood, and Perkinsfield. Seasonal contracts, salting, de-icing, loader service, and reliable night-clear response for business properties.
+Commercial snow removal and winter property maintenance in Midland, Penetanguishene, Tiny Township, Wasaga Beach, Collingwood, and Perkinsfield. Seasonal contracts, salting, de-icing, loader service, and reliable night-clear response for business properties.
 ```
 
 ---
@@ -108,9 +112,13 @@ Select in GBP **Service areas** (or equivalent):
 
 1. Tiny Township
 2. Wasaga Beach
-3. Collingwood
-4. Perkinsfield
-5. South Georgian Bay (custom area, if available)
+3. Elmvale
+4. Midland
+5. Penetanguishene
+6. Collingwood
+7. Perkinsfield
+8. Simcoe County
+9. South Georgian Bay (custom area, if available)
 
 ---
 
@@ -120,6 +128,21 @@ Select in GBP **Service areas** (or equivalent):
 |------|----------------|
 | **Primary** | Landscaper *(broad outdoor projects)* or Masonry contractor *(stone/retaining wall focus)* |
 | **Additional** | Excavating contractor, Snow removal service, Masonry contractor or Landscaper (whichever is not primary) |
+
+---
+
+## Citations & NAP consistency
+
+Use identical business information everywhere:
+
+| Field | Value |
+|-------|-------|
+| **Name** | Stuart Thomas Construction |
+| **Phone** | (705) 727-7308 |
+| **Website** | https://www.stuartthomasconstruction.ca |
+| **Service area** | Tiny Township, ON (no public street address required for service-area businesses) |
+
+Recommended citation sources: Facebook, Instagram, HomeStars, local chambers (Midland, Penetanguishene, Wasaga Beach), BBB, and industry directories. Match the website URL exactly (www subdomain).
 
 ---
 
@@ -133,7 +156,21 @@ Select in GBP **Service areas** (or equivalent):
 
 ## Post-publish verification
 
-1. Description shows Tiny Township, Wasaga Beach, Collingwood, and South Georgian Bay without truncation.
+1. Description shows Tiny Township, Wasaga Beach, Elmvale, Midland, and Penetanguishene without truncation.
 2. Each custom service lists at least one geo name.
 3. Primary category matches top lead source (Landscaper vs Masonry contractor).
 4. Photos represent armour stone, waterfront, hardscape, excavation, and snow work.
+5. Search Console shows impressions for geo-modified queries within 4–8 weeks of indexing.
+
+---
+
+## Search Console monitoring queries
+
+Track monthly:
+
+- `construction tiny township`
+- `landscaping wasaga beach`
+- `landscaping elmvale`
+- `commercial snow removal midland`
+- `excavation penetanguishene`
+- `stuart thomas construction`

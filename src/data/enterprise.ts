@@ -3,28 +3,28 @@ import { cta } from "./nav";
 
 export const enterpriseInsights = [
   {
-    image: media.featuredGalleryPaths[0],
+    image: media.insightWaterfront,
     category: "Waterfront",
     title: "Shoreline Wall Complete",
     description: "Armour stone retaining finished on a Georgian Bay property.",
-    href: "/projects",
+    href: "/services/waterfront-stone-work",
   },
   {
-    image: media.featuredGalleryPaths[1],
+    image: media.insightRediRock,
     category: "Redi-Rock",
     title: "Retaining Wall Installed",
     description: "Redi-Rock systems installed by STC — materials supplied by The Sarjeant Co.",
     href: "/materials/redi-rock",
   },
   {
-    image: media.featuredGalleryPaths[2],
+    image: media.insightHardscaping,
     category: "Hardscaping",
     title: "Patio Finished",
     description: "Solid base and natural stone patio for outdoor living.",
     href: "/services/hardscaping",
   },
   {
-    image: media.featuredGalleryPaths[4],
+    image: media.insightExcavation,
     category: "Excavation",
     title: "Site Grading Complete",
     description: "Grading and access done — stone work up next.",
@@ -46,7 +46,7 @@ export const enterpriseCommitments = [
     label: "Quality",
     title: "Built For Real Winters",
     body: "Proper bases, good drainage, and stone work that holds up through Georgian Bay freeze-thaw.",
-    cta: { label: "See Our Work", href: "/projects" },
+    cta: { label: "See Our Work", href: "/services/landscaping" },
     image: media.serviceDefaults["armour-stone"],
   },
   {
@@ -83,14 +83,47 @@ export const enterpriseCommitments = [
   },
 ] as const;
 
+export const enterpriseHomeLandscapingGallery = [
+  {
+    image: media.serviceDefaults.landscaping,
+    title: "Backyard finish · Tiny Township",
+    alt: "Finished residential backyard landscaping with planting beds and lawn in Tiny Township",
+  },
+  {
+    image: media.serviceCapabilityImages.landscaping[2],
+    title: "Garden path",
+    alt: "Natural stone garden path through a landscaped residential property",
+  },
+  {
+    image: media.serviceCapabilityImages.landscaping[0],
+    title: "Wooded path",
+    alt: "Landscaped path through a wooded residential lot",
+  },
+  {
+    image: media.serviceCapabilityImages.landscaping[1],
+    title: "Flagstone yard",
+    alt: "Flagstone patio and yard finishing with planting beds",
+  },
+  {
+    image: media.landscapePlantingBeds,
+    title: "Planting beds",
+    alt: "Fresh planting beds and soil preparation on a residential landscape",
+  },
+  {
+    image: media.landscapeFinishEstablish,
+    title: "Establishment finish",
+    alt: "Landscape establishment and finishing work on a custom home property",
+  },
+] as const;
+
 export const enterpriseFeaturedProject = {
-  image: media.featuredGalleryPaths[0],
+  image: media.serviceDefaults.landscaping,
   eyebrow: "Featured Project",
-  title: "Georgian Bay",
-  titleAccent: "Shoreline",
+  title: "Tiny Township",
+  titleAccent: "Backyard",
   description:
-    "Armour stone retaining wall on Georgian Bay — built for wind, ice push, and winter freeze-thaw.",
-  href: "/projects",
+    "Full backyard landscape — grading, planting beds, paths, and establishment finish on a residential property in Tiny Township.",
+  href: "/services/landscaping",
 } as const;
 
 export const enterpriseHomeShowcase = {

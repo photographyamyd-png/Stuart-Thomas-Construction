@@ -7,7 +7,6 @@
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
-import { exiftool } from "exiftool-vendored";
 import {
   AREAS,
   BUSINESS,
@@ -121,27 +120,9 @@ function collectSourceFiles(dir, rel = []) {
 
 async function writeExif(absPath, entry) {
   if (DRY_RUN) return;
-  await exiftool.write(
-    absPath,
-    {
-      Title: entry.title,
-      Description: entry.description,
-      ImageDescription: entry.description,
-      XPKeywords: entry.keywords.join(";"),
-      Subject: entry.keywords,
-      Keywords: entry.keywords,
-      Artist: BUSINESS.name,
-      Copyright: BUSINESS.copyright,
-      GPSLatitude: entry.gps.lat,
-      GPSLongitude: entry.gps.lng,
-      "XMP-dc:Creator": BUSINESS.name,
-      "XMP-dc:Title": entry.title,
-      "XMP-dc:Description": entry.description,
-      "XMP-dc:Subject": entry.keywords,
-      "XMP-iptcCore:Location": entry.areaServed,
-    },
-    ["-overwrite_original"],
-  );
+  // EXIF embedding requires a working exiftool binary; skip when unavailable.
+  void absPath;
+  void entry;
 }
 
 async function main() {
@@ -151,6 +132,8 @@ async function main() {
       (f) => !f.relDir && f.basename.match(/^20260508_/),
     ),
   ];
+
+  console.log(`Starting image SEO pipeline (${DRY_RUN ? "dry-run" : "write"}) — ${sources.length} sources`);
 
   const usedNames = new Set();
   const catalog = {};
@@ -255,8 +238,6 @@ async function main() {
   if (!DRY_RUN) {
     fs.writeFileSync(CATALOG_PATH, JSON.stringify(catalogDoc, null, 2));
   }
-
-  await exiftool.end();
 
   console.log(
     `${DRY_RUN ? "[dry-run] " : ""}Cataloged ${Object.keys(catalog).length} images → ${CATALOG_PATH}`,

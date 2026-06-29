@@ -4,19 +4,19 @@ export const conversion = {
 
     eyebrow: "Tiny Township & South Georgian Bay",
 
-    headline: "Outdoor Builds &",
+    headline: "Landscaping &",
 
-    headlineAccent: "Stone Work",
+    headlineAccent: "Outdoor Finishing",
 
     lead:
 
-      "Landscape and build work across Simcoe County — stone, grade, and outdoor finishing from quote to completion.",
+      "Finished yards, planting beds, garden paths, and outdoor living spaces across Simcoe County — from rough grade to a landscape you are proud of.",
 
     trustLine: "20 years serving Tiny Township & South Georgian Bay",
 
     primaryCta: { label: "Get a Free Quote", href: "/contact" },
 
-    secondaryCta: { label: "Our Services", href: "#services" },
+    secondaryCta: { label: "See Our Work", href: "#landscaping-work" },
 
   },
 

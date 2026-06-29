@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { EnterpriseProjectsPage } from "@/components/stc/enterprise/EnterpriseProjectsPage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import type { GalleryCategoryId } from "@/data/gallery";
 import { galleryCategories } from "@/data/gallery";
 import { getGalleryItems } from "@/data/gallery.server";
+import { site } from "@/data/site";
 import { buildBreadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -23,6 +25,10 @@ function parseCategory(value: string | undefined): GalleryCategoryId | undefined
 }
 
 export default async function ProjectsPage({ searchParams }: Props) {
+  if (!site.projectsGalleryVisible) {
+    notFound();
+  }
+
   const { category } = await searchParams;
   const galleryItems = getGalleryItems();
   const initialCategory = parseCategory(category);

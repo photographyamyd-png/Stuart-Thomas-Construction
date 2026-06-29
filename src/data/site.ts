@@ -1,8 +1,10 @@
 export const site = {
+  /** When false, /projects returns 404 and gallery links are hidden from nav. */
+  projectsGalleryVisible: false,
   name: "Stuart Thomas Construction",
   tagline: "LANDSCAPE. BUILD. ELEVATE.",
   description:
-    "Armour stone, waterfront stone work, landscaping, hardscaping, excavation, and commercial snow removal for Tiny Township, Wasaga Beach, Collingwood, and South Georgian Bay.",
+    "Armour stone, waterfront stone work, landscaping, hardscaping, excavation, and commercial snow removal for Tiny Township, Wasaga Beach, Elmvale, Midland, Penetanguishene, Collingwood, and Simcoe County.",
   /** Production URL — set NEXT_PUBLIC_SITE_URL at deploy time */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.stuartthomasconstruction.ca",
   phoneDisplay: "(705) 727-7308",
@@ -13,6 +15,11 @@ export const site = {
     region: "ON",
     postalCode: "",
     country: "CA",
+  },
+  /** Approximate service-area centre for LocalBusiness geo schema */
+  geo: {
+    latitude: 44.683,
+    longitude: -80.017,
   },
   logo: {
     src: "/brand/logo.png",

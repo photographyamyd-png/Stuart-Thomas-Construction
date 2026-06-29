@@ -32,6 +32,26 @@ export const AREAS = [
     name: "Perkinsfield",
     gps: { lat: 44.683, lng: -79.933 },
   },
+  {
+    slug: "elmvale",
+    name: "Elmvale",
+    gps: { lat: 44.589, lng: -79.867 },
+  },
+  {
+    slug: "midland",
+    name: "Midland",
+    gps: { lat: 44.750, lng: -79.883 },
+  },
+  {
+    slug: "penetanguishene",
+    name: "Penetanguishene",
+    gps: { lat: 44.767, lng: -79.933 },
+  },
+  {
+    slug: "simcoe-county",
+    name: "Simcoe County",
+    gps: { lat: 44.650, lng: -79.950 },
+  },
 ];
 
 export const SERVICE_META = {
@@ -244,7 +264,7 @@ export const FILE_OVERRIDES = {
     areaSlug: "collingwood",
   },
   "20260508_110056.jpg": {
-    category: "waterfront",
+    category: "hardscaping",
     descriptor: "stone-stairs-slope",
     areaSlug: "wasaga-beach",
   },
@@ -324,8 +344,28 @@ export const FILE_OVERRIDES = {
     areaSlug: "tiny-township",
   },
   "20260508_105448.jpg": {
+    category: "hardscaping",
+    descriptor: "court-shed-pad",
+    areaSlug: "south-georgian-bay",
+  },
+  "20260508_105812.jpg": {
     category: "waterfront",
-    descriptor: "coastal-stone-detail",
+    descriptor: "elevated-patio-waterfront",
+    areaSlug: "wasaga-beach",
+  },
+  "20260508_105828.jpg": {
+    category: "waterfront",
+    descriptor: "shoreline-wide-view",
+    areaSlug: "wasaga-beach",
+  },
+  "20260508_110010.jpg": {
+    category: "waterfront",
+    descriptor: "beachfront-cabana",
+    areaSlug: "wasaga-beach",
+  },
+  "20260508_110046.jpg": {
+    category: "waterfront",
+    descriptor: "patio-beach-water",
     areaSlug: "wasaga-beach",
   },
 };

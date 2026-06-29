@@ -5,9 +5,19 @@ import { conversion } from "@/data/conversion";
 import { media } from "@/data/media";
 import { useTurnerHeroVideo } from "@/hooks/use-turner-hero-video";
 
-export function TurnerHero() {
+type Props = {
+  videoSrc?: string;
+  posterSrc?: string;
+  clipStartSec?: number;
+};
+
+export function TurnerHero({
+  videoSrc = media.homeHeroVideo,
+  posterSrc = media.homeHeroPoster,
+  clipStartSec = media.homeHeroVideoStartSec,
+}: Props = {}) {
   const { videoRef, userPlaying, videoReady, showPoster, shouldLoadVideo, toggleVideo } =
-    useTurnerHeroVideo();
+    useTurnerHeroVideo({ clipStartSec });
   const { hero } = conversion;
 
   return (
@@ -20,13 +30,13 @@ export function TurnerHero() {
         playsInline
         preload="none"
       >
-        {shouldLoadVideo && <source src={media.homeHeroVideo} type="video/mp4" />}
+        {shouldLoadVideo && <source src={videoSrc} type="video/mp4" />}
       </video>
       {showPoster && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           className="turner-hero__poster is-visible"
-          src={media.homeHeroPoster}
+          src={posterSrc}
           alt=""
           aria-hidden
         />

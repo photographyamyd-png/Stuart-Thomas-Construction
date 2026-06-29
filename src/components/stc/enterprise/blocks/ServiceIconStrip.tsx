@@ -6,6 +6,7 @@ import { serviceStripIcons } from "@/components/stc/enterprise/icons/ServiceStri
 export function ServiceIconStrip() {
   return (
     <nav className="stc-icon-strip stc-icon-strip--beige" aria-label="Service quick links">
+      <p className="eyebrow green stc-icon-strip__eyebrow">What We Do</p>
       <h2 className="stc-icon-strip__title">Our Services</h2>
       <ul className="stc-icon-strip__grid">
         {enterpriseIconStripOrder.map((slug) => {
