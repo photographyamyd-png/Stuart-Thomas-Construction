@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EnterpriseHome } from "@/components/stc/enterprise/EnterpriseHome";
+import { EnterpriseHomeAppeal } from "@/components/stc/enterprise/EnterpriseHomeAppeal";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
@@ -9,6 +9,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/",
 });
 
+/** Primary homepage — Appeal landing (continue revisions on this branch). */
 export default function HomePage() {
-  return <EnterpriseHome />;
+  return <EnterpriseHomeAppeal />;
 }

@@ -3,29 +3,32 @@
 @import "shadcn/tailwind.css";
 @import "../styles/enterprise-tokens.css";
 @import "../styles/enterprise-authority.css";
+@import "../styles/wireframe-layouts.css";
+@import "../styles/landing-layouts.css";
+@import "../styles/landing-appeal.css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: var(--stc-white);
-  --foreground: var(--stc-black);
-  --card: var(--stc-white);
-  --card-foreground: var(--stc-black);
-  --popover: var(--stc-white);
-  --popover-foreground: var(--stc-black);
-  --primary: var(--ent-cta-fill);
-  --primary-foreground: var(--ent-cta-text-on-fill);
-  --secondary: var(--ent-band-alt);
-  --secondary-foreground: var(--stc-black);
+  --background: var(--ent-surface-alt);
+  --foreground: var(--ent-text-primary);
+  --card: var(--ent-surface);
+  --card-foreground: var(--ent-text-primary);
+  --popover: var(--ent-surface);
+  --popover-foreground: var(--ent-text-primary);
+  --primary: var(--ent-role-cta-on-overlay-bg);
+  --primary-foreground: var(--ent-text-primary);
+  --secondary: var(--ent-surface);
+  --secondary-foreground: var(--ent-text-primary);
   --muted: var(--ent-band-alt);
-  --muted-foreground: #4a4a4a;
+  --muted-foreground: var(--ent-text-muted);
   --accent: var(--stc-green);
   --accent-foreground: var(--stc-white);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: color-mix(in srgb, var(--stc-black) 12%, transparent);
-  --input: color-mix(in srgb, var(--stc-black) 12%, transparent);
-  --ring: var(--stc-gold);
-  --radius: 0.25rem;
+  --border: var(--ent-border-default);
+  --input: var(--ent-border-default);
+  --ring: color-mix(in srgb, var(--stc-accent) 35%, transparent);
+  --radius: 0px;
 }
 
 @theme inline {
@@ -35,10 +38,10 @@
   --color-stc-beige: var(--stc-beige);
   --color-stc-gold: var(--stc-gold);
   --color-stc-accent: var(--stc-accent);
-  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
-  --font-utility: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-utility: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -57,10 +60,10 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-sm: var(--radius);
   --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) * 1.5);
-  --radius-xl: calc(var(--radius) * 2);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
 }
 
 @layer base {

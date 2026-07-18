@@ -12,8 +12,12 @@ import { media } from "@/data/media";
 import { site } from "@/data/site";
 import { CapabilityFeatureStrip } from "./blocks/CapabilityFeatureStrip";
 import { CommitmentsAccordion } from "./blocks/CommitmentsAccordion";
+import { FaqAccordion } from "./blocks/FaqAccordion";
+import { ProblemSection } from "./blocks/ProblemSection";
+import { ProcessSteps } from "./blocks/ProcessSteps";
 import { ServiceIconStrip } from "./blocks/ServiceIconStrip";
 import { ServiceOverlayGrid } from "./blocks/ServiceOverlayGrid";
+import { TrustBar } from "./blocks/TrustBar";
 import { TurnerHero } from "./blocks/TurnerHero";
 import { EnterpriseContactForm } from "./EnterpriseContactForm";
 import { LinkArrow } from "./primitives";
@@ -23,6 +27,8 @@ export function EnterpriseHome() {
     <>
       <TurnerHero />
 
+      <TrustBar />
+
       <section
         className="turner-pathfinder turner-band turner-band--light turner-band--seam"
         id="pathfinder"
@@ -31,10 +37,10 @@ export function EnterpriseHome() {
         <ul className="turner-pathfinder__grid">
           <li>
             <Link className="turner-pathfinder__card" href="/projects">
-              <h2>A Project</h2>
+              <h2>Completed Waterfront Builds</h2>
               <p>
-                Browse completed armour stone, waterfront, and landscape builds across our service
-                area.
+                Retaining walls, shoreline stairs, and full outdoor builds on Georgian Bay properties
+                — see the finished work.
               </p>
               <span className="link-arrow">
                 Browse Our Projects{" "}
@@ -46,8 +52,8 @@ export function EnterpriseHome() {
           </li>
           <li>
             <Link className="turner-pathfinder__card" href="#services">
-              <h2>Our Services</h2>
-              <p>Six services, one crew — excavation, stone, landscaping, and snow removal.</p>
+              <h2>What We Build</h2>
+              <p>Armour stone, excavation, hardscaping, and landscaping across your waterfront property — one crew, one contract.</p>
               <span className="link-arrow">
                 Explore Services{" "}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
@@ -58,8 +64,8 @@ export function EnterpriseHome() {
           </li>
           <li>
             <Link className="turner-pathfinder__card" href="/about">
-              <h2>About STC</h2>
-              <p>Twenty years of honest work on local properties.</p>
+              <h2>15+ Seasons on the Bay</h2>
+              <p>Same owner, same crew, same shoreline since 2004. Local knowledge built over 15+ seasons on Georgian Bay.</p>
               <span className="link-arrow">
                 Learn More{" "}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
@@ -98,7 +104,7 @@ export function EnterpriseHome() {
           <header className="turner-insights__head">
             <p className="eyebrow">From The Field</p>
             <h2 id="insights-heading" className="text-display">
-              Recent <span className="text-accent-gold">Highlights</span>
+              Recent <span className="text-accent-gold">Work</span>
             </h2>
           </header>
           <div className="turner-insights__track" role="list">
@@ -116,6 +122,8 @@ export function EnterpriseHome() {
           </div>
         </div>
       </section>
+
+      <ProblemSection />
 
       <section className="turner-band turner-band--dark turner-band--seam" id="services" aria-label="Our services">
         <ServiceOverlayGrid showHeader />
@@ -161,11 +169,11 @@ export function EnterpriseHome() {
         <div className="stc-built-strong__inner">
           <h2 id="built-strong-heading">{site.tagline}</h2>
           <p>
-            Armour stone, waterfront steps, and full outdoor builds — with straight talk from quote to
-            finish.
+            One crew from excavation through final stone placement. Drainage engineered into every
+            grade change. Walls built for Georgian Bay winters, not subdivision gardens.
           </p>
-          <Link href="/contact" className="btn-accent btn-accent--lg">
-            Get a Quote
+          <Link href="#contact" className="btn-accent btn-accent--lg">
+            Request a Site Consultation
           </Link>
         </div>
       </section>
@@ -181,16 +189,22 @@ export function EnterpriseHome() {
           <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
         </div>
         <div className="turner-regional__copy">
-          <p className="eyebrow eyebrow--on-dark">Tiny Township &amp; South Georgian Bay</p>
+          <p className="eyebrow eyebrow--on-dark">Wasaga Beach &amp; Tiny Township</p>
           <h2 id="regional-heading" className="text-display">
             Our Work In Your <span className="accent text-accent-gold">Community</span>
           </h2>
           <p>
-            We build retaining walls, patios, and waterfront stone across Tiny Township, Wasaga Beach,
-            and Collingwood — including Balm Beach, Thunder Beach, and Perkinsfield.
+            Retaining walls, waterfront stairs, patios, and full site builds across Wasaga Beach,
+            Tiny Township, Elmvale, Midland, Penetanguishene, and Collingwood — including Balm Beach,
+            Thunder Beach, and Perkinsfield.
           </p>
           <ul className="area-pills">
-            {areas.map((area, i) => (
+            {[...areas]
+              .sort((a, b) => {
+                const order = ["wasaga-beach", "tiny-township", "collingwood"];
+                return order.indexOf(a.slug) - order.indexOf(b.slug);
+              })
+              .map((area, i) => (
               <li key={area.slug}>
                 <Link href={`/areas/${area.slug}`} className={i === 0 ? "is-active" : undefined}>
                   {area.name}
@@ -203,14 +217,18 @@ export function EnterpriseHome() {
 
       <CommitmentsAccordion />
 
+      <ProcessSteps />
+
       <section className="turner-quote turner-band turner-band--dark turner-band--seam-thin" id="quote" aria-label="Client testimonial">
         <blockquote>
-          &ldquo;Stuart Thomas delivered exactly what they promised —{" "}
-          <span className="hl">{enterpriseQuote.highlight}</span>, honest communication, and a shoreline
-          we are proud of.&rdquo;
+          &ldquo;They engineered our retaining tiers like a structural trade — clean lines, real
+          mass, and{" "}
+          <span className="hl">{enterpriseQuote.highlight}</span>.&rdquo;
         </blockquote>
         <footer>{enterpriseQuote.attribution}</footer>
       </section>
+
+      <FaqAccordion />
 
       <div className="turner-band-divider turner-band-divider--white" aria-hidden />
 
@@ -220,17 +238,20 @@ export function EnterpriseHome() {
         aria-labelledby="contact-heading"
       >
         <div className="turner-contact__copy">
-          <p className="eyebrow eyebrow--on-dark">Start Your Project</p>
+          <p className="eyebrow eyebrow--on-dark">Free Site Consultation</p>
           <h2 id="contact-heading" className="text-display stack-title">
-            Ready To <span>Build?</span>
+            Let&apos;s Look at Your <span>Shoreline</span>
           </h2>
           <p>{conversion.contactIntro}</p>
           <Link
             href="/contact"
             className="btn-green stack-cta cta-self-start"
           >
-            Request a Quote
+            Request a Site Consultation
           </Link>
+          <p className="turner-contact__areas">
+            Wasaga Beach · Tiny Township · Elmvale · Midland · Penetanguishene · Collingwood
+          </p>
         </div>
         <EnterpriseContactForm />
       </section>

@@ -5,22 +5,29 @@
  */
 
 :root {
-  /* —— Brand colors —— */
-  --stc-black: #1a1a1a;
+  /* —— Brand colors (wireframe: olive / sage / gold / charcoal) —— */
+  --stc-black: #141814;
   --stc-white: #ffffff;
-  --stc-green: #2d5a27;
-  --stc-beige: #d9cdbf;
-  --stc-gold: #b08d57;
-  /* Brighter warm accent — eyebrows, links, overlay CTAs, hero emphasis (not flat gold) */
-  --stc-accent: #d4a24e;
-  --stc-accent-hover: #e0b35c;
-  --stc-copper: #b87333;
-  --stc-charcoal: #111111;
+  --stc-green: #1a3320;
+  --stc-sage: #5f7344;
+  --stc-sage-bright: #7a9158;
+  --stc-lime: #a5e026;
+  --stc-beige: #f5f4ef;
+  --stc-gold: #c9a227;
+  --stc-accent: #c9a227;
+  --stc-accent-hover: #dbb84a;
+  --stc-copper: var(--stc-sage-bright);
+  --stc-charcoal: #1a1c18;
+  --stc-dark-green: #1a3320;
+  --stc-light-green: var(--stc-sage-bright);
+  --stc-hero-scrim-color: color-mix(in srgb, var(--stc-green) 92%, transparent);
+  --stc-hero-scrim-mid: color-mix(in srgb, var(--stc-green) 72%, transparent);
+  --stc-hero-scrim-soft: color-mix(in srgb, var(--stc-green) 38%, transparent);
 
   /* —— Font families (wired to next/font in layout.tsx) —— */
-  --ent-font-display: var(--font-poppins), "Poppins", ui-sans-serif, sans-serif;
-  --ent-font-label: var(--font-oswald), "Oswald", ui-sans-serif, sans-serif;
-  --ent-font-body: var(--font-open-sans), "Open Sans", system-ui, sans-serif;
+  --ent-font-display: var(--font-inter), "Inter", ui-sans-serif, sans-serif;
+  --ent-font-label: var(--font-inter), "Inter", ui-sans-serif, sans-serif;
+  --ent-font-body: var(--font-inter), "Inter", system-ui, sans-serif;
 
   /* —— Site-wide typography roles (Open Sans–forward, readable weights) —— */
   --ent-font-eyebrow: var(--ent-font-body);
@@ -28,48 +35,48 @@
   --ent-font-stat: var(--ent-font-body);
   --ent-font-btn: var(--ent-font-body);
   --ent-font-link: var(--ent-font-body);
-  --ent-weight-display: 600;
+  --ent-weight-display: 700;
   --ent-weight-ui: 500;
   --ent-weight-ui-strong: 600;
-  --ent-weight-body: 500;
+  --ent-weight-body: 400;
   --ent-btn-size: 0.8125rem;
-  --ent-btn-tracking: 0.06em;
+  --ent-btn-tracking: 0.08em;
   --ent-link-size: 0.8125rem;
   --ent-link-tracking: 0.06em;
 
   /* —— Type scale —— */
-  --ent-display-size: clamp(1.875rem, 3.5vw + 1rem, 3.125rem);
-  --ent-display-leading: 1.08;
-  --ent-display-tracking: -0.01em;
+  --ent-display-size: clamp(2rem, 3.2vw + 1rem, 3.5rem);
+  --ent-display-leading: 1.04;
+  --ent-display-tracking: -0.03em;
 
-  --ent-display-lg-size: clamp(2.25rem, 5vw + 1rem, 4.25rem);
+  --ent-display-lg-size: clamp(2.5rem, 5vw + 1rem, 4.75rem);
   --ent-display-lg-leading: 1.02;
 
-  --ent-display-xl-size: clamp(2.75rem, 6vw + 1rem, 5.5rem);
+  --ent-display-xl-size: clamp(2.75rem, 6vw + 1rem, 4rem);
 
-  --ent-section-size: clamp(1.5rem, 3vw, 2.25rem);
-  --ent-subsection-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  --ent-section-size: clamp(1.75rem, 3vw, 2.5rem);
+  --ent-subsection-size: clamp(1.125rem, 2vw, 1.5rem);
   --ent-legal-size: clamp(1.125rem, 2vw, 1.5rem);
   --ent-faq-size: clamp(1.5rem, 3vw, 2rem);
 
-  --ent-utility-size: clamp(0.9375rem, 1vw + 0.8rem, 1.125rem);
+  --ent-utility-size: clamp(0.875rem, 0.8vw + 0.8rem, 1rem);
   --ent-utility-leading: 1.35;
-  --ent-utility-tracking: 0.06em;
+  --ent-utility-tracking: 0.08em;
 
-  --ent-stat-size: clamp(2.125rem, 3vw + 1rem, 2.875rem);
+  --ent-stat-size: clamp(2.25rem, 3vw + 1rem, 3.5rem);
 
   --ent-eyebrow-size: 0.75rem;
   --ent-eyebrow-tracking: 0.12em;
   --ent-eyebrow-rule-w: 2rem;
   --ent-eyebrow-gap: 0.75rem;
 
-  --ent-body-size: 1.0625rem;
-  --ent-body-leading: 1.7;
-  --ent-body-muted: rgba(26, 26, 26, 0.78);
+  --ent-body-size: 1rem;
+  --ent-body-leading: 1.65;
+  --ent-body-muted: #3d4238;
 
-  --ent-statement-size: clamp(1.125rem, 1.25vw + 0.95rem, 1.375rem);
-  --ent-statement-leading: 1.45;
-  --ent-statement-color: rgba(26, 26, 26, 0.72);
+  --ent-statement-size: clamp(1rem, 1.15vw + 0.95rem, 1.25rem);
+  --ent-statement-leading: 1.5;
+  --ent-statement-color: #4a5044;
 
   --ent-label-sm-size: 0.6875rem;
   --ent-label-md-size: 0.8125rem;
@@ -118,14 +125,14 @@
   --ent-space-md: 1rem;
   --ent-space-lg: 1.5rem;
   --ent-space-xl: 2rem;
-  --ent-space-2xl: 2.5rem;
+  --ent-space-2xl: 3rem;
   --ent-space-3xl: 3rem;
   --ent-space-4xl: 4rem;
-  --ent-space-5xl: 5rem;
+  --ent-space-5xl: 6rem;
 
-  --ent-space-section-y: var(--ent-space-3xl);
-  --ent-space-band-y: var(--ent-space-3xl);
-  --ent-space-hero-y: var(--ent-space-3xl);
+  --ent-space-section-y: var(--ent-space-4xl);
+  --ent-space-band-y: var(--ent-space-4xl);
+  --ent-space-hero-y: var(--ent-space-4xl);
   --ent-space-stack-sm: var(--ent-space-sm);
   --ent-space-stack-md: var(--ent-space-md);
   --ent-space-stack-lg: var(--ent-space-lg);
@@ -133,34 +140,60 @@
   --ent-space-stack-2xl: var(--ent-space-2xl);
 
   /* —— Layout —— */
-  --max-w: 80rem;
-  --pad-x: 1.5rem;
-  --pad-x-lg: 3rem;
-  --header-h: 5rem;
+  --max-w: 75rem;
+  --pad-x: 1rem;
+  --pad-x-lg: 2rem;
+  --header-h: 5.25rem;
   --mega-top: var(--header-h);
-  --ent-hero-min-height: calc(100vh - var(--header-h));
-  --ent-hero-min-height-dvh: calc(100dvh - var(--header-h));
-  --ent-hero-scrim: linear-gradient(180deg, rgba(26, 26, 26, 0.55) 0%, rgba(26, 26, 26, 0.75) 100%);
+  --ent-hero-min-height: calc(72vh + 2rem);
+  --ent-hero-min-height-dvh: calc(72dvh + 2rem);
+  --ent-hero-min-height-full: 100svh;
+  --ent-hero-min-height-full-dvh: 100dvh;
+  --ent-hero-scrim: linear-gradient(
+    105deg,
+    var(--stc-hero-scrim-color) 0%,
+    var(--stc-hero-scrim-mid) 48%,
+    var(--stc-hero-scrim-soft) 100%
+  );
+  --ent-hero-scrim-split: linear-gradient(
+    105deg,
+    color-mix(in srgb, var(--stc-green) 94%, transparent) 0%,
+    color-mix(in srgb, var(--stc-green) 88%, transparent) 36%,
+    color-mix(in srgb, var(--stc-green) 52%, transparent) 50%,
+    color-mix(in srgb, var(--stc-green) 18%, transparent) 58%,
+    transparent 68%
+  );
   --prose-narrow: 40rem;
   --prose-medium: 48rem;
-  --lead-max-w: 32rem;
+  --lead-max-w: 36rem;
 
   /* —— Motion —— */
   --ease: 0.2s ease;
 
   /* —— Surfaces & text on dark —— */
   --ent-text-on-dark: var(--stc-white);
-  --ent-text-on-dark-muted: rgba(255, 255, 255, 0.72);
-  --ent-text-on-dark-subtle: rgba(255, 255, 255, 0.82);
-  --ent-text-on-dark-faint: rgba(255, 255, 255, 0.65);
-  --ent-border-on-dark: rgba(255, 255, 255, 0.12);
-  --ent-border-on-light: rgba(26, 26, 26, 0.12);
+  --ent-text-on-dark-muted: rgba(255, 255, 255, 0.86);
+  --ent-text-on-dark-subtle: rgba(255, 255, 255, 0.92);
+  --ent-text-on-dark-faint: rgba(255, 255, 255, 0.72);
+  --ent-border-on-dark: rgba(255, 255, 255, 0.14);
+  --ent-border-on-light: #d8d8d0;
+  --ent-border-default: #d8d8d0;
+  --ent-border-strong: #c7c7bc;
+  --ent-surface: #ffffff;
+  --ent-surface-alt: #eef1e8;
+  --ent-surface-soft: #e2e8da;
+  --ent-text-primary: #1a1c18;
+  --ent-text-muted: #50564c;
+  --ent-shadow-soft: 0 6px 16px rgba(15, 23, 17, 0.06);
+  --ent-shadow-medium: 0 12px 28px rgba(15, 23, 17, 0.1);
+  --ent-radius-none: 0px;
+  --ent-radius-subtle: 2px;
 
   /* —— Seam / divider —— */
   --ent-seam-height: 4px;
   --ent-seam-thin-height: 1px;
-  --ent-seam-accent: var(--stc-green);
-  --ent-seam-accent-thin: color-mix(in srgb, var(--stc-green) 45%, transparent);
+  --ent-seam-accent: var(--stc-gold);
+  --ent-seam-accent-thin: color-mix(in srgb, var(--stc-gold) 55%, transparent);
   --ent-seam-accent-white: var(--stc-white);
   --ent-band-divider-white-height: clamp(0.5rem, 1.5vw, 0.75rem);
 
@@ -169,11 +202,12 @@
    * Beige and gold remain accent colors (text, borders, eyebrows, thin rules).
    * Never use --stc-beige or --stc-gold as section, card, or button backgrounds.
    */
-  --ent-band-dark: var(--stc-black);
-  --ent-band-light: var(--stc-white);
-  --ent-band-green: var(--stc-green);
-  --ent-band-alt: color-mix(in srgb, var(--stc-black) 4%, var(--stc-white));
-  --ent-cta-fill: var(--stc-green);
+  --ent-band-dark: var(--stc-green);
+  --ent-band-light: var(--ent-surface-alt);
+  --ent-band-green: var(--stc-sage);
+  --ent-band-lime: var(--stc-lime);
+  --ent-band-alt: var(--ent-surface-soft);
+  --ent-cta-fill: var(--stc-lime);
   --ent-cta-fill-on-light: var(--stc-white);
   --ent-cta-fill-on-dark: var(--stc-white);
   --ent-cta-text-on-fill: var(--stc-white);
@@ -193,13 +227,12 @@
   --ent-role-body-on-light: var(--ent-body-muted);
   --ent-role-statement-on-dark: var(--ent-text-on-dark-subtle);
   --ent-role-statement-on-light: var(--ent-statement-color);
-  --ent-role-cta-bg: var(--stc-green);
+  --ent-role-cta-bg: var(--stc-lime);
   --ent-role-cta-text: var(--stc-white);
-  --ent-role-cta-border: var(--stc-gold);
-  /* Overlay card CTA — accent fill pops on dark scrims (mockup: tan button, dark label) */
+  --ent-role-cta-border: color-mix(in srgb, var(--stc-lime) 92%, var(--stc-green));
   --ent-role-cta-on-overlay-bg: var(--stc-accent);
-  --ent-role-cta-on-overlay-text: var(--stc-white);
-  --ent-role-cta-on-overlay-border: color-mix(in srgb, var(--stc-accent) 55%, var(--stc-black));
+  --ent-role-cta-on-overlay-text: var(--stc-charcoal);
+  --ent-role-cta-on-overlay-border: var(--stc-accent);
   --ent-role-link: var(--stc-accent);
   --ent-role-eyebrow-on-dark: var(--stc-accent);
   --ent-role-eyebrow-on-light: var(--stc-green);

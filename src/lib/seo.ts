@@ -58,6 +58,7 @@ export function pageMetadata(opts: {
   description: string;
   path: string;
   image?: string;
+  robots?: Metadata["robots"];
 }): Metadata {
   const base = site.url.replace(/\/$/, "");
   const path = opts.path.startsWith("/") ? opts.path : `/${opts.path}`;
@@ -67,6 +68,7 @@ export function pageMetadata(opts: {
     title: opts.title,
     description: opts.description,
     alternates: { canonical: url },
+    ...(opts.robots ? { robots: opts.robots } : {}),
     openGraph: {
       title: opts.title,
       description: opts.description,

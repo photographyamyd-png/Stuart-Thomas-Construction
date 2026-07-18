@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { footerColumns } from "@/data/nav";
+import { footerColumns, cta } from "@/data/nav";
 import { site } from "@/data/site";
 
 export function EnterpriseFooter() {
@@ -43,10 +43,26 @@ export function EnterpriseFooter() {
               <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
             </li>
             <li>
-              <Link href="/contact">Request a Quote</Link>
+              <Link href="/contact">{cta.primaryLabel}</Link>
             </li>
           </ul>
         </div>
+      </div>
+      <div className="turner-footer__cta container">
+        <div className="turner-footer__cta-copy">
+          <p className="eyebrow eyebrow--on-dark">From the field</p>
+          <h3 className="text-display text-display--section">Project updates &amp; seasonal tips</h3>
+          <p className="wf-type-supporting">Visual signup only — no backend yet. Call or use the contact form for project inquiries.</p>
+        </div>
+        <form className="turner-footer__newsletter" aria-label="Newsletter signup">
+          <label className="turner-footer__sr-only" htmlFor="footer-email">
+            Email address
+          </label>
+          <input id="footer-email" type="email" name="email" placeholder="Email address" autoComplete="email" />
+          <button type="button" className="btn-green">
+            Subscribe
+          </button>
+        </form>
       </div>
       <div className="turner-footer__legal">
         {footerColumns.legal.map((item) => (

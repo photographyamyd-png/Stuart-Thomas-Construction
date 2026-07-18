@@ -2,12 +2,32 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { areas } from "@/data/areas";
 import { media } from "@/data/media";
-import { footerColumns, navServices } from "@/data/nav";
+import { footerColumns, navServices, cta } from "@/data/nav";
+import { site } from "@/data/site";
 import { useEnterpriseNav } from "@/hooks/use-enterprise-nav";
 import { LinkArrow, Wordmark } from "./primitives";
+
+const FLUSH_HERO_PREFIXES = ["/services/", "/areas/"] as const;
+const FLUSH_HERO_ROUTES = new Set([
+  "/",
+  "/about",
+  "/contact",
+  "/projects",
+  "/services",
+  "/areas",
+  "/privacy",
+  "/terms",
+  "/materials/redi-rock",
+]);
+
+function usesFlushHero(pathname: string) {
+  if (FLUSH_HERO_ROUTES.has(pathname)) return true;
+  return FLUSH_HERO_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+}
 
 const MEGA_PROJECTS = [
   {
@@ -31,6 +51,7 @@ const MEGA_PROJECTS = [
 ] as const;
 
 export function EnterpriseHeader() {
+  const pathname = usePathname();
   const {
     luxOpen,
     drawerOpen,
@@ -64,7 +85,19 @@ export function EnterpriseHeader() {
 
   return (
     <>
-      <header className="turner-header" id="site-header">
+      <div className="turner-header__utility" aria-label="Contact information">
+        <div className="container turner-header__utility-inner">
+          <span>Tiny Township &amp; South Georgian Bay</span>
+          <div className="turner-header__utility-links">
+            <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
+            <a href="/contact">Request a Site Consultation</a>
+          </div>
+        </div>
+      </div>
+      <header
+        className={`turner-header${usesFlushHero(pathname) ? " turner-header--overlay" : ""}`}
+        id="site-header"
+      >
         <div className="container turner-header__inner">
           <Wordmark href="/" className="turner-header__logo" />
 
@@ -136,7 +169,7 @@ export function EnterpriseHeader() {
 
           <div className="turner-header__actions">
             <Link href="/contact" className="btn-header-cta">
-              Get a Quote
+              {cta.primaryLabel}
             </Link>
             <button
               type="button"
@@ -272,9 +305,7 @@ export function EnterpriseHeader() {
               </div>
               <div className="stc-lux-panel__col">
                 <p className="eyebrow eyebrow--plain eyebrow--on-dark">Since 2004</p>
-                <p className="stc-lux-panel__blurb">
-                  Outdoor construction across South Georgian Bay — armour stone, landscaping, and full outdoor builds from our base in Tiny Township.
-                </p>
+                <p className="stc-lux-panel__blurb">{site.description}</p>
                 <LinkArrow href="/about" className="stack-cta" onClick={closeLux}>
                   Get to know us
                 </LinkArrow>
@@ -326,7 +357,7 @@ export function EnterpriseHeader() {
           </Link>
         </nav>
         <Link href="/contact" className="btn-header-cta" onClick={closeDrawer}>
-          Get a Quote
+          {cta.primaryLabel}
         </Link>
       </aside>
     </>

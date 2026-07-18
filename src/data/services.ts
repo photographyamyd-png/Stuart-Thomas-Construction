@@ -48,7 +48,7 @@ export const services: ServiceDetail[] = [
     iconRowLabelLines: ["ARMOUR", "STONE"],
     iconStripAccent: "var(--ent-icon-strip-armour)",
     shortDescription:
-      "Retaining walls and stone work built for Georgian Bay winters.",
+      "Stops erosion and holds slopes on waterfront properties through Georgian Bay freeze-thaw cycles.",
     metaTitle: "Armour Stone & Retaining Walls | Tiny Township Construction",
     metaDescription:
       "Armour stone and retaining walls in Tiny Township, Wasaga Beach, and Collingwood. Built for shoreline exposure and freeze-thaw.",
@@ -132,7 +132,7 @@ export const services: ServiceDetail[] = [
     iconRowLabelLines: ["LANDSCAPING"],
     iconStripAccent: "var(--ent-icon-strip-landscape)",
     shortDescription:
-      "Tiny Township landscaping that works with your stone, grade, and drainage.",
+      "Grading, beds, and finishing that tie into your stone and drainage work — so the yard reads as one complete outdoor space, not patchwork.",
     metaTitle: "Tiny Township Landscaping | Stuart Thomas Construction",
     metaDescription:
       "Landscaping and outdoor finishing in Tiny Township, Wasaga Beach, and Collingwood. Grading, beds, and hardscape integration for cottage country.",
@@ -174,7 +174,7 @@ export const services: ServiceDetail[] = [
     iconRowLabelLines: ["HARDSCAPING"],
     iconStripAccent: "var(--ent-icon-strip-hardscape)",
     shortDescription:
-      "Patios, walkways, and steps built with a solid base and clean finishes.",
+      "Patios, walkways, and steps that stay level through winter heave — because the base and drainage are done before the first stone goes down.",
     metaTitle: "Hardscaping Contractor | Tiny Township & Collingwood",
     metaDescription:
       "Hardscaping in Tiny Township, Wasaga Beach, and Collingwood — patios, walkways, steps, and stone work built to last.",
@@ -215,7 +215,7 @@ export const services: ServiceDetail[] = [
     iconRowLabelLines: ["EXCAVATION"],
     iconStripAccent: "var(--ent-icon-strip-excavation)",
     shortDescription:
-      "Grading and site prep that sets up stone and landscaping to last.",
+      "Gets your grade, drainage, and base right before stone or landscaping goes in — the step most contractors skip.",
     metaTitle: "Excavation & Grading | Tiny Township Construction",
     metaDescription:
       "Excavation and grading in Tiny Township, Wasaga Beach, and Collingwood. Site prep for stone, landscaping, and outdoor builds.",

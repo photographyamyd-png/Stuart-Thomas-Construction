@@ -1,6 +1,6 @@
 export const site = {
   name: "Stuart Thomas Construction",
-  tagline: "LANDSCAPE. BUILD. ELEVATE.",
+  tagline: "Built for the Bay.",
   description:
     "Armour stone, waterfront stone work, landscaping, hardscaping, excavation, and commercial snow removal for Tiny Township, Wasaga Beach, Collingwood, and South Georgian Bay.",
   /** Production URL — set NEXT_PUBLIC_SITE_URL at deploy time */

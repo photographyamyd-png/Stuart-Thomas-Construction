@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { conversion } from "@/data/conversion";
 import { media } from "@/data/media";
+import { site } from "@/data/site";
 import { useTurnerHeroVideo } from "@/hooks/use-turner-hero-video";
 
 export function TurnerHero() {
@@ -38,12 +39,12 @@ export function TurnerHero() {
           {hero.headline} <span className="accent">{hero.headlineAccent}</span>
         </h1>
         <p className="wf-type-supporting">{hero.lead}</p>
-        <Link href="#pathfinder" className="turner-hero__pathfinder">
-          {hero.pathfinderLabel}{" "}
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
+        <Link href="#contact" className="btn-accent btn-accent--lg">
+          {hero.pathfinderLabel}
         </Link>
+        <a href={`tel:${site.phoneTel}`} className="turner-hero__phone">
+          {site.phoneDisplay}
+        </a>
       </div>
       <p className="turner-hero__scroll" aria-hidden>
         Scroll
