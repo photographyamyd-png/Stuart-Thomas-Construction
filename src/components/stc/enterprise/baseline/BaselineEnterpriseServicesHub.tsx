@@ -9,7 +9,7 @@ export function BaselineEnterpriseServicesHub() {
     <>
       <BaselineEnterprisePageHero
         eyebrow="Our Services"
-        title="Six Disciplines. One Accountable Team."
+        title="Armour Stone, Hardscaping & Landscaping"
         description="Industrial capability meets architectural precision — armour stone, waterfront assemblies, landscaping, hardscaping, excavation, and commercial snow removal across South Georgian Bay."
         breadcrumbs={[
           { name: "Home", path: B },

@@ -1,34 +1,40 @@
 "use client";
 
 import { useState } from "react";
-import { homepageFaq } from "@/data/conversion";
+
+type FaqItem = {
+  q: string;
+  a: string;
+};
 
 type Props = {
-  /** Band fill — defaults to dark. Use light when the previous section is already dark. */
+  items: FaqItem[];
   band?: "dark" | "light";
 };
 
-export function FaqAccordion({ band = "dark" }: Props) {
+/**
+ * Service FAQ — same open/close response as homepage FaqAccordion.
+ */
+export function ServiceFaq({ items, band = "dark" }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const onDark = band === "dark";
 
   return (
     <section
-      className={`stc-faq turner-band turner-band--${band} turner-band--seam`}
-      id="faq"
-      aria-labelledby="faq-heading"
+      className={`stc-faq stc-svc-page__faq turner-band turner-band--${band} turner-band--seam`}
+      aria-labelledby="svc-faq-heading"
     >
       <div className="stc-faq__inner container">
-        <p className={onDark ? "eyebrow eyebrow--on-dark" : "eyebrow"}>Common Questions</p>
-        <h2 id="faq-heading" className="text-display">
-          What Property Owners <span className="text-accent-gold">Ask</span>
+        <p className={onDark ? "eyebrow eyebrow--on-dark" : "eyebrow"}>FAQ</p>
+        <h2 id="svc-faq-heading" className="text-display text-display--faq">
+          Common <span className="text-accent-gold">Questions</span>
         </h2>
 
         <dl className="stc-faq__list">
-          {homepageFaq.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = openIndex === i;
             return (
-              <div key={i} className={`stc-faq__item${isOpen ? " is-open" : ""}`}>
+              <div key={item.q} className={`stc-faq__item${isOpen ? " is-open" : ""}`}>
                 <dt>
                   <button
                     type="button"

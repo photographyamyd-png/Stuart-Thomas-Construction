@@ -9,7 +9,7 @@ import { buildBreadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Project Gallery",
   description:
-    "Photos from Tiny Township construction and landscaping projects — armour stone, waterfront, hardscaping, excavation, Redi-Rock, and snow removal across South Georgian Bay.",
+    "Photos from Tiny Township armour stone and hardscaping jobs on Georgian Bay properties.",
   path: "/projects",
 });
 

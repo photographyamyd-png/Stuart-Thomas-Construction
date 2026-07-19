@@ -18,7 +18,7 @@ export function BaselineServiceOverlayGrid({ id = "services", className = "", sh
         <header className="stc-svc-overlay-grid__head container">
           <p className="eyebrow eyebrow--on-dark">Our Services</p>
           <h2 className="text-display">
-            Six Disciplines. <span className="text-accent-gold">One Team.</span>
+            Armour Stone, Hardscaping <span className="text-accent-gold">&amp; Outdoor Living</span>
           </h2>
         </header>
       ) : null}

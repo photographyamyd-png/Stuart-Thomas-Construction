@@ -3,7 +3,7 @@ import { trustBar } from "@/data/conversion";
 export function TrustBar() {
   return (
     <section
-      className="stc-trust-bar turner-band turner-band--light turner-band--seam"
+      className="stc-trust-bar turner-band turner-band--dark turner-band--seam"
       id="trust"
       aria-label="Credentials"
     >

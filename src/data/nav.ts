@@ -45,6 +45,6 @@ export const footerColumns = {
 export const cta = {
   primaryLabel: "Request a Site Consultation",
   primaryHref: "/contact",
-  secondaryLabel: "View Projects",
+  secondaryLabel: "Finished projects",
   secondaryHref: "/projects",
 } as const;

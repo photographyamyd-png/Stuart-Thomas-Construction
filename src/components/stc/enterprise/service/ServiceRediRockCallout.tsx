@@ -29,9 +29,14 @@ export function ServiceRediRockCallout({ callout, installPhoto }: Props) {
         </div>
       )}
       <div className="turner-regional__copy">
-        <p className="eyebrow green">{callout.eyebrow}</p>
-        <h2 className="text-display text-display--subsection stack-eyebrow">{callout.headline}</h2>
-        <p>{callout.body}</p>
+        <p className="eyebrow">{callout.eyebrow}</p>
+        <h2 className="text-display text-display--subsection stack-eyebrow">
+          Redi-Rock{" "}
+          <span className="text-accent-gold">
+            {callout.headline.replace(/^Redi-Rock\s*/, "")}
+          </span>
+        </h2>
+        <p className="wf-type-supporting">{callout.body}</p>
         <ManufacturerAttribution variant="compact" className="stack-title" />
         <Link href={rediRockLinks.materialsPage} className="btn-green stack-cta cta-inline">
           {callout.linkLabel}

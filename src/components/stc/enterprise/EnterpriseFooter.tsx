@@ -50,19 +50,15 @@ export function EnterpriseFooter() {
       </div>
       <div className="turner-footer__cta container">
         <div className="turner-footer__cta-copy">
-          <p className="eyebrow eyebrow--on-dark">From the field</p>
-          <h3 className="text-display text-display--section">Project updates &amp; seasonal tips</h3>
-          <p className="wf-type-supporting">Visual signup only — no backend yet. Call or use the contact form for project inquiries.</p>
+          <p className="eyebrow eyebrow--on-dark">Talk to us</p>
+          <h3 className="text-display text-display--section">Questions about your property?</h3>
+          <p className="wf-type-supporting">Call (705) 727-7308 for project questions — free site visit available.</p>
         </div>
-        <form className="turner-footer__newsletter" aria-label="Newsletter signup">
-          <label className="turner-footer__sr-only" htmlFor="footer-email">
-            Email address
-          </label>
-          <input id="footer-email" type="email" name="email" placeholder="Email address" autoComplete="email" />
-          <button type="button" className="btn-green">
-            Subscribe
-          </button>
-        </form>
+        <div className="turner-footer__newsletter">
+          <a href={`tel:${site.phoneTel}`} className="btn-green">
+            Call {site.phoneDisplay}
+          </a>
+        </div>
       </div>
       <div className="turner-footer__legal">
         {footerColumns.legal.map((item) => (

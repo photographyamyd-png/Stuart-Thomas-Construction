@@ -16,7 +16,7 @@ import { ProcessSteps } from "./blocks/ProcessSteps";
 import { ServiceOverlayGrid } from "./blocks/ServiceOverlayGrid";
 import { TrustBar } from "./blocks/TrustBar";
 import { EnterpriseContactForm } from "./EnterpriseContactForm";
-import { AppealReveal } from "./preview/AppealReveal";
+import { AppealReveal } from "./blocks/AppealReveal";
 import { LinkArrow } from "./primitives";
 
 /**
@@ -32,26 +32,24 @@ export function EnterpriseHomeAppeal() {
     <div className="landing-appeal">
       <AppealTurnerHero />
 
-      <AppealReveal>
-        <TrustBar />
-      </AppealReveal>
+      <TrustBar />
 
       <AppealReveal>
         <section
-          className="turner-pathfinder turner-pathfinder--overlap turner-band turner-band--light"
+          className="turner-pathfinder turner-band turner-band--light turner-band--seam"
           id="pathfinder"
           aria-label="Choose your path"
         >
           <ul className="turner-pathfinder__grid">
             <li>
               <Link className="turner-pathfinder__card" href="/projects">
-                <h2>Completed Waterfront Builds</h2>
-                <p>
+                <h2>Waterfront Hardscaping Projects</h2>
+                <p className="wf-type-supporting">
                   Retaining walls, shoreline stairs, and full outdoor builds on Georgian Bay
                   properties — see the finished work.
                 </p>
                 <span className="link-arrow">
-                  Browse Our Projects{" "}
+                  Finished waterfront jobs{" "}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
@@ -60,13 +58,12 @@ export function EnterpriseHomeAppeal() {
             </li>
             <li>
               <Link className="turner-pathfinder__card" href="#services">
-                <h2>What We Build</h2>
-                <p>
-                  Armour stone, excavation, hardscaping, and landscaping across your waterfront
-                  property — one crew, one contract.
+                <h2>Tiny Township Construction &amp; Landscaping</h2>
+                <p className="wf-type-supporting">
+                  Armour stone, hardscaping, excavation, and landscaping for waterfront properties.
                 </p>
                 <span className="link-arrow">
-                  Explore Services{" "}
+                  Armour stone &amp; landscaping{" "}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
@@ -75,13 +72,13 @@ export function EnterpriseHomeAppeal() {
             </li>
             <li>
               <Link className="turner-pathfinder__card" href="/about">
-                <h2>15+ Seasons on the Bay</h2>
-                <p>
-                  Same owner, same crew, same shoreline since 2004. Local knowledge built over 15+
-                  seasons on Georgian Bay.
+                <h2>15+ Seasons on Georgian Bay</h2>
+                <p className="wf-type-supporting">
+                  Same owner on the same shoreline since 2004. Local knowledge built over 15+ seasons
+                  on Georgian Bay.
                 </p>
                 <span className="link-arrow">
-                  Learn More{" "}
+                  Owner on the Bay since 2004{" "}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
@@ -112,10 +109,11 @@ export function EnterpriseHomeAppeal() {
           <div className="turner-featured__copy container">
             <p className="eyebrow eyebrow--on-dark">{enterpriseFeaturedProject.eyebrow}</p>
             <h2 id="featured-heading" className="text-display">
-              {enterpriseFeaturedProject.title} <span>{enterpriseFeaturedProject.titleAccent}</span>
+              {enterpriseFeaturedProject.title}{" "}
+              <span className="text-accent-gold">{enterpriseFeaturedProject.titleAccent}</span>
             </h2>
             <p className="wf-type-supporting">{enterpriseFeaturedProject.description}</p>
-            <LinkArrow href={enterpriseFeaturedProject.href}>View Project</LinkArrow>
+            <LinkArrow href="/contact">Request a Quote</LinkArrow>
           </div>
         </section>
       </AppealReveal>
@@ -184,12 +182,12 @@ export function EnterpriseHomeAppeal() {
           <div className="turner-regional__copy">
             <p className="eyebrow eyebrow--on-dark">Wasaga Beach &amp; Tiny Township</p>
             <h2 id="regional-heading" className="text-display">
-              Our Work In Your <span className="accent text-accent-gold">Community</span>
+              Shoreline walls for{" "}
+              <span className="accent text-accent-gold">cottages on the Bay</span>
             </h2>
             <p className="wf-type-supporting">
-              Retaining walls, waterfront stairs, patios, and full site builds across Wasaga Beach,
-              Tiny Township, Elmvale, Midland, Penetanguishene, and Collingwood — including Balm Beach,
-              Thunder Beach, and Perkinsfield.
+              Shoreline retaining walls and waterfront stairs for Wasaga Beach and Tiny Township
+              cottages. Hardscaping and site builds in Collingwood when the lot needs it.
             </p>
             <ul className="area-pills">
               {[...areas]
@@ -241,14 +239,14 @@ export function EnterpriseHomeAppeal() {
           <div className="turner-contact__copy">
             <p className="eyebrow eyebrow--on-dark">Free Site Consultation</p>
             <h2 id="contact-heading" className="text-display stack-title">
-              Let&apos;s Look at Your <span>Shoreline</span>
+              Call about your <span className="text-accent-gold">shoreline or yard</span>
             </h2>
             <p className="wf-type-supporting">{conversion.contactIntro}</p>
             <Link href="/contact" className="btn-green stack-cta cta-self-start">
               Request a Site Consultation
             </Link>
             <p className="turner-contact__areas">
-              Wasaga Beach · Tiny Township · Elmvale · Midland · Penetanguishene · Collingwood
+              Wasaga Beach · Tiny Township · Collingwood
             </p>
           </div>
           <EnterpriseContactForm />

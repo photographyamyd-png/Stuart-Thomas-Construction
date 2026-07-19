@@ -43,7 +43,7 @@ export const rediRockInstallerScope = [
   "Site preparation, structural base, and drainage to plan requirements",
   "Redi-Rock block placement, alignment, and interface detailing",
   "Coordination with stamped drawings, engineers, and inspection schedules",
-  "Single-contract earthwork, install, and landscape handoff through STC crews",
+  "Earthwork, install, and finish through Stuart Thomas Construction",
 ] as const;
 
 export const rediRockRoleChain = [
@@ -100,8 +100,8 @@ export const rediRockComparison = {
     tagline: "Natural stone, placed by hand.",
     items: [
       "One-of-a-kind geological mass and hand-placed coursing",
-      "Ideal when the brief calls for raw, permanent stone character",
-      "Best for bespoke waterfront and estate retaining features",
+      "Ideal when the brief calls for raw stone character that looks built-in",
+      "Best for custom waterfront retaining features",
     ],
     href: "/services/armour-stone",
     accent: "gold" as const,
@@ -179,23 +179,27 @@ export const rediRockReferenceImages = [
 export const rediRockRelatedServices = [
   {
     title: "Armour Stone",
-    description: "Natural stone retaining and structural stone for South Georgian Bay and Tiny Township.",
+    description: "Natural armour stone retaining for Tiny Township and South Georgian Bay.",
     href: "/services/armour-stone",
+    linkLabel: "Armour stone details",
   },
   {
     title: "Waterfront Stone",
-    description: "Shoreline stairs, retaining walls, and cottage waterfront stone work.",
+    description: "Shoreline stairs and cottage waterfront stone work on Georgian Bay.",
     href: "/services/waterfront-stone-work",
+    linkLabel: "Waterfront stone details",
   },
   {
     title: "Hardscaping",
-    description: "Patios, walkways, and stone hardscaping in Tiny Township and Collingwood.",
+    description: "Patios, walkways, and stone hardscaping in Tiny Township.",
     href: "/services/hardscaping",
+    linkLabel: "Hardscaping details",
   },
   {
     title: "Excavation",
     description: "Drainage-first grading and site prep for wall bases.",
     href: "/services/excavation",
+    linkLabel: "Excavation details",
   },
 ] as const;
 
@@ -221,20 +225,20 @@ export const rediRockServiceCallouts: Record<
     headline: "Redi-Rock Retaining Installation",
     body:
       "When engineers or clients specify a modular retaining system, Stuart Thomas Construction installs Redi-Rock® walls supplied by The Sarjeant Co. — with the same drainage planning and finishing standards as our natural armour stone work.",
-    linkLabel: "Learn about Redi-Rock installation",
+    linkLabel: "Redi-Rock install details",
   },
   "waterfront-stone-work": {
     eyebrow: "Engineered Shoreline",
     headline: "Redi-Rock Waterfront Systems",
     body:
       "For shoreline terraces, integrated stairs, and retaining at setbacks, STC installs Redi-Rock systems sourced through The Sarjeant Co. alongside our natural stone work.",
-    linkLabel: "Learn about Redi-Rock installation",
+    linkLabel: "Redi-Rock install details",
   },
   hardscaping: {
     eyebrow: "Engineered Hardscape",
     headline: "Redi-Rock Freestanding & Columns",
     body:
       "STC installs Redi-Rock freestanding walls and column features for outdoor rooms, entries, and property edges — materials supplied by The Sarjeant Co.",
-    linkLabel: "Learn about Redi-Rock installation",
+    linkLabel: "Redi-Rock install details",
   },
 };

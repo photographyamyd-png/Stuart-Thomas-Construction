@@ -18,11 +18,11 @@ export function EnterpriseCtaBand({
     <section className="stc-enterprise-cta turner-band turner-band--green turner-band--seam" aria-label="Contact call to action">
       <div className="container stc-enterprise-cta__inner">
         <div>
-          <p className="eyebrow eyebrow--on-dark">Start Your Project</p>
+          <p className="eyebrow eyebrow--on-dark">Free Site Consultation</p>
           <h2 className="text-display stack-eyebrow stc-enterprise-cta__headline">
             {headline}
           </h2>
-          <p className="stc-enterprise-cta__subline">{subline}</p>
+          <p className="stc-enterprise-cta__subline wf-type-supporting">{subline}</p>
         </div>
         <Link href={buttonHref} className="btn-green">
           {buttonLabel}

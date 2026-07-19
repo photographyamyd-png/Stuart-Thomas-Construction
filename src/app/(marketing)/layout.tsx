@@ -8,7 +8,7 @@ export default function MarketingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="enterprise-layout">
+    <div className="enterprise-layout landing-appeal">
       <EnterpriseHeader />
       <main className="overflow-x-hidden">{children}</main>
       <ConversionBar />

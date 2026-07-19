@@ -233,13 +233,13 @@ export function EnterpriseHeader() {
                 />
                 <p>Armour stone retaining and shoreline protection on Georgian Bay.</p>
                 <LinkArrow href="/projects" className="link-arrow stack-cta" onClick={closeLux}>
-                  View project
+                  Finished work
                 </LinkArrow>
               </aside>
             </div>
             <div className="stc-lux-panel__foot">
               <LinkArrow href="/services" onClick={closeLux}>
-                View all services
+                Armour stone &amp; hardscaping
               </LinkArrow>
             </div>
           </div>
@@ -265,7 +265,7 @@ export function EnterpriseHeader() {
             </div>
             <div className="stc-lux-panel__foot">
               <LinkArrow href="/projects" onClick={closeLux}>
-                Browse our portfolio
+                Finished projects
               </LinkArrow>
             </div>
           </div>
@@ -307,7 +307,7 @@ export function EnterpriseHeader() {
                 <p className="eyebrow eyebrow--plain eyebrow--on-dark">Since 2004</p>
                 <p className="stc-lux-panel__blurb">{site.description}</p>
                 <LinkArrow href="/about" className="stack-cta" onClick={closeLux}>
-                  Get to know us
+                  About Stuart Thomas Construction
                 </LinkArrow>
               </div>
             </div>

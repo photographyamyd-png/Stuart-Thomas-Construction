@@ -12,7 +12,7 @@ export function RediRockInstallerBand() {
   return (
     <section
       id="install"
-      className="stc-rr-installer turner-regional turner-band turner-band--dark turner-band--seam"
+      className="stc-rr-installer turner-regional turner-band turner-band--green turner-band--seam"
       aria-labelledby="rr-install-heading"
     >
       <div className="turner-regional__media stc-rr-installer__media">
@@ -28,7 +28,7 @@ export function RediRockInstallerBand() {
       <div className="turner-regional__copy stc-rr-installer__copy">
         <p className="eyebrow eyebrow--on-dark">What STC Installs</p>
         <h2 id="rr-install-heading" className="text-display text-display--section stack-title">
-          Installer Scope, <span className="text-accent-gold">Not Supply</span>
+          Installer Scope — <span className="text-accent-gold">We Dig &amp; Set</span>
         </h2>
         <p className="wf-type-supporting">
           Stuart Thomas Construction is your installation partner. Redi-Rock® is the engineered

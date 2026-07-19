@@ -14,12 +14,12 @@ export function RediRockPortfolioBand({ installs = [] }: Props) {
   return (
     <section
       id="portfolio"
-      className="stc-rr-portfolio turner-band turner-band--dark"
+      className="stc-rr-portfolio turner-band turner-band--light turner-band--seam"
       aria-labelledby="rr-portfolio-heading"
     >
       <div className="container stc-rr-portfolio__inner">
         <div className="stc-rr-portfolio__copy">
-          <p className="eyebrow eyebrow--on-dark">STC Project Work</p>
+          <p className="eyebrow">STC Project Work</p>
           <h2 id="rr-portfolio-heading" className="text-display text-display--section stack-title">
             Our Redi-Rock <span className="text-accent-gold">Installations</span>
           </h2>
@@ -28,7 +28,7 @@ export function RediRockPortfolioBand({ installs = [] }: Props) {
             reference imagery elsewhere on this page.
           </p>
           <Link href={rediRockLinks.projectsFilter} className="btn-green cta-inline stack-cta">
-            View Redi-Rock Projects
+            Finished install photos
           </Link>
         </div>
         {hasInstalls ? (

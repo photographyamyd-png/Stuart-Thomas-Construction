@@ -15,23 +15,23 @@ export const homeSectionIds = [
 export type HomeSectionId = (typeof homeSectionIds)[number];
 
 export const stats = [
-  { value: "20+", label: "Years of Experience" },
-  { value: "500+", label: "Projects Completed" },
-  { value: "100%", label: "Commitment to Quality" },
+  { value: "Since", label: "2004 on Georgian Bay" },
+  { value: "15+", label: "Seasons on these shorelines" },
+  { value: "Tiny", label: "Township home base" },
 ] as const;
 
 export const values = [
   { title: "Integrity", description: "Honest timelines, clear scope, and work we stand behind." },
-  { title: "Quality", description: "Engineering-minded bases, drainage, and finishing." },
-  { title: "Reliability", description: "Equipment, crews, and communication you can count on." },
-  { title: "Craftsmanship", description: "Stone and hardscape that reads premium in person." },
+  { title: "Quality", description: "Solid bases, drainage, and finishing built for real winters." },
+  { title: "Reliability", description: "Equipment and communication you can count on." },
+  { title: "Craftsmanship", description: "Stone and hardscape that looks right in person and holds up over time." },
   { title: "Community", description: "Proud to build across South Georgian Bay." },
 ] as const;
 
 export const whyUsCards = [
   {
     num: "01",
-    title: "Proven Expertise",
+    title: "Waterfront Focus",
     description:
       "Years specializing in waterfront and armour stone work across South Georgian Bay.",
   },
@@ -54,30 +54,30 @@ export const whyUsCards = [
 
 export const homeProcess = [
   {
-    title: "Consultation",
+    title: "Site Visit",
     description:
-      "We visit your site, listen to your vision, and assess the scope. No pressure, just expertise.",
+      "We walk your property, check access and drainage, and talk through scope before any number.",
   },
   {
     title: "Design & Quote",
     description:
-      "Detailed proposal with clear pricing, materials, and timeline. You approve before we start.",
+      "Itemized quote with materials, labour, equipment, and timeline. You approve before we start.",
   },
   {
-    title: "Construction",
+    title: "Build",
     description:
-      "Expert crews, quality materials, clean site management. You are kept informed every step.",
+      "You deal with us from dig to final stone. Clean site, clear updates, no rotating subcontractor list.",
   },
   {
     title: "Final Walkthrough",
     description:
-      "We walk the finished project with you. Only when you are satisfied is the job complete.",
+      "We walk the finished site with you. The job isn’t done until you agree it’s right.",
   },
 ] as const;
 
 export const featuredTestimonial = {
   quote:
-    "Stuart Thomas Construction transformed our waterfront completely. The armour stone work is flawless — every rock placed with precision.",
-  highlight: "armour stone work is flawless",
+    "Stuart Thomas Construction rebuilt our waterfront. The armour stone work held through two winters with no drama.",
+  highlight: "held through two winters",
   author: "Homeowner, South Georgian Bay",
 } as const;

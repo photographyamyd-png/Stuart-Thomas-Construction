@@ -6,7 +6,7 @@ import { buildBreadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Our Services",
   description:
-    "Construction and landscaping in Tiny Township, Wasaga Beach, and Collingwood — armour stone, waterfront stone work, hardscaping, excavation, and snow removal.",
+    "Armour stone and waterfront hardscaping in Tiny Township.",
   path: "/services",
 });
 

@@ -8,7 +8,7 @@ export function RediRockReferenceStrip() {
 
   return (
     <section
-      className="stc-rr-reference turner-band turner-band--green turner-band--seam"
+      className="stc-rr-reference turner-band turner-band--dark turner-band--seam"
       aria-labelledby="rr-reference-heading"
     >
       <div className="stc-rr-reference__inner">

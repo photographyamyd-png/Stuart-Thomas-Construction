@@ -6,7 +6,7 @@ export const enterpriseInsights = [
     image: media.featuredGalleryPaths[0],
     category: "Waterfront",
     title: "Shoreline Wall Complete",
-    description: "80-foot armour stone retaining wall, Georgian Bay waterfront",
+    description: "Armour stone retaining wall on Georgian Bay waterfront",
     href: "/projects",
   },
   {
@@ -35,72 +35,73 @@ export const enterpriseInsights = [
 export const enterpriseCommitments = [
   {
     id: "1",
-    label: "Integrity",
+    label: "Clear Quotes",
     title: "Honest Work On Every Site",
     body: "Itemized quotes with materials, labour, and equipment listed separately. No lump-sum guessing, no change-order surprises.",
-    cta: { label: "Learn More", href: "/about" },
+    cta: { label: "Meet the Owner", href: "/about" },
     image: media.serviceDefaults.hardscaping,
   },
   {
     id: "2",
-    label: "Quality",
+    label: "Winter-Proof Stone",
     title: "Built For Real Winters",
     body: "Structural base, drainage aggregate, and compaction verified before stone is placed. Walls survive Georgian Bay freeze-thaw because the work below grade is done right.",
-    cta: { label: "See Our Work", href: "/projects" },
+    cta: { label: "See finished walls", href: "/projects" },
     image: media.serviceDefaults["armour-stone"],
   },
   {
     id: "3",
-    label: "Safety",
+    label: "Clean Job Sites",
     title: "Safe, Organized Job Sites",
     body: "Marked work zones, matting on soft ground, and daily cleanup. Equipment operators are certified and insured under our WSIB coverage.",
-    cta: { label: "Our Approach", href: "/about" },
+    cta: { label: "See how we quote", href: "/about" },
     image: media.serviceDefaults.excavation,
   },
   {
     id: "4",
-    label: "Community",
+    label: "Local Roots",
     title: "Rooted In Tiny Township",
-    body: "15+ seasons building on the same shorelines. Stone sourced regionally, Redi-Rock supplied by The Sarjeant Co., and crews who know Georgian Bay access by name.",
-    cta: { label: "Our Areas", href: "/areas" },
+    body: "15+ seasons building on the same shorelines. Stone sourced regionally, Redi-Rock supplied by The Sarjeant Co., and people who know Georgian Bay access by name.",
+    cta: { label: "Areas We Serve", href: "/areas" },
     image: media.serviceDefaults.landscaping,
   },
   {
     id: "5",
-    label: "Craftsmanship",
+    label: "Visible Fit & Finish",
     title: "Stone Work You Can See",
-    body: "Largest stones placed first and checked for fit. Cap stones aligned to within a finger width. Walk any finished wall and see the difference.",
-    cta: { label: "Explore Services", href: "/services" },
+    body: "Largest stones placed first and checked for fit and alignment. Walk any finished wall and see the difference.",
+    cta: { label: "See what we build", href: "/services" },
     image: media.serviceDefaults["waterfront-stone-work"],
   },
   {
     id: "6",
-    label: "Sustainability",
-    title: "Built To Last On Your Land",
+    label: "Built to Need Less Repair",
+    title: "Built for Freeze-Thaw",
     body: "Drainage designed into every grade change. Erosion control at the shoreline. Builds that reduce future repair work instead of creating it.",
-    cta: { label: "Learn More", href: "/about" },
+    cta: { label: "Book a Site Visit", href: "/#contact" },
     image: media.serviceCapabilityImages.landscaping[2],
   },
 ] as const;
 
 export const enterpriseFeaturedProject = {
   image: media.featuredGalleryPaths[0],
-  eyebrow: "Featured Project",
-  title: "Georgian Bay",
-  titleAccent: "Shoreline",
+  eyebrow: "Recent Armour Stone Project",
+  title: "Armour Stone Retaining Wall",
+  titleAccent: "on Georgian Bay",
   description:
-    "Armour stone retaining wall on Georgian Bay — built for wind, ice push, and winter freeze-thaw.",
+    "Waterfront armour stone retaining — set for wind, ice push, and winter freeze-thaw.",
   href: "/projects",
 } as const;
 
 export const enterpriseHomeShowcase = {
-  eyebrow: "Full Outdoor Builds",
-  headline: "From Grade",
-  headlineAccent: "To Finish",
-  statement: "Same crew from excavation day through final walkthrough — no subcontractor handoffs.",
+  eyebrow: "Yard to Water",
+  headline: "Tiny Township Construction",
+  headlineAccent: "from Grade to Finish",
+  statement:
+    "We dig the grade, set the stone, and finish the yard — no mid-job handoff to another contractor.",
   body:
-    "We handle grading, drainage, armour stone, hardscaping, and landscape finishing as one scope. Your property is built as one project, not pieced together by three different contractors.",
-  imageAlt: "Modern three-storey residential home built by Stuart Thomas Construction",
+    "Outdoor work from the cottage door to the water in Tiny Township. Same approach on Wasaga Beach and Georgian Bay lots.",
+  imageAlt: "Outdoor stone work and finished yard on a Georgian Bay property",
   cta: { label: cta.primaryLabel, href: cta.primaryHref },
 } as const;
 

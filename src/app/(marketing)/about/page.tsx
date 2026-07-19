@@ -6,7 +6,7 @@ import { buildBreadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Us",
-  description: `Learn about ${site.name} — Tiny Township construction and landscaping since 2004.`,
+  description: `${site.name} — Tiny Township construction and landscaping since 2004.`,
   path: "/about",
 });
 

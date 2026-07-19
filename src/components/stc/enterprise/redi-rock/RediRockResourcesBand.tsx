@@ -12,9 +12,9 @@ export function RediRockResourcesBand() {
       <div className="container">
         <header className="stc-rr-resources__header">
           <div className="stc-rr-resources__header-copy">
-            <p className="eyebrow green">Manufacturer Literature</p>
+            <p className="eyebrow">Manufacturer Literature</p>
             <h2 id="rr-resources-heading" className="stc-rr-resources__heading stack-title">
-              Brochures & <span className="text-accent-green">Specifications</span>
+              Brochures & <span className="text-accent-gold">Specifications</span>
             </h2>
           </div>
           <p className="wf-type-supporting stc-rr-resources__intro">

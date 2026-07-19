@@ -11,9 +11,9 @@ export function RediRockProductBento() {
       aria-labelledby="rr-systems-heading"
     >
       <div className="container">
-        <p className="eyebrow green">Product Lines</p>
+        <p className="eyebrow">Product Lines</p>
         <h2 id="rr-systems-heading" className="text-display text-display--section stack-title">
-          Redi-Rock <span className="text-accent-green">Systems</span>
+          Redi-Rock <span className="text-accent-gold">Systems</span>
         </h2>
         <div className="stc-rr-bento__grid">
           {lead && (
@@ -32,7 +32,7 @@ export function RediRockProductBento() {
               <div className="stc-rr-bento__tile-body stc-rr-bento__tile-body--overlay">
                 <span className="stc-rr-bento__num">01</span>
                 <h3 className="text-display text-display--subsection stack-eyebrow">{lead.title}</h3>
-                <p>{lead.description}</p>
+                <p className="wf-type-supporting">{lead.description}</p>
                 {lead.imageCredit && (
                   <p className="stc-rr-bento__credit">{lead.imageCredit}</p>
                 )}
@@ -55,7 +55,7 @@ export function RediRockProductBento() {
               <div className="stc-rr-bento__tile-body stc-rr-bento__tile-body--card">
                 <span className="stc-rr-bento__num">0{i + 2}</span>
                 <h3 className="text-display text-display--subsection stack-eyebrow">{line.title}</h3>
-                <p>{line.description}</p>
+                <p className="wf-type-supporting">{line.description}</p>
                 {line.imageCredit && !line.isReference && (
                   <p className="stc-rr-bento__credit stc-rr-bento__credit--muted">{line.imageCredit}</p>
                 )}

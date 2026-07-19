@@ -7,7 +7,7 @@ import { site } from "@/data/site";
 import { useTurnerHeroVideo } from "@/hooks/use-turner-hero-video";
 
 /**
- * Appeal-preview hero: brand-first, full-bleed cinematic plane,
+ * Appeal hero: brand-first, full-bleed cinematic plane,
  * staggered entrance. Scoped styles live under `.landing-appeal`.
  */
 export function AppealTurnerHero() {
@@ -54,9 +54,6 @@ export function AppealTurnerHero() {
           <Link href="#contact" className="btn-accent btn-accent--lg">
             {hero.pathfinderLabel}
           </Link>
-          <a href={`tel:${site.phoneTel}`} className="appeal-hero__phone">
-            {site.phoneDisplay}
-          </a>
         </div>
       </div>
 

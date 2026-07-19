@@ -42,7 +42,7 @@ export function CapabilityFeatureStrip() {
         </ul>
         <p id="capabilities-tagline" className="stc-capability-strip__tagline">
           <span className="stc-capability-strip__tagline-text">
-            Built Carefully. <span className="text-accent-green">Finished Right.</span>
+            Built Carefully. <span className="text-accent-gold">Finished Right.</span>
           </span>
         </p>
       </div>

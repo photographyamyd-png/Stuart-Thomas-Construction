@@ -10,9 +10,9 @@ type Props = {
 };
 
 /**
- * Scroll-triggered reveal for the landing-appeal preview.
- * Respects prefers-reduced-motion via CSS.
- * Falls back to visible if the observer never fires (e.g. odd iframe roots).
+ * Scroll-triggered reveal for Appeal marketing pages.
+ * Visible by default (no-JS safe). Below-fold sections arm hide only after
+ * mount; above-fold stays visible. Respects prefers-reduced-motion via CSS.
  */
 export function AppealReveal({ children, className = "", delay = 0 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,10 +21,16 @@ export function AppealReveal({ children, className = "", delay = 0 }: Props) {
     const el = ref.current;
     if (!el) return;
 
-    const show = () => el.classList.add("is-in");
-
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      show();
+      return;
+    }
+
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    const onScreen = rect.top < vh && rect.bottom > 0;
+
+    if (onScreen) {
+      el.classList.add("is-in");
       return;
     }
 
@@ -32,7 +38,7 @@ export function AppealReveal({ children, className = "", delay = 0 }: Props) {
     const finish = () => {
       if (done) return;
       done = true;
-      show();
+      el.classList.add("is-in");
       observer.disconnect();
       window.clearTimeout(fallback);
     };
@@ -44,17 +50,9 @@ export function AppealReveal({ children, className = "", delay = 0 }: Props) {
       { root: null, rootMargin: "0px 0px -4% 0px", threshold: 0.01 },
     );
 
+    el.classList.add("is-armed");
     observer.observe(el);
 
-    // Already on-screen (common in tall iframes / split panes)
-    const rect = el.getBoundingClientRect();
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < vh && rect.bottom > 0) {
-      // Defer so the initial opacity:0 frame can paint, then animate in
-      requestAnimationFrame(() => finish());
-    }
-
-    // Safety net — never leave sections stuck invisible
     const fallback = window.setTimeout(finish, 1800);
 
     return () => {

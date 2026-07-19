@@ -16,10 +16,10 @@ export function CommitmentsAccordion() {
     >
       <div className="container">
         <p className="eyebrow" id="about">
-          Our Culture
+          Why Georgian Bay homeowners hire us
         </p>
         <h2 id="commitments-heading" className="text-display stack-title">
-          Our <span className="text-accent-green">Commitments</span>
+          Why people hire us <span className="text-accent-gold">on the Bay</span>
         </h2>
         <div className="turner-commitments__layout" data-commitments>
           <ul className="turner-commitments__nav" role="tablist" aria-label="Commitment pillars">
@@ -51,9 +51,9 @@ export function CommitmentsAccordion() {
                 >
                   <div className="turner-commitments__panel-inner">
                     <div>
-                      <p className="eyebrow eyebrow--plain green">{item.label}</p>
-                      <h3>{item.title}</h3>
-                      <p>{item.body}</p>
+                      <p className="eyebrow eyebrow--plain">{item.label}</p>
+                      <h3 className="text-display text-display--subsection">{item.title}</h3>
+                      <p className="wf-type-supporting">{item.body}</p>
                       <LinkArrow href={item.cta.href}>{item.cta.label}</LinkArrow>
                     </div>
                     <Image

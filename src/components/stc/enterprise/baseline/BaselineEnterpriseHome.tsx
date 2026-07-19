@@ -48,7 +48,7 @@ export function BaselineEnterpriseHome() {
           <li>
             <Link className="turner-pathfinder__card" href="#services">
               <h2>Our Services</h2>
-              <p>Six disciplines from excavation through commercial snow — one accountable team on site.</p>
+              <p>Armour stone, excavation, hardscaping, landscaping, and commercial snow — planned and built as one project.</p>
               <span className="link-arrow">
                 Explore Services{" "}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>

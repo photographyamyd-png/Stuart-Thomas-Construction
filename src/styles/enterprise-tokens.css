@@ -205,9 +205,9 @@
   --ent-band-dark: var(--stc-green);
   --ent-band-light: var(--ent-surface-alt);
   --ent-band-green: var(--stc-sage);
-  --ent-band-lime: var(--stc-lime);
+  --ent-band-lime: var(--stc-sage);
   --ent-band-alt: var(--ent-surface-soft);
-  --ent-cta-fill: var(--stc-lime);
+  --ent-cta-fill: var(--stc-sage);
   --ent-cta-fill-on-light: var(--stc-white);
   --ent-cta-fill-on-dark: var(--stc-white);
   --ent-cta-text-on-fill: var(--stc-white);

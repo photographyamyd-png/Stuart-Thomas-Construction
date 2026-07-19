@@ -18,7 +18,8 @@ export function ProblemSection({ band = "dark" }: Props) {
       <div className="stc-problem__inner container">
         <p className={eyebrowClass}>{problemSection.eyebrow}</p>
         <h2 id="problem-heading" className="text-display">
-          {problemSection.headline}
+          {problemSection.headline}{" "}
+          <span className="text-accent-gold">{problemSection.headlineAccent}</span>
         </h2>
 
         <div className="stc-problem__grid">

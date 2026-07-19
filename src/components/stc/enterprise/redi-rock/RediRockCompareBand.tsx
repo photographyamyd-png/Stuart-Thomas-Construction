@@ -31,7 +31,7 @@ export function RediRockCompareBand() {
               ))}
             </ul>
             <LinkArrow href={natural.href} className="cta-inline">
-              Explore Armour Stone
+              Armour stone work
             </LinkArrow>
           </article>
           <article className={`stc-rr-compare__panel stc-rr-compare__panel--${engineered.accent}`}>
@@ -44,7 +44,7 @@ export function RediRockCompareBand() {
               ))}
             </ul>
             <Link href={engineered.href} className="btn-green cta-inline">
-              View Brochures
+              Download brochures
             </Link>
           </article>
         </div>

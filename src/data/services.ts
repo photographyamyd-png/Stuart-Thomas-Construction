@@ -44,14 +44,14 @@ export const services: ServiceDetail[] = [
     slug: "armour-stone",
     title: "Armour Stone",
     shortLabel: "Armour Stone",
-    gridCtaLabel: "Explore Armour Stone",
+    gridCtaLabel: "Armour Stone Retaining Walls",
     iconRowLabelLines: ["ARMOUR", "STONE"],
     iconStripAccent: "var(--ent-icon-strip-armour)",
     shortDescription:
       "Stops erosion and holds slopes on waterfront properties through Georgian Bay freeze-thaw cycles.",
     metaTitle: "Armour Stone & Retaining Walls | Tiny Township Construction",
     metaDescription:
-      "Armour stone and retaining walls in Tiny Township, Wasaga Beach, and Collingwood. Built for shoreline exposure and freeze-thaw.",
+      "Armour stone retaining walls in Tiny Township — built for shoreline exposure and freeze-thaw.",
     icon: Mountain,
     heroAlt: "Heavy armour stone wall with cap and drainage",
     overview: [
@@ -59,7 +59,7 @@ export const services: ServiceDetail[] = [
       "From tight cottage access to open waterfront lots, we plan equipment paths and staging so the finished wall fits the property. When engineers specify modular retaining, we also install Redi-Rock® systems supplied by The Sarjeant Co.",
     ],
     subServices: [
-      { title: "Retaining walls & terracing", description: "Tiered walls for driveways, slopes, and outdoor living areas." },
+      { title: "Retaining walls & terracing", description: "Tiered walls for driveways, slopes, and yard terraces." },
       { title: "Waterfront retaining", description: "Shoreline walls built for wave action, ice, and seasonal water levels." },
       { title: "Caps & finishing", description: "Top-of-wall details where stone meets grade, deck, or stairs." },
     ],
@@ -93,12 +93,12 @@ export const services: ServiceDetail[] = [
       "Stone stairs, shoreline retaining, and waterfront details for cottage country.",
     metaTitle: "Waterfront Stone Work | Tiny Township & Wasaga Beach",
     metaDescription:
-      "Waterfront stone construction, stairs, and shoreline work in Tiny Township, Wasaga Beach, and Collingwood. Built for wind, ice, and Georgian Bay exposure.",
+      "Waterfront stone stairs and shoreline work in Wasaga Beach — built for wind, ice, and Georgian Bay exposure.",
     icon: Waves,
     heroAlt: "Waterfront stone staircase and retaining detail",
     overview: [
       "Waterfront stone has to work hard — safe stairs, solid retaining, and finishes that stand up to wind and ice.",
-      "Our crews know Georgian Bay conditions: lake-effect wind, ice push, and grade movement through the seasons. We build accordingly.",
+      "We know Georgian Bay conditions: lake-effect wind, ice push, and grade movement through the seasons. We build accordingly.",
     ],
     subServices: [
       { title: "Stone stairs & access", description: "Safe steps from cottage to shoreline with proper rise, run, and drainage." },
@@ -128,24 +128,24 @@ export const services: ServiceDetail[] = [
     slug: "landscaping",
     title: "Landscaping",
     shortLabel: "Landscaping",
-    gridCtaLabel: "See Landscaping",
+    gridCtaLabel: "Tiny Township Landscaping",
     iconRowLabelLines: ["LANDSCAPING"],
     iconStripAccent: "var(--ent-icon-strip-landscape)",
     shortDescription:
-      "Grading, beds, and finishing that tie into your stone and drainage work — so the yard reads as one complete outdoor space, not patchwork.",
+      "Grading, beds, and finishing that tie into your stone and drainage work — so the yard isn’t patchwork.",
     metaTitle: "Tiny Township Landscaping | Stuart Thomas Construction",
     metaDescription:
-      "Landscaping and outdoor finishing in Tiny Township, Wasaga Beach, and Collingwood. Grading, beds, and hardscape integration for cottage country.",
+      "Landscaping and outdoor finishing in Tiny Township — grading, beds, and hardscape integration for cottage country.",
     icon: Trees,
     heroAlt: "Landscaped property with stone and plantings",
     overview: [
       "Tiny Township landscaping that fits your property — proper grade, good drainage, and hardscape tied to stone and retaining work.",
-      "We handle earthwork, stone, and finishing together so the yard reads as one complete outdoor space.",
+      "We handle earthwork, stone, and finishing together so the yard isn’t left as patchwork.",
     ],
     subServices: [
       { title: "Grading & drainage", description: "Slopes, swales, and drainage that protect structures and plantings — including terraces tied to retaining walls." },
       { title: "Beds & finishing", description: "Topsoil, edging, and detail work that complements stone and the home." },
-      { title: "Outdoor living ties", description: "Patios, steps, and transitions connected to retaining and waterfront features." },
+      { title: "Patio and step ties", description: "Patios, steps, and transitions connected to retaining and waterfront features." },
     ],
     process: [
       { title: "Plan review", description: "Review layout, access, and protection for existing features." },
@@ -154,7 +154,7 @@ export const services: ServiceDetail[] = [
       { title: "Finish & establish", description: "Final grade, beds, and handoff ready for planting or use." },
     ],
     benefits: [
-      "One contractor for stone and landscape structure",
+      "Stone and landscape structure on one quote",
       "Equipment access without unnecessary yard damage",
       "Finishing suited to cottage-country properties",
       "Local knowledge of Tiny Township soils and conditions",
@@ -170,14 +170,14 @@ export const services: ServiceDetail[] = [
     slug: "hardscaping",
     title: "Hardscaping",
     shortLabel: "Hardscaping",
-    gridCtaLabel: "View Hardscaping",
+    gridCtaLabel: "Waterfront Hardscaping",
     iconRowLabelLines: ["HARDSCAPING"],
     iconStripAccent: "var(--ent-icon-strip-hardscape)",
     shortDescription:
       "Patios, walkways, and steps that stay level through winter heave — because the base and drainage are done before the first stone goes down.",
     metaTitle: "Hardscaping Contractor | Tiny Township & Collingwood",
     metaDescription:
-      "Hardscaping in Tiny Township, Wasaga Beach, and Collingwood — patios, walkways, steps, and stone work built to last.",
+      "Hardscaping in Tiny Township — patios, walkways, and steps built to hold through winter heave.",
     icon: LayoutGrid,
     heroAlt: "Stone patio and walkway detail",
     overview: [
@@ -187,7 +187,7 @@ export const services: ServiceDetail[] = [
     subServices: [
       { title: "Patios & terraces", description: "Natural stone and unit pavers with proper base and drainage." },
       { title: "Walkways & steps", description: "Safe transitions with consistent rise and run to driveways and entries." },
-      { title: "Outdoor kitchens & fire features", description: "Pads, veneers, and stone work coordinated with other trades." },
+      { title: "Kitchen pads & fire features", description: "Pads, veneers, and stone work coordinated with other trades." },
     ],
     process: [
       { title: "Layout & grades", description: "Set elevations, drainage direction, and edge conditions." },
@@ -218,7 +218,7 @@ export const services: ServiceDetail[] = [
       "Gets your grade, drainage, and base right before stone or landscaping goes in — the step most contractors skip.",
     metaTitle: "Excavation & Grading | Tiny Township Construction",
     metaDescription:
-      "Excavation and grading in Tiny Township, Wasaga Beach, and Collingwood. Site prep for stone, landscaping, and outdoor builds.",
+      "Excavation and grading in Tiny Township — site prep for stone, landscaping, and outdoor builds.",
     icon: Tractor,
     heroAlt: "Excavation and grading on a residential site",
     overview: [
@@ -240,7 +240,7 @@ export const services: ServiceDetail[] = [
       "Drainage considered from the start",
       "Right-sized equipment for access constraints",
       "Clean sites that respect neighbouring properties",
-      "Smooth handoff to our stone and landscape crews",
+      "Smooth handoff to stone and landscape work",
     ],
     relatedSlugs: ["armour-stone", "landscaping", "hardscaping"],
     faqs: [
@@ -259,7 +259,7 @@ export const services: ServiceDetail[] = [
       "Reliable commercial snow clearing across Tiny Township and South Georgian Bay.",
     metaTitle: "Commercial Snow Removal | Tiny Township & Wasaga Beach",
     metaDescription:
-      "Commercial snow removal in Tiny Township, Wasaga Beach, Collingwood, and surrounding areas.",
+      "Commercial snow removal in Tiny Township and South Georgian Bay.",
     icon: Snowflake,
     heroAlt:
       "Stuart Thomas Construction commercial snow removal loader clearing snow in Midland, Ontario",

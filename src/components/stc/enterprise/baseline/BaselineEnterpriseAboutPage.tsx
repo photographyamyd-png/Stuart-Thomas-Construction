@@ -17,7 +17,7 @@ export function BaselineEnterpriseAboutPage() {
     <>
       <BaselineEnterprisePageHero
         eyebrow="About STC"
-        title="Built On Integrity. Engineered To Last."
+        title="Tiny Township Construction Built for the Bay"
         description={`${site.name} delivers armour stone, luxury waterfront assemblies, landscaping, hardscaping, excavation, and commercial snow removal with equipment discipline and architectural finishing standards.`}
         imageSrc={media.aboutHero}
         imageAlt="Stuart Thomas Construction team and project site"

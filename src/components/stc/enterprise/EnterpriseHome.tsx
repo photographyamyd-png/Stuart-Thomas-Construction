@@ -43,7 +43,7 @@ export function EnterpriseHome() {
                 — see the finished work.
               </p>
               <span className="link-arrow">
-                Browse Our Projects{" "}
+                See finished projects{" "}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -53,9 +53,11 @@ export function EnterpriseHome() {
           <li>
             <Link className="turner-pathfinder__card" href="#services">
               <h2>What We Build</h2>
-              <p>Armour stone, excavation, hardscaping, and landscaping across your waterfront property — one crew, one contract.</p>
+              <p>
+                Armour stone, hardscaping, excavation, and landscaping for waterfront properties.
+              </p>
               <span className="link-arrow">
-                Explore Services{" "}
+                See what we build{" "}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -65,9 +67,12 @@ export function EnterpriseHome() {
           <li>
             <Link className="turner-pathfinder__card" href="/about">
               <h2>15+ Seasons on the Bay</h2>
-              <p>Same owner, same crew, same shoreline since 2004. Local knowledge built over 15+ seasons on Georgian Bay.</p>
+              <p>
+                Same owner on the same shoreline since 2004. Local knowledge built over 15+ seasons
+                on Georgian Bay.
+              </p>
               <span className="link-arrow">
-                Learn More{" "}
+                About Stuart Thomas Construction{" "}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -91,7 +96,7 @@ export function EnterpriseHome() {
             {enterpriseFeaturedProject.title} <span>{enterpriseFeaturedProject.titleAccent}</span>
           </h2>
           <p>{enterpriseFeaturedProject.description}</p>
-          <LinkArrow href={enterpriseFeaturedProject.href}>View Project</LinkArrow>
+          <LinkArrow href={enterpriseFeaturedProject.href}>See this shoreline wall</LinkArrow>
         </div>
       </section>
 
@@ -115,7 +120,7 @@ export function EnterpriseHome() {
                   <p className="eyebrow eyebrow--plain">{card.category}</p>
                   <h3>{card.title}</h3>
                   <p>{card.description}</p>
-                  <LinkArrow href={card.href}>Read More</LinkArrow>
+                  <LinkArrow href={card.href}>See finished work</LinkArrow>
                 </div>
               </article>
             ))}
@@ -169,8 +174,9 @@ export function EnterpriseHome() {
         <div className="stc-built-strong__inner">
           <h2 id="built-strong-heading">{site.tagline}</h2>
           <p>
-            One crew from excavation through final stone placement. Drainage engineered into every
-            grade change. Walls built for Georgian Bay winters, not subdivision gardens.
+            We dig the grade, set the stone, and finish the yard — no mid-job handoff to another
+            contractor. Drainage engineered into every grade change. Walls built for Georgian Bay
+            winters, not subdivision gardens.
           </p>
           <Link href="#contact" className="btn-accent btn-accent--lg">
             Request a Site Consultation
@@ -191,12 +197,11 @@ export function EnterpriseHome() {
         <div className="turner-regional__copy">
           <p className="eyebrow eyebrow--on-dark">Wasaga Beach &amp; Tiny Township</p>
           <h2 id="regional-heading" className="text-display">
-            Our Work In Your <span className="accent text-accent-gold">Community</span>
+            Shoreline walls for <span className="accent text-accent-gold">cottages on the Bay</span>
           </h2>
           <p>
-            Retaining walls, waterfront stairs, patios, and full site builds across Wasaga Beach,
-            Tiny Township, Elmvale, Midland, Penetanguishene, and Collingwood — including Balm Beach,
-            Thunder Beach, and Perkinsfield.
+            Shoreline retaining walls and waterfront stairs for Wasaga Beach and Tiny Township
+            cottages. Hardscaping and site builds in Collingwood when the lot needs it.
           </p>
           <ul className="area-pills">
             {[...areas]
@@ -240,7 +245,7 @@ export function EnterpriseHome() {
         <div className="turner-contact__copy">
           <p className="eyebrow eyebrow--on-dark">Free Site Consultation</p>
           <h2 id="contact-heading" className="text-display stack-title">
-            Let&apos;s Look at Your <span>Shoreline</span>
+            Call about your <span>shoreline</span>
           </h2>
           <p>{conversion.contactIntro}</p>
           <Link
@@ -250,7 +255,7 @@ export function EnterpriseHome() {
             Request a Site Consultation
           </Link>
           <p className="turner-contact__areas">
-            Wasaga Beach · Tiny Township · Elmvale · Midland · Penetanguishene · Collingwood
+            Wasaga Beach · Tiny Township · Collingwood
           </p>
         </div>
         <EnterpriseContactForm />

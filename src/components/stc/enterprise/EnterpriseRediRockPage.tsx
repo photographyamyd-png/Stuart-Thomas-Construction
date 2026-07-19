@@ -1,5 +1,6 @@
 import type { GalleryItem } from "@/data/gallery";
 import { rediRockAttribution } from "@/data/redi-rock";
+import { AppealReveal } from "./blocks/AppealReveal";
 import { EnterpriseCtaBand } from "./blocks/EnterpriseCtaBand";
 import { RediRockCompareBand } from "./redi-rock/RediRockCompareBand";
 import { RediRockHero } from "./redi-rock/RediRockHero";
@@ -17,29 +18,47 @@ type Props = {
 
 export function EnterpriseRediRockPage({ stcInstalls = [] }: Props) {
   return (
-    <>
-      <div className="stc-rr-page">
-        <RediRockHero />
+    <div className="stc-rr-page">
+      <RediRockHero />
+      <AppealReveal>
         <RediRockSectionNav />
+      </AppealReveal>
+      <AppealReveal>
         <RediRockInstallerBand />
+      </AppealReveal>
+      <AppealReveal>
         <RediRockProductBento />
+      </AppealReveal>
+      <AppealReveal>
         <RediRockCompareBand />
+      </AppealReveal>
+      <AppealReveal>
         <RediRockResourcesBand />
+      </AppealReveal>
+      <AppealReveal>
         <RediRockReferenceStrip />
-        <div className="turner-band-divider turner-band-divider--white" aria-hidden />
+      </AppealReveal>
+      <div className="turner-band-divider turner-band-divider--white" aria-hidden />
+      <AppealReveal>
         <RediRockPortfolioBand installs={stcInstalls} />
+      </AppealReveal>
+      <AppealReveal>
         <RediRockRelatedBand />
+      </AppealReveal>
+      <AppealReveal>
         <EnterpriseCtaBand
-          headline="Discuss Your Redi-Rock Project"
-          subline="Tell us about grade changes, waterfront work, or retaining wall requirements. We coordinate installation with materials sourced through The Sarjeant Co."
+          headline="Call about a Redi-Rock wall"
+          subline="Call about grade changes, waterfront work, or retaining walls. We install; The Sarjeant Co. supplies."
           buttonLabel="Request an Install Quote"
         />
-        <footer className="stc-rr-page__disclaimer turner-band turner-band--dark">
+      </AppealReveal>
+      <AppealReveal>
+        <footer className="stc-rr-page__disclaimer turner-band turner-band--dark turner-band--seam">
           <div className="container">
             <p className="wf-type-supporting">{rediRockAttribution.disclaimer}</p>
           </div>
         </footer>
-      </div>
-    </>
+      </AppealReveal>
+    </div>
   );
 }

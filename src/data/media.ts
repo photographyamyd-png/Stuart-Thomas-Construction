@@ -137,21 +137,22 @@ export type ServiceWorkShowcase = {
 
 export const serviceWorkShowcase: Partial<Record<ServiceSlug, ServiceWorkShowcase>> = {
   "armour-stone": {
-    eyebrow: "On Site",
-    headline: "Armour Stone In Practice",
-    statement: "Armour stone retaining and stairs on Georgian Bay and Tiny Township properties.",
+    eyebrow: "Field Proof",
+    headline: "We Build Armour Stone For The Bay",
+    statement:
+      "Finished retaining walls and stair interfaces on Georgian Bay and Tiny Township shorelines — built for ice, water, and real winters.",
     leadImage: img.rtLandscapingStoneStairs,
     leadAlt: "Armour stone stairs and retaining wall in Tiny Township",
     supporting: [
       {
         src: img.armourRiverRockRetaining,
-        alt: "Armour stone retaining wall on a South Georgian Bay property",
+        alt: "Armour stone retaining wall holding a South Georgian Bay embankment",
         caption: "Shoreline retention",
       },
       {
         src: img.armourStoneStairs,
-        alt: "Finished armour stone stairs at a cottage property",
-        caption: "Finished stair interface",
+        alt: "Finished armour stone stairs tying cottage grade to the water",
+        caption: "Stair interface",
       },
     ],
   },

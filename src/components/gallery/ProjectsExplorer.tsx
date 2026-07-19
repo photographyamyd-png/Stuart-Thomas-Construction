@@ -23,14 +23,11 @@ export function ProjectsExplorer({ items, initialCategory }: Props) {
 
   return (
     <>
-      <div className="flex flex-wrap gap-2">
+      <div className="stc-projects-filters" role="toolbar" aria-label="Filter projects">
         <button
           type="button"
           onClick={() => setFilter("all")}
-          className={cn(
-            "text-utility px-3 py-1.5 text-xs",
-            filter === "all" ? "bg-stc-black text-role-body-on-dark" : "border border-stc-black/15 bg-stc-white text-role-body-on-light",
-          )}
+          className={cn("stc-projects-filter", filter === "all" && "is-active")}
         >
           All ({items.length})
         </button>
@@ -39,24 +36,21 @@ export function ProjectsExplorer({ items, initialCategory }: Props) {
             key={c.id}
             type="button"
             onClick={() => setFilter(c.id)}
-            className={cn(
-              "text-utility px-3 py-1.5 text-xs",
-              filter === c.id ? "bg-stc-black text-role-body-on-dark" : "border border-stc-black/15 bg-stc-white text-role-body-on-light",
-            )}
+            className={cn("stc-projects-filter", filter === c.id && "is-active")}
           >
             {c.label}
           </button>
         ))}
       </div>
-      <div className="mt-8 columns-1 gap-4 sm:columns-2 lg:columns-3">
+      <div className="stc-projects-grid">
         {filtered.map((item) => (
           <button
             key={item.id}
             type="button"
             onClick={() => setLightbox(item)}
-            className="mb-4 block w-full break-inside-avoid overflow-hidden border border-stc-black/15 bg-stc-white text-left"
+            className="stc-projects-card"
           >
-            <div className="relative aspect-[4/3] w-full sm:aspect-auto sm:min-h-[200px]">
+            <span className="stc-projects-card__media">
               <Image
                 src={item.image}
                 alt={item.alt}
@@ -65,34 +59,33 @@ export function ProjectsExplorer({ items, initialCategory }: Props) {
                 sizes="(max-width: 768px) 100vw, 33vw"
                 quality={70}
               />
-            </div>
-            <p className="text-utility p-2 text-xs text-role-body-on-light">
-              {item.title}
-            </p>
+            </span>
+            <span className="stc-projects-card__title text-utility">{item.title}</span>
           </button>
         ))}
       </div>
       {lightbox && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-stc-black/90 p-4"
+          className="stc-projects-lightbox"
           role="dialog"
           aria-modal
+          aria-label={lightbox.title}
         >
           <button
             type="button"
-            className="absolute right-4 top-4 text-role-headline-on-dark"
+            className="stc-projects-lightbox__close"
             onClick={() => setLightbox(null)}
             aria-label="Close"
           >
             <X className="size-8" />
           </button>
-          <div className="relative max-h-[90vh] max-w-5xl flex-1">
+          <div className="stc-projects-lightbox__frame">
             <Image
               src={lightbox.image}
               alt={lightbox.alt}
               width={1920}
               height={1280}
-              className="max-h-[85vh] w-auto object-contain"
+              className="stc-projects-lightbox__img"
               quality={85}
             />
           </div>
