@@ -1,4 +1,4 @@
-import { processSteps } from "@/data/conversion";
+import { processIntro, processSteps } from "@/data/conversion";
 
 export function ProcessSteps() {
   return (
@@ -12,6 +12,7 @@ export function ProcessSteps() {
         <h2 id="process-heading" className="text-display">
           What Happens After You <span className="text-accent-gold">Call</span>
         </h2>
+        <p className="wf-type-supporting stc-process__lead">{processIntro}</p>
 
         <ol className="stc-process__list">
           {processSteps.map((step) => (

@@ -16,9 +16,17 @@ export function ConversionBar() {
             {conversion.homeCta.contactLink}
           </Link>
         </p>
-        <a className="stc-conversion-bar__phone" href={`tel:${site.phoneTel}`}>
-          <PhoneIcon /> {site.phoneDisplay}
-        </a>
+        <div className="stc-conversion-bar__actions">
+          <a className="stc-conversion-bar__phone" href={`tel:${site.phoneTel}`}>
+            <PhoneIcon /> {site.phoneDisplay}
+          </a>
+          <a
+            className="stc-conversion-bar__email"
+            href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
+          >
+            Email us
+          </a>
+        </div>
       </div>
     </section>
   );

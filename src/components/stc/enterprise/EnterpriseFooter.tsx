@@ -43,6 +43,13 @@ export function EnterpriseFooter() {
               <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
             </li>
             <li>
+              <a
+                href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
+              >
+                Email us
+              </a>
+            </li>
+            <li>
               <Link href="/contact">{cta.primaryLabel}</Link>
             </li>
           </ul>
@@ -54,9 +61,15 @@ export function EnterpriseFooter() {
           <h3 className="text-display text-display--section">Questions about your property?</h3>
           <p className="wf-type-supporting">Call (705) 727-7308 for project questions — free site visit available.</p>
         </div>
-        <div className="turner-footer__newsletter">
+        <div className="turner-footer__newsletter stc-contact-actions">
           <a href={`tel:${site.phoneTel}`} className="btn-green">
             Call {site.phoneDisplay}
+          </a>
+          <a
+            href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
+            className="btn-green"
+          >
+            Email us
           </a>
         </div>
       </div>

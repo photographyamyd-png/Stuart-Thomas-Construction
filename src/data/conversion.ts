@@ -30,23 +30,56 @@ export const trustBar = [
 ] as const;
 
 export const problemSection = {
-  eyebrow: "Why Waterfront Hardscaping Fails",
-  headline: "Georgian Bay Shorelines Need",
-  headlineAccent: "Real Construction",
-  problems: [
-    { title: "Freeze-Thaw Cycles", body: "Improperly-set stone heaves after one Georgian Bay winter. Most failures start below grade." },
-    { title: "Shoreline Erosion", body: "Wave action and seasonal water level changes undermine walls that weren't designed for exposure." },
-    { title: "Waterfront Drainage", body: "Sloped lots drain toward the water — or toward your foundation. Grading has to account for both." },
-    { title: "Shortcut Construction", body: "Contractors who build shoreline walls the same way they'd build a subdivision garden wall. Those walls often don't survive a few Georgian Bay winters." },
-  ],
-  solutionEyebrow: "Armour Stone & Drainage That Holds",
-  solutions: [
-    { title: "Engineered Base Prep", body: "Structural base, drainage aggregate, and compaction — verified before a single stone is placed." },
-    { title: "Drainage-First Planning", body: "Water management designed into every wall and grade change, not patched after the fact." },
-    { title: "Correctly Set Armour Stone", body: "Largest stones placed first, checked for fit and alignment. No guessing, no shortcuts." },
-    { title: "Start to Finish Without Handoffs", body: "You deal with us from dig to final stone — not a rotating list of subcontractors." },
-  ],
+  fail: {
+    eyebrow: "Why Shoreline Walls Fail",
+    headline: "Georgian Bay winters",
+    headlineAccent: "expose weak builds",
+    items: [
+      {
+        title: "Freeze-thaw heave",
+        body: "Improperly set stone lifts after one winter. Most failures start below grade.",
+      },
+      {
+        title: "Wave undercut",
+        body: "Fetch and water-level swings erase walls that weren't designed for exposure.",
+      },
+      {
+        title: "Misgraded drainage",
+        body: "Sloped lots push water to the bay — or into the foundation. Both matter.",
+      },
+      {
+        title: "Garden-wall methods",
+        body: "Subdivision wall detail on a shoreline. Those walls rarely last a few Bay winters.",
+      },
+    ],
+  },
+  hold: {
+    eyebrow: "How We Build It",
+    headline: "Base, drainage,",
+    headlineAccent: "then armour stone",
+    items: [
+      {
+        title: "Engineered base",
+        body: "Structural base, drainage aggregate, and compaction — verified before stone goes down.",
+      },
+      {
+        title: "Drainage designed in",
+        body: "Water management built into every wall and grade change, not patched later.",
+      },
+      {
+        title: "Stone set as structure",
+        body: "Largest stones first, fit and alignment checked. No guessing.",
+      },
+      {
+        title: "One crew, dig to set",
+        body: "Same team from excavation to final stone — no rotating handoffs.",
+      },
+    ],
+  },
 } as const;
+
+export const processIntro =
+  "From the first site walk to final stone — one crew, an itemized quote, and a clear schedule." as const;
 
 export const processSteps = [
   { id: "1", label: "Site Walk", title: "We Assess Before We Quote", body: "We walk your property, assess access, drainage, exposure, and protection for existing features — before any number is discussed." },
@@ -54,6 +87,9 @@ export const processSteps = [
   { id: "3", label: "Build", title: "Start to Finish Without Handoffs", body: "You deal with us from dig to final stone — not a rotating list of subcontractors." },
   { id: "4", label: "Walkthrough", title: "Done When You Say It's Done", body: "We walk the finished site with you. Completion isn't declared until you agree it's right." },
 ] as const;
+
+export const servicesGridIntro =
+  "Armour stone, excavation, hardscaping, and landscaping for shoreline lots — built as structure, not decoration." as const;
 
 export const homepageFaq = [
   { q: "Do you work on waterfront properties?", a: "Waterfront is our core work. Shoreline retaining walls, waterfront stairs, and erosion control on Georgian Bay properties make up the majority of our projects." },

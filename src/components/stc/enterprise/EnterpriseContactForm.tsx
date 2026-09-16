@@ -1,15 +1,24 @@
 import { site } from "@/data/site";
 
-/** Phone-only contact — STC does not use email for inquiries */
+/** Phone + email (address not displayed) — call or mailto for a free site visit */
 export function EnterpriseContactForm() {
   return (
-    <div className="turner-contact__form" aria-label="Phone — call for a free site visit">
+    <div className="turner-contact__form" aria-label="Contact — call or email for a free site visit">
       <p className="wf-type-supporting">
-        Call about your Tiny Township or Wasaga Beach property. Free site visit. Itemized quote.
+        Call or email about your Tiny Township or Wasaga Beach property. Free site visit. Itemized
+        quote.
       </p>
-      <a href={`tel:${site.phoneTel}`} className="btn-green stack-cta">
-        Call {site.phoneDisplay}
-      </a>
+      <div className="stc-contact-actions">
+        <a href={`tel:${site.phoneTel}`} className="btn-green stack-cta">
+          Call {site.phoneDisplay}
+        </a>
+        <a
+          href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
+          className="btn-green stack-cta"
+        >
+          Email us
+        </a>
+      </div>
     </div>
   );
 }

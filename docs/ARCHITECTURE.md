@@ -9,10 +9,11 @@ Turner-inspired enterprise design. All marketing routes use `src/components/stc/
 ```
 src/components/stc/enterprise/
   chrome/     EnterpriseHeader, EnterpriseFooter, ConversionBar (layout)
-  blocks/     TurnerHero, CommitmentsAccordion, ServiceOverlayGrid,
+  blocks/     AppealTurnerHero, CommitmentsAccordion, ServiceOverlayGrid,
               EnterprisePageHero, EnterpriseCtaBand
   service/    EnterpriseServicePage, ServicePager
-  EnterpriseHome.tsx
+  EnterpriseHomeAppeal.tsx   ← live homepage
+  EnterpriseHome.tsx         ← compare snapshot (`/design/landing-current`)
   EnterpriseServicesHub.tsx
   EnterpriseAboutPage.tsx
   EnterpriseProjectsPage.tsx
@@ -23,13 +24,13 @@ src/components/stc/enterprise/
   primitives.tsx (Wordmark, LinkArrow)
 ```
 
-Styles: `src/styles/enterprise-tokens.css` (single dial — colors, fonts, spacing) + `src/styles/enterprise-authority.css` (imported via `globals.css`).
+Styles: `src/styles/enterprise-tokens.css` (single dial — colors, fonts, spacing) + `src/styles/enterprise-authority.css` + `src/styles/landing-appeal.css` (imported via `globals.css`).
 
 ## Routes
 
 | Route | Component |
 |-------|-----------|
-| `/` | `EnterpriseHome` |
+| `/` | `EnterpriseHomeAppeal` |
 | `/services` | `EnterpriseServicesHub` |
 | `/services/[slug]` | `EnterpriseServicePage` + `ServicePager` |
 | `/about` | `EnterpriseAboutPage` |

@@ -265,10 +265,6 @@
   width: 100%;
   text-align: center;
   font-size: clamp(0.9rem, 0.3vw + 0.85rem, 1.05rem);
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
 }
 
 /* CTA: single hero action — phone lives in header chrome */
@@ -283,6 +279,32 @@
 
 .landing-appeal .appeal-hero__actions .btn-accent {
   margin-top: 0;
+}
+
+.landing-appeal .appeal-hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem 0.85rem;
+  margin: 0.35rem 0 0;
+  font-family: var(--font-open-sans), var(--ent-font-body);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ent-text-on-dark) 72%, transparent);
+}
+
+.landing-appeal .appeal-hero__trust-sep {
+  display: inline-block;
+  width: 0.3rem;
+  height: 0.3rem;
+  margin-inline: 0.15rem;
+  transform: rotate(45deg);
+  background: var(--stc-gold);
+  opacity: 0.65;
+  vertical-align: middle;
 }
 
 .landing-appeal .appeal-hero__scroll {
@@ -314,47 +336,22 @@
   }
 }
 
-/* —— Trust bar —— */
-.landing-appeal .stc-trust-bar {
-  padding-block: 1.15rem;
-}
-
-.landing-appeal .stc-trust-bar__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem 2rem;
-  text-align: center;
-}
-
-.landing-appeal .stc-trust-bar__item {
-  position: relative;
-  font-family: var(--font-open-sans), var(--ent-font-body);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ent-text-on-dark-muted, rgba(255, 255, 255, 0.72));
-}
-
-@media (min-width: 768px) {
-  .landing-appeal .stc-trust-bar__item + .stc-trust-bar__item::before {
-    content: "";
-    position: absolute;
-    left: -1.1rem;
-    top: 50%;
-    width: 0.35rem;
-    height: 0.35rem;
-    transform: translateY(-50%) rotate(45deg);
-    background: var(--stc-gold);
-    opacity: 0.7;
-  }
-}
-
-/* —— Pathfinder: flat light band (no overlap onto trust) —— */
+/* —— Pathfinder: flat light band —— */
 .landing-appeal .turner-pathfinder {
   background: var(--ent-band-light);
+}
+
+.landing-appeal .turner-pathfinder__intro {
+  text-align: center;
+  padding-bottom: var(--ent-space-lg);
+}
+
+.landing-appeal .turner-pathfinder__intro .eyebrow {
+  justify-content: center;
+}
+
+.landing-appeal .turner-pathfinder__intro .text-display {
+  margin-inline: auto;
 }
 
 .landing-appeal .turner-pathfinder__grid {
@@ -381,10 +378,15 @@
   color: var(--stc-gold);
 }
 
-.landing-appeal .turner-pathfinder__card h2 {
+.landing-appeal .turner-pathfinder__card h3 {
   font-family: var(--ent-font-display);
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  font-weight: var(--ent-weight-display);
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.65rem;
+  color: inherit;
 }
 
 .landing-appeal .turner-pathfinder__card .link-arrow {
@@ -407,34 +409,14 @@
   max-width: 14ch;
 }
 
-/* —— Problem: balanced two-col —— */
-.landing-appeal .stc-problem__inner {
-  max-width: var(--max-w);
-  margin-inline: auto;
+/* —— Problem: contrast split (styles live in enterprise-authority) —— */
+.landing-appeal .stc-problem__panel .text-display {
+  max-width: 14ch;
 }
 
-.landing-appeal .stc-problem__inner > .eyebrow,
-.landing-appeal .stc-problem__inner > .text-display {
-  text-align: center;
-}
-
-.landing-appeal .stc-problem__inner > .eyebrow {
-  justify-content: center;
-}
-
-.landing-appeal .stc-problem__inner > .text-display {
-  margin-inline: auto;
-  max-width: 22ch;
-}
-
-.landing-appeal .stc-problem__title {
+.landing-appeal .stc-problem__num {
   font-family: var(--ent-font-display);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-
-.landing-appeal .stc-problem__grid {
-  margin-top: var(--ent-space-xl);
+  color: color-mix(in srgb, var(--stc-gold) 85%, white);
 }
 
 /* —— Services header —— */
@@ -451,6 +433,12 @@
   margin-inline: auto;
 }
 
+.landing-appeal .stc-svc-overlay-grid__lead {
+  margin-inline: auto;
+  margin-top: 0.85rem;
+  max-width: 36rem;
+}
+
 /* —— Process —— */
 .landing-appeal .stc-process__inner > .eyebrow {
   justify-content: center;
@@ -460,6 +448,13 @@
   text-align: center;
   margin-inline: auto;
   max-width: 18ch;
+}
+
+.landing-appeal .stc-process__lead {
+  text-align: center;
+  margin-inline: auto;
+  margin-top: 0.85rem;
+  max-width: 36rem;
 }
 
 .landing-appeal .stc-process__num {
@@ -506,25 +501,15 @@
   margin-inline: auto;
 }
 
-.landing-appeal .appeal-showcase .stc-showcase__body {
-  margin-inline: auto;
-  margin-top: 0.65rem;
-  max-width: 28rem;
-  font-size: clamp(0.8125rem, 0.2vw + 0.78rem, 0.9375rem);
-  opacity: 0.78;
-}
-
 .landing-appeal .appeal-showcase .btn-accent {
   margin-inline: auto;
 }
 
-/* —— Commitments / regional / FAQ heads —— */
-.landing-appeal .turner-commitments .container > .eyebrow,
+/* —— FAQ heads —— */
 .landing-appeal .stc-faq__inner > .eyebrow {
   justify-content: center;
 }
 
-.landing-appeal .turner-commitments .text-display,
 .landing-appeal .stc-faq__inner > .text-display {
   text-align: center;
   margin-inline: auto;
@@ -532,17 +517,6 @@
 
 .landing-appeal .stc-faq__list {
   margin-inline: auto;
-}
-
-.landing-appeal .turner-regional__copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.landing-appeal .area-pills {
-  justify-content: flex-start;
-  flex-wrap: wrap;
 }
 
 /* —— Quote —— */

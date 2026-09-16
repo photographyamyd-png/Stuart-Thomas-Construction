@@ -85,6 +85,7 @@ export const enterpriseCommitments = [
 
 export const enterpriseFeaturedProject = {
   image: media.featuredGalleryPaths[0],
+  imageAlt: "Armour stone retaining wall on a Georgian Bay waterfront property",
   eyebrow: "Recent Armour Stone Project",
   title: "Armour Stone Retaining Wall",
   titleAccent: "on Georgian Bay",
@@ -97,8 +98,10 @@ export const enterpriseHomeShowcase = {
   eyebrow: "Yard to Water",
   headline: "Tiny Township Construction",
   headlineAccent: "from Grade to Finish",
+  /** Appeal homepage uses statement only (one supporting voice). */
   statement:
-    "We dig the grade, set the stone, and finish the yard — no mid-job handoff to another contractor.",
+    "We dig the grade, set the stone, and finish the yard — no mid-job handoff to another contractor. Outdoor work from the cottage door to the water on Tiny Township, Wasaga Beach, and Georgian Bay lots.",
+  /** Legacy compare homepage still renders a second supporting line. */
   body:
     "Outdoor work from the cottage door to the water in Tiny Township. Same approach on Wasaga Beach and Georgian Bay lots.",
   imageAlt: "Outdoor stone work and finished yard on a Georgian Bay property",

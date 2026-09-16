@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { conversion } from "@/data/conversion";
+import { conversion, trustBar } from "@/data/conversion";
 import { media } from "@/data/media";
 import { site } from "@/data/site";
 import { useTurnerHeroVideo } from "@/hooks/use-turner-hero-video";
@@ -54,6 +54,14 @@ export function AppealTurnerHero() {
           <Link href="#contact" className="btn-accent btn-accent--lg">
             {hero.pathfinderLabel}
           </Link>
+          <p className="appeal-hero__trust" aria-label="Credentials">
+            {trustBar.map((item, i) => (
+              <span key={item}>
+                {i > 0 ? <span className="appeal-hero__trust-sep" aria-hidden /> : null}
+                {item}
+              </span>
+            ))}
+          </p>
         </div>
       </div>
 

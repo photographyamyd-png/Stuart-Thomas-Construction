@@ -35,6 +35,16 @@ export default function ContactPage() {
               <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
             </dd>
           </div>
+          <div>
+            <dt className="text-utility">Email</dt>
+            <dd>
+              <a
+                href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
+              >
+                Email us
+              </a>
+            </dd>
+          </div>
         </dl>
         <LinkArrow href="/services" className="stack-cta">
           Armour stone &amp; hardscaping

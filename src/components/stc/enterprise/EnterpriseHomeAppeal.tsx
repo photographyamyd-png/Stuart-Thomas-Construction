@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { areas } from "@/data/areas";
 import { conversion } from "@/data/conversion";
 import {
   enterpriseFeaturedProject,
@@ -8,13 +7,12 @@ import {
   enterpriseQuote,
 } from "@/data/enterprise";
 import { media } from "@/data/media";
+import { site } from "@/data/site";
 import { AppealTurnerHero } from "./blocks/AppealTurnerHero";
-import { CommitmentsAccordion } from "./blocks/CommitmentsAccordion";
 import { FaqAccordion } from "./blocks/FaqAccordion";
 import { ProblemSection } from "./blocks/ProblemSection";
 import { ProcessSteps } from "./blocks/ProcessSteps";
 import { ServiceOverlayGrid } from "./blocks/ServiceOverlayGrid";
-import { TrustBar } from "./blocks/TrustBar";
 import { EnterpriseContactForm } from "./EnterpriseContactForm";
 import { AppealReveal } from "./blocks/AppealReveal";
 import { LinkArrow } from "./primitives";
@@ -24,7 +22,8 @@ import { LinkArrow } from "./primitives";
  * Scoped under `.landing-appeal` for industrial shoreline craft —
  * stronger brand presence, atmosphere, motion, and section rhythm.
  *
- * Band rhythm: dark → light → dark → light … through contact.
+ * Flow: Hero → Pathfinder → Featured → Problem → Process → Services →
+ * Showcase → Quote → FAQ → Contact.
  * Previous homepage remains at `/design/landing-current` for comparison.
  */
 export function EnterpriseHomeAppeal() {
@@ -32,24 +31,28 @@ export function EnterpriseHomeAppeal() {
     <div className="landing-appeal">
       <AppealTurnerHero />
 
-      <TrustBar />
-
       <AppealReveal>
         <section
           className="turner-pathfinder turner-band turner-band--light turner-band--seam"
           id="pathfinder"
-          aria-label="Choose your path"
+          aria-labelledby="pathfinder-heading"
         >
+          <header className="turner-pathfinder__intro container">
+            <p className="eyebrow">Start Here</p>
+            <h2 id="pathfinder-heading" className="text-display">
+              Choose your <span className="text-accent-gold">next step</span>
+            </h2>
+          </header>
           <ul className="turner-pathfinder__grid">
             <li>
               <Link className="turner-pathfinder__card" href="/projects">
-                <h2>Waterfront Hardscaping Projects</h2>
+                <h3>See finished waterfront work</h3>
                 <p className="wf-type-supporting">
                   Retaining walls, shoreline stairs, and full outdoor builds on Georgian Bay
                   properties — see the finished work.
                 </p>
                 <span className="link-arrow">
-                  Finished waterfront jobs{" "}
+                  View projects{" "}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
@@ -58,12 +61,12 @@ export function EnterpriseHomeAppeal() {
             </li>
             <li>
               <Link className="turner-pathfinder__card" href="#services">
-                <h2>Tiny Township Construction &amp; Landscaping</h2>
+                <h3>What we build</h3>
                 <p className="wf-type-supporting">
                   Armour stone, hardscaping, excavation, and landscaping for waterfront properties.
                 </p>
                 <span className="link-arrow">
-                  Armour stone &amp; landscaping{" "}
+                  Our services{" "}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
@@ -72,13 +75,13 @@ export function EnterpriseHomeAppeal() {
             </li>
             <li>
               <Link className="turner-pathfinder__card" href="/about">
-                <h2>15+ Seasons on Georgian Bay</h2>
+                <h3>Owner on the Bay since 2004</h3>
                 <p className="wf-type-supporting">
                   Same owner on the same shoreline since 2004. Local knowledge built over 15+ seasons
                   on Georgian Bay.
                 </p>
                 <span className="link-arrow">
-                  Owner on the Bay since 2004{" "}
+                  About us{" "}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
@@ -99,7 +102,7 @@ export function EnterpriseHomeAppeal() {
           <div className="turner-featured__media">
             <Image
               src={enterpriseFeaturedProject.image}
-              alt=""
+              alt={enterpriseFeaturedProject.imageAlt}
               fill
               loading="lazy"
               sizes="50vw"
@@ -113,14 +116,19 @@ export function EnterpriseHomeAppeal() {
               <span className="text-accent-gold">{enterpriseFeaturedProject.titleAccent}</span>
             </h2>
             <p className="wf-type-supporting">{enterpriseFeaturedProject.description}</p>
-            <LinkArrow href="/contact">Request a Quote</LinkArrow>
+            <LinkArrow href={enterpriseFeaturedProject.href}>View projects</LinkArrow>
           </div>
         </section>
       </AppealReveal>
 
-      {/* light — breaks featured → services dark stack */}
+      {/* dark / green contrast split */}
       <AppealReveal>
-        <ProblemSection band="light" />
+        <ProblemSection />
+      </AppealReveal>
+
+      {/* light — splits dark mid-page stack */}
+      <AppealReveal>
+        <ProcessSteps />
       </AppealReveal>
 
       {/* dark */}
@@ -128,11 +136,6 @@ export function EnterpriseHomeAppeal() {
         <section className="turner-band turner-band--dark turner-band--seam" id="services" aria-label="Our services">
           <ServiceOverlayGrid showHeader />
         </section>
-      </AppealReveal>
-
-      {/* light */}
-      <AppealReveal>
-        <ProcessSteps />
       </AppealReveal>
 
       {/* dark (image plane) */}
@@ -156,60 +159,11 @@ export function EnterpriseHomeAppeal() {
               <span className="text-accent-gold">{enterpriseHomeShowcase.headlineAccent}</span>
             </h2>
             <p className="wf-type-supporting stc-showcase__statement">{enterpriseHomeShowcase.statement}</p>
-            <p className="wf-type-supporting stc-showcase__body">{enterpriseHomeShowcase.body}</p>
             <Link href={enterpriseHomeShowcase.cta.href} className="btn-accent btn-accent--lg">
               {enterpriseHomeShowcase.cta.label}
             </Link>
           </div>
         </section>
-      </AppealReveal>
-
-      {/* light — breaks showcase → regional dark/green stack */}
-      <AppealReveal>
-        <CommitmentsAccordion />
-      </AppealReveal>
-
-      {/* green */}
-      <AppealReveal>
-        <section
-          className="turner-regional turner-band turner-band--green turner-band--seam"
-          id="regional"
-          aria-labelledby="regional-heading"
-        >
-          <div className="turner-regional__media">
-            <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
-          </div>
-          <div className="turner-regional__copy">
-            <p className="eyebrow eyebrow--on-dark">Wasaga Beach &amp; Tiny Township</p>
-            <h2 id="regional-heading" className="text-display">
-              Shoreline walls for{" "}
-              <span className="accent text-accent-gold">cottages on the Bay</span>
-            </h2>
-            <p className="wf-type-supporting">
-              Shoreline retaining walls and waterfront stairs for Wasaga Beach and Tiny Township
-              cottages. Hardscaping and site builds in Collingwood when the lot needs it.
-            </p>
-            <ul className="area-pills">
-              {[...areas]
-                .sort((a, b) => {
-                  const order = ["wasaga-beach", "tiny-township", "collingwood"];
-                  return order.indexOf(a.slug) - order.indexOf(b.slug);
-                })
-                .map((area, i) => (
-                  <li key={area.slug}>
-                    <Link href={`/areas/${area.slug}`} className={i === 0 ? "is-active" : undefined}>
-                      {area.name}
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-          </div>
-        </section>
-      </AppealReveal>
-
-      {/* light — breaks regional green → quote dark */}
-      <AppealReveal>
-        <FaqAccordion band="light" />
       </AppealReveal>
 
       {/* dark */}
@@ -227,6 +181,11 @@ export function EnterpriseHomeAppeal() {
         </section>
       </AppealReveal>
 
+      {/* light — before contact */}
+      <AppealReveal>
+        <FaqAccordion band="light" />
+      </AppealReveal>
+
       <div className="turner-band-divider turner-band-divider--white" aria-hidden />
 
       {/* green */}
@@ -242,12 +201,17 @@ export function EnterpriseHomeAppeal() {
               Call about your <span className="text-accent-gold">shoreline or yard</span>
             </h2>
             <p className="wf-type-supporting">{conversion.contactIntro}</p>
-            <Link href="/contact" className="btn-green stack-cta cta-self-start">
-              Request a Site Consultation
-            </Link>
-            <p className="turner-contact__areas">
-              Wasaga Beach · Tiny Township · Collingwood
-            </p>
+            <div className="stc-contact-actions cta-self-start">
+              <a href={`tel:${site.phoneTel}`} className="btn-green stack-cta">
+                Call {site.phoneDisplay}
+              </a>
+              <a
+                href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
+                className="btn-green stack-cta"
+              >
+                Email us
+              </a>
+            </div>
           </div>
           <EnterpriseContactForm />
         </section>

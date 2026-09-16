@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { servicesGridIntro } from "@/data/conversion";
 import { enterpriseServiceGridOrder } from "@/data/enterprise";
 import { media } from "@/data/media";
 import { getServiceBySlug } from "@/data/services";
@@ -15,10 +16,11 @@ export function ServiceOverlayGrid({ id = "services", className = "", showHeader
     <>
       {showHeader ? (
         <header className="stc-svc-overlay-grid__head container">
-          <p className="eyebrow eyebrow--on-dark">Armour Stone &amp; Hardscaping</p>
+          <p className="eyebrow eyebrow--on-dark">Wasaga Beach &amp; Tiny Township</p>
           <h2 className="text-display">
             Armour Stone, Hardscaping <span className="text-accent-gold">&amp; Landscaping</span>
           </h2>
+          <p className="wf-type-supporting stc-svc-overlay-grid__lead">{servicesGridIntro}</p>
         </header>
       ) : null}
       <ul className={`stc-svc-overlay-grid ${className}`.trim()} id={id}>

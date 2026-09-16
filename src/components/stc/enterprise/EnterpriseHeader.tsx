@@ -90,6 +90,11 @@ export function EnterpriseHeader() {
           <span>Tiny Township &amp; South Georgian Bay</span>
           <div className="turner-header__utility-links">
             <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
+            <a
+              href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
+            >
+              Email us
+            </a>
             <a href="/contact">Request a Site Consultation</a>
           </div>
         </div>
