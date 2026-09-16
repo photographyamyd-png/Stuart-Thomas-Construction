@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { areas } from "@/data/areas";
 import { getServiceBySlug, type ServiceSlug } from "@/data/services";
+import { siteMailtoHref } from "@/lib/site-mailto";
+import { CtaLink } from "../primitives";
 
 type Props = {
   relatedSlugs: ServiceSlug[];
@@ -63,9 +65,9 @@ export function ServiceRelatedBand({ relatedSlugs, showRediRock = false }: Props
               Most waterfront builds need more than one trade. Pick the next scope — we quote the
               work as one accountable crew.
             </p>
-            <Link href="/contact" className="stc-rel__btn">
+            <CtaLink href={siteMailtoHref()} className="stc-rel__btn">
               Request a quote <span aria-hidden>↗</span>
-            </Link>
+            </CtaLink>
           </div>
 
           {lead ? (

@@ -1,8 +1,9 @@
-import Link from "next/link";
+import { cta } from "@/data/nav";
 import { AppealReveal } from "./blocks/AppealReveal";
 import { ServiceOverlayGrid } from "./blocks/ServiceOverlayGrid";
 import { EnterpriseCtaBand } from "./blocks/EnterpriseCtaBand";
 import { EnterprisePageHero } from "./blocks/EnterprisePageHero";
+import { CtaLink } from "./primitives";
 
 export function EnterpriseServicesHub() {
   return (
@@ -16,7 +17,7 @@ export function EnterpriseServicesHub() {
           { name: "Home", path: "/" },
           { name: "Services", path: "/services" },
         ]}
-        ctaHref="/contact"
+        ctaHref={cta.primaryHref}
         ctaLabel="Get a Quote"
       />
 
@@ -31,9 +32,9 @@ export function EnterpriseServicesHub() {
             <p className="wf-type-supporting prose-narrow stack-body">
               Or call for a free site visit — we walk the property before we quote.
             </p>
-            <Link href="/contact" className="btn-green stack-cta cta-inline">
+            <CtaLink href={cta.primaryHref} className="btn-green stack-cta cta-inline">
               Request a Quote
-            </Link>
+            </CtaLink>
           </div>
         </section>
       </AppealReveal>

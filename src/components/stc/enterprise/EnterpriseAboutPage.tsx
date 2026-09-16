@@ -6,10 +6,11 @@ import { rediRockLinks } from "@/data/redi-rock";
 import { services } from "@/data/services";
 import { ManufacturerAttribution } from "./blocks/ManufacturerAttribution";
 import { site } from "@/data/site";
+import { cta } from "@/data/nav";
 import { stats } from "@/data/sections";
 import { AppealReveal } from "./blocks/AppealReveal";
 import { EnterprisePageHero } from "./blocks/EnterprisePageHero";
-import { LinkArrow } from "./primitives";
+import { CtaLink, LinkArrow } from "./primitives";
 
 export function EnterpriseAboutPage() {
   return (
@@ -25,7 +26,7 @@ export function EnterpriseAboutPage() {
           { name: "Home", path: "/" },
           { name: "About", path: "/about" },
         ]}
-        ctaHref="/contact"
+        ctaHref={cta.primaryHref}
         ctaLabel="Get a Quote"
       />
 
@@ -144,9 +145,9 @@ export function EnterpriseAboutPage() {
             <LinkArrow href="/areas" className="stack-title">
               Areas we serve
             </LinkArrow>
-            <Link href="/contact" className="btn-green stack-cta cta-inline">
+            <CtaLink href={cta.primaryHref} className="btn-green stack-cta cta-inline">
               Request a Site Consultation
-            </Link>
+            </CtaLink>
           </div>
         </section>
       </AppealReveal>

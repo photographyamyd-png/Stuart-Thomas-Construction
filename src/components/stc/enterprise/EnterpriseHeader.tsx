@@ -9,7 +9,8 @@ import { media } from "@/data/media";
 import { footerColumns, navServices, cta } from "@/data/nav";
 import { site } from "@/data/site";
 import { useEnterpriseNav } from "@/hooks/use-enterprise-nav";
-import { LinkArrow, Wordmark } from "./primitives";
+import { siteMailtoHref } from "@/lib/site-mailto";
+import { CtaLink, LinkArrow, Wordmark } from "./primitives";
 
 const FLUSH_HERO_PREFIXES = ["/services/", "/areas/"] as const;
 const FLUSH_HERO_ROUTES = new Set([
@@ -90,12 +91,8 @@ export function EnterpriseHeader() {
           <span>Tiny Township &amp; South Georgian Bay</span>
           <div className="turner-header__utility-links">
             <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
-            <a
-              href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
-            >
-              Email us
-            </a>
-            <a href="/contact">Request a Site Consultation</a>
+            <a href={siteMailtoHref()}>Email us</a>
+            <a href={siteMailtoHref()}>Request a Site Consultation</a>
           </div>
         </div>
       </div>
@@ -173,9 +170,9 @@ export function EnterpriseHeader() {
           </nav>
 
           <div className="turner-header__actions">
-            <Link href="/contact" className="btn-header-cta">
+            <CtaLink href={cta.primaryHref} className="btn-header-cta">
               {cta.primaryLabel}
-            </Link>
+            </CtaLink>
             <button
               type="button"
               className="turner-header__toggle"
@@ -361,9 +358,9 @@ export function EnterpriseHeader() {
             Contact
           </Link>
         </nav>
-        <Link href="/contact" className="btn-header-cta" onClick={closeDrawer}>
+        <CtaLink href={cta.primaryHref} className="btn-header-cta" onClick={closeDrawer}>
           {cta.primaryLabel}
-        </Link>
+        </CtaLink>
       </aside>
     </>
   );

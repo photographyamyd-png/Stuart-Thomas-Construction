@@ -7,6 +7,7 @@ import { conversion } from "@/data/conversion";
 import { media } from "@/data/media";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
+import { siteMailtoHref } from "@/lib/site-mailto";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact & Request a Quote | Tiny Township Construction",
@@ -38,11 +39,7 @@ export default function ContactPage() {
           <div>
             <dt className="text-utility">Email</dt>
             <dd>
-              <a
-                href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
-              >
-                Email us
-              </a>
+              <a href={siteMailtoHref()}>Email us</a>
             </dd>
           </div>
         </dl>

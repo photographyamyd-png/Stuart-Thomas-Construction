@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { areas, areasHubCopy } from "@/data/areas";
+import { cta } from "@/data/nav";
 import { AppealReveal } from "./blocks/AppealReveal";
 import { EnterpriseCtaBand } from "./blocks/EnterpriseCtaBand";
 import { EnterprisePageHero } from "./blocks/EnterprisePageHero";
@@ -16,7 +17,7 @@ export function EnterpriseAreasHub() {
           { name: "Home", path: "/" },
           { name: "Service Areas", path: "/areas" },
         ]}
-        ctaHref="/contact"
+        ctaHref={cta.primaryHref}
         ctaLabel="Get a Quote"
       />
 

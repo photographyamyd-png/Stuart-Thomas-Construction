@@ -8,6 +8,7 @@ import {
 } from "@/data/enterprise";
 import { media } from "@/data/media";
 import { site } from "@/data/site";
+import { siteMailtoHref } from "@/lib/site-mailto";
 import { AppealTurnerHero } from "./blocks/AppealTurnerHero";
 import { FaqAccordion } from "./blocks/FaqAccordion";
 import { ProblemSection } from "./blocks/ProblemSection";
@@ -15,7 +16,7 @@ import { ProcessSteps } from "./blocks/ProcessSteps";
 import { ServiceOverlayGrid } from "./blocks/ServiceOverlayGrid";
 import { EnterpriseContactForm } from "./EnterpriseContactForm";
 import { AppealReveal } from "./blocks/AppealReveal";
-import { LinkArrow } from "./primitives";
+import { CtaLink, LinkArrow } from "./primitives";
 
 /**
  * Primary homepage composition (Appeal landing).
@@ -159,9 +160,9 @@ export function EnterpriseHomeAppeal() {
               <span className="text-accent-gold">{enterpriseHomeShowcase.headlineAccent}</span>
             </h2>
             <p className="wf-type-supporting stc-showcase__statement">{enterpriseHomeShowcase.statement}</p>
-            <Link href={enterpriseHomeShowcase.cta.href} className="btn-accent btn-accent--lg">
+            <CtaLink href={enterpriseHomeShowcase.cta.href} className="btn-accent btn-accent--lg">
               {enterpriseHomeShowcase.cta.label}
-            </Link>
+            </CtaLink>
           </div>
         </section>
       </AppealReveal>
@@ -205,10 +206,7 @@ export function EnterpriseHomeAppeal() {
               <a href={`tel:${site.phoneTel}`} className="btn-green stack-cta">
                 Call {site.phoneDisplay}
               </a>
-              <a
-                href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
-                className="btn-green stack-cta"
-              >
+              <a href={siteMailtoHref()} className="btn-green stack-cta">
                 Email us
               </a>
             </div>

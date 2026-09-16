@@ -1,10 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { conversion, trustBar } from "@/data/conversion";
 import { media } from "@/data/media";
 import { site } from "@/data/site";
 import { useTurnerHeroVideo } from "@/hooks/use-turner-hero-video";
+import { siteMailtoHref } from "@/lib/site-mailto";
+import { CtaLink } from "../primitives";
 
 /**
  * Appeal hero: brand-first, full-bleed cinematic plane,
@@ -51,9 +52,9 @@ export function AppealTurnerHero() {
         </h1>
         <p className="wf-type-supporting appeal-hero__enter appeal-hero__enter--3">{hero.lead}</p>
         <div className="appeal-hero__actions appeal-hero__enter appeal-hero__enter--4">
-          <Link href="#contact" className="btn-accent btn-accent--lg">
+          <CtaLink href={siteMailtoHref()} className="btn-accent btn-accent--lg">
             {hero.pathfinderLabel}
-          </Link>
+          </CtaLink>
           <p className="appeal-hero__trust" aria-label="Credentials">
             {trustBar.map((item, i) => (
               <span key={item}>

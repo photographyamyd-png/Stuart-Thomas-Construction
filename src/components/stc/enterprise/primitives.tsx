@@ -1,5 +1,34 @@
 import Link from "next/link";
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
+
+function isExternalActionHref(href: string) {
+  return href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("http");
+}
+
+/** Internal Link or native <a> for mailto/tel/external quote CTAs. */
+export function CtaLink({
+  href,
+  className = "",
+  children,
+  ...props
+}: {
+  href: string;
+  className?: string;
+  children: ReactNode;
+} & Omit<ComponentProps<"a">, "href">) {
+  if (isExternalActionHref(href)) {
+    return (
+      <a href={href} className={className} {...props}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className} {...props}>
+      {children}
+    </Link>
+  );
+}
 
 export function LinkArrow({
   href,
@@ -7,6 +36,17 @@ export function LinkArrow({
   className = "",
   ...props
 }: ComponentProps<typeof Link>) {
+  const hrefStr = typeof href === "string" ? href : "";
+  if (isExternalActionHref(hrefStr)) {
+    return (
+      <a href={hrefStr} className={`link-arrow ${className}`.trim()}>
+        {children}{" "}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
+    );
+  }
   return (
     <Link href={href} className={`link-arrow ${className}`.trim()} {...props}>
       {children}{" "}

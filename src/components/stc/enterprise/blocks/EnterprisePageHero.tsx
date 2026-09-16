@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { BreadcrumbItem } from "@/lib/seo";
+import { CtaLink } from "../primitives";
 
 type Props = {
   title: string;
@@ -92,9 +93,9 @@ export function EnterprisePageHero({
         {hasCta || hasChildren ? (
           <div className="stc-enterprise-hero__children stc-enterprise-hero__enter stc-enterprise-hero__enter--5">
             {hasCta ? (
-              <Link href={ctaHref!} className="btn-accent btn-accent--lg cta-inline">
+              <CtaLink href={ctaHref!} className="btn-accent btn-accent--lg cta-inline">
                 {ctaLabel}
-              </Link>
+              </CtaLink>
             ) : null}
             {children}
           </div>

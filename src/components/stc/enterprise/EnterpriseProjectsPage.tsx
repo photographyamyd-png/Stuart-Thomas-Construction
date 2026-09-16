@@ -1,5 +1,6 @@
 import type { GalleryItem } from "@/data/gallery";
 import { media } from "@/data/media";
+import { cta } from "@/data/nav";
 import { ProjectsExplorer } from "@/components/gallery/ProjectsExplorer";
 import { AppealReveal } from "./blocks/AppealReveal";
 import { EnterpriseCtaBand } from "./blocks/EnterpriseCtaBand";
@@ -26,7 +27,7 @@ export function EnterpriseProjectsPage({ galleryItems, initialCategory }: Props)
           { name: "Home", path: "/" },
           { name: "Projects", path: "/projects" },
         ]}
-        ctaHref="/contact"
+        ctaHref={cta.primaryHref}
         ctaLabel="Get a Quote"
       />
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { ServiceDetail } from "@/data/services";
+import { siteMailtoHref } from "@/lib/site-mailto";
+import { CtaLink } from "../primitives";
 
 type Props = {
   service: ServiceDetail;
@@ -40,9 +41,9 @@ export function ServiceStatementBand({ service, imageSrc, imageAlt }: Props) {
             <li key={b}>{b}</li>
           ))}
         </ul>
-        <Link href="/contact" className="btn-green stack-cta cta-inline">
+        <CtaLink href={siteMailtoHref()} className="btn-green stack-cta cta-inline">
           Get a Quote
-        </Link>
+        </CtaLink>
       </div>
     </section>
   );

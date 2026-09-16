@@ -1,4 +1,5 @@
 import { site } from "@/data/site";
+import { siteMailtoHref } from "@/lib/site-mailto";
 
 /** Phone + email (address not displayed) — call or mailto for a free site visit */
 export function EnterpriseContactForm() {
@@ -12,10 +13,7 @@ export function EnterpriseContactForm() {
         <a href={`tel:${site.phoneTel}`} className="btn-green stack-cta">
           Call {site.phoneDisplay}
         </a>
-        <a
-          href={`mailto:${site.email}?subject=${encodeURIComponent("Site consultation request")}`}
-          className="btn-green stack-cta"
-        >
+        <a href={siteMailtoHref()} className="btn-green stack-cta">
           Email us
         </a>
       </div>

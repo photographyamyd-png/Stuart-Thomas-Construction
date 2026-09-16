@@ -8,7 +8,8 @@ import { rediRockServiceCallouts } from "@/data/redi-rock";
 import type { ServiceDetail, ServiceSlug } from "@/data/services";
 import { getAdjacentServices } from "@/data/services";
 import { AppealReveal } from "../blocks/AppealReveal";
-import { LinkArrow } from "../primitives";
+import { CtaLink, LinkArrow } from "../primitives";
+import { siteMailtoHref } from "@/lib/site-mailto";
 import { ServiceCapabilitiesBand } from "./ServiceCapabilitiesBand";
 import { ServiceFaq } from "./ServiceFaq";
 import { ServicePager } from "./ServicePager";
@@ -98,9 +99,9 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
             {service.shortDescription}
           </p>
           <div className="stc-svc-page__hero-actions stc-svc-page__hero-enter stc-svc-page__hero-enter--5">
-            <Link href="/contact" className="btn-accent btn-accent--lg cta-inline">
+            <CtaLink href={siteMailtoHref()} className="btn-accent btn-accent--lg cta-inline">
               Get a Quote
-            </Link>
+            </CtaLink>
             <LinkArrow href={scrollTarget} className="cta-inline">
               {scrollLabel}
             </LinkArrow>
@@ -168,9 +169,9 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
               Book a free <span className="text-accent-gold">site visit</span>
             </h2>
             <p className="wf-type-supporting">{conversion.serviceCta.subline}</p>
-            <Link href="/contact" className="btn-green stack-cta cta-self-start">
+            <CtaLink href={siteMailtoHref()} className="btn-green stack-cta cta-self-start">
               {conversion.serviceCta.button}
-            </Link>
+            </CtaLink>
           </div>
         </section>
       </AppealReveal>

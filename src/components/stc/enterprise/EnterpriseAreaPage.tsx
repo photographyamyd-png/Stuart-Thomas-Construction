@@ -2,10 +2,12 @@ import Link from "next/link";
 import type { AreaDetail } from "@/data/areas";
 import { conversion } from "@/data/conversion";
 import { media } from "@/data/media";
+import { cta } from "@/data/nav";
 import { getServiceBySlug } from "@/data/services";
 import { AppealReveal } from "./blocks/AppealReveal";
 import { EnterpriseCtaBand } from "./blocks/EnterpriseCtaBand";
 import { EnterprisePageHero } from "./blocks/EnterprisePageHero";
+import { CtaLink } from "./primitives";
 
 type Props = {
   area: AreaDetail;
@@ -27,7 +29,7 @@ export function EnterpriseAreaPage({ area }: Props) {
           { name: "Areas", path: "/areas" },
           { name: area.name, path: `/areas/${area.slug}` },
         ]}
-        ctaHref="/contact"
+        ctaHref={cta.primaryHref}
         ctaLabel="Get a Quote"
       />
 
@@ -84,9 +86,9 @@ export function EnterpriseAreaPage({ area }: Props) {
               })}
             </ul>
             <p className="wf-type-supporting stc-area-page__footer stack-section text-on-dark-subtle">
-              <Link href="/contact" className="text-accent-gold">
+              <CtaLink href={cta.primaryHref} className="text-accent-gold">
                 Request a quote
-              </Link>{" "}
+              </CtaLink>{" "}
               or{" "}
               <Link href="/projects" className="text-accent-gold">
                 finished job photos
