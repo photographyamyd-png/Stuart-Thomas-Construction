@@ -3,10 +3,17 @@ import Link from "next/link";
 import { BackgroundVideo } from "@/components/media/BackgroundVideo";
 import { conversion } from "@/data/conversion";
 import type { GalleryItem } from "@/data/gallery";
-import { getServiceCapabilityImages, getServiceHero, getServiceWorkShowcase, media } from "@/data/media";
+import {
+  getServiceCapabilityImages,
+  getServiceCtaBanner,
+  getServiceHero,
+  getServiceWorkShowcase,
+  media,
+} from "@/data/media";
 import { rediRockServiceCallouts } from "@/data/redi-rock";
 import type { ServiceDetail, ServiceSlug } from "@/data/services";
 import { getAdjacentServices } from "@/data/services";
+import { site } from "@/data/site";
 import { AppealReveal } from "../blocks/AppealReveal";
 import { CtaLink, LinkArrow } from "../primitives";
 import { siteMailtoHref } from "@/lib/site-mailto";
@@ -50,6 +57,7 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
   const heroSrc = getServiceHero(service.slug);
   const capImages = getServiceCapabilityImages(service.slug);
   const workShowcase = getServiceWorkShowcase(service.slug);
+  const ctaBannerSrc = getServiceCtaBanner(service.slug);
   const { prev, next } = getAdjacentServices(service.slug);
   const isImmersiveHero = VIDEO_HERO_SLUGS.has(service.slug);
   const { base: titleBase, accent: titleAccent } = titleParts(service.title);
@@ -57,9 +65,12 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
   const statementAlt = workShowcase?.leadAlt ?? `${service.title} — ${service.heroAlt}`;
   const scrollTarget = workShowcase ? "#work" : "#process";
   const scrollLabel = workShowcase ? "Finished work on site" : "What happens on site";
+  const heroCtaLabel = service.heroCtaLabel ?? "Get a Quote";
+  const heroMailto = siteMailtoHref();
+  const closing = service.closingCta;
 
   return (
-    <>
+    <div>
       <section
         className={`stc-svc-page__hero stc-svc-page__hero--cinematic turner-band turner-band--dark${isImmersiveHero ? " stc-svc-page__hero--immersive" : ""}`}
         aria-labelledby="svc-heading"
@@ -99,12 +110,18 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
             {service.shortDescription}
           </p>
           <div className="stc-svc-page__hero-actions stc-svc-page__hero-enter stc-svc-page__hero-enter--5">
-            <CtaLink href={siteMailtoHref()} className="btn-accent btn-accent--lg cta-inline">
-              Get a Quote
+            <CtaLink href={heroMailto} className="btn-accent btn-accent--lg cta-inline">
+              {heroCtaLabel}
             </CtaLink>
-            <LinkArrow href={scrollTarget} className="cta-inline">
-              {scrollLabel}
-            </LinkArrow>
+            {service.heroSecondaryTel ? (
+              <LinkArrow href={`tel:${site.phoneTel}`} className="cta-inline">
+                Call {site.phoneDisplay}
+              </LinkArrow>
+            ) : (
+              <LinkArrow href={scrollTarget} className="cta-inline">
+                {scrollLabel}
+              </LinkArrow>
+            )}
           </div>
         </div>
       </section>
@@ -161,17 +178,35 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
           aria-label="Contact call to action"
         >
           <div className="turner-regional__media">
-            <Image src={media.ctaBanner} alt="" fill loading="lazy" sizes="50vw" className="object-cover" />
+            <Image
+              src={ctaBannerSrc}
+              alt=""
+              fill
+              loading="lazy"
+              sizes="50vw"
+              className="object-cover"
+            />
           </div>
           <div className="turner-regional__copy">
-            <p className="eyebrow eyebrow--on-dark">Free Site Visit</p>
+            <p className="eyebrow eyebrow--on-dark">{closing?.eyebrow ?? "Free Site Visit"}</p>
             <h2 className="text-display stack-title">
-              Book a free <span className="text-accent-gold">site visit</span>
+              {closing ? (
+                <>
+                  {closing.headlineBefore}{" "}
+                  <span className="text-accent-gold">{closing.headlineAccent}</span>
+                </>
+              ) : (
+                <>
+                  Book a free <span className="text-accent-gold">site visit</span>
+                </>
+              )}
             </h2>
-            <p className="wf-type-supporting">{conversion.serviceCta.subline}</p>
-            <CtaLink href={siteMailtoHref()} className="btn-green stack-cta cta-self-start">
-              {conversion.serviceCta.button}
-            </CtaLink>
+            <p className="wf-type-supporting">{closing?.subline ?? conversion.serviceCta.subline}</p>
+            <div className="stc-svc-page__cta-actions stack-cta">
+              <CtaLink href={heroMailto} className="btn-green cta-self-start">
+                {closing?.button ?? conversion.serviceCta.button}
+              </CtaLink>
+            </div>
           </div>
         </section>
       </AppealReveal>
@@ -179,6 +214,6 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
       <AppealReveal>
         <ServicePager prev={prev} next={next} />
       </AppealReveal>
-    </>
+    </div>
   );
 }

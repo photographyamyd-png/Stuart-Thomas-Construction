@@ -21,3 +21,39 @@ export function siteMailtoHref(
 ): string {
   return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
+
+export type SnowQuotePayload = {
+  name: string;
+  company: string;
+  email: string;
+  /** Digits-only phone for the email body */
+  phoneDigits: string;
+  /** User-typed display value */
+  phoneDisplay: string;
+  town: string;
+  propertyType: string;
+  serviceNeeded: string;
+  address: string;
+  message?: string;
+};
+
+/** Structured commercial snow quote mailto. Address stays non-visible in UI. */
+export function snowQuoteMailtoHref(payload: SnowQuotePayload): string {
+  const subject = `New Commercial Snow Quote – ${payload.company || payload.name}`;
+  const lines = [
+    "Commercial snow removal quote request",
+    "",
+    `Name: ${payload.name}`,
+    `Company: ${payload.company}`,
+    `Email: ${payload.email}`,
+    `Phone: ${payload.phoneDisplay}${payload.phoneDigits ? ` (${payload.phoneDigits})` : ""}`,
+    `Town: ${payload.town}`,
+    `Property Type: ${payload.propertyType}`,
+    `Service Needed: ${payload.serviceNeeded}`,
+    `Property Address: ${payload.address}`,
+  ];
+  if (payload.message?.trim()) {
+    lines.push(`Message: ${payload.message.trim()}`);
+  }
+  return siteMailtoHref(subject, lines.join("\n"));
+}

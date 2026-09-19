@@ -10,18 +10,19 @@ type FaqItem = {
 type Props = {
   items: FaqItem[];
   band?: "dark" | "light";
+  className?: string;
 };
 
 /**
  * Service FAQ — same open/close response as homepage FaqAccordion.
  */
-export function ServiceFaq({ items, band = "dark" }: Props) {
+export function ServiceFaq({ items, band = "dark", className }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const onDark = band === "dark";
 
   return (
     <section
-      className={`stc-faq stc-svc-page__faq turner-band turner-band--${band} turner-band--seam`}
+      className={`stc-faq stc-svc-page__faq turner-band turner-band--${band} turner-band--seam${className ? ` ${className}` : ""}`}
       aria-labelledby="svc-faq-heading"
     >
       <div className="stc-faq__inner container">

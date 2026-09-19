@@ -24,10 +24,15 @@ const img = {
   rediRockLogo: "/images/partners/redi-rock-logo.png",
   sarjeantCoLogo: "/images/partners/sarjeant-co-logo.png",
   rediRockReferenceHero: "/images/redi-rock/reference/hero-waterfront-reference.jpg",
-  snowRemovalLoaderHero: "/images/snow-removal/hero-storm-plow.png",
-  snowRemovalIndustrialLot: "/images/snow-removal/commercial-lot-loader.png",
-  snowRemovalPlowFleet: "/images/snow-removal/rural-road-clearing.png",
+  /** Heavy machinery snow stock — see public/images/snow-removal/ATTRIBUTION.md */
+  snowRemovalLoaderHero: "/images/snow-removal/commercial-lot-loader.png",
+  snowRemovalIndustrialLot: "/images/snow-removal/stock-loader-pushing-snow.jpg",
+  snowRemovalSkidSteer: "/images/snow-removal/stock-skid-steer-snow.jpg",
   snowRemovalNightPlow: "/images/snow-removal/hero-storm-plow.png",
+  snowRemovalStormExcavator: "/images/snow-removal/stock-excavator-snow.jpg",
+  snowRemovalRuralLoader: "/images/snow-removal/rural-road-clearing.png",
+  snowRemovalLoaderFleet: "/images/snow-removal/stock-loader-fleet-snow.jpg",
+  snowRemovalCta: "/images/snow-removal/rural-road-clearing.png",
   /** Retouched 2026 archive — web-optimized in public/images/retouched/ */
   rtLandscapingBackyard: "/images/retouched/stc-tiny-township-landscaping.jpg",
   rtLandscapingFlagstoneYard: "/images/retouched/stc-040.jpg",
@@ -56,6 +61,10 @@ export const media = {
   hardscapingHeroVideo: "/video/landscaping-hero.mp4",
   integritySection: img.rtExcavationHitachiFleet,
   ctaBanner: img.rtLandscapingBackyard,
+  /** Per-service closing CTA media (falls back to ctaBanner) */
+  serviceCtaBanners: {
+    "commercial-snow-removal": img.snowRemovalCta,
+  } as Partial<Record<ServiceSlug, string>>,
   homeShowcasePanorama: img.rtLandscapingGardenPath,
   aboutHero: img.rtExcavationDualMachines,
   projectsHero: img.rtExcavationHitachiWoods,
@@ -96,10 +105,13 @@ export const media = {
     ],
     "commercial-snow-removal": [
       img.snowRemovalIndustrialLot,
-      img.snowRemovalPlowFleet,
+      img.snowRemovalSkidSteer,
       img.snowRemovalNightPlow,
+      img.snowRemovalRuralLoader,
+      img.snowRemovalStormExcavator,
+      img.snowRemovalLoaderHero,
     ],
-  } satisfies Record<ServiceSlug, readonly [string, string, string]>,
+  } as Record<ServiceSlug, readonly string[]>,
   featuredGalleryPaths: [
     img.rtExcavationHitachiFleet,
     img.rtLandscapingBackyard,
@@ -133,6 +145,16 @@ export type ServiceWorkShowcase = {
   leadImage: string;
   leadAlt: string;
   supporting: { src: string; alt: string; caption: string }[];
+  /** Optional feature columns (defaults to armour-stone shoreline trio) */
+  features?: { title: string; body: string }[];
+  ctaHref?: string;
+  ctaLabel?: string;
+  proofCard?: {
+    stat: string;
+    label: string;
+    text: string;
+    linkLabel: string;
+  };
 };
 
 export const serviceWorkShowcase: Partial<Record<ServiceSlug, ServiceWorkShowcase>> = {
@@ -156,8 +178,70 @@ export const serviceWorkShowcase: Partial<Record<ServiceSlug, ServiceWorkShowcas
       },
     ],
   },
+  "commercial-snow-removal": {
+    eyebrow: "Winter Service",
+    headline: "Commercial Lots Cleared For Opening",
+    statement:
+      "Contract clearing with loaders, skid steers, and excavators for industrial yards and commercial lots across Midland and North Simcoe.",
+    leadImage: img.snowRemovalLoaderHero,
+    leadAlt:
+      "Orange front-end loader pushing snow on a commercial lot in Midland — illustrative stock",
+    supporting: [
+      {
+        src: img.snowRemovalStormExcavator,
+        alt: "Excavators clearing heavy snow at night on a North Simcoe commercial site — illustrative stock",
+        caption: "Storm priority excavator, Penetanguishene area",
+      },
+      {
+        src: img.snowRemovalRuralLoader,
+        alt: "Front loader with plow blade pushing deep snow at a Wasaga Beach–area commercial site — illustrative stock",
+        caption: "Loader pile relocation, Wasaga Beach area",
+      },
+    ],
+    features: [
+      {
+        title: "Lot Clearing",
+        body: "Parking lots, plazas, and loading zones cleared for opening — sized for commercial traffic and fire lanes.",
+      },
+      {
+        title: "Storm Priority",
+        body: "Contract clients get priority dispatch during winter storms, with phone accountability.",
+      },
+      {
+        title: "Night Routes",
+        body: "Night and early-morning clearing across Midland and North Simcoe commercial corridors.",
+      },
+    ],
+    ctaHref: "#quote-form",
+    ctaLabel: "Request a Site Assessment",
+    proofCard: {
+      stat: "15+",
+      label: "Seasons on Bay routes",
+      text: "Contract-based commercial and industrial snow clearing for working properties — not residential driveway service.",
+      linkLabel: "Request a site assessment →",
+    },
+  },
 };
 
 export function getServiceWorkShowcase(slug: ServiceSlug): ServiceWorkShowcase | null {
   return serviceWorkShowcase[slug] ?? null;
+}
+
+export function getServiceCtaBanner(slug: ServiceSlug): string {
+  return media.serviceCtaBanners[slug] ?? media.ctaBanner;
+}
+
+/** Dedicated haul-out band image on the commercial snow page (color excavator — not B&W fleet) */
+export function getSnowHaulOutImage(): string {
+  return img.snowRemovalStormExcavator;
+}
+
+/** Safety band photo on the commercial snow page */
+export function getSnowSafetyImage(): string {
+  return img.snowRemovalNightPlow;
+}
+
+/** Final quote CTA backdrop on the commercial snow page */
+export function getSnowQuoteBackdrop(): string {
+  return img.snowRemovalRuralLoader;
 }

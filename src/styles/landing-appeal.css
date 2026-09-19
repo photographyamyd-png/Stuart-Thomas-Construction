@@ -402,7 +402,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block: clamp(2.25rem, 5vw, 3.75rem);
+  padding-block: var(--ent-space-band-y);
 }
 
 .landing-appeal .appeal-featured .text-display {
@@ -521,7 +521,7 @@
 
 /* —— Quote —— */
 .landing-appeal .appeal-quote {
-  padding-block: clamp(3.25rem, 7vw, 5.5rem);
+  padding-block: var(--ent-space-band-y);
   text-align: center;
 }
 
@@ -1042,17 +1042,16 @@
   padding: 0.9rem 0;
   border-bottom: 1px solid rgba(26, 26, 26, 0.1);
   font-family: var(--ent-font-body);
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: var(--ent-role-body-on-light);
-  border-left: 2px solid transparent;
+  font-size: 1rem;
+  font-weight: var(--ent-weight-ui-strong);
+  line-height: 1.3;
+  color: var(--ent-role-headline-on-light);
+  border-left: 2px solid var(--stc-gold);
   padding-left: 0.85rem;
   margin-left: -0.85rem;
-  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .landing-appeal .stc-svc-statement__benefits li:hover {
-  border-left-color: var(--stc-gold);
   color: var(--ent-role-headline-on-light);
 }
 
@@ -1724,6 +1723,13 @@
 
 .stc-bs__btn:hover {
   filter: brightness(1.08);
+}
+
+.stc-bs__btn--strong {
+  padding: 1.05rem 1.85rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  box-shadow: 0 4px 18px color-mix(in srgb, var(--stc-black) 35%, transparent);
 }
 
 /* Right subject — overlaps hero into features (worker-cutout slot) */
