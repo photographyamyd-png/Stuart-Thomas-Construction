@@ -16,7 +16,7 @@ export function ContactActionPanel() {
         <header className="stc-contact-actions-panel__head">
           <p className="eyebrow">Ways to Reach Us</p>
           <h2 id="contact-actions-heading" className="text-display">
-            Talk about your <span className="text-accent-gold">shoreline or yard</span>
+            Talk about your <span className="text-accent-gold">property</span>
           </h2>
           <p className="wf-type-supporting stc-contact-actions-panel__lead">
             Free site visit. Itemized quote. Call or send a message — we reply within one business
