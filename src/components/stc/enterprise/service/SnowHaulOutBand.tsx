@@ -13,7 +13,7 @@ export function SnowHaulOutBand({ imageSrc }: Props) {
   return (
     <section
       id="haul-outs"
-      className="stc-snow-haul turner-band turner-band--light turner-band--seam"
+      className="stc-snow-haul turner-band turner-band--green turner-band--seam"
       aria-labelledby="snow-haul-heading"
     >
       <div className="container stc-snow-haul__grid">
@@ -28,7 +28,7 @@ export function SnowHaulOutBand({ imageSrc }: Props) {
           />
         </div>
         <div className="stc-snow-haul__copy">
-          <p className="eyebrow">{snowHaulOut.eyebrow}</p>
+          <p className="eyebrow eyebrow--on-dark">{snowHaulOut.eyebrow}</p>
           <h2 id="snow-haul-heading" className="text-display text-display--section stack-eyebrow">
             {snowHaulOut.headline}
           </h2>

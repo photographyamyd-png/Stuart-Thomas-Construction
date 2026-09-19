@@ -52,6 +52,7 @@ export function SnowServicePage({ service }: Props) {
   return (
     <div className="stc-svc-page--snow">
       <SnowHero service={service} />
+      <div className="stc-snow-hero-divider" aria-hidden />
       <SnowTrustBar />
 
       <AppealReveal>
@@ -71,6 +72,7 @@ export function SnowServicePage({ service }: Props) {
           eyebrow={snowServicesHeading.eyebrow}
           headlineBefore={snowServicesHeading.headlineBefore}
           headlineAccent={snowServicesHeading.headlineAccent}
+          band="light"
         />
       </AppealReveal>
 

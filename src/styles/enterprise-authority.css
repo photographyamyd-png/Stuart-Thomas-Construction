@@ -7653,7 +7653,7 @@ button:focus-visible {
   font-size: 1rem;
   line-height: 1.4;
   font-weight: var(--ent-weight-ui-strong);
-  color: var(--ent-role-headline-on-light);
+  color: var(--ent-role-headline-on-dark);
 }
 
 .stc-snow-haul__list li::before {
@@ -7668,7 +7668,16 @@ button:focus-visible {
 
 .stc-snow-haul__note {
   margin: 0;
-  color: var(--ent-role-body-on-light);
+  color: var(--ent-role-body-on-dark);
+}
+
+.stc-snow-haul.turner-band--green .stc-snow-haul__note a,
+.stc-snow-haul.turner-band--green .text-utility {
+  color: var(--ent-role-body-on-dark);
+}
+
+.stc-snow-haul.turner-band--green .stc-process__phone {
+  color: var(--stc-gold);
 }
 
 /* Process timeline */
@@ -8675,25 +8684,43 @@ button:focus-visible {
 .stc-snow-hero__enter--4 { animation-delay: 0.46s; }
 .stc-snow-hero__enter--5 { animation-delay: 0.58s; }
 
+/* Thin white seam between snow hero photo and gold trust strip (document flow) */
+.stc-svc-page--snow .stc-snow-hero-divider {
+  height: var(--ent-seam-height, 4px);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--stc-white);
+  border: 0;
+}
+
 /* Gold trust strip ? full-bleed below hero, white labels + icons */
 .stc-trust-bar--snow {
   background: var(--stc-gold);
   color: #fff;
+  overflow-x: clip;
 }
 
 .stc-trust-bar--snow .stc-trust-bar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: 1rem 1.75rem;
+  gap: 0.85rem 1.5rem;
+  max-width: 100%;
 }
 
 .stc-svc-page--snow .stc-trust-bar--snow .stc-trust-bar__item {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
+  min-width: 0;
+  max-width: 100%;
   color: #fff;
   white-space: normal;
   line-height: 1.3;
   text-align: left;
+  overflow-wrap: anywhere;
 }
 
 .stc-trust-bar--snow .stc-trust-bar__item + .stc-trust-bar__item::before {
@@ -8706,6 +8733,59 @@ button:focus-visible {
   width: 1.125rem;
   height: 1.125rem;
   color: #fff;
+}
+
+/* Snow capabilities ? even mobile tile rhythm (shared component, snow-scoped only) */
+@media (max-width: 899px) {
+  .stc-svc-page--snow .stc-svc-capabilities__bento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    align-items: stretch;
+  }
+
+  .stc-svc-page--snow .stc-svc-capabilities__tile--lead {
+    grid-column: 1 / -1;
+    min-height: clamp(16rem, 48vw, 22rem);
+  }
+
+  .stc-svc-page--snow .stc-svc-capabilities__tile--card,
+  .stc-svc-page--snow .stc-svc-capabilities__tile--link.stc-svc-capabilities__tile--card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    min-height: 15.5rem;
+  }
+
+  .stc-svc-page--snow .stc-svc-capabilities__tile-body--overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+    padding: 1.15rem 1.05rem 1.25rem;
+    box-sizing: border-box;
+  }
+
+  .stc-svc-page--snow .stc-svc-capabilities__tile-body--overlay p {
+    margin-top: 0.5rem;
+    max-width: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .stc-svc-page--snow .stc-svc-capabilities__bento {
+    grid-template-columns: 1fr;
+  }
+
+  .stc-svc-page--snow .stc-svc-capabilities__tile--card,
+  .stc-svc-page--snow .stc-svc-capabilities__tile--link.stc-svc-capabilities__tile--card {
+    min-height: 14.5rem;
+  }
+
+  .stc-svc-page--snow .stc-svc-capabilities__tile-body--overlay {
+    padding: 1.25rem 1.1rem 1.35rem;
+  }
 }
 
 @media (max-width: 639px) {
@@ -8740,13 +8820,24 @@ button:focus-visible {
   }
 
   .stc-trust-bar--snow .stc-trust-bar__inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.85rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+    align-items: start;
+    gap: 0.85rem 1rem;
   }
 
-  .stc-svc-page--snow .turner-band:not(.stc-snow-hero) {
+  .stc-svc-page--snow .stc-trust-bar--snow .stc-trust-bar__item {
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+  }
+
+  .stc-svc-page--snow .turner-band:not(.stc-snow-hero):not(.stc-trust-bar) {
     padding-block: clamp(2.25rem, 5vw, 3rem);
+  }
+
+  .stc-svc-page--snow .turner-band.stc-trust-bar {
+    padding-block: clamp(1rem, 3.5vw, 1.35rem);
   }
 
   .stc-snow-haul__media {
@@ -8799,6 +8890,14 @@ button:focus-visible {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: start;
+    align-items: start;
+    gap: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 379px) {
+  .stc-trust-bar--snow .stc-trust-bar__inner {
+    grid-template-columns: 1fr;
   }
 }
 
