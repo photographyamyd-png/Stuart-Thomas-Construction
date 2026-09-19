@@ -6309,14 +6309,12 @@ button:focus-visible {
     margin-left: auto;
   }
 
-  @media (max-width: 767px) {
   .turner-header__toggle {
     min-width: 2.75rem;
     min-height: 2.75rem;
     padding: 0;
     border-color: rgba(255, 255, 255, 0.35);
     background: rgba(26, 26, 26, 0.55);
-    z-index: 220;
   }
 }
 
