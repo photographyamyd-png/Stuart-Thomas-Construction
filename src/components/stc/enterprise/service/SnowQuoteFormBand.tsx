@@ -412,7 +412,12 @@ export function SnowQuoteFormBand({ backdropSrc }: { backdropSrc: string }) {
           )}
           {status === "error" && (
             <p className="stc-snow-quote-form__status stc-snow-quote-form__status--error" role="alert">
-              {serverError || `Something went wrong. Please call ${site.phoneDisplay}.`}
+              {serverError || "Could not send your message."}{" "}
+              Please{" "}
+              <a href={`tel:${site.phoneTel}`} className="stc-snow-quote-form__inline-call">
+                Call Us
+              </a>
+              .
             </p>
           )}
         </form>

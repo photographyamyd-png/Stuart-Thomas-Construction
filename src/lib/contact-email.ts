@@ -2,14 +2,19 @@ import { Resend } from "resend";
 import { site } from "@/data/site";
 
 /**
- * Contact / quote email delivery.
+ * Contact / quote email delivery (snow-quote + general-inquiry).
  *
- * Preferred (Vercel): RESEND_API_KEY (+ optional CONTACT_TO_EMAIL / CONTACT_FROM_EMAIL)
- * Fallback: FormSubmit.co → CONTACT_TO_EMAIL or site.email (no compose window;
- * first send may ask the owner to confirm once via FormSubmit).
+ * Production: set RESEND_API_KEY on Vercel (Production + Preview).
+ * Optional: CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL (verified domain preferred).
+ *
+ * Without Resend, FormSubmit.co is attempted as a last resort. It often needs
+ * a one-time owner inbox activation — never surface that to visitors; log it.
  */
 
 export const EMAIL_PATTERN = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+/** Visitor-facing copy only — never mention Activate Form / provider setup. */
+export const VISITOR_SEND_FAILED = "Could not send your message.";
 
 export type ContactFormKind = "snow-quote" | "general-inquiry";
 
@@ -156,6 +161,17 @@ export function formatContactEmail(data: ContactInput): { subject: string; text:
   return data.kind === "snow-quote" ? formatSnowQuote(data) : formatGeneralInquiry(data);
 }
 
+function logOwnerSetup(reason: string, detail?: unknown) {
+  console.error(
+    "[contact-email] Delivery failed.",
+    reason,
+    detail ?? "",
+    "OWNER SETUP: Add RESEND_API_KEY in Vercel → Project → Settings → Environment Variables",
+    "(Production + Preview). Create a free key at https://resend.com/api-keys",
+    `Set CONTACT_TO_EMAIL=${site.email} if needed. Redeploy after saving.`,
+  );
+}
+
 export async function sendContactEmail(data: ContactInput): Promise<{ ok: true } | { ok: false; error: string }> {
   const to = process.env.CONTACT_TO_EMAIL?.trim() || site.email;
   const { subject, text } = formatContactEmail(data);
@@ -175,15 +191,15 @@ export async function sendContactEmail(data: ContactInput): Promise<{ ok: true }
       text,
     });
     if (error) {
-      console.error("Resend error", error);
-      return { ok: false, error: "Could not send your message. Please call us instead." };
+      logOwnerSetup("Resend API error", error);
+      return { ok: false, error: VISITOR_SEND_FAILED };
     }
     return { ok: true };
   }
 
-  // Fallback when RESEND_API_KEY is not set — FormSubmit from the server often
-  // fails (no browser Origin). Prefer client-side FormSubmit via submitContactForm().
-  // Keep this path for completeness when Origin can be forwarded.
+  logOwnerSetup("RESEND_API_KEY is not set on this deployment");
+
+  // Last-resort FormSubmit (often blocked server-side / needs owner activation).
   try {
     const siteUrl =
       process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.stuartthomasconstruction.ca";
@@ -209,28 +225,28 @@ export async function sendContactEmail(data: ContactInput): Promise<{ ok: true }
 
     if (!res.ok) {
       const detail = await res.text().catch(() => "");
-      console.error("FormSubmit error", res.status, detail);
-      return { ok: false, error: "Could not send your message. Please call us instead." };
+      logOwnerSetup(`FormSubmit HTTP ${res.status}`, detail);
+      return { ok: false, error: VISITOR_SEND_FAILED };
     }
 
     const payload = (await res.json().catch(() => null)) as
       | { success?: string | boolean; message?: string }
       | null;
     if (payload && (payload.success === false || payload.success === "false")) {
-      console.error("FormSubmit rejected", payload);
       const activation =
         typeof payload.message === "string" && /activat/i.test(payload.message);
-      return {
-        ok: false,
-        error: activation
-          ? "Form delivery needs a one-time activation email to the business inbox."
-          : "Could not send your message. Please call us instead.",
-      };
+      logOwnerSetup(
+        activation
+          ? "FormSubmit needs one-time Activate Form in the business inbox — prefer RESEND_API_KEY instead"
+          : "FormSubmit rejected submission",
+        payload,
+      );
+      return { ok: false, error: VISITOR_SEND_FAILED };
     }
 
     return { ok: true };
   } catch (err) {
-    console.error("Contact email send failed", err);
-    return { ok: false, error: "Could not send your message. Please call us instead." };
+    logOwnerSetup("FormSubmit threw", err);
+    return { ok: false, error: VISITOR_SEND_FAILED };
   }
 }

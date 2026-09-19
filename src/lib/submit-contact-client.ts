@@ -1,9 +1,10 @@
 import { site } from "@/data/site";
-import type { ContactInput } from "@/lib/contact-email";
+import {
+  VISITOR_SEND_FAILED,
+  type ContactInput,
+} from "@/lib/contact-email";
 
-export type SubmitContactResult =
-  | { ok: true }
-  | { ok: false; error: string; needsActivation?: boolean };
+export type SubmitContactResult = { ok: true } | { ok: false; error: string };
 
 function formatMessage(data: ContactInput): { subject: string; text: string } {
   if (data.kind === "snow-quote") {
@@ -43,9 +44,9 @@ function formatMessage(data: ContactInput): { subject: string; text: string } {
 }
 
 /**
- * Prefer /api/contact (Resend when RESEND_API_KEY is set).
- * Fall back to FormSubmit from the browser — FormSubmit rejects most
- * server-side fetches, and the owner must click “Activate Form” once.
+ * Prefer POST /api/contact (Resend when RESEND_API_KEY is set).
+ * On delivery failure or network error, try FormSubmit from the browser once.
+ * Never surface FormSubmit “Activate Form” / owner-setup copy to visitors.
  */
 export async function submitContactForm(data: ContactInput): Promise<SubmitContactResult> {
   try {
@@ -66,6 +67,7 @@ export async function submitContactForm(data: ContactInput): Promise<SubmitConta
         error: payload.error || "Please fix the highlighted fields.",
       };
     }
+    // Delivery failed on API (often missing RESEND_API_KEY) — try browser FormSubmit
   } catch {
     // Network failure on API — try FormSubmit below
   }
@@ -104,31 +106,24 @@ async function sendViaFormSubmitBrowser(data: ContactInput): Promise<SubmitConta
 
     const successFalse =
       payload && (payload.success === false || payload.success === "false");
-    const activation =
-      typeof payload?.message === "string" && /activat/i.test(payload.message);
 
     if (!res.ok || successFalse) {
+      const activation =
+        typeof payload?.message === "string" && /activat/i.test(payload.message);
       if (activation) {
-        return {
-          ok: false,
-          needsActivation: true,
-          error:
-            "Form delivery needs a one-time activation email to the business inbox. Please call us for now, then try again after Activate Form is clicked.",
-        };
+        console.error(
+          "[submit-contact-client] FormSubmit needs owner Activate Form — set RESEND_API_KEY on Vercel instead",
+          payload,
+        );
+      } else {
+        console.error("FormSubmit browser fallback failed", res.status, payload);
       }
-      console.error("FormSubmit browser fallback failed", res.status, payload);
-      return {
-        ok: false,
-        error: "Could not send your message. Please call us instead.",
-      };
+      return { ok: false, error: VISITOR_SEND_FAILED };
     }
 
     return { ok: true };
   } catch (err) {
     console.error("FormSubmit browser fallback error", err);
-    return {
-      ok: false,
-      error: "Could not send your message. Please call us instead.",
-    };
+    return { ok: false, error: VISITOR_SEND_FAILED };
   }
 }
