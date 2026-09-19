@@ -15,10 +15,9 @@ type Props = {
  */
 export function ServiceStatementBand({ service, imageSrc, imageAlt }: Props) {
   const [lead, ...rest] = service.overview;
-  const eyebrow = service.statementEyebrow ?? "On Your Property";
-  const headlineBefore = service.statementHeadline?.before ?? "How this";
-  const headlineAccent = service.statementHeadline?.accent ?? "gets built";
-  const ctaLabel = service.statementCtaLabel ?? "Get a Quote";
+  const facts = service.statementFacts ?? [];
+  const { statementEyebrow: eyebrow, statementHeadline, statementCtaLabel } = service;
+  const ctaLabel = statementCtaLabel ?? "Get a Quote";
   const mailtoSubject =
     service.slug === "commercial-snow-removal"
       ? "Commercial snow removal quote"
@@ -29,8 +28,9 @@ export function ServiceStatementBand({ service, imageSrc, imageAlt }: Props) {
 
 I'd like a custom quote for commercial snow removal.
 
-Property address / area:
-Property type (plaza, office, multi-residential, municipal):
+Town (Midland, Penetanguishene, Tay, Tiny, or Wasaga Beach):
+Property address:
+Property type (factory/industrial, warehouse, commercial building/office, retail/plaza):
 Lot size / priority areas:
 Preferred start:
 
@@ -48,14 +48,26 @@ Thank you.`
       <div className="turner-featured__copy container">
         <p className="eyebrow">{eyebrow}</p>
         <h2 id="svc-statement-heading" className="text-display">
-          {headlineBefore} <span className="text-accent-gold">{headlineAccent}</span>
+          {statementHeadline.before}{" "}
+          <span className="text-accent-gold">{statementHeadline.accent}</span>
         </h2>
-        {lead ? <p className="wf-type-supporting">{lead}</p> : null}
-        {rest.map((p) => (
-          <p key={p.slice(0, 40)} className="wf-type-supporting">
-            {p}
-          </p>
-        ))}
+        {lead ? <p className="wf-type-supporting stc-svc-statement__lead">{lead}</p> : null}
+        {facts.length > 0 ? (
+          <dl className="stc-svc-statement__facts">
+            {facts.map((fact) => (
+              <div key={fact.label} className="stc-svc-statement__fact">
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : (
+          rest.map((p) => (
+            <p key={p.slice(0, 40)} className="wf-type-supporting">
+              {p}
+            </p>
+          ))
+        )}
         <p className="eyebrow stack-title">Why STC</p>
         <ul className="stc-svc-statement__benefits">
           {service.benefits.map((b) => (
@@ -63,7 +75,11 @@ Thank you.`
           ))}
         </ul>
         <CtaLink
-          href={siteMailtoHref(mailtoSubject, mailtoBody)}
+          href={
+            mailtoSubject && mailtoBody
+              ? siteMailtoHref(mailtoSubject, mailtoBody)
+              : siteMailtoHref()
+          }
           className="btn-green stack-cta cta-inline"
         >
           {ctaLabel}

@@ -1,143 +1,120 @@
 "use client";
 
-import { useId, useState, type FormEvent } from "react";
+import { useEffect, useId, useState, type FormEvent } from "react";
+import Image from "next/image";
+import { snowFinalCta } from "@/data/snow-page";
 import { site } from "@/data/site";
 import { snowQuoteMailtoHref } from "@/lib/site-mailto";
 
 const PROPERTY_TYPES = [
-  "Plaza",
-  "Office Building",
-  "Multi-Residential",
-  "Municipal",
+  "Factory / Industrial",
+  "Warehouse / Logistics",
+  "Commercial Building / Office",
+  "Retail / Plaza",
   "Other",
 ] as const;
 
-const LOT_SIZES = [
-  "<5,000 sq ft",
-  "5,000–20,000 sq ft",
-  "20,000–50,000 sq ft",
-  "50,000+ sq ft",
+const TOWNS = [
+  "Midland",
+  "Penetanguishene",
+  "Tay Township",
+  "Tiny Township",
+  "Wasaga Beach",
 ] as const;
 
-const SERVICE_OPTIONS = [
+const SERVICE_NEEDED = [
+  "Seasonal contract",
   "Plowing",
-  "Salting/Sanding",
-  "Walkway Clearing",
-  "Emergency Response",
-  "Hauling",
-] as const;
-
-const HEAR_ABOUT_OPTIONS = [
-  "Google",
-  "Referral",
-  "Sign",
-  "Social Media",
+  "Salting & sanding",
+  "Snow haul-out",
   "Other",
 ] as const;
 
 const EMAIL_PATTERN = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 
 type FieldErrors = Partial<
-  Record<
-    | "businessName"
-    | "contactName"
-    | "email"
-    | "phone"
-    | "propertyType"
-    | "lotSize"
-    | "services"
-    | "address",
-    string
-  >
+  Record<"name" | "company" | "email" | "phone" | "town" | "propertyType" | "serviceNeeded" | "address", string>
 >;
 
 type FormState = {
-  businessName: string;
-  contactName: string;
+  name: string;
+  company: string;
   email: string;
   phone: string;
+  town: string;
   propertyType: string;
-  lotSize: string;
-  services: string[];
+  serviceNeeded: string;
   address: string;
-  details: string;
-  preferredStart: string;
-  hearAbout: string;
+  message: string;
 };
 
 const INITIAL: FormState = {
-  businessName: "",
-  contactName: "",
+  name: "",
+  company: "",
   email: "",
   phone: "",
+  town: "",
   propertyType: "",
-  lotSize: "",
-  services: [],
+  serviceNeeded: "",
   address: "",
-  details: "",
-  preferredStart: "",
-  hearAbout: "",
+  message: "",
 };
 
 function validate(values: FormState): FieldErrors {
   const errors: FieldErrors = {};
-  if (!values.businessName.trim()) errors.businessName = "Business name is required.";
-  if (!values.contactName.trim()) errors.contactName = "Contact name is required.";
+  if (!values.name.trim()) errors.name = "Name is required.";
+  if (!values.company.trim()) errors.company = "Company is required.";
   if (!values.email.trim()) {
     errors.email = "Email is required.";
   } else if (!EMAIL_PATTERN.test(values.email.trim())) {
     errors.email = "Enter a valid email address.";
   }
-  if (!values.phone.trim()) {
-    errors.phone = "Phone is required.";
-  } else {
-    const digits = values.phone.replace(/\D/g, "");
-    if (digits.length < 10 || digits.length > 11) {
-      errors.phone = "Enter a North American phone number.";
-    }
-  }
+  if (!values.phone.trim()) errors.phone = "Phone is required.";
+  if (!values.town) errors.town = "Select a town.";
   if (!values.propertyType) errors.propertyType = "Select a property type.";
-  if (!values.lotSize) errors.lotSize = "Select an estimated lot size.";
-  if (values.services.length === 0) errors.services = "Select at least one service.";
+  if (!values.serviceNeeded) errors.serviceNeeded = "Select a service.";
   if (!values.address.trim()) errors.address = "Property address is required.";
   return errors;
 }
 
-export function SnowQuoteFormBand() {
+function digitsOnly(phone: string) {
+  return phone.replace(/\D/g, "");
+}
+
+function readServicePrefill(): string {
+  if (typeof window === "undefined") return "";
+  const fromQuery = new URLSearchParams(window.location.search).get("service");
+  if (fromQuery && (SERVICE_NEEDED as readonly string[]).includes(fromQuery)) {
+    return fromQuery;
+  }
+  return "";
+}
+
+export function SnowQuoteFormBand({ backdropSrc }: { backdropSrc: string }) {
   const baseId = useId();
   const [values, setValues] = useState<FormState>(INITIAL);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
+  useEffect(() => {
+    const prefill = readServicePrefill();
+    if (prefill) {
+      setValues((prev) => ({ ...prev, serviceNeeded: prefill }));
+    }
+  }, []);
+
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
     setErrors((prev) => {
-      if (!(key in prev)) return prev;
+      if (!prev[key as keyof FieldErrors]) return prev;
       const next = { ...prev };
       delete next[key as keyof FieldErrors];
       return next;
     });
-    if (status !== "idle") setStatus("idle");
   }
 
-  function toggleService(service: string) {
-    setValues((prev) => {
-      const next = prev.services.includes(service)
-        ? prev.services.filter((s) => s !== service)
-        : [...prev.services, service];
-      return { ...prev, services: next };
-    });
-    setErrors((prev) => {
-      if (!prev.services) return prev;
-      const next = { ...prev };
-      delete next.services;
-      return next;
-    });
-    if (status !== "idle") setStatus("idle");
-  }
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
     const nextErrors = validate(values);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) {
@@ -145,21 +122,18 @@ export function SnowQuoteFormBand() {
       return;
     }
 
-    const phoneDigits = values.phone.replace(/\D/g, "");
     try {
       const href = snowQuoteMailtoHref({
-        businessName: values.businessName.trim(),
-        contactName: values.contactName.trim(),
+        name: values.name.trim(),
+        company: values.company.trim(),
         email: values.email.trim(),
-        phoneDigits,
+        phoneDigits: digitsOnly(values.phone),
         phoneDisplay: values.phone.trim(),
+        town: values.town,
         propertyType: values.propertyType,
-        lotSize: values.lotSize,
-        services: values.services,
+        serviceNeeded: values.serviceNeeded,
         address: values.address.trim(),
-        details: values.details,
-        preferredStart: values.preferredStart,
-        hearAbout: values.hearAbout,
+        message: values.message,
       });
       window.location.href = href;
       setStatus("success");
@@ -176,18 +150,28 @@ export function SnowQuoteFormBand() {
   return (
     <section
       id="quote-form"
-      className="stc-snow-quote turner-band turner-band--light turner-band--seam"
+      className="stc-snow-quote turner-band turner-band--dark turner-band--seam"
       aria-labelledby={`${baseId}-heading`}
     >
+      <div className="stc-snow-quote__media" aria-hidden>
+        <Image
+          src={backdropSrc}
+          alt=""
+          fill
+          loading="lazy"
+          sizes="100vw"
+          className="object-cover stc-snow-quote__img"
+        />
+      </div>
+      <div className="stc-snow-quote__veil" aria-hidden />
+
       <div className="container stc-snow-quote__inner">
         <header className="stc-snow-quote__head">
-          <p className="eyebrow">Winter Contracts</p>
+          <p className="eyebrow eyebrow--on-dark">Get a Quote</p>
           <h2 id={`${baseId}-heading`} className="text-display text-display--section stack-title">
-            Request a <span className="text-accent-gold">Winter Contract</span>
+            {snowFinalCta.headline}
           </h2>
-          <p className="wf-type-supporting prose-narrow stack-body">
-            Tell us about your property and we&apos;ll send a custom snow removal quote.
-          </p>
+          <p className="wf-type-supporting stc-snow-quote__cta-line">{snowFinalCta.subline}</p>
         </header>
 
         <form
@@ -198,70 +182,47 @@ export function SnowQuoteFormBand() {
         >
           <div className="stc-snow-quote-form__grid">
             <div className="stc-snow-quote-form__field">
-              <label htmlFor={`${baseId}-business`}>Business Name *</label>
-              <input
-                id={`${baseId}-business`}
-                name="business"
-                type="text"
-                autoComplete="organization"
-                placeholder="Your business or property name"
-                value={values.businessName}
-                onChange={(e) => updateField("businessName", e.target.value)}
-                required
-                aria-required="true"
-                aria-invalid={errors.businessName ? "true" : undefined}
-                aria-describedby={errors.businessName ? `${baseId}-business-err` : undefined}
-                className={fieldClass("businessName")}
-              />
-              {errors.businessName && (
-                <p id={`${baseId}-business-err`} className="stc-snow-quote-form__error" role="alert">
-                  {errors.businessName}
-                </p>
-              )}
-            </div>
-
-            <div className="stc-snow-quote-form__field">
-              <label htmlFor={`${baseId}-name`}>Contact Name *</label>
+              <label htmlFor={`${baseId}-name`}>Name *</label>
               <input
                 id={`${baseId}-name`}
                 name="name"
                 type="text"
                 autoComplete="name"
                 placeholder="Full name"
-                value={values.contactName}
-                onChange={(e) => updateField("contactName", e.target.value)}
+                value={values.name}
+                onChange={(e) => updateField("name", e.target.value)}
                 required
                 aria-required="true"
-                aria-invalid={errors.contactName ? "true" : undefined}
-                aria-describedby={errors.contactName ? `${baseId}-name-err` : undefined}
-                className={fieldClass("contactName")}
+                aria-invalid={errors.name ? "true" : undefined}
+                aria-describedby={errors.name ? `${baseId}-name-err` : undefined}
+                className={fieldClass("name")}
               />
-              {errors.contactName && (
+              {errors.name && (
                 <p id={`${baseId}-name-err`} className="stc-snow-quote-form__error" role="alert">
-                  {errors.contactName}
+                  {errors.name}
                 </p>
               )}
             </div>
 
             <div className="stc-snow-quote-form__field">
-              <label htmlFor={`${baseId}-email`}>Email *</label>
+              <label htmlFor={`${baseId}-company`}>Company *</label>
               <input
-                id={`${baseId}-email`}
-                name="email"
-                type="email"
-                autoComplete="email"
-                placeholder="name@company.com"
-                value={values.email}
-                onChange={(e) => updateField("email", e.target.value)}
+                id={`${baseId}-company`}
+                name="company"
+                type="text"
+                autoComplete="organization"
+                placeholder="Your business or property name"
+                value={values.company}
+                onChange={(e) => updateField("company", e.target.value)}
                 required
                 aria-required="true"
-                aria-invalid={errors.email ? "true" : undefined}
-                aria-describedby={errors.email ? `${baseId}-email-err` : undefined}
-                className={fieldClass("email")}
+                aria-invalid={errors.company ? "true" : undefined}
+                aria-describedby={errors.company ? `${baseId}-company-err` : undefined}
+                className={fieldClass("company")}
               />
-              {errors.email && (
-                <p id={`${baseId}-email-err`} className="stc-snow-quote-form__error" role="alert">
-                  {errors.email}
+              {errors.company && (
+                <p id={`${baseId}-company-err`} className="stc-snow-quote-form__error" role="alert">
+                  {errors.company}
                 </p>
               )}
             </div>
@@ -290,7 +251,80 @@ export function SnowQuoteFormBand() {
             </div>
 
             <div className="stc-snow-quote-form__field">
-              <label htmlFor={`${baseId}-property-type`}>Property Type *</label>
+              <label htmlFor={`${baseId}-email`}>Email *</label>
+              <input
+                id={`${baseId}-email`}
+                name="email"
+                type="email"
+                autoComplete="email"
+                placeholder="name@company.com"
+                value={values.email}
+                onChange={(e) => updateField("email", e.target.value)}
+                required
+                aria-required="true"
+                aria-invalid={errors.email ? "true" : undefined}
+                aria-describedby={errors.email ? `${baseId}-email-err` : undefined}
+                className={fieldClass("email")}
+              />
+              {errors.email && (
+                <p id={`${baseId}-email-err`} className="stc-snow-quote-form__error" role="alert">
+                  {errors.email}
+                </p>
+              )}
+            </div>
+
+            <div className="stc-snow-quote-form__field stc-snow-quote-form__field--full">
+              <label htmlFor={`${baseId}-address`}>Property address *</label>
+              <input
+                id={`${baseId}-address`}
+                name="address"
+                type="text"
+                autoComplete="street-address"
+                placeholder="Street address"
+                value={values.address}
+                onChange={(e) => updateField("address", e.target.value)}
+                required
+                aria-required="true"
+                aria-invalid={errors.address ? "true" : undefined}
+                aria-describedby={errors.address ? `${baseId}-address-err` : undefined}
+                className={fieldClass("address")}
+              />
+              {errors.address && (
+                <p id={`${baseId}-address-err`} className="stc-snow-quote-form__error" role="alert">
+                  {errors.address}
+                </p>
+              )}
+            </div>
+
+            <div className="stc-snow-quote-form__field">
+              <label htmlFor={`${baseId}-town`}>Town *</label>
+              <select
+                id={`${baseId}-town`}
+                name="town"
+                value={values.town}
+                onChange={(e) => updateField("town", e.target.value)}
+                required
+                aria-required="true"
+                aria-invalid={errors.town ? "true" : undefined}
+                aria-describedby={errors.town ? `${baseId}-town-err` : undefined}
+                className={fieldClass("town")}
+              >
+                <option value="">Select...</option>
+                {TOWNS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+              {errors.town && (
+                <p id={`${baseId}-town-err`} className="stc-snow-quote-form__error" role="alert">
+                  {errors.town}
+                </p>
+              )}
+            </div>
+
+            <div className="stc-snow-quote-form__field">
+              <label htmlFor={`${baseId}-property-type`}>Property type *</label>
               <select
                 id={`${baseId}-property-type`}
                 name="property-type"
@@ -316,149 +350,64 @@ export function SnowQuoteFormBand() {
               )}
             </div>
 
-            <div className="stc-snow-quote-form__field">
-              <label htmlFor={`${baseId}-lot-size`}>Estimated Lot Size *</label>
+            <div className="stc-snow-quote-form__field stc-snow-quote-form__field--full">
+              <label htmlFor={`${baseId}-service`}>Service needed *</label>
               <select
-                id={`${baseId}-lot-size`}
-                name="lot-size"
-                value={values.lotSize}
-                onChange={(e) => updateField("lotSize", e.target.value)}
+                id={`${baseId}-service`}
+                name="service-needed"
+                value={values.serviceNeeded}
+                onChange={(e) => updateField("serviceNeeded", e.target.value)}
                 required
                 aria-required="true"
-                aria-invalid={errors.lotSize ? "true" : undefined}
-                aria-describedby={errors.lotSize ? `${baseId}-lot-size-err` : undefined}
-                className={fieldClass("lotSize")}
+                aria-invalid={errors.serviceNeeded ? "true" : undefined}
+                aria-describedby={errors.serviceNeeded ? `${baseId}-service-err` : undefined}
+                className={fieldClass("serviceNeeded")}
               >
                 <option value="">Select...</option>
-                {LOT_SIZES.map((opt) => (
+                {SERVICE_NEEDED.map((opt) => (
                   <option key={opt} value={opt}>
                     {opt}
                   </option>
                 ))}
               </select>
-              {errors.lotSize && (
-                <p id={`${baseId}-lot-size-err`} className="stc-snow-quote-form__error" role="alert">
-                  {errors.lotSize}
+              {errors.serviceNeeded && (
+                <p id={`${baseId}-service-err`} className="stc-snow-quote-form__error" role="alert">
+                  {errors.serviceNeeded}
                 </p>
               )}
             </div>
 
             <div className="stc-snow-quote-form__field stc-snow-quote-form__field--full">
-              <label htmlFor={`${baseId}-address`}>Property Address *</label>
-              <input
-                id={`${baseId}-address`}
-                name="address"
-                type="text"
-                autoComplete="street-address"
-                placeholder="Full address or intersection"
-                value={values.address}
-                onChange={(e) => updateField("address", e.target.value)}
-                required
-                aria-required="true"
-                aria-invalid={errors.address ? "true" : undefined}
-                aria-describedby={errors.address ? `${baseId}-address-err` : undefined}
-                className={fieldClass("address")}
-              />
-              {errors.address && (
-                <p id={`${baseId}-address-err`} className="stc-snow-quote-form__error" role="alert">
-                  {errors.address}
-                </p>
-              )}
-            </div>
-
-            <fieldset
-              className="stc-snow-quote-form__field stc-snow-quote-form__field--full stc-snow-quote-form__services"
-              aria-required="true"
-              aria-invalid={errors.services ? "true" : undefined}
-              aria-describedby={errors.services ? `${baseId}-services-err` : undefined}
-            >
-              <legend className="stc-snow-quote-form__legend">Services Needed *</legend>
-              <div className="stc-snow-quote-form__checks">
-                {SERVICE_OPTIONS.map((service) => {
-                  const checkId = `${baseId}-svc-${service.replace(/\W+/g, "-").toLowerCase()}`;
-                  return (
-                    <label key={service} htmlFor={checkId} className="stc-snow-quote-form__check">
-                      <input
-                        id={checkId}
-                        type="checkbox"
-                        name="services"
-                        value={service}
-                        checked={values.services.includes(service)}
-                        onChange={() => toggleService(service)}
-                      />
-                      <span>{service}</span>
-                    </label>
-                  );
-                })}
-              </div>
-              {errors.services && (
-                <p id={`${baseId}-services-err`} className="stc-snow-quote-form__error" role="alert">
-                  {errors.services}
-                </p>
-              )}
-            </fieldset>
-
-            <div className="stc-snow-quote-form__field stc-snow-quote-form__field--full">
-              <label htmlFor={`${baseId}-message`}>Additional Details</label>
+              <label htmlFor={`${baseId}-message`}>Message</label>
               <textarea
                 id={`${baseId}-message`}
                 name="message"
                 rows={4}
-                placeholder="Tell us about access, gates, priority areas, etc."
-                value={values.details}
-                onChange={(e) => updateField("details", e.target.value)}
+                placeholder="Lot details, priority areas, timing…"
+                value={values.message}
+                onChange={(e) => updateField("message", e.target.value)}
                 className="stc-snow-quote-form__control"
               />
-            </div>
-
-            <div className="stc-snow-quote-form__field">
-              <label htmlFor={`${baseId}-start`}>Preferred Start Date</label>
-              <input
-                id={`${baseId}-start`}
-                name="preferred-start"
-                type="date"
-                value={values.preferredStart}
-                onChange={(e) => updateField("preferredStart", e.target.value)}
-                className="stc-snow-quote-form__control"
-              />
-            </div>
-
-            <div className="stc-snow-quote-form__field">
-              <label htmlFor={`${baseId}-hear`}>How did you hear about us?</label>
-              <select
-                id={`${baseId}-hear`}
-                name="hear-about"
-                value={values.hearAbout}
-                onChange={(e) => updateField("hearAbout", e.target.value)}
-                className="stc-snow-quote-form__control"
-              >
-                <option value="">Select...</option>
-                {HEAR_ABOUT_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
             </div>
           </div>
 
           <div className="stc-snow-quote-form__actions">
-            <button type="submit" className="btn-green btn-green--lg">
-              Request Winter Contract
+            <button type="submit" className="btn-accent btn-accent--lg">
+              {snowFinalCta.button}
             </button>
-            <a href={`tel:${site.phoneTel}`} className="btn-beige">
-              Call instead
+            <a href={`tel:${site.phoneTel}`} className="text-utility stc-snow-quote-form__call">
+              Call {site.phoneDisplay}
             </a>
           </div>
 
           {status === "success" && (
             <p className="stc-snow-quote-form__status stc-snow-quote-form__status--success" role="status">
-              Thanks! We&apos;ll contact you within 24 hours to schedule your site walk.
+              Opening your email app…
             </p>
           )}
           {status === "error" && (
             <p className="stc-snow-quote-form__status stc-snow-quote-form__status--error" role="alert">
-              Something went wrong opening your email app. Please try again or call us.
+              Something went wrong. Please call {site.phoneDisplay}.
             </p>
           )}
         </form>

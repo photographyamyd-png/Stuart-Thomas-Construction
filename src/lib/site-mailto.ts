@@ -23,45 +23,37 @@ export function siteMailtoHref(
 }
 
 export type SnowQuotePayload = {
-  businessName: string;
-  contactName: string;
+  name: string;
+  company: string;
   email: string;
   /** Digits-only phone for the email body */
   phoneDigits: string;
   /** User-typed display value */
   phoneDisplay: string;
+  town: string;
   propertyType: string;
-  lotSize: string;
-  services: string[];
+  serviceNeeded: string;
   address: string;
-  details?: string;
-  preferredStart?: string;
-  hearAbout?: string;
+  message?: string;
 };
 
 /** Structured commercial snow quote mailto. Address stays non-visible in UI. */
 export function snowQuoteMailtoHref(payload: SnowQuotePayload): string {
-  const subject = `New Commercial Snow Quote – ${payload.businessName}`;
+  const subject = `New Commercial Snow Quote – ${payload.company || payload.name}`;
   const lines = [
     "Commercial snow removal quote request",
     "",
-    `Business Name: ${payload.businessName}`,
-    `Contact Name: ${payload.contactName}`,
+    `Name: ${payload.name}`,
+    `Company: ${payload.company}`,
     `Email: ${payload.email}`,
     `Phone: ${payload.phoneDisplay}${payload.phoneDigits ? ` (${payload.phoneDigits})` : ""}`,
+    `Town: ${payload.town}`,
     `Property Type: ${payload.propertyType}`,
-    `Estimated Lot Size: ${payload.lotSize}`,
-    `Services Needed: ${payload.services.join(", ")}`,
+    `Service Needed: ${payload.serviceNeeded}`,
     `Property Address: ${payload.address}`,
   ];
-  if (payload.details?.trim()) {
-    lines.push(`Additional Details: ${payload.details.trim()}`);
-  }
-  if (payload.preferredStart?.trim()) {
-    lines.push(`Preferred Start Date: ${payload.preferredStart.trim()}`);
-  }
-  if (payload.hearAbout?.trim()) {
-    lines.push(`How did you hear about us?: ${payload.hearAbout.trim()}`);
+  if (payload.message?.trim()) {
+    lines.push(`Message: ${payload.message.trim()}`);
   }
   return siteMailtoHref(subject, lines.join("\n"));
 }

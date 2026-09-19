@@ -130,8 +130,9 @@
   --ent-space-4xl: 4rem;
   --ent-space-5xl: 6rem;
 
-  --ent-space-section-y: var(--ent-space-4xl);
-  --ent-space-band-y: var(--ent-space-4xl);
+  /* Fluid band inset — headlines/content clear seams (~3.25–5.5rem) */
+  --ent-space-band-y: clamp(3.25rem, 6vw, 5.5rem);
+  --ent-space-section-y: var(--ent-space-band-y);
   --ent-space-hero-y: var(--ent-space-4xl);
   --ent-space-stack-sm: var(--ent-space-sm);
   --ent-space-stack-md: var(--ent-space-md);

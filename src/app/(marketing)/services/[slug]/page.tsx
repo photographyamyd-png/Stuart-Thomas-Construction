@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { EnterpriseServicePage } from "@/components/stc/enterprise/service/EnterpriseServicePage";
+import { SnowServicePage } from "@/components/stc/enterprise/service/SnowServicePage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import {
   getAllServiceSlugs,
@@ -33,6 +34,7 @@ export default async function ServicePage({ params }: Props) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
+  const isSnow = service.slug === "commercial-snow-removal";
   const rediRockInstalls = getGalleryItemsByCategory("redi-rock");
   const rediRockInstallPhoto = rediRockInstalls[0];
 
@@ -49,11 +51,26 @@ export default async function ServicePage({ params }: Props) {
             name: service.title,
             description: service.metaDescription,
             path: `/services/${service.slug}`,
+            ...(isSnow
+              ? {
+                  areaServed: [
+                    "Midland",
+                    "Penetanguishene",
+                    "Tay Township",
+                    "Tiny Township",
+                    "Wasaga Beach",
+                  ],
+                }
+              : {}),
           }),
           ...(service.faqs.length ? [buildFaqJsonLd(service.faqs)] : []),
         ]}
       />
-      <EnterpriseServicePage service={service} rediRockInstallPhoto={rediRockInstallPhoto} />
+      {isSnow ? (
+        <SnowServicePage service={service} />
+      ) : (
+        <EnterpriseServicePage service={service} rediRockInstallPhoto={rediRockInstallPhoto} />
+      )}
     </>
   );
 }

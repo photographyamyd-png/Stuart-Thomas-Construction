@@ -18,14 +18,21 @@ export type ServiceWorkDuoContent = {
   ctaHref?: string;
   ctaLabel?: string;
   headingId?: string;
+  features?: { title: string; body: string }[];
+  proofCard?: {
+    stat: string;
+    label: string;
+    text: string;
+    linkLabel: string;
+  };
 };
 
 type Props = ServiceWorkDuoContent & {
   variant: ServiceWorkDuoVariant;
 };
 
-/** Three feature columns under the BuildStitch-style hero (reference clone). */
-const FEATURES = [
+/** Default three feature columns (armour-stone / hardscape showcase). */
+const DEFAULT_FEATURES = [
   {
     title: "Shoreline Retention",
     body: "Armour stone walls built for ice, wave action, and Georgian Bay freeze–thaw.",
@@ -40,6 +47,13 @@ const FEATURES = [
   },
 ] as const;
 
+const DEFAULT_PROOF = {
+  stat: "15+",
+  label: "Seasons on these shorelines",
+  text: "Armour stone and waterfront hardscape finished for Georgian Bay freeze–thaw — not stock catalogue looks.",
+  linkLabel: "Let’s work together →",
+} as const;
+
 /**
  * Proof-of-work section.
  * Variant A clones the BuildStitch hero + features layout (STC colors/type only).
@@ -53,8 +67,12 @@ export function ServiceWorkDuo({
   ctaHref = "/projects",
   ctaLabel = "Browse finished job photos",
   headingId,
+  features,
+  proofCard,
 }: Props) {
   const [primary, secondary] = frames;
+  const featureItems = features ?? DEFAULT_FEATURES;
+  const proof = proofCard ?? DEFAULT_PROOF;
   if (!primary) return null;
 
   if (variant === "stage") {
@@ -136,7 +154,7 @@ export function ServiceWorkDuo({
             {headline}
           </h2>
           <p className="stc-bs__body">{statement}</p>
-          <Link href={ctaHref} className="stc-bs__btn">
+          <Link href={ctaHref} className="stc-bs__btn stc-bs__btn--strong">
             {ctaLabel}
             <span aria-hidden>↗</span>
           </Link>
@@ -167,21 +185,18 @@ export function ServiceWorkDuo({
               />
             </svg>
           </div>
-          <p className="stc-bs__card-stat">15+</p>
-          <p className="stc-bs__card-label">Seasons on these shorelines</p>
-          <p className="stc-bs__card-text">
-            Armour stone and waterfront hardscape finished for Georgian Bay freeze–thaw — not stock
-            catalogue looks.
-          </p>
+          <p className="stc-bs__card-stat">{proof.stat}</p>
+          <p className="stc-bs__card-label">{proof.label}</p>
+          <p className="stc-bs__card-text">{proof.text}</p>
           <Link href={ctaHref} className="stc-bs__card-link">
-            Let&apos;s work together →
+            {proof.linkLabel}
           </Link>
         </aside>
       </div>
 
       {/* Features row — white band, 3 columns (reference clone) */}
       <div className="stc-bs__features">
-        {FEATURES.map((f, i) => (
+        {featureItems.map((f, i) => (
           <div key={f.title} className="stc-bs__feature">
             <div className="stc-bs__feature-icon" aria-hidden>
               {i === 0 ? (

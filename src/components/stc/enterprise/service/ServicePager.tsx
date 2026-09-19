@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { ServiceDetail } from "@/data/services";
 
+type PagerService = Pick<ServiceDetail, "slug" | "title">;
+
 type Props = {
-  prev: ServiceDetail | null;
-  next: ServiceDetail | null;
+  prev: PagerService | null;
+  next: PagerService | null;
 };
 
 export function ServicePager({ prev, next }: Props) {

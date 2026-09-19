@@ -20,8 +20,10 @@ export function ServiceWorkShowcase({ data }: Props) {
           "Finished work on Georgian Bay and Tiny Township properties."
         }
         frames={data.supporting}
-        ctaHref="/projects"
-        ctaLabel="Browse finished job photos"
+        features={data.features}
+        ctaHref={data.ctaHref ?? "/projects"}
+        ctaLabel={data.ctaLabel ?? "Browse finished job photos"}
+        proofCard={data.proofCard}
         headingId="svc-work-heading"
       />
     </section>

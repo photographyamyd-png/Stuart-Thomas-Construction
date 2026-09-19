@@ -14,7 +14,6 @@ import { rediRockServiceCallouts } from "@/data/redi-rock";
 import type { ServiceDetail, ServiceSlug } from "@/data/services";
 import { getAdjacentServices } from "@/data/services";
 import { site } from "@/data/site";
-import { testimonials } from "@/data/testimonials";
 import { AppealReveal } from "../blocks/AppealReveal";
 import { CtaLink, LinkArrow } from "../primitives";
 import { siteMailtoHref } from "@/lib/site-mailto";
@@ -22,12 +21,10 @@ import { ServiceCapabilitiesBand } from "./ServiceCapabilitiesBand";
 import { ServiceFaq } from "./ServiceFaq";
 import { ServicePager } from "./ServicePager";
 import { ServiceProcessBand } from "./ServiceProcessBand";
-import { ServiceProofBand } from "./ServiceProofBand";
 import { ServiceRediRockCallout } from "./ServiceRediRockCallout";
 import { ServiceRelatedBand } from "./ServiceRelatedBand";
 import { ServiceStatementBand } from "./ServiceStatementBand";
 import { ServiceWorkShowcase } from "./ServiceWorkShowcase";
-import { SnowQuoteFormBand } from "./SnowQuoteFormBand";
 
 type RediRockServiceSlug = keyof typeof rediRockServiceCallouts;
 
@@ -63,37 +60,17 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
   const ctaBannerSrc = getServiceCtaBanner(service.slug);
   const { prev, next } = getAdjacentServices(service.slug);
   const isImmersiveHero = VIDEO_HERO_SLUGS.has(service.slug);
-  const isSnow = service.slug === "commercial-snow-removal";
   const { base: titleBase, accent: titleAccent } = titleParts(service.title);
   const statementImage = workShowcase?.leadImage ?? capImages[0] ?? heroSrc;
   const statementAlt = workShowcase?.leadAlt ?? `${service.title} — ${service.heroAlt}`;
   const scrollTarget = workShowcase ? "#work" : "#process";
-  const scrollLabel = workShowcase
-    ? isSnow
-      ? "See winter service"
-      : "Finished work on site"
-    : "What happens on site";
+  const scrollLabel = workShowcase ? "Finished work on site" : "What happens on site";
   const heroCtaLabel = service.heroCtaLabel ?? "Get a Quote";
-  const heroMailto =
-    isSnow
-      ? siteMailtoHref(
-          "Commercial snow — winter contract request",
-          `Hi Stuart Thomas Construction,
-
-I'd like to request a winter snow removal contract.
-
-Property address / area:
-Property type:
-Lot size / priority areas:
-
-Thank you.`,
-        )
-      : siteMailtoHref();
+  const heroMailto = siteMailtoHref();
   const closing = service.closingCta;
-  const snowTestimonial = isSnow ? testimonials.find((t) => /snow/i.test(t.quote)) : undefined;
 
   return (
-    <div className={isSnow ? "stc-svc-page--snow" : undefined}>
+    <div>
       <section
         className={`stc-svc-page__hero stc-svc-page__hero--cinematic turner-band turner-band--dark${isImmersiveHero ? " stc-svc-page__hero--immersive" : ""}`}
         aria-labelledby="svc-heading"
@@ -157,18 +134,10 @@ Thank you.`,
         <ServiceCapabilitiesBand
           subServices={service.subServices}
           images={capImages}
-          imageAlts={service.subServices.map((sub) =>
-            isSnow ? `${sub.title} — illustrative commercial snow imagery` : `${sub.title} — ${service.title}`,
-          )}
+          imageAlts={service.subServices.map((sub) => `${sub.title} — ${service.title}`)}
           heroFallback={heroSrc}
         />
       </AppealReveal>
-
-      {isSnow && (
-        <AppealReveal>
-          <SnowQuoteFormBand />
-        </AppealReveal>
-      )}
 
       {isRediRockServiceSlug(service.slug) && (
         <AppealReveal>
@@ -180,32 +149,12 @@ Thank you.`,
       )}
 
       <AppealReveal>
-        <ServiceProcessBand
-          steps={service.process}
-          afterCta={
-            isSnow
-              ? {
-                  label: "Book a Site Walk",
-                  href: `tel:${site.phoneTel}`,
-                }
-              : undefined
-          }
-        />
+        <ServiceProcessBand steps={service.process} />
       </AppealReveal>
 
       {workShowcase && (
         <AppealReveal>
           <ServiceWorkShowcase data={workShowcase} />
-        </AppealReveal>
-      )}
-
-      {snowTestimonial && (
-        <AppealReveal>
-          <ServiceProofBand
-            quote={snowTestimonial.quote}
-            name={snowTestimonial.name}
-            context={snowTestimonial.context}
-          />
         </AppealReveal>
       )}
 
@@ -231,7 +180,7 @@ Thank you.`,
           <div className="turner-regional__media">
             <Image
               src={ctaBannerSrc}
-              alt={isSnow ? "Orange snow plow clearing snow with spreader — illustrative stock imagery" : ""}
+              alt=""
               fill
               loading="lazy"
               sizes="50vw"
@@ -257,16 +206,6 @@ Thank you.`,
               <CtaLink href={heroMailto} className="btn-green cta-self-start">
                 {closing?.button ?? conversion.serviceCta.button}
               </CtaLink>
-              {isSnow && (
-                <>
-                  <LinkArrow href={`tel:${site.phoneTel}`} className="cta-inline">
-                    Call {site.phoneDisplay}
-                  </LinkArrow>
-                  <LinkArrow href="#quote-form" className="cta-inline">
-                    Request a winter contract
-                  </LinkArrow>
-                </>
-              )}
             </div>
           </div>
         </section>

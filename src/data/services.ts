@@ -7,6 +7,7 @@ import {
   Trees,
   Waves,
 } from "lucide-react";
+import { site } from "@/data/site";
 
 export type ServiceSlug =
   | "armour-stone"
@@ -39,9 +40,10 @@ export type ServiceDetail = {
   benefits: string[];
   relatedSlugs: ServiceSlug[];
   faqs: { q: string; a: string }[];
-  /** Optional statement-band labels (defaults: hardscape “gets built” framing) */
-  statementEyebrow?: string;
-  statementHeadline?: { before: string; accent: string };
+  /** Statement-band eyebrow (service-specific — never a generic filler) */
+  statementEyebrow: string;
+  /** Statement-band H2: plain + gold accent word/phrase */
+  statementHeadline: { before: string; accent: string };
   /** Hero primary CTA label */
   heroCtaLabel?: string;
   /** Statement-band CTA label */
@@ -73,6 +75,8 @@ export const services: ServiceDetail[] = [
       "Armour stone retaining walls in Tiny Township — built for shoreline exposure and freeze-thaw.",
     icon: Mountain,
     heroAlt: "Heavy armour stone wall with cap and drainage",
+    statementEyebrow: "Armour stone retaining",
+    statementHeadline: { before: "Walls that hold through", accent: "freeze-thaw" },
     overview: [
       "We build armour stone walls that look right and stay put — proper drainage, a solid base, and stone placed to handle freeze-thaw.",
       "From tight cottage access to open waterfront lots, we plan equipment paths and staging so the finished wall fits the property. When engineers specify modular retaining, we also install Redi-Rock® systems supplied by The Sarjeant Co.",
@@ -115,6 +119,8 @@ export const services: ServiceDetail[] = [
       "Waterfront stone stairs and shoreline work in Wasaga Beach — built for wind, ice, and Georgian Bay exposure.",
     icon: Waves,
     heroAlt: "Waterfront stone staircase and retaining detail",
+    statementEyebrow: "Shoreline stone",
+    statementHeadline: { before: "Stairs and retaining built for", accent: "the Bay" },
     overview: [
       "Waterfront stone has to work hard — safe stairs, solid retaining, and finishes that stand up to wind and ice.",
       "We know Georgian Bay conditions: lake-effect wind, ice push, and grade movement through the seasons. We build accordingly.",
@@ -157,6 +163,8 @@ export const services: ServiceDetail[] = [
       "Landscaping and outdoor finishing in Tiny Township — grading, beds, and hardscape integration for cottage country.",
     icon: Trees,
     heroAlt: "Landscaped property with stone and plantings",
+    statementEyebrow: "Outdoor finishing",
+    statementHeadline: { before: "Grade, beds, and hardscape as", accent: "one yard" },
     overview: [
       "Tiny Township landscaping that fits your property — proper grade, good drainage, and hardscape tied to stone and retaining work.",
       "We handle earthwork, stone, and finishing together so the yard isn’t left as patchwork.",
@@ -199,6 +207,8 @@ export const services: ServiceDetail[] = [
       "Hardscaping in Tiny Township — patios, walkways, and steps built to hold through winter heave.",
     icon: LayoutGrid,
     heroAlt: "Stone patio and walkway detail",
+    statementEyebrow: "Patios & walkways",
+    statementHeadline: { before: "Surfaces that stay level through", accent: "winter heave" },
     overview: [
       "Hardscaping is what you walk on every day. We build patios, walkways, and steps with the right base, drainage, and edge restraint.",
       "Every elevation change and joint line is planned so the surface feels solid and looks clean.",
@@ -240,6 +250,8 @@ export const services: ServiceDetail[] = [
       "Excavation and grading in Tiny Township — site prep for stone, landscaping, and outdoor builds.",
     icon: Tractor,
     heroAlt: "Excavation and grading on a residential site",
+    statementEyebrow: "Site prep",
+    statementHeadline: { before: "Grade and drainage", accent: "before stone" },
     overview: [
       "Good excavation sets up everything above grade. We cut and fill with drainage in mind, protect what's already on site, and leave a clean base for stone and landscaping.",
       "Tight access is normal in cottage country — our equipment handles open lots and narrow waterfront approaches.",
@@ -269,116 +281,130 @@ export const services: ServiceDetail[] = [
   },
   {
     slug: "commercial-snow-removal",
-    title: "Commercial Snow Removal",
-    shortLabel: "Snow Removal",
+    title: "Commercial & Industrial Snow Removal",
+    shortLabel: "Commercial & Industrial · North Simcoe",
     gridCtaLabel: "Snow Services",
     iconRowLabelLines: ["SNOW REMOVAL"],
     iconStripAccent: "var(--ent-icon-strip-snow)",
     shortDescription:
-      "Reliable, contract-based snow clearing for parking lots, plazas, and multi-unit properties across Tiny Township and South Georgian Bay.",
-    metaTitle: "Commercial Snow Removal | Tiny Township & South Georgian Bay",
+      "Don't let a storm lock you out of your own business. We keep commercial buildings, industrial yards and parking lots open, safe and working in Midland, Penetanguishene, Tay, Tiny and Wasaga Beach.",
+    metaTitle: "Commercial Snow Removal Midland | Stuart Thomas Construction",
     metaDescription:
-      "Contract commercial snow removal for plazas, offices, and multi-residential sites in Tiny Township, Wasaga Beach, and Collingwood — plowing, salting, walks, and storm response.",
+      "Commercial and industrial snow plowing, salting and snow haul-outs in Midland, Penetanguishene, Tay, Tiny and Wasaga Beach. Insured. Get a quote.",
     icon: Snowflake,
-    heroAlt: "Commercial snow plow truck pushing snow off a roadway — illustrative stock imagery",
-    statementEyebrow: "Winter Contracts",
-    statementHeadline: { before: "How winter service", accent: "works" },
-    heroCtaLabel: "Request a Winter Contract",
-    statementCtaLabel: "Get a Custom Quote",
+    heroAlt:
+      "Front-end loader pushing snow on a commercial lot in Midland — illustrative stock imagery for North Simcoe winter service",
+    statementEyebrow: "Commercial winter service",
+    statementHeadline: { before: "When the snow falls, your business", accent: "shouldn't stop" },
+    heroCtaLabel: "Secure Your Seasonal Contract",
     heroSecondaryTel: true,
-    closingCta: {
-      eyebrow: "Winter Contracts",
-      headlineBefore: "Winter contracts fill early —",
-      headlineAccent: "call now",
-      subline:
-        "Secure your commercial snow route before fall schedules lock. Call with your address, lot size, and priority areas.",
-      button: "Request a Site Walk",
-    },
     overview: [
-      "Commercial-grade snow removal across Tiny Township, Wasaga Beach, Collingwood, and South Georgian Bay — not residential driveway-only service.",
-    ],
-    statementFacts: [
-      {
-        label: "Coverage",
-        value: "Plowing, salting and sanding, walkway and entrance clearing, storm-priority response",
-      },
-      {
-        label: "Property types",
-        value: "Retail plazas, office buildings, multi-unit residential, municipal lots and corridors",
-      },
+      "Georgian Bay weather moves fast. Overnight snowfall, drifting across open lots and icy entrances can mean staff who can't get in, deliveries that can't get through and customers who turn around and leave.",
+      "That's lost time, lost revenue and real safety risk. We plow and treat commercial and industrial properties so your doors open on time, your people get in safely, and your operation keeps moving when the weather doesn't cooperate.",
     ],
     subServices: [
       {
-        title: "Parking lot plowing",
-        description: "Lot clearing and windrowing sized for commercial traffic, loading zones, and fire lanes.",
+        title: "Plowing",
+        description:
+          "Lots, yards and drive lanes cleared fast, so access is never a question when you arrive.",
+      },
+      {
+        title: "Salting",
+        description:
+          "Ice control on lots, entrances and traffic areas to cut slip-and-fall risk.",
+      },
+      {
+        title: "Sanding",
+        description:
+          "Added traction where surfaces stay slick, keeping people and vehicles moving safely.",
       },
       {
         title: "Walkways & entrances",
-        description: "Sidewalk, entrance, and frontage clearing so staff and customers can move safely.",
+        description:
+          "Cleared and treated approaches to your doors, so nobody walks into a hazard.",
       },
       {
-        title: "Salting & traction",
-        description: "De-icing and sanding suited to surface type and traffic — applied after plow passes.",
+        title: "Loading dock & truck court clearing",
+        description: "Working areas kept open so shipping doesn't stall.",
       },
       {
-        title: "Storm priority response",
-        description: "Contract clients get priority dispatch during winter storms, with phone accountability.",
+        title: "Snow haul-outs",
+        description: "When banks get too deep, we move snow off-site. See the next section.",
       },
     ],
     process: [
       {
-        title: "Site walk",
-        description: "Review access, drainage, staging, walks, loading zones, and hazard areas before winter.",
+        title: "Site walkthrough",
+        description: "We visit your property and note the layout, access points and problem areas.",
       },
       {
-        title: "Contract & SLA",
-        description: "Agree on snowfall triggers, response windows, and how we stay in touch.",
+        title: "Written proposal",
+        description: "You receive a clear quote for your site and the services you need.",
       },
       {
-        title: "Winter execution",
-        description: "Night and early-morning clearing through the season, with storm-priority for contracted sites.",
+        title: "Storm response",
+        description: "When snow hits, our crews respond quickly to keep your property open.",
       },
       {
-        title: "Post-season review",
-        description: "Performance summary and renewal conversation before the next winter.",
+        title: "Ongoing support",
+        description: "One point of contact all season for questions and requests.",
       },
     ],
     benefits: [
-      "15+ seasons operating on Georgian Bay shorelines",
-      "Night and early-morning clearing on commercial routes",
-      "Contract-based expectations — triggers, timing, and phone reach",
-      "Licensed, insured, and WSIB-covered crews",
-      "Commercial-grade equipment for lots and heavy accumulation",
-      "Local coverage across Tiny Township and South Georgian Bay",
+      "Commercial liability insured",
+      "Rapid storm response",
+      "Heavy equipment on every job",
+      "Tiny Township based since 2004",
     ],
     relatedSlugs: ["excavation", "hardscaping", "landscaping"],
     faqs: [
       {
-        q: "Is this for residential driveways?",
-        a: "No — this page is for commercial, multi-residential, and municipal clients: plazas, offices, multi-unit sites, and similar lots. Ask us if you need a different scope.",
+        q: "How is commercial snow removal priced?",
+        a: "Quotes are based on lot size and layout, services needed, frequency, and whether you choose a seasonal contract — after a site walkthrough.",
       },
       {
-        q: "How does pricing work?",
-        a: "Most clients choose a seasonal contract or per-visit pricing based on lot size, access, and services included. We quote after a site walk — not a generic online rate card.",
+        q: "Do you offer seasonal contracts?",
+        a: "Yes. Seasonal contracts give your property priority service and reliable coverage all winter. Request a quote before the first snowfall.",
       },
       {
-        q: "What is a snowfall trigger?",
-        a: "Your contract defines when we roll — typically a snowfall depth that starts service. Exact triggers and response windows are set with you before winter, not assumed.",
+        q: "How fast is your storm response?",
+        a: "We respond quickly when snow hits. Ask us about response for your property when you request a quote.",
       },
       {
-        q: "What areas do you service in winter?",
-        a: "Tiny Township, Wasaga Beach, Collingwood, Perkinsfield, and surrounding commercial corridors across South Georgian Bay.",
+        q: "When do you plow?",
+        a: "We plow when snowfall reaches the level agreed for your site. Details are set in your service plan.",
       },
       {
-        q: "What happens in an emergency or overnight storm?",
-        a: "Contract clients get priority on the route. Call us — you reach the same local crew, including night and early-morning clearing when storms hit.",
+        q: "Do you do salting and sanding?",
+        a: "Yes. We treat lots, entrances, walkways and other traffic areas to reduce slippery surfaces.",
       },
       {
-        q: "When do contracts typically start?",
-        a: "We finalize routes in fall. Contact us early to secure a spot on the schedule before winter contracts fill.",
+        q: "What if the snow gets too deep for regular plowing?",
+        a: "We offer one-time snow haul-outs — heavy equipment removes banks so you get parking and access back.",
+      },
+      {
+        q: "Are you insured?",
+        a: "Yes, we carry commercial liability insurance. Ask us about it when you request your quote.",
+      },
+      {
+        q: "Do you plow driveways or residential properties?",
+        a: "No. We work only on commercial and industrial properties.",
+      },
+      {
+        q: "Does the township plow my commercial lot?",
+        a: "Municipal crews maintain public roads. Your private lot and walkways are the owner's responsibility — that is where we come in.",
+      },
+      {
+        q: "Which areas do you serve?",
+        a: "Midland, Penetanguishene, Tay Township, Tiny Township and Wasaga Beach.",
+      },
+      {
+        q: "How do we get started?",
+        a: `Request a site assessment through the form or call ${site.phoneDisplay}. We'll visit and send a written proposal.`,
       },
     ],
   },
+
 ];
 
 export function getServiceBySlug(slug: string): ServiceDetail | undefined {

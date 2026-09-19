@@ -103,6 +103,8 @@ export function buildServiceJsonLd(opts: {
   name: string;
   description: string;
   path: string;
+  /** Override default geography (e.g. snow: Midland / North Simcoe five towns) */
+  areaServed?: string[];
 }) {
   const base = site.url.replace(/\/$/, "");
   return {
@@ -111,7 +113,7 @@ export function buildServiceJsonLd(opts: {
     name: opts.name,
     description: opts.description,
     provider: { "@type": "LocalBusiness", name: site.name, url: site.url },
-    areaServed: [
+    areaServed: opts.areaServed ?? [
       "Tiny Township",
       "Wasaga Beach",
       "Collingwood",
