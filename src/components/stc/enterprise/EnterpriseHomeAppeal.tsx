@@ -8,7 +8,7 @@ import {
 } from "@/data/enterprise";
 import { media } from "@/data/media";
 import { site } from "@/data/site";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 import { AppealTurnerHero } from "./blocks/AppealTurnerHero";
 import { FaqAccordion } from "./blocks/FaqAccordion";
 import { ProblemSection } from "./blocks/ProblemSection";
@@ -206,8 +206,8 @@ export function EnterpriseHomeAppeal() {
               <a href={`tel:${site.phoneTel}`} className="btn-green stack-cta">
                 Call {site.phoneDisplay}
               </a>
-              <a href={siteMailtoHref()} className="btn-green stack-cta">
-                Email us
+              <a href={CONTACT_FORM_HREF} className="btn-green stack-cta">
+                Request a Site Consultation
               </a>
             </div>
           </div>

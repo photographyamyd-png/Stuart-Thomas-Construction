@@ -4,7 +4,7 @@ import { conversion, trustBar } from "@/data/conversion";
 import { media } from "@/data/media";
 import { site } from "@/data/site";
 import { useTurnerHeroVideo } from "@/hooks/use-turner-hero-video";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 import { CtaLink } from "../primitives";
 
 /**
@@ -52,7 +52,7 @@ export function AppealTurnerHero() {
         </h1>
         <p className="wf-type-supporting appeal-hero__enter appeal-hero__enter--3">{hero.lead}</p>
         <div className="appeal-hero__actions appeal-hero__enter appeal-hero__enter--4">
-          <CtaLink href={siteMailtoHref()} className="btn-accent btn-accent--lg">
+          <CtaLink href={CONTACT_FORM_HREF} className="btn-accent btn-accent--lg">
             {hero.pathfinderLabel}
           </CtaLink>
           <p className="appeal-hero__trust" aria-label="Credentials">

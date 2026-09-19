@@ -1,5 +1,5 @@
-import { siteMailtoHref } from "@/lib/site-mailto";
 import { services, type ServiceSlug } from "./services";
+import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 
 export type NavService = {
   label: string;
@@ -45,8 +45,8 @@ export const footerColumns = {
 
 export const cta = {
   primaryLabel: "Request a Site Consultation",
-  /** Opens pre-filled mailto inquiry — address never shown in UI */
-  primaryHref: siteMailtoHref(),
+  /** Contact page form — POSTs to /api/contact (never mailto) */
+  primaryHref: CONTACT_FORM_HREF,
   secondaryLabel: "Finished projects",
   secondaryHref: "/projects",
 } as const;

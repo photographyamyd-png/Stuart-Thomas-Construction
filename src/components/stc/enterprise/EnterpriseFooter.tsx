@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { footerColumns, cta } from "@/data/nav";
 import { site } from "@/data/site";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 import { CtaLink } from "./primitives";
 
 export function EnterpriseFooter() {
@@ -45,7 +45,7 @@ export function EnterpriseFooter() {
               <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
             </li>
             <li>
-              <a href={siteMailtoHref()}>Email us</a>
+              <Link href={CONTACT_FORM_HREF}>Send a message</Link>
             </li>
             <li>
               <CtaLink href={cta.primaryHref}>{cta.primaryLabel}</CtaLink>
@@ -63,9 +63,9 @@ export function EnterpriseFooter() {
           <a href={`tel:${site.phoneTel}`} className="btn-green">
             Call {site.phoneDisplay}
           </a>
-          <a href={siteMailtoHref()} className="btn-green">
-            Email us
-          </a>
+          <Link href={CONTACT_FORM_HREF} className="btn-green">
+            Request a Site Consultation
+          </Link>
         </div>
       </div>
       <div className="turner-footer__legal">

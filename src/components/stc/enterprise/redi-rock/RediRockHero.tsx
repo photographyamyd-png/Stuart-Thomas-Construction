@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { media } from "@/data/media";
 import { rediRockAttribution } from "@/data/redi-rock";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { contactFormHref } from "@/lib/contact-paths";
 import { ManufacturerAttribution } from "../blocks/ManufacturerAttribution";
 import { CtaLink, LinkArrow } from "../primitives";
 
@@ -51,7 +51,7 @@ export function RediRockHero() {
           className="stack-title stc-rr-hero__enter stc-rr-hero__enter--4"
         />
         <div className="stc-rr-hero__actions stack-cta stc-rr-hero__enter stc-rr-hero__enter--5">
-          <CtaLink href={siteMailtoHref("Redi-Rock install quote request")} className="btn-accent btn-accent--lg cta-inline">
+          <CtaLink href={contactFormHref({ project: "Redi-Rock installation" })} className="btn-accent btn-accent--lg cta-inline">
             Request an Install Quote
           </CtaLink>
           <LinkArrow href="#install" className="cta-inline">

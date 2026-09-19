@@ -1,6 +1,6 @@
 import type { GalleryItem } from "@/data/gallery";
 import { rediRockAttribution } from "@/data/redi-rock";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { contactFormHref } from "@/lib/contact-paths";
 import { AppealReveal } from "./blocks/AppealReveal";
 import { EnterpriseCtaBand } from "./blocks/EnterpriseCtaBand";
 import { RediRockCompareBand } from "./redi-rock/RediRockCompareBand";
@@ -51,7 +51,7 @@ export function EnterpriseRediRockPage({ stcInstalls = [] }: Props) {
           headline="Call about a Redi-Rock wall"
           subline="Call about grade changes, waterfront work, or retaining walls. We install; The Sarjeant Co. supplies."
           buttonLabel="Request an Install Quote"
-          buttonHref={siteMailtoHref("Redi-Rock install quote request")}
+          buttonHref={contactFormHref({ project: "Redi-Rock installation" })}
         />
       </AppealReveal>
       <AppealReveal>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ServiceDetail } from "@/data/services";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { contactFormHref } from "@/lib/contact-paths";
 import { CtaLink } from "../primitives";
 
 type Props = {
@@ -18,24 +18,10 @@ export function ServiceStatementBand({ service, imageSrc, imageAlt }: Props) {
   const facts = service.statementFacts ?? [];
   const { statementEyebrow: eyebrow, statementHeadline, statementCtaLabel } = service;
   const ctaLabel = statementCtaLabel ?? "Get a Quote";
-  const mailtoSubject =
+  const quoteHref =
     service.slug === "commercial-snow-removal"
-      ? "Commercial snow removal quote"
-      : undefined;
-  const mailtoBody =
-    service.slug === "commercial-snow-removal"
-      ? `Hi Stuart Thomas Construction,
-
-I'd like a custom quote for commercial snow removal.
-
-Town (Midland, Penetanguishene, Tay, Tiny, or Wasaga Beach):
-Property address:
-Property type (factory/industrial, warehouse, commercial building/office, retail/plaza):
-Lot size / priority areas:
-Preferred start:
-
-Thank you.`
-      : undefined;
+      ? "/services/commercial-snow-removal#quote-form"
+      : contactFormHref({ project: service.title });
 
   return (
     <section
@@ -74,14 +60,7 @@ Thank you.`
             <li key={b}>{b}</li>
           ))}
         </ul>
-        <CtaLink
-          href={
-            mailtoSubject && mailtoBody
-              ? siteMailtoHref(mailtoSubject, mailtoBody)
-              : siteMailtoHref()
-          }
-          className="btn-green stack-cta cta-inline"
-        >
+        <CtaLink href={quoteHref} className="btn-green stack-cta cta-inline">
           {ctaLabel}
         </CtaLink>
       </div>

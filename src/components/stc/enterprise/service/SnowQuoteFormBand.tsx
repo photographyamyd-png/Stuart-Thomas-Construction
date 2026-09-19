@@ -4,7 +4,8 @@ import { useEffect, useId, useState, type FormEvent } from "react";
 import Image from "next/image";
 import { snowFinalCta } from "@/data/snow-page";
 import { site } from "@/data/site";
-import { snowQuoteMailtoHref } from "@/lib/site-mailto";
+
+const EMAIL_PATTERN = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 
 const PROPERTY_TYPES = [
   "Factory / Industrial",
@@ -29,8 +30,6 @@ const SERVICE_NEEDED = [
   "Snow haul-out",
   "Other",
 ] as const;
-
-const EMAIL_PATTERN = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 
 type FieldErrors = Partial<
   Record<"name" | "company" | "email" | "phone" | "town" | "propertyType" | "serviceNeeded" | "address", string>
@@ -77,10 +76,6 @@ function validate(values: FormState): FieldErrors {
   return errors;
 }
 
-function digitsOnly(phone: string) {
-  return phone.replace(/\D/g, "");
-}
-
 function readServicePrefill(): string {
   if (typeof window === "undefined") return "";
   const fromQuery = new URLSearchParams(window.location.search).get("service");
@@ -94,7 +89,8 @@ export function SnowQuoteFormBand({ backdropSrc }: { backdropSrc: string }) {
   const baseId = useId();
   const [values, setValues] = useState<FormState>(INITIAL);
   const [errors, setErrors] = useState<FieldErrors>({});
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [serverError, setServerError] = useState("");
 
   useEffect(() => {
     const prefill = readServicePrefill();
@@ -113,7 +109,7 @@ export function SnowQuoteFormBand({ backdropSrc }: { backdropSrc: string }) {
     });
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const nextErrors = validate(values);
     setErrors(nextErrors);
@@ -122,23 +118,41 @@ export function SnowQuoteFormBand({ backdropSrc }: { backdropSrc: string }) {
       return;
     }
 
+    setStatus("submitting");
+    setServerError("");
     try {
-      const href = snowQuoteMailtoHref({
-        name: values.name.trim(),
-        company: values.company.trim(),
-        email: values.email.trim(),
-        phoneDigits: digitsOnly(values.phone),
-        phoneDisplay: values.phone.trim(),
-        town: values.town,
-        propertyType: values.propertyType,
-        serviceNeeded: values.serviceNeeded,
-        address: values.address.trim(),
-        message: values.message,
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          kind: "snow-quote",
+          name: values.name.trim(),
+          company: values.company.trim(),
+          email: values.email.trim(),
+          phone: values.phone.trim(),
+          town: values.town,
+          propertyType: values.propertyType,
+          serviceNeeded: values.serviceNeeded,
+          address: values.address.trim(),
+          message: values.message.trim() || undefined,
+        }),
       });
-      window.location.href = href;
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+        errors?: FieldErrors;
+      };
+      if (!res.ok || !data.ok) {
+        if (data.errors) setErrors((prev) => ({ ...prev, ...data.errors }));
+        setServerError(data.error || "Something went wrong. Please call us.");
+        setStatus("error");
+        return;
+      }
       setStatus("success");
+      setValues(INITIAL);
     } catch (err) {
-      console.error("Snow quote mailto failed", err);
+      console.error("Snow quote submit failed", err);
+      setServerError("Something went wrong. Please call us.");
       setStatus("error");
     }
   }
@@ -392,8 +406,12 @@ export function SnowQuoteFormBand({ backdropSrc }: { backdropSrc: string }) {
           </div>
 
           <div className="stc-snow-quote-form__actions">
-            <button type="submit" className="btn-accent btn-accent--lg">
-              {snowFinalCta.button}
+            <button
+              type="submit"
+              className="btn-accent btn-accent--lg"
+              disabled={status === "submitting"}
+            >
+              {status === "submitting" ? "Sending…" : snowFinalCta.button}
             </button>
             <a href={`tel:${site.phoneTel}`} className="text-utility stc-snow-quote-form__call">
               Call {site.phoneDisplay}
@@ -402,12 +420,12 @@ export function SnowQuoteFormBand({ backdropSrc }: { backdropSrc: string }) {
 
           {status === "success" && (
             <p className="stc-snow-quote-form__status stc-snow-quote-form__status--success" role="status">
-              Opening your email app…
+              Thanks — your quote request was sent. We&apos;ll reply within one business day.
             </p>
           )}
           {status === "error" && (
             <p className="stc-snow-quote-form__status stc-snow-quote-form__status--error" role="alert">
-              Something went wrong. Please call {site.phoneDisplay}.
+              {serverError || `Something went wrong. Please call ${site.phoneDisplay}.`}
             </p>
           )}
         </form>

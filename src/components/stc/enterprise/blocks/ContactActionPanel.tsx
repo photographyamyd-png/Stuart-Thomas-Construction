@@ -1,10 +1,10 @@
+import { ContactInquiryForm } from "@/components/stc/enterprise/blocks/ContactInquiryForm";
 import { site } from "@/data/site";
-import { siteMailtoHref } from "@/lib/site-mailto";
 import { LinkArrow } from "../primitives";
 
 /**
- * Spacious dual Call / Email action panel for the contact page.
- * Email address is never shown — mailto only.
+ * Contact page — call + in-page inquiry form (POST /api/contact).
+ * Owner email is never shown; visitor only sees it when the owner replies.
  */
 export function ContactActionPanel() {
   return (
@@ -19,8 +19,8 @@ export function ContactActionPanel() {
             Talk about your <span className="text-accent-gold">shoreline or yard</span>
           </h2>
           <p className="wf-type-supporting stc-contact-actions-panel__lead">
-            Free site visit. Itemized quote. Pick the channel that works for you — we reply within
-            one business day.
+            Free site visit. Itemized quote. Call or send a message — we reply within one business
+            day.
           </p>
         </header>
 
@@ -36,16 +36,20 @@ export function ContactActionPanel() {
             </a>
           </li>
           <li className="stc-contact-actions-panel__card">
-            <p className="stc-contact-actions-panel__label">Email</p>
+            <p className="stc-contact-actions-panel__label">Message</p>
             <h3 className="stc-contact-actions-panel__title">Send an inquiry</h3>
             <p className="wf-type-supporting stc-contact-actions-panel__help">
-              Opens a pre-filled message in your mail app — location, project type, and timeline.
+              Use the form below — it goes straight to us. No email app required.
             </p>
-            <a href={siteMailtoHref()} className="btn-accent btn-accent--lg stc-contact-actions-panel__btn">
-              Email an inquiry
+            <a href="#contact" className="btn-accent btn-accent--lg stc-contact-actions-panel__btn">
+              Jump to form
             </a>
           </li>
         </ul>
+
+        <div className="stc-contact-actions-panel__form-wrap stack-section">
+          <ContactInquiryForm />
+        </div>
 
         <p className="stc-contact-actions-panel__secondary">
           <LinkArrow href="/services">Armour stone &amp; hardscaping</LinkArrow>
