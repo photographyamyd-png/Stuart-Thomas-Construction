@@ -8,10 +8,10 @@ export const conversion = {
     pathfinderLabel: "Request a Site Consultation",
   },
   homeCta: {
-    eyebrow: "Free Site Visit",
-    headline: "Call about your shoreline or yard",
+    eyebrow: "Talk to us",
+    headline: "Questions about your property?",
     contactLink: "Request a free site consultation",
-    subline: "Free site consultation. Itemized quote. No lump-sum guessing.",
+    subline: "Free site visit. Itemized quote. We call back within one business day.",
     button: "Request a Site Consultation",
   },
   serviceCta: {

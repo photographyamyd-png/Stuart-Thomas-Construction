@@ -552,7 +552,9 @@ button:focus-visible {
   transform: rotate(-45deg);
 }
 
+/* Must follow base .turner-header__toggle { display: inline-flex } so desktop hide wins */
 @media (min-width: 1100px) {
+  .turner-header__toggle { display: none; }
   .turner-header .btn-header-cta { display: inline-flex; }
 }
 
@@ -1867,25 +1869,46 @@ button:focus-visible {
 
 /* ?? Conversion pre-footer bar (compact utility strip) ?? */
 .stc-conversion-bar {
-  padding: 0.875rem 0;
+  padding: 1.5rem 0;
+  background: var(--ent-band-dark);
+  color: var(--ent-role-headline-on-dark);
 }
 
 .stc-conversion-bar__inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  text-align: center;
+  align-items: stretch;
+  gap: 1.25rem;
+  text-align: left;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 720px) {
   .stc-conversion-bar__inner {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 1.25rem;
-    text-align: left;
+    gap: 1.75rem;
   }
+}
+
+.stc-conversion-bar__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.stc-conversion-bar__headline {
+  margin: 0.35rem 0 0.5rem;
+  font-family: var(--ent-font-display);
+  font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+  font-weight: var(--ent-weight-display);
+  line-height: 1.15;
+  color: var(--ent-role-headline-on-dark);
+}
+
+.stc-conversion-bar__subline {
+  margin: 0;
+  max-width: 42ch;
+  color: var(--ent-text-on-dark-faint);
 }
 
 .stc-conversion-bar__message {
@@ -1893,10 +1916,11 @@ button:focus-visible {
   flex: 1;
   font-size: var(--ent-label-md-size);
   line-height: 1.4;
+  color: var(--ent-role-headline-on-dark);
 }
 
 .stc-conversion-bar__contact {
-  color: var(--ent-role-link);
+  color: var(--stc-gold);
   font-family: var(--ent-font-link);
   font-size: var(--ent-link-size);
   font-weight: var(--ent-weight-ui);
@@ -1907,56 +1931,44 @@ button:focus-visible {
 }
 
 .stc-conversion-bar__contact:hover {
-  color: var(--stc-gold);
-}
-
-.stc-conversion-bar__phone {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  flex-shrink: 0;
-  font-family: var(--ent-font-utility);
-  font-weight: var(--ent-weight-ui-strong);
-  font-size: var(--ent-label-md-size);
-  letter-spacing: var(--ent-utility-tracking);
-  color: var(--ent-role-headline-on-light);
-  white-space: nowrap;
+  color: var(--stc-white);
 }
 
 .stc-conversion-bar__actions {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1.25rem;
+  gap: 0.75rem;
   flex-shrink: 0;
 }
 
+.stc-conversion-bar__phone,
 .stc-conversion-bar__email {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
-  font-family: var(--ent-font-utility);
-  font-weight: var(--ent-weight-ui-strong);
-  font-size: var(--ent-label-md-size);
-  letter-spacing: var(--ent-utility-tracking);
-  color: var(--ent-role-headline-on-light);
+  justify-content: center;
+  flex: 1 1 auto;
+  min-width: min(100%, 11rem);
   white-space: nowrap;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.stc-conversion-bar__email:hover {
-  color: var(--stc-gold);
+  text-decoration: none;
 }
 
 .stc-conversion-bar__phone svg {
   width: 0.875rem;
   height: 0.875rem;
-  color: var(--ent-role-accent);
 }
 
-.stc-conversion-bar__phone:hover {
-  color: var(--stc-gold);
+@media (max-width: 719px) {
+  .stc-conversion-bar__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stc-conversion-bar__phone,
+  .stc-conversion-bar__email {
+    width: 100%;
+    min-width: 0;
+  }
 }
 
 /* ?? Service page ?? */
@@ -4426,21 +4438,15 @@ button:focus-visible {
 }
 
 .stc-conversion-bar {
-  padding: 1rem 0;
+  padding: 1.75rem 0;
 }
 
 .stc-conversion-bar__inner {
-  gap: 1rem;
+  gap: 1.35rem;
 }
 
-.stc-conversion-bar__message {
-  font-size: 0.95rem;
-}
-
-.stc-conversion-bar__phone {
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--ent-border-on-light);
-  background: transparent;
+.stc-conversion-bar__headline {
+  font-size: clamp(1.45rem, 3.2vw, 1.95rem);
 }
 
 .turner-footer {
@@ -4675,12 +4681,12 @@ button:focus-visible {
 }
 
 .stc-conversion-bar {
-  padding: 1.25rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.75rem 0;
+  border-top: 0;
 }
 
 .stc-conversion-bar__inner {
-  align-items: center;
+  align-items: stretch;
 }
 
 .turner-footer__legal {
@@ -8686,20 +8692,8 @@ button:focus-visible {
 .stc-snow-quote-form__call {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.55rem 0.85rem;
-  background: var(--ent-band-light);
-  border: 1px solid color-mix(in srgb, var(--stc-gold) 45%, transparent);
-  color: var(--stc-charcoal);
-  font-weight: 600;
+  justify-content: center;
   text-decoration: none;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 0.6875rem;
-}
-
-.stc-snow-quote-form__call:hover {
-  border-color: var(--stc-gold);
 }
 
 .stc-process__after-cta {
@@ -8728,7 +8722,9 @@ button:focus-visible {
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
   min-height: clamp(34rem, calc(100svh - var(--header-h)), 52rem);
   min-height: clamp(34rem, calc(100dvh - var(--header-h)), 52rem);
   /* Must beat `.turner-band.stc-snow-hero { padding-block: 0 }` above */
@@ -8844,13 +8840,15 @@ button:focus-visible {
   color: var(--stc-gold);
 }
 
-/* L4 ? Since 2004 badge (on photo plane, clear of CTAs) */
+/* L4 ? Since 2004 badge: in-flow under CTAs on mobile; absolute top-right on desktop */
+/* L4 ? Since 2004 badge: in-flow under CTAs on mobile; absolute top-right on desktop */
 .stc-snow-hero__badge {
-  position: absolute;
+  position: relative;
   z-index: 3;
-  top: calc(var(--header-h) + clamp(1.25rem, 3vh, 2rem));
-  right: max(var(--pad-x), calc((100% - var(--max-w)) / 2 + var(--pad-x)));
-  margin: 0;
+  display: inline-block;
+  width: fit-content;
+  align-self: flex-start;
+  margin: 1.15rem 0 0;
   padding: 0.65rem 0.95rem 0.55rem;
   font-family: var(--ent-font-utility);
   font-size: 0.6875rem;
@@ -8862,7 +8860,18 @@ button:focus-visible {
   border: 1px solid color-mix(in srgb, var(--stc-gold) 55%, transparent);
   border-top: 3px solid var(--stc-gold);
   box-shadow: 0 10px 28px color-mix(in srgb, var(--stc-charcoal) 22%, transparent);
-  transform: rotate(-2.5deg);
+}
+
+@media (min-width: 768px) {
+  .stc-snow-hero__badge {
+    position: absolute;
+    top: calc(var(--header-h) + clamp(1.25rem, 3vh, 2rem));
+    right: max(var(--pad-x), calc((100% - var(--max-w)) / 2 + var(--pad-x)));
+    left: auto;
+    margin: 0;
+    align-self: auto;
+    transform: rotate(-2.5deg);
+  }
 }
 
 @keyframes stc-snow-hero-enter {
@@ -9008,14 +9017,33 @@ button:focus-visible {
   }
 
   .stc-snow-hero__actions .btn-accent,
-  .stc-snow-hero__actions .link-arrow {
+  .stc-snow-hero__actions .btn-green {
     width: 100%;
     justify-content: center;
     text-align: center;
   }
 
+  .stc-snow-hero__frost {
+    background:
+      linear-gradient(
+        108deg,
+        color-mix(in srgb, var(--stc-charcoal) 90%, transparent) 0%,
+        color-mix(in srgb, var(--stc-hero-scrim-color) 72%, transparent) 42%,
+        color-mix(in srgb, var(--stc-charcoal) 55%, transparent) 100%
+      ),
+      linear-gradient(
+        to top,
+        color-mix(in srgb, var(--stc-charcoal) 72%, transparent) 0%,
+        transparent 52%
+      );
+  }
+
   .stc-snow-hero__badge {
-    right: var(--pad-x);
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    margin-top: 1rem;
     transform: none;
   }
 
@@ -9064,6 +9092,7 @@ button:focus-visible {
   }
 
   .stc-snow-quote-form__actions .btn-accent,
+  .stc-snow-quote-form__actions .btn-green,
   .stc-snow-quote-form__call {
     width: 100%;
     justify-content: center;

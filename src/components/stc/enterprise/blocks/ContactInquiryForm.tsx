@@ -131,8 +131,8 @@ export function ContactInquiryForm() {
         <p className="stc-snow-quote-form__status stc-snow-quote-form__status--success" role="status">
           Thanks — your message was sent. We&apos;ll reply within one business day.
         </p>
-        <a href={`tel:${site.phoneTel}`} className="text-utility stc-snow-quote-form__call">
-          Call {site.phoneDisplay}
+        <a href={`tel:${site.phoneTel}`} className="btn-green stc-snow-quote-form__call">
+          Call Us
         </a>
       </div>
     );
@@ -254,8 +254,8 @@ export function ContactInquiryForm() {
         <button type="submit" className="btn-accent btn-accent--lg" disabled={status === "submitting"}>
           {status === "submitting" ? "Sending…" : "Send message"}
         </button>
-        <a href={`tel:${site.phoneTel}`} className="text-utility stc-snow-quote-form__call">
-          Call {site.phoneDisplay}
+        <a href={`tel:${site.phoneTel}`} className="btn-green stc-snow-quote-form__call">
+          Call Us
         </a>
       </div>
 

@@ -11,8 +11,8 @@ export function EnterpriseContactForm() {
         Itemized quote.
       </p>
       <div className="stc-contact-actions">
-        <a href={`tel:${site.phoneTel}`} className="btn-green stack-cta">
-          Call {site.phoneDisplay}
+        <a href={`tel:${site.phoneTel}`} className="btn-accent btn-accent--lg stack-cta">
+          Call Us
         </a>
         <Link href={CONTACT_FORM_HREF} className="btn-green stack-cta">
           Request a Site Consultation

@@ -4,7 +4,7 @@ import { getServiceHero } from "@/data/media";
 import type { ServiceDetail } from "@/data/services";
 import { site } from "@/data/site";
 import { snowServicePrefill } from "@/data/snow-page";
-import { CtaLink, LinkArrow } from "../primitives";
+import { CtaLink } from "../primitives";
 
 type Props = {
   service: ServiceDetail;
@@ -102,13 +102,13 @@ export function SnowHero({ service }: Props) {
           <CtaLink href={seasonalHref} className="btn-accent btn-accent--lg cta-inline">
             {service.heroCtaLabel ?? "Secure Your Seasonal Contract"}
           </CtaLink>
-          <LinkArrow href={`tel:${site.phoneTel}`} className="cta-inline">
-            Call {site.phoneDisplay}
-          </LinkArrow>
+          <a href={`tel:${site.phoneTel}`} className="btn-green btn-green--lg cta-inline">
+            Call Us
+          </a>
         </div>
       </div>
 
-      {/* L4 — badge on photo plane (does not overlap CTAs) */}
+      {/* L4 — in-flow under copy on mobile; absolute top-right on desktop */}
       <p className="stc-snow-hero__badge stc-snow-hero__enter stc-snow-hero__enter--5">
         Since 2004
       </p>

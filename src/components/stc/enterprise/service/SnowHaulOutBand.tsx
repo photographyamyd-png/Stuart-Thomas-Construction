@@ -47,11 +47,11 @@ export function SnowHaulOutBand({ imageSrc }: Props) {
               {snowHaulOut.ctaLabel}
             </CtaLink>
             <p className="text-utility stc-snow-haul__note">
-              Call{" "}
               <a href={`tel:${site.phoneTel}`} className="stc-process__phone">
-                {site.phoneDisplay}
+                Call Us
               </a>
-              . Haul-outs are available when your snow banks get out of control.
+              {" — "}
+              {snowHaulOut.underCta}
             </p>
           </div>
         </div>

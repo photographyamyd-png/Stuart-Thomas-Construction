@@ -118,7 +118,7 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
             </CtaLink>
             {service.heroSecondaryTel ? (
               <LinkArrow href={`tel:${site.phoneTel}`} className="cta-inline">
-                Call {site.phoneDisplay}
+                Call Us
               </LinkArrow>
             ) : (
               <LinkArrow href={scrollTarget} className="cta-inline">

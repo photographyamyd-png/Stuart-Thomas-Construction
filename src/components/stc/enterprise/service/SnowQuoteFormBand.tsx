@@ -413,8 +413,8 @@ export function SnowQuoteFormBand({ backdropSrc }: { backdropSrc: string }) {
             >
               {status === "submitting" ? "Sending…" : snowFinalCta.button}
             </button>
-            <a href={`tel:${site.phoneTel}`} className="text-utility stc-snow-quote-form__call">
-              Call {site.phoneDisplay}
+            <a href={`tel:${site.phoneTel}`} className="btn-green stc-snow-quote-form__call">
+              Call Us
             </a>
           </div>
 

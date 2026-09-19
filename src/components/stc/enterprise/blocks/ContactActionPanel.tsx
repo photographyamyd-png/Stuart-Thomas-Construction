@@ -31,8 +31,8 @@ export function ContactActionPanel() {
             <p className="wf-type-supporting stc-contact-actions-panel__help">
               Weekday callbacks for Tiny Township, Wasaga Beach, and Collingwood properties.
             </p>
-            <a href={`tel:${site.phoneTel}`} className="btn-green btn-green--lg stc-contact-actions-panel__btn">
-              Call {site.phoneDisplay}
+            <a href={`tel:${site.phoneTel}`} className="btn-accent btn-accent--lg stc-contact-actions-panel__btn">
+              Call Us
             </a>
           </li>
           <li className="stc-contact-actions-panel__card">

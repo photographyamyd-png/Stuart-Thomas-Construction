@@ -57,11 +57,11 @@ export function EnterpriseFooter() {
         <div className="turner-footer__cta-copy">
           <p className="eyebrow eyebrow--on-dark">Talk to us</p>
           <h3 className="text-display text-display--section">Questions about your property?</h3>
-          <p className="wf-type-supporting">Call (705) 727-7308 for project questions — free site visit available.</p>
+          <p className="wf-type-supporting">Call us for project questions — free site visit available.</p>
         </div>
         <div className="turner-footer__newsletter stc-contact-actions">
-          <a href={`tel:${site.phoneTel}`} className="btn-green">
-            Call {site.phoneDisplay}
+          <a href={`tel:${site.phoneTel}`} className="btn-accent btn-accent--lg">
+            Call Us
           </a>
           <Link href={CONTACT_FORM_HREF} className="btn-green">
             Request a Site Consultation

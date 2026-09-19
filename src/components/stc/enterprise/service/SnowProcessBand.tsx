@@ -56,9 +56,9 @@ export function SnowProcessBand({ steps, afterCta }: Props) {
             {afterCta.label}
           </CtaLink>
           <p className="stc-snow-process__note text-utility text-utility-on-dark">
-            Or call{" "}
+            Or{" "}
             <a href={`tel:${site.phoneTel}`} className="stc-snow-process__phone">
-              {site.phoneDisplay}
+              Call Us
             </a>
           </p>
         </div>

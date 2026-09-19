@@ -1,5 +1,3 @@
-import { site } from "@/data/site";
-
 /** Commercial snow page content — exclusive to /services/commercial-snow-removal */
 
 export const snowTrustItems = [
@@ -48,7 +46,7 @@ export const snowHaulOut = {
     "Parking, loading areas and access restored",
   ],
   ctaLabel: "Request a Haul-Out",
-  underCta: `Call ${site.phoneDisplay}. Haul-outs are available when your snow banks get out of control.`,
+  underCta: "Haul-outs are available when your snow banks get out of control.",
   imageAlt:
     "Excavator clearing deep snow banks on a commercial lot in Midland — illustrative stock",
 } as const;
@@ -104,7 +102,7 @@ export const snowServiceAreas = [
 
 export const snowFinalCta = {
   headline: "Don't get locked out of your business this winter",
-  subline: `Tell us about your property — or call ${site.phoneDisplay}.`,
+  subline: "Tell us about your property — or tap Call Us below.",
   button: "Request a Quote",
   imageAlt:
     "Loader clearing a rural commercial access road after snowfall — illustrative stock",
