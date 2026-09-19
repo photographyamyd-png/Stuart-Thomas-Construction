@@ -16,6 +16,8 @@ type Props = {
   eyebrow?: string;
   headlineBefore?: string;
   headlineAccent?: string;
+  /** Section ground; tiles stay media overlays regardless of band. */
+  band?: "dark" | "light" | "green";
 };
 
 /**
@@ -29,9 +31,11 @@ export function ServiceCapabilitiesBand({
   eyebrow = "Scope",
   headlineBefore = "What We",
   headlineAccent = "Deliver",
+  band = "dark",
 }: Props) {
   const [lead, ...cards] = subServices;
   const leadImage = images[0] ?? heroFallback;
+  const onDark = band === "dark" || band === "green";
 
   function tileBody(sub: SubService, num: string) {
     return (
@@ -60,11 +64,11 @@ export function ServiceCapabilitiesBand({
 
   return (
     <section
-      className="stc-svc-capabilities turner-band turner-band--dark turner-band--seam"
+      className={`stc-svc-capabilities turner-band turner-band--${band} turner-band--seam`}
       aria-labelledby="svc-capabilities-heading"
     >
       <div className="container stc-svc-capabilities__head">
-        <p className="eyebrow eyebrow--on-dark">{eyebrow}</p>
+        <p className={onDark ? "eyebrow eyebrow--on-dark" : "eyebrow"}>{eyebrow}</p>
         <h2 id="svc-capabilities-heading" className="text-display text-display--section">
           {headlineBefore} <span className="text-accent-gold">{headlineAccent}</span>
         </h2>
