@@ -245,7 +245,7 @@ export function EnterpriseHome() {
         <div className="turner-contact__copy">
           <p className="eyebrow eyebrow--on-dark">Free Site Consultation</p>
           <h2 id="contact-heading" className="text-display stack-title">
-            Call about your <span>shoreline</span>
+            Questions about your <span>property?</span>
           </h2>
           <p>{conversion.contactIntro}</p>
           <Link

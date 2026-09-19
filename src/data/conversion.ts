@@ -10,7 +10,6 @@ export const conversion = {
   homeCta: {
     eyebrow: "Talk to us",
     headline: "Questions about your property?",
-    contactLink: "Request a free site consultation",
     subline: "Free site visit. Itemized quote. We call back within one business day.",
     button: "Request a Site Consultation",
   },

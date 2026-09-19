@@ -1873,10 +1873,87 @@ button:focus-visible {
   color: var(--ent-role-body-on-light);
 }
 
+/* ?? Pre-footer CTA (replaces legacy conversion-bar strip) ?? */
+.stc-prefooter-cta {
+  background: var(--ent-band-green);
+  color: var(--ent-role-headline-on-dark);
+  padding-block: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.stc-prefooter-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.35rem;
+}
+
+@media (min-width: 720px) {
+  .stc-prefooter-cta__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+.stc-prefooter-cta__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.stc-prefooter-cta__headline {
+  margin: 0.35rem 0 0.5rem;
+  font-family: var(--ent-font-display);
+  font-size: clamp(1.45rem, 3.5vw, 2rem);
+  font-weight: var(--ent-weight-display);
+  line-height: 1.15;
+  color: var(--ent-role-headline-on-dark);
+}
+
+.stc-prefooter-cta__subline {
+  margin: 0;
+  max-width: 42ch;
+  font-family: var(--ent-font-body);
+  font-size: var(--ent-body-size);
+  line-height: var(--ent-body-leading);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.stc-prefooter-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.stc-prefooter-cta__actions .btn-accent,
+.stc-prefooter-cta__actions .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-width: min(100%, 12rem);
+  text-decoration: none;
+}
+
+@media (max-width: 719px) {
+  .stc-prefooter-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stc-prefooter-cta__actions .btn-accent,
+  .stc-prefooter-cta__actions .btn-ghost {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 /* ?? Conversion pre-footer bar (compact utility strip) ?? */
 .stc-conversion-bar {
   padding: 1.5rem 0;
-  background: var(--ent-band-dark);
+  background: var(--ent-band-green);
   color: var(--ent-role-headline-on-dark);
 }
 

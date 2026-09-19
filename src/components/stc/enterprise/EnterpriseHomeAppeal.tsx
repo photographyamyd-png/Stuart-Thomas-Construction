@@ -199,7 +199,7 @@ export function EnterpriseHomeAppeal() {
           <div className="turner-contact__copy">
             <p className="eyebrow eyebrow--on-dark">Free Site Consultation</p>
             <h2 id="contact-heading" className="text-display stack-title">
-              Call about your <span className="text-accent-gold">shoreline or yard</span>
+              Questions about your <span className="text-accent-gold">property?</span>
             </h2>
             <p className="wf-type-supporting">{conversion.contactIntro}</p>
             <div className="stc-contact-actions cta-self-start">
