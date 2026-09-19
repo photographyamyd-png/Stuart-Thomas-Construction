@@ -141,14 +141,18 @@ export function BaselineEnterpriseHeader() {
             </Link>
             <button
               type="button"
-              className="turner-header__toggle"
+              className={`turner-header__toggle${drawerOpen ? " is-open" : ""}`}
               id="nav-toggle"
               aria-expanded={drawerOpen}
               aria-controls="nav-drawer"
               aria-label={drawerOpen ? "Close menu" : "Open menu"}
               onClick={toggleDrawer}
             >
-              Menu
+              <span className="turner-header__toggle-bars" aria-hidden>
+                <span />
+                <span />
+                <span />
+              </span>
             </button>
           </div>
         </div>
@@ -298,8 +302,19 @@ export function BaselineEnterpriseHeader() {
         aria-hidden={!drawerOpen}
         aria-label="Mobile navigation"
       >
-        <div className="turner-drawer__wordmark">
-          <Wordmark compact href={B} />
+        <div className="turner-drawer__top">
+          <div className="turner-drawer__wordmark">
+            <Wordmark compact href={B} />
+          </div>
+          <button
+            type="button"
+            className="turner-drawer__close"
+            aria-label="Close menu"
+            onClick={closeDrawer}
+          >
+            <span aria-hidden>×</span>
+            <span className="turner-drawer__close-label">Close</span>
+          </button>
         </div>
         <nav className="turner-drawer__nav">
           <span className="turner-drawer__section-label">Services</span>

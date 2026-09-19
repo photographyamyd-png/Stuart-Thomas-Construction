@@ -2,13 +2,11 @@ import { Resend } from "resend";
 import { site } from "@/data/site";
 
 /**
- * Contact / quote email via Resend.
+ * Contact / quote email delivery.
  *
- * Vercel env (production):
- * - RESEND_API_KEY — required to send
- * - CONTACT_TO_EMAIL — optional; defaults to site.email
- * - CONTACT_FROM_EMAIL — optional verified sender (e.g. "STC <quotes@yourdomain.com>");
- *   falls back to Resend onboarding address for initial setup
+ * Preferred (Vercel): RESEND_API_KEY (+ optional CONTACT_TO_EMAIL / CONTACT_FROM_EMAIL)
+ * Fallback: FormSubmit.co → CONTACT_TO_EMAIL or site.email (no compose window;
+ * first send may ask the owner to confirm once via FormSubmit).
  */
 
 export const EMAIL_PATTERN = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
@@ -159,32 +157,68 @@ export function formatContactEmail(data: ContactInput): { subject: string; text:
 }
 
 export async function sendContactEmail(data: ContactInput): Promise<{ ok: true } | { ok: false; error: string }> {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.error("RESEND_API_KEY is not configured");
-    return { ok: false, error: "Email is not configured. Please call us instead." };
-  }
-
   const to = process.env.CONTACT_TO_EMAIL?.trim() || site.email;
-  const from =
-    process.env.CONTACT_FROM_EMAIL?.trim() ||
-    "Stuart Thomas Construction <onboarding@resend.dev>";
   const { subject, text } = formatContactEmail(data);
   const replyTo = data.email;
 
-  const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
-    from,
-    to: [to],
-    replyTo,
-    subject,
-    text,
-  });
-
-  if (error) {
-    console.error("Resend error", error);
-    return { ok: false, error: "Could not send your message. Please call us instead." };
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  if (apiKey) {
+    const from =
+      process.env.CONTACT_FROM_EMAIL?.trim() ||
+      "Stuart Thomas Construction <onboarding@resend.dev>";
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({
+      from,
+      to: [to],
+      replyTo,
+      subject,
+      text,
+    });
+    if (error) {
+      console.error("Resend error", error);
+      return { ok: false, error: "Could not send your message. Please call us instead." };
+    }
+    return { ok: true };
   }
 
-  return { ok: true };
+  // Fallback when RESEND_API_KEY is not set — FormSubmit delivers to the owner inbox
+  // without opening a compose window. First delivery may require one confirmation click
+  // in the owner's email (FormSubmit activation).
+  try {
+    const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(to)}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        _subject: subject,
+        _template: "box",
+        _captcha: "false",
+        _replyto: replyTo,
+        name: "kind" in data && data.kind === "snow-quote" ? data.name : data.name,
+        email: replyTo,
+        message: text,
+      }),
+    });
+
+    if (!res.ok) {
+      const detail = await res.text().catch(() => "");
+      console.error("FormSubmit error", res.status, detail);
+      return { ok: false, error: "Could not send your message. Please call us instead." };
+    }
+
+    const payload = (await res.json().catch(() => null)) as
+      | { success?: string | boolean; message?: string }
+      | null;
+    if (payload && (payload.success === false || payload.success === "false")) {
+      console.error("FormSubmit rejected", payload);
+      return { ok: false, error: "Could not send your message. Please call us instead." };
+    }
+
+    return { ok: true };
+  } catch (err) {
+    console.error("Contact email send failed", err);
+    return { ok: false, error: "Could not send your message. Please call us instead." };
+  }
 }
