@@ -1,14 +1,27 @@
 # Snow removal imagery attribution
 
-Royalty-free stock from [Unsplash](https://unsplash.com/license) (commercial use permitted; no permission required).
+Royalty-free stock used for illustrative commercial snow machinery (not STC job photos).
 
-| File | Unsplash photo |
-|------|----------------|
-| `stock-hero-plow-lot.jpg` | [photo-1483664852095-d6cc6870702d](https://unsplash.com/photos/a-snow-plow-clearing-a-road-d6cc6870702d) |
-| `stock-cleared-commercial.jpg` | [photo-1517299321609-52687d1bc55a](https://unsplash.com/photos/52687d1bc55a) |
-| `stock-heavy-equipment.jpg` | [photo-1418985991508-e47386d96a71](https://unsplash.com/photos/e47386d96a71) |
-| `stock-walkway-snow.jpg` | [photo-1491002052546-bf38f186af56](https://unsplash.com/photos/bf38f186af56) |
-| `stock-night-storm.jpg` | [photo-1477601263568-180e2c6d046e](https://unsplash.com/photos/180e2c6d046e) |
-| `stock-snow-plow-truck.jpg` | [photo-1547754980-3df97fed72a8](https://unsplash.com/photos/3df97fed72a8) |
+## Unsplash ([license](https://unsplash.com/license))
 
-Older PNGs in this folder (`hero-storm-plow.png`, `commercial-lot-loader.png`, `rural-road-clearing.png`) are retained as secondary stock fillers.
+| File | Photo |
+|------|--------|
+| `stock-plow-road-action.jpg` | [PM2Ocn3lwLU](https://unsplash.com/photos/PM2Ocn3lwLU) — Mack plow clearing a road |
+| `stock-orange-plow-salting.jpg` | [B8oULCm3SV0](https://unsplash.com/photos/B8oULCm3SV0) — Orange utility plow with spreader |
+| `stock-plow-fleet-street.jpg` | [Pz3LvZna72c](https://unsplash.com/photos/Pz3LvZna72c) — Three orange plow trucks |
+| `stock-plow-blade-road.jpg` | [DBxB7JZDCjs](https://unsplash.com/photos/DBxB7JZDCjs) — Tracked machine pushing snow |
+| `stock-loader-plow-blade.jpg` | [FIu1RrkN6uI](https://unsplash.com/photos/FIu1RrkN6uI) — Oshkosh plow truck |
+
+## Pexels ([license](https://www.pexels.com/license/))
+
+| File | Photo |
+|------|--------|
+| `stock-pexels-plow-clearing.jpg` | [30090823](https://www.pexels.com/photo/winter-snowplow-clearing-a-snowy-road-30090823/) — Orange plow clearing with snow spray |
+
+## Existing local machinery fills
+
+| File | Notes |
+|------|--------|
+| `hero-storm-plow.png` | Yellow loader with red plow blade in storm |
+| `commercial-lot-loader.png` | Orange loader pushing snow on paved lot |
+| `rural-road-clearing.png` | Yellow loader with red blade clearing deep snow |

@@ -32,6 +32,8 @@ export type ServiceDetail = {
   icon: LucideIcon;
   heroAlt: string;
   overview: string[];
+  /** Optional structured fact rows under statement lead (label + value) */
+  statementFacts?: { label: string; value: string }[];
   subServices: { title: string; description: string }[];
   process: { title: string; description: string }[];
   benefits: string[];
@@ -278,7 +280,7 @@ export const services: ServiceDetail[] = [
     metaDescription:
       "Contract commercial snow removal for plazas, offices, and multi-residential sites in Tiny Township, Wasaga Beach, and Collingwood — plowing, salting, walks, and storm response.",
     icon: Snowflake,
-    heroAlt: "Snow plow clearing a roadway during a winter storm — illustrative stock imagery",
+    heroAlt: "Commercial snow plow truck pushing snow off a roadway — illustrative stock imagery",
     statementEyebrow: "Winter Contracts",
     statementHeadline: { before: "How winter service", accent: "works" },
     heroCtaLabel: "Request a Winter Contract",
@@ -293,9 +295,17 @@ export const services: ServiceDetail[] = [
       button: "Request a Site Walk",
     },
     overview: [
-      "We provide commercial-grade snow removal across Tiny Township, Wasaga Beach, Collingwood, and surrounding South Georgian Bay corridors — not residential driveway-only service.",
-      "Contracts cover plowing, salting and sanding, walkway and entrance clearing, and storm-priority response for business parks, plazas, offices, multi-residential buildings, and municipal sites.",
-      "Property types we serve: retail plazas, office buildings, multi-unit residential, and municipal lots and corridors.",
+      "Commercial-grade snow removal across Tiny Township, Wasaga Beach, Collingwood, and South Georgian Bay — not residential driveway-only service.",
+    ],
+    statementFacts: [
+      {
+        label: "Coverage",
+        value: "Plowing, salting and sanding, walkway and entrance clearing, storm-priority response",
+      },
+      {
+        label: "Property types",
+        value: "Retail plazas, office buildings, multi-unit residential, municipal lots and corridors",
+      },
     ],
     subServices: [
       {
@@ -322,7 +332,7 @@ export const services: ServiceDetail[] = [
       },
       {
         title: "Contract & SLA",
-        description: "Agree on snowfall triggers, response windows, pricing model, and how we stay in touch.",
+        description: "Agree on snowfall triggers, response windows, and how we stay in touch.",
       },
       {
         title: "Winter execution",

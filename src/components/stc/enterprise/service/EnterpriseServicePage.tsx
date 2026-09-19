@@ -93,7 +93,7 @@ Thank you.`,
   const snowTestimonial = isSnow ? testimonials.find((t) => /snow/i.test(t.quote)) : undefined;
 
   return (
-    <>
+    <div className={isSnow ? "stc-svc-page--snow" : undefined}>
       <section
         className={`stc-svc-page__hero stc-svc-page__hero--cinematic turner-band turner-band--dark${isImmersiveHero ? " stc-svc-page__hero--immersive" : ""}`}
         aria-labelledby="svc-heading"
@@ -231,7 +231,7 @@ Thank you.`,
           <div className="turner-regional__media">
             <Image
               src={ctaBannerSrc}
-              alt={isSnow ? "Commercial snow plow truck in winter — illustrative stock imagery" : ""}
+              alt={isSnow ? "Orange snow plow clearing snow with spreader — illustrative stock imagery" : ""}
               fill
               loading="lazy"
               sizes="50vw"
@@ -275,6 +275,6 @@ Thank you.`,
       <AppealReveal>
         <ServicePager prev={prev} next={next} />
       </AppealReveal>
-    </>
+    </div>
   );
 }
