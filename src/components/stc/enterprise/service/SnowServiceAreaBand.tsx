@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { snowServiceAreas } from "@/data/snow-page";
+import { snowQuoteFormHref } from "@/lib/contact-paths";
 
 export function SnowServiceAreaBand() {
   return (
@@ -26,7 +27,7 @@ export function SnowServiceAreaBand() {
         </ul>
 
         <p className="stc-snow-areas__cta">
-          <Link href="#quote-form" className="link-arrow">
+          <Link href={snowQuoteFormHref()} className="link-arrow">
             Request a quote for your town →
           </Link>
         </p>

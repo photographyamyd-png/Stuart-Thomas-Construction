@@ -181,23 +181,28 @@ export async function sendContactEmail(data: ContactInput): Promise<{ ok: true }
     return { ok: true };
   }
 
-  // Fallback when RESEND_API_KEY is not set — FormSubmit delivers to the owner inbox
-  // without opening a compose window. First delivery may require one confirmation click
-  // in the owner's email (FormSubmit activation).
+  // Fallback when RESEND_API_KEY is not set — FormSubmit from the server often
+  // fails (no browser Origin). Prefer client-side FormSubmit via submitContactForm().
+  // Keep this path for completeness when Origin can be forwarded.
   try {
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.stuartthomasconstruction.ca";
     const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(to)}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Origin: siteUrl,
+        Referer: `${siteUrl}/contact`,
       },
       body: JSON.stringify({
         _subject: subject,
         _template: "box",
         _captcha: "false",
         _replyto: replyTo,
-        name: "kind" in data && data.kind === "snow-quote" ? data.name : data.name,
+        name: data.name,
         email: replyTo,
+        phone: data.phone,
         message: text,
       }),
     });
@@ -213,7 +218,14 @@ export async function sendContactEmail(data: ContactInput): Promise<{ ok: true }
       | null;
     if (payload && (payload.success === false || payload.success === "false")) {
       console.error("FormSubmit rejected", payload);
-      return { ok: false, error: "Could not send your message. Please call us instead." };
+      const activation =
+        typeof payload.message === "string" && /activat/i.test(payload.message);
+      return {
+        ok: false,
+        error: activation
+          ? "Form delivery needs a one-time activation email to the business inbox."
+          : "Could not send your message. Please call us instead.",
+      };
     }
 
     return { ok: true };

@@ -4,6 +4,7 @@ import { getServiceHero } from "@/data/media";
 import type { ServiceDetail } from "@/data/services";
 import { site } from "@/data/site";
 import { snowServicePrefill } from "@/data/snow-page";
+import { snowQuoteFormHref } from "@/lib/contact-paths";
 import { CtaLink } from "../primitives";
 
 type Props = {
@@ -54,7 +55,7 @@ function SnowHeroContours() {
  */
 export function SnowHero({ service }: Props) {
   const heroSrc = getServiceHero(service.slug);
-  const seasonalHref = `?service=${encodeURIComponent(snowServicePrefill.seasonal)}#quote-form`;
+  const seasonalHref = snowQuoteFormHref(snowServicePrefill.seasonal);
 
   return (
     <section

@@ -10,6 +10,7 @@ import {
   snowServicePrefill,
   snowServicesHeading,
 } from "@/data/snow-page";
+import { snowQuoteFormHref, SNOW_SERVICE_PATH } from "@/lib/contact-paths";
 import { AppealReveal } from "../blocks/AppealReveal";
 import { ServiceCapabilitiesBand } from "./ServiceCapabilitiesBand";
 import { SnowAudienceBand } from "./SnowAudienceBand";
@@ -34,11 +35,27 @@ export function SnowServicePage({ service }: Props) {
   const haulImage = getSnowHaulOutImage();
   const safetyImage = getSnowSafetyImage();
   const quoteBackdrop = getSnowQuoteBackdrop();
-  const assessmentHref = `?service=${encodeURIComponent(snowServicePrefill.assessment)}#quote-form`;
+  const assessmentHref = snowQuoteFormHref(snowServicePrefill.assessment);
 
-  const subServices = service.subServices.map((sub, i) =>
-    i === service.subServices.length - 1 ? { ...sub, href: "#haul-outs" } : sub,
-  );
+  const capabilityServiceByTitle: Record<string, string> = {
+    Plowing: "Plowing",
+    Salting: "Salting & sanding",
+    Sanding: "Salting & sanding",
+    "Walkways & entrances": "Seasonal contract",
+    "Loading dock & truck court clearing": "Seasonal contract",
+    "Snow haul-outs": snowServicePrefill.haulOut,
+  };
+
+  const subServices = service.subServices.map((sub) => {
+    if (sub.title === "Snow haul-outs") {
+      return { ...sub, href: `${SNOW_SERVICE_PATH}#haul-outs` };
+    }
+    const servicePrefill = capabilityServiceByTitle[sub.title];
+    return {
+      ...sub,
+      href: servicePrefill ? snowQuoteFormHref(servicePrefill) : snowQuoteFormHref(),
+    };
+  });
 
   const capabilityAlts = [
     "Commercial lot plowing — illustrative snow stock",

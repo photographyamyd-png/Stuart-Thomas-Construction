@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { snowAudience } from "@/data/snow-page";
+import { snowAudience, snowServicePrefill } from "@/data/snow-page";
+import { snowQuoteFormHref } from "@/lib/contact-paths";
 
 export function SnowAudienceBand() {
+  const quoteHref = snowQuoteFormHref(snowServicePrefill.seasonal);
+
   return (
     <section
       className="stc-snow-audience turner-band turner-band--dark turner-band--seam"
@@ -18,7 +21,7 @@ export function SnowAudienceBand() {
         <ul className="stc-snow-audience__grid">
           {snowAudience.map((card, i) => (
             <li key={card.title}>
-              <Link href="#quote-form" className="stc-snow-audience__card">
+              <Link href={quoteHref} className="stc-snow-audience__card">
                 <span className="stc-snow-audience__index" aria-hidden>
                   {String(i + 1).padStart(2, "0")}
                 </span>

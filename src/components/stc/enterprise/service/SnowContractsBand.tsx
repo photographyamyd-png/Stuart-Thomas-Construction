@@ -1,8 +1,9 @@
 import { snowContracts, snowServicePrefill } from "@/data/snow-page";
+import { snowQuoteFormHref } from "@/lib/contact-paths";
 import { CtaLink } from "../primitives";
 
 export function SnowContractsBand() {
-  const formHref = `?service=${encodeURIComponent(snowServicePrefill.seasonal)}#quote-form`;
+  const formHref = snowQuoteFormHref(snowServicePrefill.seasonal);
 
   return (
     <section

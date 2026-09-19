@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState, type FormEvent } from "react";
 import { site } from "@/data/site";
+import { submitContactForm } from "@/lib/submit-contact-client";
 
 const EMAIL_PATTERN = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 
@@ -88,27 +89,17 @@ export function ContactInquiryForm() {
     setStatus("submitting");
     setServerError("");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          kind: "general-inquiry",
-          name: values.name.trim(),
-          email: values.email.trim(),
-          phone: values.phone.trim(),
-          location: values.location.trim() || undefined,
-          projectType: values.projectType.trim() || undefined,
-          message: values.message.trim(),
-        }),
+      const result = await submitContactForm({
+        kind: "general-inquiry",
+        name: values.name.trim(),
+        email: values.email.trim(),
+        phone: values.phone.trim(),
+        location: values.location.trim() || undefined,
+        projectType: values.projectType.trim() || undefined,
+        message: values.message.trim(),
       });
-      const data = (await res.json().catch(() => ({}))) as {
-        ok?: boolean;
-        error?: string;
-        errors?: FieldErrors;
-      };
-      if (!res.ok || !data.ok) {
-        if (data.errors) setErrors(data.errors);
-        setServerError(data.error || "Something went wrong. Please call us.");
+      if (!result.ok) {
+        setServerError(result.error);
         setStatus("error");
         return;
       }

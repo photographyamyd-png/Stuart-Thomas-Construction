@@ -4,6 +4,7 @@ import { useEffect, useId, useState, type FormEvent } from "react";
 import Image from "next/image";
 import { snowFinalCta } from "@/data/snow-page";
 import { site } from "@/data/site";
+import { submitContactForm } from "@/lib/submit-contact-client";
 
 const EMAIL_PATTERN = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 
@@ -121,30 +122,20 @@ export function SnowQuoteFormBand({ backdropSrc }: { backdropSrc: string }) {
     setStatus("submitting");
     setServerError("");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          kind: "snow-quote",
-          name: values.name.trim(),
-          company: values.company.trim(),
-          email: values.email.trim(),
-          phone: values.phone.trim(),
-          town: values.town,
-          propertyType: values.propertyType,
-          serviceNeeded: values.serviceNeeded,
-          address: values.address.trim(),
-          message: values.message.trim() || undefined,
-        }),
+      const result = await submitContactForm({
+        kind: "snow-quote",
+        name: values.name.trim(),
+        company: values.company.trim(),
+        email: values.email.trim(),
+        phone: values.phone.trim(),
+        town: values.town,
+        propertyType: values.propertyType,
+        serviceNeeded: values.serviceNeeded,
+        address: values.address.trim(),
+        message: values.message.trim() || undefined,
       });
-      const data = (await res.json().catch(() => ({}))) as {
-        ok?: boolean;
-        error?: string;
-        errors?: FieldErrors;
-      };
-      if (!res.ok || !data.ok) {
-        if (data.errors) setErrors((prev) => ({ ...prev, ...data.errors }));
-        setServerError(data.error || "Something went wrong. Please call us.");
+      if (!result.ok) {
+        setServerError(result.error);
         setStatus("error");
         return;
       }

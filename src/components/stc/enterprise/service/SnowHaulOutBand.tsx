@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { site } from "@/data/site";
 import { snowHaulOut, snowServicePrefill } from "@/data/snow-page";
+import { snowQuoteFormHref } from "@/lib/contact-paths";
 import { CtaLink } from "../primitives";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 };
 
 export function SnowHaulOutBand({ imageSrc }: Props) {
-  const formHref = `?service=${encodeURIComponent(snowServicePrefill.haulOut)}#quote-form`;
+  const formHref = snowQuoteFormHref(snowServicePrefill.haulOut);
 
   return (
     <section
