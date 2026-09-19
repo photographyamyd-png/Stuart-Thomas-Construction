@@ -11,6 +11,7 @@ import {
   snowServicesHeading,
 } from "@/data/snow-page";
 import { snowQuoteFormHref, SNOW_SERVICE_PATH } from "@/lib/contact-paths";
+import { Suspense } from "react";
 import { AppealReveal } from "../blocks/AppealReveal";
 import { ServiceCapabilitiesBand } from "./ServiceCapabilitiesBand";
 import { SnowAudienceBand } from "./SnowAudienceBand";
@@ -126,7 +127,9 @@ export function SnowServicePage({ service }: Props) {
       )}
 
       <AppealReveal>
-        <SnowQuoteFormBand backdropSrc={quoteBackdrop} />
+        <Suspense fallback={null}>
+          <SnowQuoteFormBand backdropSrc={quoteBackdrop} />
+        </Suspense>
       </AppealReveal>
     </div>
   );

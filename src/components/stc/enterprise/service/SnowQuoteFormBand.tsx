@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState, type FormEvent } from "react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { snowFinalCta } from "@/data/snow-page";
 import { site } from "@/data/site";
 import { submitContactForm } from "@/lib/submit-contact-client";
@@ -77,28 +78,23 @@ function validate(values: FormState): FieldErrors {
   return errors;
 }
 
-function readServicePrefill(): string {
-  if (typeof window === "undefined") return "";
-  const fromQuery = new URLSearchParams(window.location.search).get("service");
-  if (fromQuery && (SERVICE_NEEDED as readonly string[]).includes(fromQuery)) {
-    return fromQuery;
-  }
-  return "";
-}
-
 export function SnowQuoteFormBand({ backdropSrc }: { backdropSrc: string }) {
   const baseId = useId();
+  const searchParams = useSearchParams();
   const [values, setValues] = useState<FormState>(INITIAL);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [serverError, setServerError] = useState("");
 
+  // Sync when CTAs navigate with ?service=… (same-page client nav must update).
   useEffect(() => {
-    const prefill = readServicePrefill();
-    if (prefill) {
-      setValues((prev) => ({ ...prev, serviceNeeded: prefill }));
+    const fromQuery = searchParams.get("service");
+    if (fromQuery && (SERVICE_NEEDED as readonly string[]).includes(fromQuery)) {
+      setValues((prev) =>
+        prev.serviceNeeded === fromQuery ? prev : { ...prev, serviceNeeded: fromQuery },
+      );
     }
-  }, []);
+  }, [searchParams]);
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
