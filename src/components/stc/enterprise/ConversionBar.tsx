@@ -23,7 +23,7 @@ export function ConversionBar() {
           >
             Call Us
           </a>
-          <a className="btn-green stc-conversion-bar__email" href={CONTACT_FORM_HREF}>
+          <a className="btn-ghost stc-conversion-bar__email" href={CONTACT_FORM_HREF}>
             {conversion.homeCta.button}
           </a>
         </div>

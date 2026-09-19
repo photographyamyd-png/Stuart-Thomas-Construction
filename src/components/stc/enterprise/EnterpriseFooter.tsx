@@ -63,7 +63,7 @@ export function EnterpriseFooter() {
           <a href={`tel:${site.phoneTel}`} className="btn-accent btn-accent--lg">
             Call Us
           </a>
-          <Link href={CONTACT_FORM_HREF} className="btn-green">
+          <Link href={CONTACT_FORM_HREF} className="btn-ghost">
             Request a Site Consultation
           </Link>
         </div>

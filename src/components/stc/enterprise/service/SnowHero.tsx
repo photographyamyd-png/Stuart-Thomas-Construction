@@ -102,7 +102,7 @@ export function SnowHero({ service }: Props) {
           <CtaLink href={seasonalHref} className="btn-accent btn-accent--lg cta-inline">
             {service.heroCtaLabel ?? "Secure Your Seasonal Contract"}
           </CtaLink>
-          <a href={`tel:${site.phoneTel}`} className="btn-green btn-green--lg cta-inline">
+          <a href={`tel:${site.phoneTel}`} className="btn-ghost btn-ghost--lg cta-inline">
             Call Us
           </a>
         </div>
