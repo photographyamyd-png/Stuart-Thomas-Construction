@@ -9,7 +9,7 @@ import { media } from "@/data/media";
 import { footerColumns, navServices, cta } from "@/data/nav";
 import { site } from "@/data/site";
 import { useEnterpriseNav } from "@/hooks/use-enterprise-nav";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 import { CtaLink, LinkArrow, Wordmark } from "./primitives";
 
 const FLUSH_HERO_PREFIXES = ["/services/", "/areas/"] as const;
@@ -91,8 +91,8 @@ export function EnterpriseHeader() {
           <span>Tiny Township &amp; South Georgian Bay</span>
           <div className="turner-header__utility-links">
             <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
-            <a href={siteMailtoHref()}>Email us</a>
-            <a href={siteMailtoHref()}>Request a Site Consultation</a>
+            <a href={CONTACT_FORM_HREF}>Send a message</a>
+            <a href={CONTACT_FORM_HREF}>Request a Site Consultation</a>
           </div>
         </div>
       </div>

@@ -46,4 +46,4 @@ Styles: `src/styles/enterprise-tokens.css` (single dial — colors, fonts, spaci
 - Do not use `LayeredSection`, `PageHero`, `CtaBanner`, or `PromoCard` on marketing routes
 - Data: `src/data/services.ts`, `src/data/areas.ts`, `src/data/site.ts`, `src/data/legal.ts`
 - SEO: `src/lib/seo.ts`, `sitemap.ts`, `robots.ts`, per-page metadata + JSON-LD breadcrumbs
-- Contact form: `mailto:` until post-launch backend (see comment in `site.ts`)
+- Contact form: POST `/api/contact` via Resend (`RESEND_API_KEY`); owner email never shown in UI

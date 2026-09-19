@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { rediRockRelatedServices } from "@/data/redi-rock";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { contactFormHref } from "@/lib/contact-paths";
 import { CtaLink } from "../primitives";
 
 export function RediRockRelatedBand() {
@@ -30,7 +30,7 @@ export function RediRockRelatedBand() {
         </div>
         <div className="stc-rr-related__cta stack-section">
           <CtaLink
-            href={siteMailtoHref("Redi-Rock install quote request")}
+            href={contactFormHref({ project: "Redi-Rock installation" })}
             className="btn-green cta-inline"
           >
             Request an Install Quote

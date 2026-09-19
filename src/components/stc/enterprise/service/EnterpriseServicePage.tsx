@@ -16,7 +16,7 @@ import { getAdjacentServices } from "@/data/services";
 import { site } from "@/data/site";
 import { AppealReveal } from "../blocks/AppealReveal";
 import { CtaLink, LinkArrow } from "../primitives";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { contactFormHref } from "@/lib/contact-paths";
 import { ServiceCapabilitiesBand } from "./ServiceCapabilitiesBand";
 import { ServiceFaq } from "./ServiceFaq";
 import { ServicePager } from "./ServicePager";
@@ -66,7 +66,10 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
   const scrollTarget = workShowcase ? "#work" : "#process";
   const scrollLabel = workShowcase ? "Finished work on site" : "What happens on site";
   const heroCtaLabel = service.heroCtaLabel ?? "Get a Quote";
-  const heroMailto = siteMailtoHref();
+  const heroQuoteHref =
+    service.slug === "commercial-snow-removal"
+      ? "#quote-form"
+      : contactFormHref({ project: service.title });
   const closing = service.closingCta;
 
   return (
@@ -110,7 +113,7 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
             {service.shortDescription}
           </p>
           <div className="stc-svc-page__hero-actions stc-svc-page__hero-enter stc-svc-page__hero-enter--5">
-            <CtaLink href={heroMailto} className="btn-accent btn-accent--lg cta-inline">
+            <CtaLink href={heroQuoteHref} className="btn-accent btn-accent--lg cta-inline">
               {heroCtaLabel}
             </CtaLink>
             {service.heroSecondaryTel ? (
@@ -203,7 +206,7 @@ export function EnterpriseServicePage({ service, rediRockInstallPhoto }: Props) 
             </h2>
             <p className="wf-type-supporting">{closing?.subline ?? conversion.serviceCta.subline}</p>
             <div className="stc-svc-page__cta-actions stack-cta">
-              <CtaLink href={heroMailto} className="btn-green cta-self-start">
+              <CtaLink href={heroQuoteHref} className="btn-green cta-self-start">
                 {closing?.button ?? conversion.serviceCta.button}
               </CtaLink>
             </div>

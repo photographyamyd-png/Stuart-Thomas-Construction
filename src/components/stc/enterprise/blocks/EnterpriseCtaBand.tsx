@@ -1,5 +1,5 @@
 import { conversion } from "@/data/conversion";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 import { CtaLink } from "../primitives";
 
 type Props = {
@@ -13,7 +13,7 @@ export function EnterpriseCtaBand({
   headline = conversion.serviceCta.headline,
   subline = conversion.serviceCta.subline,
   buttonLabel = conversion.serviceCta.button,
-  buttonHref = siteMailtoHref(),
+  buttonHref = CONTACT_FORM_HREF,
 }: Props) {
   return (
     <section className="stc-enterprise-cta turner-band turner-band--green turner-band--seam" aria-label="Contact call to action">

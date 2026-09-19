@@ -1,21 +1,22 @@
+import Link from "next/link";
 import { site } from "@/data/site";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 
-/** Phone + email (address not displayed) — call or mailto for a free site visit */
+/** Phone + link to contact form — free site visit */
 export function EnterpriseContactForm() {
   return (
-    <div className="turner-contact__form" aria-label="Contact — call or email for a free site visit">
+    <div className="turner-contact__form" aria-label="Contact — call or request a free site visit">
       <p className="wf-type-supporting">
-        Call or email about your Tiny Township or Wasaga Beach property. Free site visit. Itemized
-        quote.
+        Call or send a message about your Tiny Township or Wasaga Beach property. Free site visit.
+        Itemized quote.
       </p>
       <div className="stc-contact-actions">
         <a href={`tel:${site.phoneTel}`} className="btn-green stack-cta">
           Call {site.phoneDisplay}
         </a>
-        <a href={siteMailtoHref()} className="btn-green stack-cta">
-          Email us
-        </a>
+        <Link href={CONTACT_FORM_HREF} className="btn-green stack-cta">
+          Request a Site Consultation
+        </Link>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { conversion } from "@/data/conversion";
 import { site } from "@/data/site";
-import { siteMailtoHref } from "@/lib/site-mailto";
+import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 import { PhoneIcon } from "./primitives";
 
 export function ConversionBar() {
@@ -12,7 +12,7 @@ export function ConversionBar() {
       <div className="stc-conversion-bar__inner container">
         <p className="stc-conversion-bar__message wf-type-supporting">
           {conversion.homeCta.headline}{" "}
-          <a href={siteMailtoHref()} className="stc-conversion-bar__contact">
+          <a href={CONTACT_FORM_HREF} className="stc-conversion-bar__contact">
             {conversion.homeCta.contactLink}
           </a>
         </p>
@@ -20,8 +20,8 @@ export function ConversionBar() {
           <a className="stc-conversion-bar__phone" href={`tel:${site.phoneTel}`}>
             <PhoneIcon /> {site.phoneDisplay}
           </a>
-          <a className="stc-conversion-bar__email" href={siteMailtoHref()}>
-            Email us
+          <a className="stc-conversion-bar__email" href={CONTACT_FORM_HREF}>
+            Request a consultation
           </a>
         </div>
       </div>

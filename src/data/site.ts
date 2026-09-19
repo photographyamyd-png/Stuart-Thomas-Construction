@@ -7,7 +7,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.stuartthomasconstruction.ca",
   phoneDisplay: "(705) 727-7308",
   phoneTel: "+17057277308",
-  /** Used only in mailto href — do not render as visible text */
+  /** Owner inbox for server-sent form mail — never render as visible UI text */
   email: "stutomfarm08@gmail.com",
   address: {
     street: "",
