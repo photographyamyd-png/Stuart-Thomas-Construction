@@ -1,3 +1,6 @@
+import { site } from "@/data/site";
+import { CtaLink } from "../primitives";
+
 type Step = {
   title: string;
   description: string;
@@ -5,12 +8,17 @@ type Step = {
 
 type Props = {
   steps: Step[];
+  /** Optional post-process phone CTA (e.g. commercial snow site walk) */
+  afterCta?: {
+    label: string;
+    href: string;
+  };
 };
 
 /**
  * Craft timeline — same visual language as homepage ProcessSteps.
  */
-export function ServiceProcessBand({ steps }: Props) {
+export function ServiceProcessBand({ steps, afterCta }: Props) {
   return (
     <section
       className="stc-process stc-svc-process turner-band turner-band--light turner-band--seam"
@@ -40,6 +48,20 @@ export function ServiceProcessBand({ steps }: Props) {
             );
           })}
         </ol>
+
+        {afterCta ? (
+          <div className="stc-process__after-cta stack-cta">
+            <CtaLink href={afterCta.href} className="btn-green cta-inline">
+              {afterCta.label}
+            </CtaLink>
+            <p className="wf-type-supporting stc-process__after-note">
+              Or call{" "}
+              <a href={`tel:${site.phoneTel}`} className="stc-process__phone">
+                {site.phoneDisplay}
+              </a>
+            </p>
+          </div>
+        ) : null}
       </div>
     </section>
   );

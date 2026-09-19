@@ -6198,6 +6198,106 @@ button:focus-visible {
   box-shadow: var(--ent-shadow-medium);
 }
 
+/* —— Contact page action panel (spacious dual CTAs) —— */
+.stc-contact-actions-panel {
+  padding-block: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+.stc-contact-actions-panel__inner {
+  max-width: 56rem;
+  margin-inline: auto;
+}
+
+.stc-contact-actions-panel__head {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.stc-contact-actions-panel__head .eyebrow {
+  justify-content: center;
+}
+
+.stc-contact-actions-panel__head .text-display {
+  margin-inline: auto;
+  max-width: 16ch;
+}
+
+.stc-contact-actions-panel__lead {
+  margin-top: 1rem;
+  margin-inline: auto;
+  max-width: 36rem;
+}
+
+.stc-contact-actions-panel__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+@media (min-width: 800px) {
+  .stc-contact-actions-panel__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stc-contact-actions-panel__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+  background: var(--stc-white);
+  border: 1px solid color-mix(in srgb, var(--stc-green) 12%, transparent);
+  border-top: 3px solid var(--stc-gold);
+}
+
+.stc-contact-actions-panel__label {
+  margin: 0;
+  font-family: var(--ent-font-utility);
+  font-size: 0.6875rem;
+  font-weight: var(--ent-weight-ui-strong);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--stc-gold) 85%, var(--ent-text-muted));
+}
+
+.stc-contact-actions-panel__title {
+  margin: 0;
+  font-family: var(--ent-font-display);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: var(--ent-weight-display);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--ent-role-headline-on-light, var(--stc-black));
+}
+
+.stc-contact-actions-panel__help {
+  margin: 0;
+  max-width: 28rem;
+  flex: 1;
+}
+
+.stc-contact-actions-panel__btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0.75rem;
+  min-height: 3.25rem;
+}
+
+.stc-contact-actions-panel__secondary {
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  text-align: center;
+}
+
+.stc-contact-actions-panel__secondary .link-arrow {
+  justify-content: center;
+}
+
 @media (max-width: 767px) {
   .stc-hero-bottom-bar {
     margin-top: 0;
@@ -7398,5 +7498,231 @@ button:focus-visible {
 
 .stc-faq.turner-band--light .stc-faq__answer .wf-type-supporting {
   color: var(--ent-role-body-on-light);
+}
+
+/* —— Commercial snow quote form —— */
+.stc-snow-quote__inner {
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.stc-snow-quote__head {
+  text-align: center;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.stc-snow-quote__head .eyebrow {
+  justify-content: center;
+}
+
+.stc-snow-quote__head .prose-narrow {
+  margin-inline: auto;
+}
+
+.stc-snow-quote-form {
+  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+  background: var(--stc-white);
+  border: 1px solid color-mix(in srgb, var(--stc-green) 12%, transparent);
+  border-top: 3px solid var(--stc-gold);
+}
+
+.stc-snow-quote-form__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .stc-snow-quote-form__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stc-snow-quote-form__field--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.stc-snow-quote-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.stc-snow-quote-form__field label,
+.stc-snow-quote-form__legend {
+  font-family: var(--ent-font-utility);
+  font-size: 0.6875rem;
+  font-weight: var(--ent-weight-ui-strong);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ent-role-headline-on-light, var(--stc-black));
+}
+
+.stc-snow-quote-form__legend {
+  padding: 0;
+  margin-bottom: 0.65rem;
+}
+
+.stc-snow-quote-form__control {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--stc-green) 22%, transparent);
+  border-radius: 0.125rem;
+  background: var(--stc-white);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--stc-black);
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.stc-snow-quote-form__control:focus {
+  outline: none;
+  border-color: var(--stc-green);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--stc-green) 18%, transparent);
+}
+
+.stc-snow-quote-form__control.is-invalid {
+  border-color: #b42318;
+}
+
+.stc-snow-quote-form__control.is-invalid:focus {
+  box-shadow: 0 0 0 2px color-mix(in srgb, #b42318 20%, transparent);
+}
+
+.stc-snow-quote-form textarea.stc-snow-quote-form__control {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.stc-snow-quote-form__services {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.stc-snow-quote-form__checks {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem 1rem;
+}
+
+@media (min-width: 480px) {
+  .stc-snow-quote-form__checks {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stc-snow-quote-form__check {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ent-role-body-on-light, var(--stc-black));
+  cursor: pointer;
+}
+
+.stc-snow-quote-form__check input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--stc-green);
+  flex-shrink: 0;
+}
+
+.stc-snow-quote-form__error {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #b42318;
+}
+
+.stc-snow-quote-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+}
+
+.stc-snow-quote-form__status {
+  margin: 1.25rem 0 0;
+  text-align: center;
+  font-size: 0.9375rem;
+}
+
+.stc-snow-quote-form__status--success {
+  color: var(--stc-green);
+}
+
+.stc-snow-quote-form__status--error {
+  color: #b42318;
+}
+
+.stc-svc-page__cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.25rem;
+  margin-top: 0.25rem;
+}
+
+/* —— Service process after-CTA —— */
+.stc-process__after-cta {
+  margin-top: var(--ent-space-lg);
+  padding-top: var(--ent-space-md);
+  border-top: 1px solid color-mix(in srgb, var(--ent-ink) 12%, transparent);
+}
+
+.stc-process__after-note {
+  margin-top: 0.75rem;
+  max-width: 36ch;
+}
+
+.stc-process__phone {
+  color: var(--ent-role-link);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* —— Service proof quote strip —— */
+.stc-svc-proof__inner {
+  max-width: 42rem;
+  padding-block: var(--ent-space-xl);
+}
+
+.stc-svc-proof__quote {
+  margin: var(--ent-space-md) 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.stc-svc-proof__quote > p {
+  font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+  line-height: 1.45;
+  color: var(--ent-ink-on-dark, #f4f1ea);
+}
+
+.stc-svc-proof__attr {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  margin-top: 1.25rem;
+  font-style: normal;
+}
+
+.stc-svc-proof__name {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--ent-gold, #c4a35a);
+}
+
+.stc-svc-proof__context {
+  color: color-mix(in srgb, var(--ent-ink-on-dark, #f4f1ea) 72%, transparent);
 }
 

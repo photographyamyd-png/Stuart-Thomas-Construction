@@ -37,6 +37,23 @@ export type ServiceDetail = {
   benefits: string[];
   relatedSlugs: ServiceSlug[];
   faqs: { q: string; a: string }[];
+  /** Optional statement-band labels (defaults: hardscape “gets built” framing) */
+  statementEyebrow?: string;
+  statementHeadline?: { before: string; accent: string };
+  /** Hero primary CTA label */
+  heroCtaLabel?: string;
+  /** Statement-band CTA label */
+  statementCtaLabel?: string;
+  /** Prefer tel: as hero secondary instead of in-page scroll */
+  heroSecondaryTel?: boolean;
+  /** Closing green band overrides */
+  closingCta?: {
+    eyebrow: string;
+    headlineBefore: string;
+    headlineAccent: string;
+    subline: string;
+    button: string;
+  };
 };
 
 export const services: ServiceDetail[] = [
@@ -256,38 +273,100 @@ export const services: ServiceDetail[] = [
     iconRowLabelLines: ["SNOW REMOVAL"],
     iconStripAccent: "var(--ent-icon-strip-snow)",
     shortDescription:
-      "Reliable commercial snow clearing across Tiny Township and South Georgian Bay.",
-    metaTitle: "Commercial Snow Removal | Tiny Township & Wasaga Beach",
+      "Reliable, contract-based snow clearing for parking lots, plazas, and multi-unit properties across Tiny Township and South Georgian Bay.",
+    metaTitle: "Commercial Snow Removal | Tiny Township & South Georgian Bay",
     metaDescription:
-      "Commercial snow removal in Tiny Township and South Georgian Bay.",
+      "Contract commercial snow removal for plazas, offices, and multi-residential sites in Tiny Township, Wasaga Beach, and Collingwood — plowing, salting, walks, and storm response.",
     icon: Snowflake,
-    heroAlt:
-      "Stuart Thomas Construction commercial snow removal loader clearing snow in Midland, Ontario",
+    heroAlt: "Snow plow clearing a roadway during a winter storm — illustrative stock imagery",
+    statementEyebrow: "Winter Contracts",
+    statementHeadline: { before: "How winter service", accent: "works" },
+    heroCtaLabel: "Request a Winter Contract",
+    statementCtaLabel: "Get a Custom Quote",
+    heroSecondaryTel: true,
+    closingCta: {
+      eyebrow: "Winter Contracts",
+      headlineBefore: "Winter contracts fill early —",
+      headlineAccent: "call now",
+      subline:
+        "Secure your commercial snow route before fall schedules lock. Call with your address, lot size, and priority areas.",
+      button: "Request a Site Walk",
+    },
     overview: [
-      "Winter service is a contract with clear expectations — trigger depths, response times, and a crew you can reach by phone.",
-      "From retail frontages to multi-unit sites, we clear safely and keep access open.",
+      "We provide commercial-grade snow removal across Tiny Township, Wasaga Beach, Collingwood, and surrounding South Georgian Bay corridors — not residential driveway-only service.",
+      "Contracts cover plowing, salting and sanding, walkway and entrance clearing, and storm-priority response for business parks, plazas, offices, multi-residential buildings, and municipal sites.",
+      "Property types we serve: retail plazas, office buildings, multi-unit residential, and municipal lots and corridors.",
     ],
     subServices: [
-      { title: "Seasonal contracts", description: "Defined service levels, trigger depths, and priority response." },
-      { title: "Salting & de-icing", description: "Application suited to surface type and traffic." },
-      { title: "Loader & blower service", description: "Heavy accumulation management and pile relocation." },
+      {
+        title: "Parking lot plowing",
+        description: "Lot clearing and windrowing sized for commercial traffic, loading zones, and fire lanes.",
+      },
+      {
+        title: "Walkways & entrances",
+        description: "Sidewalk, entrance, and frontage clearing so staff and customers can move safely.",
+      },
+      {
+        title: "Salting & traction",
+        description: "De-icing and sanding suited to surface type and traffic — applied after plow passes.",
+      },
+      {
+        title: "Storm priority response",
+        description: "Contract clients get priority dispatch during winter storms, with phone accountability.",
+      },
     ],
     process: [
-      { title: "Site audit", description: "Map lots, walks, loading zones, and hazard areas." },
-      { title: "Contract & triggers", description: "Clear expectations for depth, timing, and communication." },
-      { title: "Storm response", description: "Crew dispatch, clearing sequence, and documentation." },
-      { title: "Post-storm review", description: "Touch-up passes and client confirmation." },
+      {
+        title: "Site walk",
+        description: "Review access, drainage, staging, walks, loading zones, and hazard areas before winter.",
+      },
+      {
+        title: "Contract & SLA",
+        description: "Agree on snowfall triggers, response windows, pricing model, and how we stay in touch.",
+      },
+      {
+        title: "Winter execution",
+        description: "Night and early-morning clearing through the season, with storm-priority for contracted sites.",
+      },
+      {
+        title: "Post-season review",
+        description: "Performance summary and renewal conversation before the next winter.",
+      },
     ],
     benefits: [
-      "Night and early-morning clearing",
-      "Commercial-grade equipment on every route",
-      "Local coverage across South Georgian Bay",
-      "Accountability you can reach by phone",
+      "15+ seasons operating on Georgian Bay shorelines",
+      "Night and early-morning clearing on commercial routes",
+      "Contract-based expectations — triggers, timing, and phone reach",
+      "Licensed, insured, and WSIB-covered crews",
+      "Commercial-grade equipment for lots and heavy accumulation",
+      "Local coverage across Tiny Township and South Georgian Bay",
     ],
-    relatedSlugs: ["excavation"],
+    relatedSlugs: ["excavation", "hardscaping", "landscaping"],
     faqs: [
-      { q: "What areas do you service in winter?", a: "Tiny Township, Wasaga Beach, Collingwood, Perkinsfield, and surrounding commercial corridors." },
-      { q: "When do contracts typically start?", a: "We finalize routes in fall — contact us early to secure a spot on the schedule." },
+      {
+        q: "Is this for residential driveways?",
+        a: "No — this page is for commercial, multi-residential, and municipal clients: plazas, offices, multi-unit sites, and similar lots. Ask us if you need a different scope.",
+      },
+      {
+        q: "How does pricing work?",
+        a: "Most clients choose a seasonal contract or per-visit pricing based on lot size, access, and services included. We quote after a site walk — not a generic online rate card.",
+      },
+      {
+        q: "What is a snowfall trigger?",
+        a: "Your contract defines when we roll — typically a snowfall depth that starts service. Exact triggers and response windows are set with you before winter, not assumed.",
+      },
+      {
+        q: "What areas do you service in winter?",
+        a: "Tiny Township, Wasaga Beach, Collingwood, Perkinsfield, and surrounding commercial corridors across South Georgian Bay.",
+      },
+      {
+        q: "What happens in an emergency or overnight storm?",
+        a: "Contract clients get priority on the route. Call us — you reach the same local crew, including night and early-morning clearing when storms hit.",
+      },
+      {
+        q: "When do contracts typically start?",
+        a: "We finalize routes in fall. Contact us early to secure a spot on the schedule before winter contracts fill.",
+      },
     ],
   },
 ];

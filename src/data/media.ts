@@ -24,10 +24,14 @@ const img = {
   rediRockLogo: "/images/partners/redi-rock-logo.png",
   sarjeantCoLogo: "/images/partners/sarjeant-co-logo.png",
   rediRockReferenceHero: "/images/redi-rock/reference/hero-waterfront-reference.jpg",
-  snowRemovalLoaderHero: "/images/snow-removal/hero-storm-plow.png",
-  snowRemovalIndustrialLot: "/images/snow-removal/commercial-lot-loader.png",
-  snowRemovalPlowFleet: "/images/snow-removal/rural-road-clearing.png",
-  snowRemovalNightPlow: "/images/snow-removal/hero-storm-plow.png",
+  /** Royalty-free Unsplash stock — see public/images/snow-removal/ATTRIBUTION.md */
+  snowRemovalLoaderHero: "/images/snow-removal/stock-hero-plow-lot.jpg",
+  snowRemovalIndustrialLot: "/images/snow-removal/stock-snow-plow-truck.jpg",
+  snowRemovalPlowFleet: "/images/snow-removal/stock-heavy-equipment.jpg",
+  snowRemovalNightPlow: "/images/snow-removal/stock-night-storm.jpg",
+  snowRemovalWalkway: "/images/snow-removal/stock-walkway-snow.jpg",
+  snowRemovalClearedLot: "/images/snow-removal/stock-cleared-commercial.jpg",
+  snowRemovalCta: "/images/snow-removal/stock-snow-plow-truck.jpg",
   /** Retouched 2026 archive — web-optimized in public/images/retouched/ */
   rtLandscapingBackyard: "/images/retouched/stc-tiny-township-landscaping.jpg",
   rtLandscapingFlagstoneYard: "/images/retouched/stc-040.jpg",
@@ -56,6 +60,10 @@ export const media = {
   hardscapingHeroVideo: "/video/landscaping-hero.mp4",
   integritySection: img.rtExcavationHitachiFleet,
   ctaBanner: img.rtLandscapingBackyard,
+  /** Per-service closing CTA media (falls back to ctaBanner) */
+  serviceCtaBanners: {
+    "commercial-snow-removal": img.snowRemovalCta,
+  } as Partial<Record<ServiceSlug, string>>,
   homeShowcasePanorama: img.rtLandscapingGardenPath,
   aboutHero: img.rtExcavationDualMachines,
   projectsHero: img.rtExcavationHitachiWoods,
@@ -96,10 +104,11 @@ export const media = {
     ],
     "commercial-snow-removal": [
       img.snowRemovalIndustrialLot,
-      img.snowRemovalPlowFleet,
+      img.snowRemovalWalkway,
       img.snowRemovalNightPlow,
+      img.snowRemovalPlowFleet,
     ],
-  } satisfies Record<ServiceSlug, readonly [string, string, string]>,
+  } as Record<ServiceSlug, readonly string[]>,
   featuredGalleryPaths: [
     img.rtExcavationHitachiFleet,
     img.rtLandscapingBackyard,
@@ -156,8 +165,32 @@ export const serviceWorkShowcase: Partial<Record<ServiceSlug, ServiceWorkShowcas
       },
     ],
   },
+  "commercial-snow-removal": {
+    eyebrow: "Winter Service",
+    headline: "Commercial Lots Cleared For Opening",
+    statement:
+      "Illustrative winter service imagery — contract plowing, lot clearing, and storm response for plazas, offices, and multi-unit sites across South Georgian Bay.",
+    leadImage: img.snowRemovalClearedLot,
+    leadAlt: "Snow-covered commercial street and building frontage after a winter storm",
+    supporting: [
+      {
+        src: img.snowRemovalPlowFleet,
+        alt: "Heavy equipment staged for winter snow clearing operations",
+        caption: "Commercial equipment",
+      },
+      {
+        src: img.snowRemovalWalkway,
+        alt: "Snow-covered walkway and entrance path needing clearing",
+        caption: "Walks & entrances",
+      },
+    ],
+  },
 };
 
 export function getServiceWorkShowcase(slug: ServiceSlug): ServiceWorkShowcase | null {
   return serviceWorkShowcase[slug] ?? null;
+}
+
+export function getServiceCtaBanner(slug: ServiceSlug): string {
+  return media.serviceCtaBanners[slug] ?? media.ctaBanner;
 }
