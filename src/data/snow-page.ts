@@ -1,136 +1,164 @@
-/** Commercial snow page content — exclusive to /services/commercial-snow-removal */
+/** Condensed commercial snow landing — /services/commercial-snow-removal */
 
-export const snowTrustItems = [
-  "Commercial liability insured",
-  "Rapid storm response",
-  "Heavy equipment on every job",
-  "Tiny Township based since 2004",
-] as const;
+import { site } from "@/data/site";
 
-export const snowWhy = {
-  headline: "When the snow falls, your business shouldn't stop",
-  /** Primary supporting line — keep short for section density */
-  paragraphs: [
-    "Georgian Bay weather moves fast. We plow and treat commercial and industrial properties so your doors open on time, your people get in safely, and your operation keeps moving.",
-  ],
+export const snowLanding = {
+  nav: {
+    links: [
+      { label: "Services", href: "#services" },
+      { label: "Service Areas", href: "#coverage" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "#close" },
+    ] as const,
+    cta: "Get a Commercial Quote",
+  },
+
+  hero: {
+    eyebrow: "Commercial & Industrial Snow Removal",
+    headlineLine1: "Commercial snow removal",
+    headlineLine2: "when your site",
+    headlineLine3: "cannot wait",
+    supporting:
+      "Factories, warehouses, offices, and retail lots across Midland & North Simcoe — 24/7 commercial storm response for industrial yards, docks, and parking.",
+    primaryCta: "Request a Commercial Quote",
+    secondaryCta: "Call Storm Desk",
+    imageAlt:
+      "Loader clearing snow on a commercial parking lot — North Simcoe industrial winter service",
+    statValue: "24/7",
+    statLabel: "Commercial Storm Response",
+  },
+
+  trust: {
+    eyebrow: "Commercial credentials",
+    items: [
+      "Commercial liability insured",
+      "Industrial & commercial sites",
+      "Storm activation for businesses",
+      "GPS-documented commercial service",
+    ] as const,
+  },
+
+  services: {
+    eyebrow: "Commercial winter scope",
+    headline: "Commercial & industrial snow services",
+    supporting:
+      "Four essentials that keep commercial lots, truck courts, and industrial docks open all winter.",
+    cards: [
+      {
+        title: "Commercial Lot Plowing",
+        body: "Business parking lots, industrial yards, and drive lanes cleared after every storm.",
+      },
+      {
+        title: "Commercial Salting & De-Icing",
+        body: "Ice control on commercial lots, loading areas, and high-traffic industrial routes.",
+      },
+      {
+        title: "Sidewalks & Building Entrances",
+        body: "Commercial walkways and employee entrances kept open for staff, customers, and freight.",
+      },
+      {
+        title: "Industrial Snow Hauling",
+        body: "Pile push-back and haul-out when commercial lots and truck courts run out of room.",
+      },
+    ],
+  },
+
+  proof: {
+    eyebrow: "For commercial operators",
+    headline: "Built for commercial & industrial property managers",
+    points: [
+      {
+        title: "Commercial storm activation",
+        body: "Crews are scheduled before conditions disrupt factory shifts, shipping, or retail hours.",
+      },
+      {
+        title: "Documented commercial service",
+        body: "Photos, timestamps, and completion records for each commercial site visit.",
+      },
+      {
+        title: "One accountable commercial partner",
+        body: "A dedicated contact manages your industrial or commercial property all season.",
+      },
+    ],
+    testimonial: {
+      quote:
+        "Every commercial storm was handled before our tenants arrived. The service reports made everything easy to track.",
+      name: "Commercial Property Manager",
+      role: "Regional Retail Center",
+    },
+  },
+
+  coverage: {
+    eyebrow: "Commercial quote request",
+    headline: "Request a commercial snow quote",
+    supporting:
+      "Tell us about your commercial or industrial property — we’ll confirm North Simcoe coverage and follow up.",
+    addressLabel: "Commercial property address",
+    addressPlaceholder: "Street address, industrial or commercial site",
+    submitLabel: "Get a Commercial Quote",
+    panelEyebrow: "Commercial storm desk",
+    panelHeadline: "Industrial sites. Commercial lots. Covered.",
+    panelSupporting:
+      "Call our commercial storm-response team if you need coverage confirmed for a factory, warehouse, or business plaza.",
+    unsureLink: "Not sure if we serve your commercial property? Call the storm desk.",
+    phoneLabel: "24/7 Commercial Storm Response",
+    towns: [
+      "Midland",
+      "Penetanguishene",
+      "Tay Township",
+      "Tiny Township",
+      "Wasaga Beach",
+    ] as const,
+    mapLabel: "Commercial service territory — North Simcoe",
+    propertyTypes: [
+      "Factory / Industrial",
+      "Warehouse / Logistics",
+      "Commercial Building / Office",
+      "Retail / Plaza",
+      "Other commercial",
+    ] as const,
+  },
+
+  faqs: [
+    {
+      q: "Do you offer seasonal commercial contracts?",
+      a: "Yes. Seasonal commercial contracts give your industrial or business property priority service and reliable coverage all winter.",
+    },
+    {
+      q: "What properties do you service?",
+      a: "Commercial and industrial only — factories, warehouses, offices, retail plazas, and business lots. We do not service residential driveways.",
+    },
+    {
+      q: "How quickly can commercial crews respond?",
+      a: "We prioritize contracted commercial sites as storms develop. Ask about response windows for your industrial or retail property when you request a quote.",
+    },
+    {
+      q: "Are salt and de-icing materials included?",
+      a: "Ice control for commercial lots can be included in a seasonal plan or quoted per visit — we tailor materials to your industrial or commercial site.",
+    },
+  ] as const,
+
+  close: {
+    eyebrow: "Commercial winter readiness",
+    headline: "Be ready before the next commercial storm",
+    supporting:
+      "Request a custom commercial and industrial snow and ice management plan for your property.",
+    primaryCta: "Get a Commercial Quote",
+    phoneLabel: "24/7 Commercial Storm Response",
+  },
+
+  footer: {
+    areasHref: "#coverage",
+    areasLabel: "Commercial service areas",
+    privacyHref: "/privacy",
+    termsHref: "/terms",
+    copyright: `© ${new Date().getFullYear()} ${site.name}`,
+  },
 } as const;
 
-export const snowAudience = [
-  {
-    title: "Factories & industrial facilities",
-    body: "Keep yards and access routes clear so shifts start on time.",
-  },
-  {
-    title: "Warehouses & distribution",
-    body: "Open truck routes and loading areas for shipping and receiving.",
-  },
-  {
-    title: "Commercial & office buildings",
-    body: "Safe lots and entrances for staff and visitors.",
-  },
-  {
-    title: "Retail plazas & commercial lots",
-    body: "Clear parking and walkways that keep customers coming.",
-  },
-] as const;
-
-export const snowHaulOut = {
-  eyebrow: "Snow Haul-Outs",
-  headline: "When the snow gets too deep, we move it off-site",
-  paragraphs: [
-    "When banks eat into parking and loading space, we bring heavy equipment for a one-time haul-out so your lot gets its space back.",
-  ],
-  checklist: [
-    "One-time service, whenever you need it",
-    "Heavy equipment for large volumes",
-    "Parking, loading areas and access restored",
-  ],
-  ctaLabel: "Request a Haul-Out",
-  underCta: "Haul-outs are available when your snow banks get out of control.",
-  imageAlt:
-    "Excavator clearing deep snow banks on a commercial lot in Midland — illustrative stock",
-} as const;
-
-export const snowContracts = {
-  headline: "Lock in your winter before the first snowfall",
-  body: "A seasonal contract puts your property first in line — consistent coverage all winter and a clearer picture of your costs.",
-  bullets: [
-    "Priority service throughout the season",
-    "Consistent coverage from first snowfall to last",
-    "Plowing, salting and sanding around your property",
-    "One less thing to worry about all winter",
-  ],
-  ctaLabel: "Secure Your Seasonal Contract",
-} as const;
-
-export const snowSafety = {
-  headline: "Keep your people safe. Keep your doors open.",
-  paragraphs: [
-    "We're commercial liability insured and treat every lot for safe access — from the first plow pass to the final salting.",
-  ],
-  points: [
-    { label: "Insured", body: "Commercial liability coverage" },
-    { label: "Prepared", body: "Local crews and heavy equipment ready for the season" },
-    { label: "Focused", body: "Safe access for staff, customers and deliveries" },
-  ],
-  imageAlt:
-    "Night plow clearing a commercial corridor in North Simcoe — illustrative stock",
-} as const;
-
-export const snowServiceAreas = [
-  {
-    title: "Midland",
-    body: "Commercial and industrial properties in and around Midland.",
-  },
-  {
-    title: "Penetanguishene",
-    body: "Business and industrial sites across Penetanguishene.",
-  },
-  {
-    title: "Tay Township",
-    body: "Commercial properties throughout Tay Township.",
-  },
-  {
-    title: "Tiny Township",
-    body: "Our home base, serving commercial and industrial sites across Tiny.",
-  },
-  {
-    title: "Wasaga Beach",
-    body: "Commercial properties in Wasaga Beach and the surrounding area.",
-  },
-] as const;
-
-export const snowFinalCta = {
-  headline: "Don't get locked out of your business this winter",
-  subline: "Tell us about your property — or tap Call Us below.",
-  button: "Request a Quote",
-  imageAlt:
-    "Loader clearing a rural commercial access road after snowfall — illustrative stock",
-} as const;
-
-/** FAQ topic tabs for the compact snow FAQ band (2–3 items each) */
-export const snowFaqTopics = [
-  { id: "pricing", label: "Pricing", indices: [0, 1, 2] },
-  { id: "service", label: "Service", indices: [3, 4, 5] },
-  { id: "coverage", label: "Coverage", indices: [6, 7, 8] },
-  { id: "start", label: "Get started", indices: [9, 10] },
-] as const;
-
-export const snowProcessHeading = {
-  eyebrow: "How It Works",
-  headlineBefore: "From first call to",
-  headlineAccent: "first storm",
-} as const;
-
-export const snowServicesHeading = {
-  eyebrow: "Services",
-  headlineBefore: "Commercial snow &",
-  headlineAccent: "ice management",
-} as const;
-
-/** Prefill values for #quote-form?service= */
+/** Prefill values for quote deep-links from other pages / CTAs. */
 export const snowServicePrefill = {
   seasonal: "Seasonal contract",
+  assessment: "Site assessment",
   haulOut: "Snow haul-out",
-  assessment: "Seasonal contract",
 } as const;

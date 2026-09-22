@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "preview:3012": "next dev -p 3012",
+    "preview:3013": "next dev -p 3013",
+    "preview:3015": "next dev -p 3015",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

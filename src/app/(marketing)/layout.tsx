@@ -2,6 +2,7 @@ import { ConversionBar } from "@/components/stc/enterprise/ConversionBar";
 import { EnterpriseFooter } from "@/components/stc/enterprise/EnterpriseFooter";
 import { EnterpriseHeader } from "@/components/stc/enterprise/EnterpriseHeader";
 import { HashScrollFix } from "@/components/stc/enterprise/HashScrollFix";
+import { MarketingShell } from "@/components/stc/enterprise/MarketingShell";
 import { Suspense } from "react";
 
 export default function MarketingLayout({
@@ -14,10 +15,18 @@ export default function MarketingLayout({
       <Suspense fallback={null}>
         <HashScrollFix />
       </Suspense>
-      <EnterpriseHeader />
-      <main className="overflow-x-hidden">{children}</main>
-      <ConversionBar />
-      <EnterpriseFooter />
+      <Suspense
+        fallback={
+          <>
+            <EnterpriseHeader />
+            <main className="overflow-x-hidden">{children}</main>
+            <ConversionBar />
+            <EnterpriseFooter />
+          </>
+        }
+      >
+        <MarketingShell>{children}</MarketingShell>
+      </Suspense>
     </div>
   );
 }

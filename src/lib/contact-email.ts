@@ -168,8 +168,16 @@ function logOwnerSetup(reason: string, detail?: unknown) {
     detail ?? "",
     "OWNER SETUP: Add RESEND_API_KEY in Vercel → Project → Settings → Environment Variables",
     "(Production + Preview). Create a free key at https://resend.com/api-keys",
-    `Set CONTACT_TO_EMAIL=${site.email} if needed. Redeploy after saving.`,
+    "Until a domain is verified at resend.com/domains, CONTACT_TO_EMAIL must be the",
+    "Resend account email (testing restriction on onboarding@resend.dev).",
+    `After verifying your domain, set CONTACT_FROM_EMAIL to an address on that domain and CONTACT_TO_EMAIL=${site.email}. Redeploy after saving.`,
   );
+}
+
+function isResendUnverifiedRecipientError(error: unknown): boolean {
+  if (!error || typeof error !== "object") return false;
+  const message = "message" in error && typeof error.message === "string" ? error.message : "";
+  return /only send testing emails to your own email address/i.test(message);
 }
 
 export async function sendContactEmail(data: ContactInput): Promise<{ ok: true } | { ok: false; error: string }> {
@@ -191,7 +199,14 @@ export async function sendContactEmail(data: ContactInput): Promise<{ ok: true }
       text,
     });
     if (error) {
-      logOwnerSetup("Resend API error", error);
+      if (isResendUnverifiedRecipientError(error)) {
+        logOwnerSetup(
+          `Resend rejected recipient ${to} — use the Resend account email as CONTACT_TO_EMAIL, or verify a domain`,
+          error,
+        );
+      } else {
+        logOwnerSetup("Resend API error", error);
+      }
       return { ok: false, error: VISITOR_SEND_FAILED };
     }
     return { ok: true };
