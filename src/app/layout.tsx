@@ -13,7 +13,6 @@ const poppins = Poppins({
 const openSans = Open_Sans({
   variable: "--font-open-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
 });
 
 const oswald = Oswald({
