@@ -11,6 +11,7 @@ export default function robots(): MetadataRoute.Robots {
         "/copy-baseline/",
         "/preview-3012",
         "/preview-3013",
+        "/preview-3014",
         "/preview-3015",
         "/test-snow",
         "/test-snow-2",

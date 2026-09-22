@@ -1,6 +1,7 @@
 /** Private client-preview routes — never link from nav/footer/sitemap. */
 export const PREVIEW_3013_PATH = "/preview-3013" as const;
 export const PREVIEW_3013_QUOTE_HREF = `${PREVIEW_3013_PATH}#quote-form` as const;
+export const PREVIEW_3014_PATH = "/preview-3014" as const;
 export const PREVIEW_3015_PATH = "/preview-3015" as const;
 export const PREVIEW_3015_QUOTE_HREF = `${PREVIEW_3015_PATH}#quote` as const;
 

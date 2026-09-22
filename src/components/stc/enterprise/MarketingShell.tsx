@@ -5,10 +5,11 @@ import type { ReactNode } from "react";
 import { ConversionBar } from "@/components/stc/enterprise/ConversionBar";
 import { EnterpriseFooter } from "@/components/stc/enterprise/EnterpriseFooter";
 import { EnterpriseHeader } from "@/components/stc/enterprise/EnterpriseHeader";
-import { PREVIEW_3013_PATH, PREVIEW_3015_PATH } from "@/lib/contact-paths";
+import { PREVIEW_3013_PATH, PREVIEW_3014_PATH, PREVIEW_3015_PATH } from "@/lib/contact-paths";
 
 const OWN_CHROME = new Set([
   PREVIEW_3013_PATH,
+  PREVIEW_3014_PATH,
   PREVIEW_3015_PATH,
   "/preview-3012",
   "/test-snow",
