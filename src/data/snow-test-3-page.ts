@@ -16,7 +16,7 @@ export const snowTest3 = {
     eyebrow: "Commercial & Industrial Snow",
     headline: "Reliable commercial snow removal across Midland & North Simcoe",
     supporting:
-      "Parking lots, yards, docks, and industrial sites — with 24/7 storm response when conditions hit.",
+      "Parking lots, yards, docks, and industrial sites — with 24/7 response when winter storms hit.",
     primaryCta: "Request a Quote",
     secondaryCta: "Call Now",
     imageAlt:
@@ -45,7 +45,7 @@ export const snowTest3 = {
         items: [
           "Salting & ice control",
           "Sidewalks, doors & docks",
-          "24/7 storm activation",
+          "24/7 storm response",
         ] as const,
         link: "Get a commercial quote →",
         offset: true,
@@ -56,7 +56,7 @@ export const snowTest3 = {
   howItWorks: {
     eyebrow: "Process",
     headline: "How commercial coverage works",
-    supporting: "From site walkthrough to documented storm response.",
+    supporting: "From site walkthrough to reliable storm coverage.",
     steps: [
       {
         step: "1",
@@ -66,7 +66,7 @@ export const snowTest3 = {
       {
         step: "2",
         title: "Confirm Scope",
-        desc: "We confirm triggers, pricing, and service levels for your site.",
+        desc: "We confirm pricing and service levels for your site.",
       },
       {
         step: "3",
@@ -79,9 +79,9 @@ export const snowTest3 = {
   quote: {
     eyebrow: "Get started",
     headline: "Get a commercial snow quote",
-    supporting: "We’ll confirm coverage for your property and follow up within one business day.",
+    supporting: "We'll confirm coverage for your property and follow up within one business day.",
     panelEyebrow: "Storm-ready sites",
-    panelHeadline: "Built for property managers",
+    panelHeadline: "Reliable coverage all season",
     panelBody:
       "Factories, warehouses, plazas, and industrial yards — one accountable partner for the season.",
     panelCta: "Prefer to call?",
@@ -95,17 +95,18 @@ export const snowTest3 = {
     timelines: ["This season", "After next storm", "Emergency now"] as const,
     submitLabel: "Request My Quote",
     disclaimer: "Commercial & industrial only. No spam.",
+    successMessage: "Thanks — we'll follow up within one business day.",
   },
 
   proof: {
     eyebrow: "Proof",
-    headline: "Trusted by commercial property managers",
+    headline: "Trusted by commercial properties",
     supporting:
-      "We’ve cleared commercial and industrial lots across Midland and North Simcoe with fast response and clear documentation.",
+      "We've cleared commercial and industrial lots across Midland and North Simcoe with fast, dependable response.",
     testimonials: [
       {
         quote:
-          "Every storm was handled before our tenants arrived. The service reports made everything easy to track.",
+          "Every storm was handled before our tenants arrived. Easy to work with all season.",
         attribution: "Property manager · Regional retail",
       },
       {

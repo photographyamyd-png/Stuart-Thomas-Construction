@@ -9,7 +9,7 @@ import { media } from "@/data/media";
 import { footerColumns, navServices, cta } from "@/data/nav";
 import { site } from "@/data/site";
 import { useEnterpriseNav } from "@/hooks/use-enterprise-nav";
-import { CONTACT_FORM_HREF, PREVIEW_3013_PATH } from "@/lib/contact-paths";
+import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 import { CtaLink, LinkArrow, Wordmark } from "./primitives";
 
 const FLUSH_HERO_PREFIXES = ["/services/", "/areas/"] as const;
@@ -23,6 +23,8 @@ const FLUSH_HERO_ROUTES = new Set([
   "/privacy",
   "/terms",
   "/materials/redi-rock",
+  "/preview-3012",
+  "/preview-3015",
 ]);
 
 function usesFlushHero(pathname: string) {
@@ -83,9 +85,6 @@ export function EnterpriseHeader() {
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
   }, [closeLux]);
-
-  /* Private preview owns sticky chrome. */
-  if (pathname === PREVIEW_3013_PATH) return null;
 
   return (
     <>
