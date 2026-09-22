@@ -15,6 +15,7 @@ export default function robots(): MetadataRoute.Robots {
         "/preview-3015",
         "/test-snow",
         "/test-snow-2",
+        "/test-snow-3",
       ],
     },
     sitemap: `${base}/sitemap.xml`,
