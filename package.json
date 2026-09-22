@@ -6,6 +6,7 @@
     "dev": "next dev",
     "preview:3012": "next dev -p 3012",
     "preview:3013": "next dev -p 3013",
+    "preview:3014": "next dev -p 3014",
     "preview:3015": "next dev -p 3015",
     "dev:snow-3": "next dev -p 3003",
     "build": "next build",

@@ -35,7 +35,7 @@ const processIcons: LucideIcon[] = [MapPin, ClipboardList, Snowflake, Headphones
 const serviceIcons: LucideIcon[] = [Truck, ShieldCheck, Building2];
 
 /**
- * /test-snow-2 — high-stakes mission-critical sandbox (own sticky chrome).
+ * /preview-3014 — high-stakes mission-critical sandbox (own sticky chrome).
  * Not live. Production: /services/commercial-snow-removal
  */
 export function SnowPreview3014Page({
