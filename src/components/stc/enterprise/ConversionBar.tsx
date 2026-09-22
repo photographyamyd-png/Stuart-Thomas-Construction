@@ -6,12 +6,18 @@ import { site } from "@/data/site";
 import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 
 /**
- * Sitewide pre-footer CTA. Hidden on the commercial snow page (that page
- * already ends with its own quote form).
+ * Sitewide pre-footer CTA. Hidden on private snow previews / sandboxes
+ * that already end with their own quote form.
  */
 export function ConversionBar() {
   const pathname = usePathname();
-  if (pathname?.includes("commercial-snow-removal")) {
+  if (
+    pathname === "/preview-3012" ||
+    pathname === "/preview-3013" ||
+    pathname === "/preview-3015" ||
+    pathname === "/test-snow" ||
+    pathname === "/test-snow-2"
+  ) {
     return null;
   }
 

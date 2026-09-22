@@ -1,10 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { footerColumns, cta } from "@/data/nav";
 import { site } from "@/data/site";
-import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
+import { CONTACT_FORM_HREF, PREVIEW_3013_PATH } from "@/lib/contact-paths";
 import { CtaLink } from "./primitives";
 
 export function EnterpriseFooter() {
+  const pathname = usePathname();
+  if (pathname === PREVIEW_3013_PATH) return null;
+
   return (
     <footer className="turner-footer">
       <div className="container turner-footer__grid">
@@ -53,19 +59,21 @@ export function EnterpriseFooter() {
           </ul>
         </div>
       </div>
-      <div className="turner-footer__cta container">
-        <div className="turner-footer__cta-copy">
-          <p className="eyebrow eyebrow--on-dark">Talk to us</p>
-          <h3 className="text-display text-display--section">Questions about your property?</h3>
-          <p className="wf-type-supporting">Call us for project questions — free site visit available.</p>
-        </div>
-        <div className="turner-footer__newsletter stc-contact-actions">
-          <a href={`tel:${site.phoneTel}`} className="btn-accent btn-accent--lg">
-            Call Us
-          </a>
-          <Link href={CONTACT_FORM_HREF} className="btn-ghost">
-            Request a Site Consultation
-          </Link>
+      <div className="turner-footer__cta">
+        <div className="container turner-footer__cta-inner">
+          <div className="turner-footer__cta-copy">
+            <p className="eyebrow">Talk to us</p>
+            <h3 className="text-display text-display--section">Questions about your property?</h3>
+            <p className="wf-type-supporting">Call us for project questions — free site visit available.</p>
+          </div>
+          <div className="turner-footer__newsletter stc-contact-actions">
+            <a href={`tel:${site.phoneTel}`} className="btn-green btn-green--lg">
+              Call Us
+            </a>
+            <Link href={CONTACT_FORM_HREF} className="btn-ghost">
+              Request a Site Consultation
+            </Link>
+          </div>
         </div>
       </div>
       <div className="turner-footer__legal">

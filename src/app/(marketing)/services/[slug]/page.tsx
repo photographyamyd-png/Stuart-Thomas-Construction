@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { EnterpriseServicePage } from "@/components/stc/enterprise/service/EnterpriseServicePage";
-import { SnowServicePage } from "@/components/stc/enterprise/service/SnowServicePage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import {
   getAllServiceSlugs,
@@ -66,11 +65,7 @@ export default async function ServicePage({ params }: Props) {
           ...(service.faqs.length ? [buildFaqJsonLd(service.faqs)] : []),
         ]}
       />
-      {isSnow ? (
-        <SnowServicePage service={service} />
-      ) : (
-        <EnterpriseServicePage service={service} rediRockInstallPhoto={rediRockInstallPhoto} />
-      )}
+      <EnterpriseServicePage service={service} rediRockInstallPhoto={rediRockInstallPhoto} />
     </>
   );
 }

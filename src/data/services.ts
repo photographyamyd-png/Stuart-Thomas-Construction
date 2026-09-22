@@ -282,25 +282,28 @@ export const services: ServiceDetail[] = [
   {
     slug: "commercial-snow-removal",
     title: "Commercial & Industrial Snow Removal",
-    shortLabel: "Commercial & Industrial · North Simcoe",
-    gridCtaLabel: "Snow Services",
+    shortLabel: "Commercial & Industrial Snow",
+    gridCtaLabel: "Commercial Snow Services",
     iconRowLabelLines: ["SNOW REMOVAL"],
     iconStripAccent: "var(--ent-icon-strip-snow)",
     shortDescription:
-      "Don't let a storm lock you out of your own business. We keep commercial buildings, industrial yards and parking lots open, safe and working in Midland, Penetanguishene, Tay, Tiny and Wasaga Beach.",
+      "Commercial and industrial snow removal for factories, warehouses, offices, and retail lots across Midland & North Simcoe — 24/7 storm response.",
     metaTitle: "Commercial Snow Removal Midland | Stuart Thomas Construction",
     metaDescription:
-      "Commercial and industrial snow plowing, salting and snow haul-outs in Midland, Penetanguishene, Tay, Tiny and Wasaga Beach. Insured. Get a quote.",
+      "Commercial and industrial snow plowing, salting, sidewalk clearing and haul-outs in Midland, Penetanguishene, Tay, Tiny and Wasaga Beach. 24/7 storm response. Get a commercial quote.",
     icon: Snowflake,
     heroAlt:
-      "Front-end loader pushing snow on a commercial lot in Midland — illustrative stock imagery for North Simcoe winter service",
-    statementEyebrow: "Commercial winter service",
-    statementHeadline: { before: "When the snow falls, your business", accent: "shouldn't stop" },
-    heroCtaLabel: "Secure Your Seasonal Contract",
+      "Loader clearing snow on a commercial parking lot — North Simcoe industrial winter service",
+    statementEyebrow: "Commercial & Industrial Snow Removal",
+    statementHeadline: {
+      before: "Commercial snow removal when your site",
+      accent: "cannot wait",
+    },
+    statementCtaLabel: "Request a Commercial Quote",
+    heroCtaLabel: "Request a Commercial Quote",
     heroSecondaryTel: true,
     overview: [
-      "Georgian Bay weather moves fast. Overnight snowfall, drifting across open lots and icy entrances can mean staff who can't get in, deliveries that can't get through and customers who turn around and leave.",
-      "That's lost time, lost revenue and real safety risk. We plow and treat commercial and industrial properties so your doors open on time, your people get in safely, and your operation keeps moving when the weather doesn't cooperate.",
+      "Factories, warehouses, offices, and retail lots across Midland & North Simcoe — 24/7 commercial storm response for industrial yards, docks, and parking.",
     ],
     subServices: [
       {
@@ -329,7 +332,8 @@ export const services: ServiceDetail[] = [
       },
       {
         title: "Snow haul-outs",
-        description: "When banks get too deep, we move snow off-site. See the next section.",
+        description:
+          "When banks get too deep, we move snow off-site with heavy equipment so parking and access come back.",
       },
     ],
     process: [
@@ -359,48 +363,20 @@ export const services: ServiceDetail[] = [
     relatedSlugs: ["excavation", "hardscaping", "landscaping"],
     faqs: [
       {
-        q: "How is commercial snow removal priced?",
-        a: "Quotes are based on lot size and layout, services needed, frequency, and whether you choose a seasonal contract — after a site walkthrough.",
+        q: "Do you offer seasonal commercial contracts?",
+        a: "Yes. Seasonal commercial contracts give your industrial or business property priority service and reliable coverage all winter.",
       },
       {
-        q: "Do you offer seasonal contracts?",
-        a: "Yes. Seasonal contracts give your property priority service and reliable coverage all winter. Request a quote before the first snowfall.",
+        q: "What properties do you service?",
+        a: "Commercial and industrial only — factories, warehouses, offices, retail plazas, and business lots. We do not service residential driveways.",
       },
       {
-        q: "How fast is your storm response?",
-        a: "We respond quickly when snow hits. Ask us about response for your property when you request a quote.",
+        q: "How quickly can commercial crews respond?",
+        a: "We prioritize contracted commercial sites as storms develop. Ask about response windows for your industrial or retail property when you request a quote.",
       },
       {
-        q: "When do you plow?",
-        a: "We plow when snowfall reaches the level agreed for your site. Details are set in your service plan.",
-      },
-      {
-        q: "Do you do salting and sanding?",
-        a: "Yes. We treat lots, entrances, walkways and other traffic areas to reduce slippery surfaces.",
-      },
-      {
-        q: "What if the snow gets too deep for regular plowing?",
-        a: "We offer one-time snow haul-outs — heavy equipment removes banks so you get parking and access back.",
-      },
-      {
-        q: "Are you insured?",
-        a: "Yes, we carry commercial liability insurance. Ask us about it when you request your quote.",
-      },
-      {
-        q: "Do you plow driveways or residential properties?",
-        a: "No. We work only on commercial and industrial properties.",
-      },
-      {
-        q: "Does the township plow my commercial lot?",
-        a: "Municipal crews maintain public roads. Your private lot and walkways are the owner's responsibility — that is where we come in.",
-      },
-      {
-        q: "Which areas do you serve?",
-        a: "Midland, Penetanguishene, Tay Township, Tiny Township and Wasaga Beach.",
-      },
-      {
-        q: "How do we get started?",
-        a: `Request a site assessment through the form or call ${site.phoneDisplay}. We'll visit and send a written proposal.`,
+        q: "Are salt and de-icing materials included?",
+        a: "Ice control for commercial lots can be included in a seasonal plan or quoted per visit — we tailor materials to your industrial or commercial site.",
       },
     ],
   },

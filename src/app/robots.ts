@@ -10,6 +10,9 @@ export default function robots(): MetadataRoute.Robots {
       disallow: [
         "/copy-baseline/",
         "/preview-3012",
+        "/preview-3013",
+        "/preview-3014",
+        "/preview-3015",
         "/test-snow",
         "/test-snow-2",
         "/test-snow-3",

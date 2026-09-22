@@ -11,7 +11,7 @@ src/components/stc/enterprise/
   chrome/     EnterpriseHeader, EnterpriseFooter, ConversionBar (layout)
   blocks/     AppealTurnerHero, CommitmentsAccordion, ServiceOverlayGrid,
               EnterprisePageHero, EnterpriseCtaBand
-  service/    EnterpriseServicePage, SnowServicePage, ServicePager
+  service/    EnterpriseServicePage, SnowLandingClient / SnowTestPremiumPage (private previews), ServicePager
   EnterpriseHomeAppeal.tsx   ← live homepage
   EnterpriseHome.tsx         ← compare snapshot (`/design/landing-current`)
   EnterpriseServicesHub.tsx
@@ -24,7 +24,7 @@ src/components/stc/enterprise/
   primitives.tsx (Wordmark, LinkArrow)
 ```
 
-Styles: `src/styles/enterprise-tokens.css` (single dial — colors, fonts, spacing) + `src/styles/enterprise-authority.css` + `src/styles/landing-appeal.css` + `src/styles/snow-test-premium.css` (imported via `globals.css`).
+Styles: `src/styles/enterprise-tokens.css` (single dial — colors, fonts, spacing) + `src/styles/enterprise-authority.css` + `src/styles/landing-appeal.css` + `src/styles/snow-landing-condensed.css` + `src/styles/snow-test-premium.css` (imported via `globals.css`).
 
 ## Routes
 
@@ -33,8 +33,10 @@ Styles: `src/styles/enterprise-tokens.css` (single dial — colors, fonts, spaci
 | `/` | `EnterpriseHomeAppeal` |
 | `/services` | `EnterpriseServicesHub` |
 | `/services/[slug]` | `EnterpriseServicePage` + `ServicePager` |
-| `/services/commercial-snow-removal` | `SnowServicePage` + long-form bands |
-| `/preview-3012` | `SnowTestPremiumPage` (private client preview; noindex; owns sticky chrome) |
+| `/preview-3012` | `SnowTestPremiumPage` (private client preview; noindex; owns sticky chrome; not in nav/sitemap) |
+| `/preview-3013` | `SnowLandingClient` (private client preview; noindex; owns sticky chrome; not in nav/sitemap) |
+| `/preview-3014` | private snow preview (noindex; owns sticky chrome) |
+| `/preview-3015` | private snow preview (noindex; owns sticky chrome) |
 | `/about` | `EnterpriseAboutPage` |
 | `/projects` | `EnterpriseProjectsPage` |
 | `/areas` | `EnterpriseAreasHub` |
