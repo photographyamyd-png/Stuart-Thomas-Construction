@@ -1,4 +1,4 @@
-/** High-stakes sandbox for /preview-3014 only � private client preview — not live / not indexed.
+/** High-stakes sandbox for /preview-3014 only - private client preview, not live / not indexed.
  *  Commercial & industrial snow removal focus only.
  */
 
@@ -21,18 +21,18 @@ export const snowPreview3014 = {
     headlineLine2: "for commercial sites",
     headlineLine3: "that cannot close",
     supporting:
-      "Industrial yards, utility compounds, and commercial plazas across Midland & North Simcoe — including Hydro One facilities and Tim Hortons 24/7 lots — cleared to keep freight, staff, and customers moving.",
+      "Industrial yards, utility compounds, and commercial plazas across Midland & North Simcoe â€” including Hydro One facilities and Tim Hortons 24/7 lots â€” cleared to keep freight, staff, and customers moving.",
     primaryCta: "Request a Commercial Quote",
     secondaryCta: "Call Now",
     imageAlt:
-      "Industrial loader clearing a commercial lot for continuous winter operations — North Simcoe",
+      "Industrial loader clearing a commercial lot for continuous winter operations â€” North Simcoe",
   },
 
   statement: {
     eyebrow: "Who we serve",
     headline: "Built for commercial and industrial properties",
     supporting:
-      "Factories, warehouses, utility substations, and commercial retail lots that cannot shut down — one accountable snow partner with storm triggers matched to industrial risk.",
+      "Factories, warehouses, utility substations, and commercial retail lots that cannot shut down â€” one accountable snow partner with storm triggers matched to industrial risk.",
     trust: [
       "Licensed & insured",
       "Commercial specialists",
@@ -45,7 +45,7 @@ export const snowPreview3014 = {
     eyebrow: "Commercial services",
     headline: "Industrial-grade snow & ice control",
     supporting:
-      "Heavy equipment and contract discipline for commercial lots, docks, and plant access — from Hydro One compounds to high-traffic Tim Hortons sites.",
+      "Heavy equipment and contract discipline for commercial lots, docks, and plant access â€” from Hydro One compounds to high-traffic Tim Hortons sites.",
     cards: [
       {
         title: "Mission-Critical Site Clearing",
@@ -57,7 +57,7 @@ export const snowPreview3014 = {
       },
       {
         title: "Utility-Grade Reliability",
-        body: "Contract clearing to commercial standards — covering industrial campuses, Tim Hortons 24/7 sites, and other high-consequence properties.",
+        body: "Contract clearing to commercial standards â€” covering industrial campuses, Tim Hortons 24/7 sites, and other high-consequence properties.",
       },
     ] as const,
   },
@@ -91,7 +91,7 @@ export const snowPreview3014 = {
     eyebrow: "Commercial quote",
     headline: "Request industrial site coverage",
     supporting:
-      "Tell us about your commercial or industrial property — we’ll confirm Midland & North Simcoe coverage and follow up.",
+      "Tell us about your commercial or industrial property â€” weâ€™ll confirm Midland & North Simcoe coverage and follow up.",
     submitLabel: "Request My Commercial Quote",
     unsureLink: "Not sure if we serve your industrial site? Call our storm-response team.",
     panelEyebrow: "24/7 storm desk",
@@ -119,7 +119,7 @@ export const snowPreview3014 = {
     quote:
       "Every storm was handled before our first commercial shift. For an industrial site, that reliability is non-negotiable.",
     name: "Facilities Manager",
-    role: "Industrial Campus — North Simcoe",
+    role: "Industrial Campus â€” North Simcoe",
   },
 
   close: {
@@ -131,13 +131,13 @@ export const snowPreview3014 = {
   },
 
   footer: {
-    tagline: `Commercial snow · Midland & North Simcoe · ${site.phoneDisplay}`,
+    tagline: `Commercial snow Â· Midland & North Simcoe Â· ${site.phoneDisplay}`,
     links: [
       { label: "Quote", href: "#coverage" },
       { label: "About", href: "/about" },
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
     ] as const,
-    copyright: `© ${new Date().getFullYear()} ${site.name}`,
+    copyright: `Â© ${new Date().getFullYear()} ${site.name}`,
   },
 } as const;
