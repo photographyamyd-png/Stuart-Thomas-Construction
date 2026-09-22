@@ -11,13 +11,7 @@ import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
  */
 export function ConversionBar() {
   const pathname = usePathname();
-  if (
-    pathname === "/preview-3012" ||
-    pathname === "/preview-3013" ||
-    pathname === "/preview-3015" ||
-    pathname === "/test-snow" ||
-    pathname === "/test-snow-2"
-  ) {
+  if (pathname === "/test-snow" || pathname === "/test-snow-2") {
     return null;
   }
 

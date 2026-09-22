@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 import { useId, useState, type FormEvent } from "react";
-import { Menu, Phone, X } from "lucide-react";
 import { snowTest3 as copy } from "@/data/snow-test-3-page";
 import { site } from "@/data/site";
 import { EMAIL_PATTERN } from "@/lib/contact-email";
 import { submitContactForm } from "@/lib/submit-contact-client";
-import { Wordmark } from "../primitives";
 
 type Props = {
   heroSrc: string;
@@ -16,12 +14,11 @@ type Props = {
 };
 
 /**
- * /preview-3015 — high-contrast commercial/industrial snow sandbox (own chrome).
- * Private client preview (paired with `npm run preview:3015`). Not live nav.
+ * /preview-3015 — commercial/industrial snow sandbox.
+ * Uses standard site header/footer via MarketingShell.
  */
 export function SnowTest3Page({ heroSrc, heroAlt, coverageSrc }: Props) {
   const formId = useId();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [propertyType, setPropertyType] = useState<string>(copy.quote.propertyTypes[0]);
   const [location, setLocation] = useState("");
   const [timeline, setTimeline] = useState<string>(copy.quote.timelines[0]);
@@ -116,74 +113,7 @@ export function SnowTest3Page({ heroSrc, heroAlt, coverageSrc }: Props) {
 
   return (
     <div className="stc-snow-test-3">
-      <header className="stc-snow-test-3__bar">
-        <div className="stc-snow-test-3__bar-inner">
-          <div className="stc-snow-test-3__bar-logo">
-            <Wordmark />
-          </div>
-
-          <nav className="stc-snow-test-3__bar-nav" aria-label="Page">
-            {copy.nav.links.map((link) => (
-              <a key={link.href} href={link.href} className="stc-snow-test-3__nav-link">
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="stc-snow-test-3__bar-actions">
-            <a href={`tel:${site.phoneTel}`} className="stc-snow-test-3__bar-phone">
-              {site.phoneDisplay}
-            </a>
-            <a
-              href="#quote"
-              className="stc-snow-test-3__btn stc-snow-test-3__btn--lime stc-snow-test-3__bar-cta"
-            >
-              {copy.nav.cta}
-            </a>
-            <a
-              href={`tel:${site.phoneTel}`}
-              className="stc-snow-test-3__bar-phone-icon"
-              aria-label={`Call ${site.phoneDisplay}`}
-            >
-              <Phone size={18} strokeWidth={1.75} aria-hidden />
-            </a>
-            <button
-              type="button"
-              className="stc-snow-test-3__bar-toggle"
-              aria-expanded={menuOpen}
-              aria-controls="snow-test-3-menu"
-              onClick={() => setMenuOpen((v) => !v)}
-            >
-              {menuOpen ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
-              <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
-            </button>
-          </div>
-        </div>
-
-        {menuOpen ? (
-          <nav id="snow-test-3-menu" className="stc-snow-test-3__bar-drawer" aria-label="Mobile">
-            {copy.nav.links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="stc-snow-test-3__nav-link"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#quote"
-              className="stc-snow-test-3__btn stc-snow-test-3__btn--lime"
-              onClick={() => setMenuOpen(false)}
-            >
-              {copy.nav.cta}
-            </a>
-          </nav>
-        ) : null}
-      </header>
-
-      {/* 1 — Hero: black + photo + white + lime */}
+      {/* 1 — Hero */}
       <section className="stc-snow-test-3__hero" aria-labelledby="snow-test-3-heading">
         <div className="stc-snow-test-3__hero-media" aria-hidden={!heroAlt}>
           <Image
@@ -202,20 +132,17 @@ export function SnowTest3Page({ heroSrc, heroAlt, coverageSrc }: Props) {
           <h1 id="snow-test-3-heading">{copy.hero.headline}</h1>
           <p className="stc-snow-test-3__support">{copy.hero.supporting}</p>
           <div className="stc-snow-test-3__hero-actions">
-            <a href="#quote" className="stc-snow-test-3__btn stc-snow-test-3__btn--lime">
+            <a href="#quote" className="btn-accent btn-accent--lg">
               {copy.hero.primaryCta}
             </a>
-            <a
-              href={`tel:${site.phoneTel}`}
-              className="stc-snow-test-3__btn stc-snow-test-3__btn--outline"
-            >
+            <a href={`tel:${site.phoneTel}`} className="btn-ghost btn-ghost--lg">
               {copy.hero.secondaryCta}
             </a>
           </div>
         </div>
       </section>
 
-      {/* 2 — Services: muted light + white cards + gold */}
+      {/* 2 — Services */}
       <section
         id="services"
         className="stc-snow-test-3__section stc-snow-test-3__section--services"
@@ -230,43 +157,39 @@ export function SnowTest3Page({ heroSrc, heroAlt, coverageSrc }: Props) {
             <p className="stc-snow-test-3__support">{copy.services.supporting}</p>
           </div>
           <div className="stc-snow-test-3__services-grid">
-            {copy.services.cards.map((card) => (
-              <div
+            {copy.services.cards.map((card, i) => (
+              <article
                 key={card.title}
-                className={
-                  card.offset
-                    ? "stc-snow-test-3__card stc-snow-test-3__card--offset"
-                    : "stc-snow-test-3__card"
-                }
+                className={`stc-snow-test-3__card${i === 1 ? " stc-snow-test-3__card--offset" : ""}`}
               >
                 <span className="stc-snow-test-3__label">{card.label}</span>
                 <h3>{card.title}</h3>
                 <ul>
                   {card.items.map((item) => (
-                    <li key={item}>• {item}</li>
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
                 <a href="#quote" className="stc-snow-test-3__card-link">
                   {card.link}
                 </a>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3 — Process: green + white + lime markers + gold */}
+      {/* 3 — Process */}
       <section
-        id="how-it-works"
+        id="process"
         className="stc-snow-test-3__section stc-snow-test-3__section--process"
-        aria-labelledby="snow-test-3-how"
+        aria-labelledby="snow-test-3-process"
       >
         <div className="stc-snow-test-3__shell">
           <div className="stc-snow-test-3__head">
             <p className="stc-snow-test-3__eyebrow stc-snow-test-3__eyebrow--gold">
               {copy.howItWorks.eyebrow}
             </p>
-            <h2 id="snow-test-3-how">{copy.howItWorks.headline}</h2>
+            <h2 id="snow-test-3-process">{copy.howItWorks.headline}</h2>
             <p className="stc-snow-test-3__support">{copy.howItWorks.supporting}</p>
           </div>
           <div className="stc-snow-test-3__steps">
@@ -281,7 +204,7 @@ export function SnowTest3Page({ heroSrc, heroAlt, coverageSrc }: Props) {
         </div>
       </section>
 
-      {/* 4 — Quote: 40% form / 60% imagery CTA */}
+      {/* 4 — Quote 40/60 */}
       <section
         id="quote"
         className="stc-snow-test-3__section--quote"
@@ -297,121 +220,122 @@ export function SnowTest3Page({ heroSrc, heroAlt, coverageSrc }: Props) {
 
             {formStatus === "success" ? (
               <p className="stc-snow-test-3__form-success" role="status">
-                Thanks — we got your commercial quote request and will follow up shortly.
+                {copy.quote.successMessage}
               </p>
             ) : (
               <form className="stc-snow-test-3__form" onSubmit={handleQuote} noValidate>
                 <div className="stc-snow-test-3__field">
-                  <label htmlFor={`${formId}-property`}>Property Type</label>
-                  <select
-                    id={`${formId}-property`}
-                    value={propertyType}
-                    onChange={(e) => setPropertyType(e.target.value)}
-                  >
-                    {copy.quote.propertyTypes.map((t) => (
-                      <option key={t} value={t}>
-                        {t}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="stc-snow-test-3__field">
-                  <label htmlFor={`${formId}-location`}>Property Address</label>
+                  <label htmlFor={`${formId}-name`}>Name</label>
                   <input
-                    id={`${formId}-location`}
+                    id={`${formId}-name`}
+                    name="name"
                     type="text"
-                    placeholder="Site address or postal code"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    autoComplete="street-address"
+                    autoComplete="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
                   />
                 </div>
-
                 <div className="stc-snow-test-3__field">
-                  <label htmlFor={`${formId}-timeline`}>Timeline</label>
-                  <select
-                    id={`${formId}-timeline`}
-                    value={timeline}
-                    onChange={(e) => setTimeline(e.target.value)}
-                  >
-                    {copy.quote.timelines.map((t) => (
-                      <option key={t} value={t}>
-                        {t}
-                      </option>
-                    ))}
-                  </select>
+                  <label htmlFor={`${formId}-company`}>Company / property</label>
+                  <input
+                    id={`${formId}-company`}
+                    name="company"
+                    type="text"
+                    autoComplete="organization"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    required
+                  />
                 </div>
-
-                <div className="stc-snow-test-3__field-row">
-                  <div className="stc-snow-test-3__field">
-                    <label htmlFor={`${formId}-name`}>Name</label>
-                    <input
-                      id={`${formId}-name`}
-                      type="text"
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      autoComplete="name"
-                    />
-                  </div>
-                  <div className="stc-snow-test-3__field">
-                    <label htmlFor={`${formId}-company`}>Company</label>
-                    <input
-                      id={`${formId}-company`}
-                      type="text"
-                      required
-                      value={company}
-                      onChange={(e) => setCompany(e.target.value)}
-                      autoComplete="organization"
-                    />
-                  </div>
+                <div className="stc-snow-test-3__field">
+                  <label htmlFor={`${formId}-location`}>Property address or postal code</label>
+                  <input
+                    id={`${formId}-location`}
+                    name="location"
+                    type="text"
+                    autoComplete="street-address"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    required
+                  />
                 </div>
-
                 <div className="stc-snow-test-3__field-row">
                   <div className="stc-snow-test-3__field">
                     <label htmlFor={`${formId}-phone`}>Phone</label>
                     <input
                       id={`${formId}-phone`}
+                      name="phone"
                       type="tel"
-                      required
+                      autoComplete="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      autoComplete="tel"
+                      required
                     />
                   </div>
                   <div className="stc-snow-test-3__field">
                     <label htmlFor={`${formId}-email`}>Email</label>
                     <input
                       id={`${formId}-email`}
+                      name="email"
                       type="email"
-                      required
+                      autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      autoComplete="email"
+                      required
                     />
                   </div>
                 </div>
-
+                <div className="stc-snow-test-3__field-row">
+                  <div className="stc-snow-test-3__field">
+                    <label htmlFor={`${formId}-type`}>Property type</label>
+                    <select
+                      id={`${formId}-type`}
+                      name="propertyType"
+                      value={propertyType}
+                      onChange={(e) => setPropertyType(e.target.value)}
+                    >
+                      {copy.quote.propertyTypes.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="stc-snow-test-3__field">
+                    <label htmlFor={`${formId}-timeline`}>Timeline</label>
+                    <select
+                      id={`${formId}-timeline`}
+                      name="timeline"
+                      value={timeline}
+                      onChange={(e) => setTimeline(e.target.value)}
+                    >
+                      {copy.quote.timelines.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
                 <div className="stc-snow-test-3__field">
-                  <label htmlFor={`${formId}-notes`}>Site notes (optional)</label>
+                  <label htmlFor={`${formId}-notes`}>Notes (optional)</label>
                   <textarea
                     id={`${formId}-notes`}
+                    name="notes"
                     rows={3}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                   />
                 </div>
-
                 {formError ? (
                   <p className="stc-snow-test-3__form-error" role="alert">
                     {formError}
                   </p>
                 ) : null}
-
                 <button
                   type="submit"
-                  className="stc-snow-test-3__btn stc-snow-test-3__btn--lime stc-snow-test-3__btn--full"
+                  className="btn-accent btn-accent--lg stc-snow-test-3__btn--full"
                   disabled={formStatus === "submitting"}
                 >
                   {formStatus === "submitting" ? "Sending…" : copy.quote.submitLabel}
@@ -441,7 +365,7 @@ export function SnowTest3Page({ heroSrc, heroAlt, coverageSrc }: Props) {
         </div>
       </section>
 
-      {/* 5 — Proof: black + gold + lime + muted card */}
+      {/* 5 — Proof */}
       <section
         id="proof"
         className="stc-snow-test-3__section stc-snow-test-3__section--proof"
@@ -485,26 +409,22 @@ export function SnowTest3Page({ heroSrc, heroAlt, coverageSrc }: Props) {
         </div>
       </section>
 
-      {/* 6 — Close: lime + black type + black foot strip */}
-      <footer className="stc-snow-test-3__section--close">
+      {/* 6 — Close CTA (site ConversionBar + footer follow) */}
+      <section
+        className="stc-snow-test-3__section stc-snow-test-3__section--close"
+        aria-labelledby="snow-test-3-close"
+      >
         <div className="stc-snow-test-3__footer-cta">
-          <p className="stc-snow-test-3__eyebrow stc-snow-test-3__eyebrow--on-lime">
+          <p className="stc-snow-test-3__eyebrow stc-snow-test-3__eyebrow--on-dark">
             {copy.footerCta.eyebrow}
           </p>
-          <h2>{copy.footerCta.headline}</h2>
+          <h2 id="snow-test-3-close">{copy.footerCta.headline}</h2>
           <p className="stc-snow-test-3__support">{copy.footerCta.supporting}</p>
-          <a href="#quote" className="stc-snow-test-3__btn stc-snow-test-3__btn--dark">
+          <a href="#quote" className="btn-accent btn-accent--lg">
             {copy.footerCta.cta}
           </a>
         </div>
-        <div className="stc-snow-test-3__foot">
-          <p>
-            <strong>Commercial &amp; industrial only</strong>
-          </p>
-          <p>{copy.footer.tagline}</p>
-          <p>{copy.footer.copyright}</p>
-        </div>
-      </footer>
+      </section>
     </div>
   );
 }

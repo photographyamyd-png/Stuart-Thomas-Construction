@@ -95,6 +95,7 @@ export const snowTest3 = {
     timelines: ["This season", "After next storm", "Emergency now"] as const,
     submitLabel: "Request My Quote",
     disclaimer: "Commercial & industrial only. No spam.",
+    successMessage: "Thanks — we'll follow up within one business day.",
   },
 
   proof: {
