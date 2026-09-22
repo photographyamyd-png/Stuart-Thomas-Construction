@@ -11,7 +11,7 @@ src/components/stc/enterprise/
   chrome/     EnterpriseHeader, EnterpriseFooter, ConversionBar (layout)
   blocks/     AppealTurnerHero, CommitmentsAccordion, ServiceOverlayGrid,
               EnterprisePageHero, EnterpriseCtaBand
-  service/    EnterpriseServicePage, ServicePager
+  service/    EnterpriseServicePage, SnowServicePage, ServicePager
   EnterpriseHomeAppeal.tsx   ← live homepage
   EnterpriseHome.tsx         ← compare snapshot (`/design/landing-current`)
   EnterpriseServicesHub.tsx
@@ -24,7 +24,7 @@ src/components/stc/enterprise/
   primitives.tsx (Wordmark, LinkArrow)
 ```
 
-Styles: `src/styles/enterprise-tokens.css` (single dial — colors, fonts, spacing) + `src/styles/enterprise-authority.css` + `src/styles/landing-appeal.css` (imported via `globals.css`).
+Styles: `src/styles/enterprise-tokens.css` (single dial — colors, fonts, spacing) + `src/styles/enterprise-authority.css` + `src/styles/landing-appeal.css` + `src/styles/snow-test-premium.css` (imported via `globals.css`).
 
 ## Routes
 
@@ -33,6 +33,8 @@ Styles: `src/styles/enterprise-tokens.css` (single dial — colors, fonts, spaci
 | `/` | `EnterpriseHomeAppeal` |
 | `/services` | `EnterpriseServicesHub` |
 | `/services/[slug]` | `EnterpriseServicePage` + `ServicePager` |
+| `/services/commercial-snow-removal` | `SnowServicePage` + long-form bands |
+| `/preview-3012` | `SnowTestPremiumPage` (private client preview; noindex; owns sticky chrome) |
 | `/about` | `EnterpriseAboutPage` |
 | `/projects` | `EnterpriseProjectsPage` |
 | `/areas` | `EnterpriseAreasHub` |
@@ -47,3 +49,4 @@ Styles: `src/styles/enterprise-tokens.css` (single dial — colors, fonts, spaci
 - Data: `src/data/services.ts`, `src/data/areas.ts`, `src/data/site.ts`, `src/data/legal.ts`
 - SEO: `src/lib/seo.ts`, `sitemap.ts`, `robots.ts`, per-page metadata + JSON-LD breadcrumbs
 - Contact form: POST `/api/contact` via Resend (`RESEND_API_KEY`); owner email never shown in UI
+  - Without a verified Resend domain, `CONTACT_TO_EMAIL` must be the Resend account email (free-tier testing limit on `onboarding@resend.dev`)
