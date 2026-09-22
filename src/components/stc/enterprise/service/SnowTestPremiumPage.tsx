@@ -1,24 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import {
   ClipboardList,
   Headphones,
   MapPin,
-  Menu,
-  Phone,
   Shield,
   Snowflake,
-  X,
   type LucideIcon,
 } from "lucide-react";
 import { snowTest } from "@/data/snow-test-page";
 import { site } from "@/data/site";
 import { EMAIL_PATTERN } from "@/lib/contact-email";
 import { submitContactForm } from "@/lib/submit-contact-client";
-import { Wordmark } from "../primitives";
 import { SnowTestReveal } from "./SnowTestReveal";
 
 type Props = {
@@ -31,8 +26,8 @@ type Props = {
 const processIcons: LucideIcon[] = [MapPin, ClipboardList, Snowflake, Headphones];
 
 /**
- * /test-snow — premium 8-section sandbox (own sticky chrome).
- * Production: /services/commercial-snow-removal
+ * /preview-3012 — premium commercial snow sandbox.
+ * Uses standard site header/footer via MarketingShell.
  */
 export function SnowTestPremiumPage({
   heroSrc,
@@ -41,7 +36,6 @@ export function SnowTestPremiumPage({
   coverageSrc,
 }: Props) {
   const formId = useId();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -138,88 +132,7 @@ export function SnowTestPremiumPage({
 
   return (
     <div className="stc-snow-test">
-      <header className="stc-snow-test__bar">
-        <div className="stc-snow-test__bar-inner">
-          <div className="stc-snow-test__bar-logo">
-            <Wordmark />
-          </div>
-
-          <nav className="stc-snow-test__bar-nav" aria-label="Page">
-            {snowTest.nav.links.map((link) =>
-              link.href.startsWith("/") ? (
-                <Link key={link.href} href={link.href} className="stc-snow-test__nav-link">
-                  {link.label}
-                </Link>
-              ) : (
-                <a key={link.href} href={link.href} className="stc-snow-test__nav-link">
-                  {link.label}
-                </a>
-              ),
-            )}
-          </nav>
-
-          <div className="stc-snow-test__bar-actions">
-            <a href={`tel:${site.phoneTel}`} className="stc-snow-test__bar-phone">
-              {site.phoneDisplay}
-            </a>
-            <a href="#coverage" className="stc-snow-test__btn stc-snow-test__bar-cta">
-              {snowTest.nav.cta}
-            </a>
-            <a
-              href={`tel:${site.phoneTel}`}
-              className="stc-snow-test__bar-phone-icon"
-              aria-label={`Call ${site.phoneDisplay}`}
-            >
-              <Phone size={18} strokeWidth={1.75} aria-hidden />
-            </a>
-            <button
-              type="button"
-              className="stc-snow-test__bar-toggle"
-              aria-expanded={menuOpen}
-              aria-controls="snow-test-menu"
-              onClick={() => setMenuOpen((v) => !v)}
-            >
-              {menuOpen ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
-              <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
-            </button>
-          </div>
-        </div>
-
-        {menuOpen ? (
-          <nav id="snow-test-menu" className="stc-snow-test__bar-drawer" aria-label="Mobile">
-            {snowTest.nav.links.map((link) =>
-              link.href.startsWith("/") ? (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="stc-snow-test__nav-link"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="stc-snow-test__nav-link"
-                >
-                  {link.label}
-                </a>
-              ),
-            )}
-            <a
-              href="#coverage"
-              className="stc-snow-test__btn"
-              onClick={() => setMenuOpen(false)}
-            >
-              {snowTest.nav.cta}
-            </a>
-          </nav>
-        ) : null}
-      </header>
-
-      {/* 2 — Cinematic hero: photo + dark scrim + gold seam · type L1–L3 */}
+      {/* Cinematic hero: photo + dark scrim + gold seam · type L1–L3 */}
       <section className="stc-snow-test__hero" aria-labelledby="snow-test-heading">
         <div className="stc-snow-test__hero-media" aria-hidden={!heroAlt}>
           <div className="stc-snow-test__ken">
@@ -258,12 +171,12 @@ export function SnowTestPremiumPage({
               <a href="#coverage" className="stc-snow-test__btn stc-snow-test__btn--on-dark">
                 {snowTest.hero.primaryCta}
               </a>
-              <a href={`tel:${site.phoneTel}`} className="stc-snow-test__text-link stc-snow-test__text-link--on-dark">
+              <a
+                href={`tel:${site.phoneTel}`}
+                className="stc-snow-test__btn stc-snow-test__btn--ghost-on-dark"
+                aria-label={`Call ${site.phoneDisplay}`}
+              >
                 {snowTest.hero.secondaryCta}
-                <span className="stc-snow-test__text-link-arrow" aria-hidden>
-                  →
-                </span>
-                <span className="stc-snow-test__text-link-meta">{site.phoneDisplay}</span>
               </a>
             </div>
           </SnowTestReveal>
@@ -317,20 +230,38 @@ export function SnowTestPremiumPage({
         <div className="stc-snow-test__process-texture" aria-hidden />
         <div className="stc-snow-test__shell stc-snow-test__split">
           <SnowTestReveal className="stc-snow-test__split-media stc-snow-test__reveal--media" delay={0}>
-            <div className="stc-snow-test__media-frame stc-snow-test__media-frame--on-dark">
-              <div className="stc-snow-test__ken">
-                <div className="stc-snow-test__ken-img">
-                  <Image
-                    src={processSrc}
-                    alt="Heavy equipment clearing snow on a North Simcoe commercial industrial site"
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 899px) 100vw, 50vw"
-                    className="object-cover"
-                  />
+            <div className="stc-snow-test__media-stage">
+              {/* L1 — light mat contrasts dark process band */}
+              <div className="stc-snow-test__media-mat">
+                <div className="stc-snow-test__media-mat-rail" aria-hidden />
+                <div className="stc-snow-test__media-mat-seam" aria-hidden />
+                {/* L2 — inset photo plane */}
+                <div className="stc-snow-test__media-photo">
+                  <div className="stc-snow-test__ken">
+                    <div className="stc-snow-test__ken-img">
+                      <Image
+                        src={processSrc}
+                        alt="Heavy equipment clearing snow on a North Simcoe commercial industrial site"
+                        fill
+                        loading="lazy"
+                        sizes="(max-width: 899px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="stc-snow-test__media-scrim" aria-hidden />
+                  {/* L3 — dark type panel over image */}
+                  <div className="stc-snow-test__media-panel">
+                    <p className="stc-snow-test__eyebrow">Field operations</p>
+                    <p className="stc-snow-test__media-panel-title">Industrial storm response</p>
+                    <p className="stc-snow-test__media-panel-body">
+                      Priority crews for contracted commercial lots and industrial yards when winter hits.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <span className="stc-snow-test__media-badge">Industrial storm response</span>
+              {/* L4 — green offset plate behind mat (desktop depth) */}
+              <div className="stc-snow-test__media-offset" aria-hidden />
             </div>
           </SnowTestReveal>
 
@@ -540,7 +471,7 @@ export function SnowTestPremiumPage({
         </div>
       </section>
 
-      {/* 7 — Closing CTA GREEN (hard contrast from dark quote) */}
+      {/* 7 — Closing CTA white (contrast from dark quote) */}
       <section
         ref={ctaBandRef}
         className="stc-snow-test__close"
@@ -550,54 +481,22 @@ export function SnowTestPremiumPage({
         <div className="stc-snow-test__close-seam" aria-hidden />
         <div className="stc-snow-test__shell stc-snow-test__close-inner">
           <SnowTestReveal>
-            <p className="stc-snow-test__eyebrow">{snowTest.close.eyebrow}</p>
+            <p className="stc-snow-test__eyebrow stc-snow-test__eyebrow--on-light">
+              {snowTest.close.eyebrow}
+            </p>
           </SnowTestReveal>
           <SnowTestReveal delay={100}>
-            <h2 id="snow-test-close" className="stc-snow-test__section-display stc-snow-test__section-display--on-dark">
+            <h2 id="snow-test-close" className="stc-snow-test__section-display">
               {snowTest.close.headline}
             </h2>
           </SnowTestReveal>
           <SnowTestReveal delay={200}>
-            <a href="#coverage" className="stc-snow-test__btn stc-snow-test__btn--on-dark stc-snow-test__btn--lg">
+            <a href="#coverage" className="stc-snow-test__btn stc-snow-test__btn--lg">
               {snowTest.close.primaryCta}
             </a>
           </SnowTestReveal>
         </div>
       </section>
-
-      {/* 8 — Footer */}
-      <footer className="stc-snow-test__foot">
-        <div className="stc-snow-test__shell stc-snow-test__foot-inner">
-          <div className="stc-snow-test__foot-brand">
-            <Wordmark />
-            <p>{snowTest.footer.tagline}</p>
-          </div>
-          <ul className="stc-snow-test__foot-links">
-            {snowTest.footer.links.map((link, i) => (
-              <li key={link.href}>
-                {i > 0 ? <span className="stc-snow-test__foot-sep" aria-hidden /> : null}
-                {link.href.startsWith("/") ? (
-                  <Link href={link.href} className="stc-snow-test__text-link stc-snow-test__text-link--on-dark">
-                    {link.label}
-                    <span className="stc-snow-test__text-link-arrow" aria-hidden>
-                      →
-                    </span>
-                  </Link>
-                ) : (
-                  <a href={link.href} className="stc-snow-test__text-link stc-snow-test__text-link--on-dark">
-                    {link.label}
-                    <span className="stc-snow-test__text-link-arrow" aria-hidden>
-                      →
-                    </span>
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-          <p className="stc-snow-test__foot-copy">{snowTest.footer.copyright}</p>
-        </div>
-        <div className="stc-snow-test__foot-signature" aria-hidden />
-      </footer>
     </div>
   );
 }

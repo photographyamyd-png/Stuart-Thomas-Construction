@@ -6,14 +6,12 @@ import { ConversionBar } from "@/components/stc/enterprise/ConversionBar";
 import { EnterpriseFooter } from "@/components/stc/enterprise/EnterpriseFooter";
 import { EnterpriseHeader } from "@/components/stc/enterprise/EnterpriseHeader";
 import {
-  PREVIEW_3012_PATH,
   PREVIEW_3013_PATH,
   PREVIEW_3014_PATH,
   PREVIEW_3015_PATH,
 } from "@/lib/contact-paths";
 
 const OWN_CHROME = new Set([
-  PREVIEW_3012_PATH,
   PREVIEW_3013_PATH,
   PREVIEW_3014_PATH,
   PREVIEW_3015_PATH,
@@ -23,8 +21,8 @@ const OWN_CHROME = new Set([
 ]);
 
 /**
- * Marketing chrome. Private preview-* snow sandboxes own sticky chrome.
- * Production /services/* uses the normal site header/footer.
+ * Marketing chrome. Only listed sandboxes own sticky chrome.
+ * /preview-3012 uses the standard EnterpriseHeader + ConversionBar + EnterpriseFooter.
  */
 export function MarketingShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();

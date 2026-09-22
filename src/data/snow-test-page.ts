@@ -21,45 +21,45 @@ export const snowTest = {
     supporting:
       "Contract snow plowing, salting, sidewalk clearing, and haul-outs for factories, warehouses, plazas, and business parks across Midland & North Simcoe — with 24/7 storm response.",
     primaryCta: "Request a Commercial Quote",
-    secondaryCta: "Call Storm Desk",
+    secondaryCta: "Call Now",
     imageAlt:
       "Loader clearing snow on a commercial parking lot — North Simcoe industrial winter service",
   },
 
   statement: {
     eyebrow: "Commercial & Industrial Only",
-    headline: "Snow programs built for working properties",
+    headline: "Built for working properties",
     supporting:
-      "We clear and treat commercial parking lots, industrial yards, loading docks, and truck courts — not residential driveways. Property managers get storm activation, GPS-documented visits, and one accountable partner for the season.",
+      "We clear and treat commercial parking lots, industrial yards, loading docks, and truck courts — not residential driveways. One accountable partner, all season long.",
     trust: [
       "Licensed & insured",
       "Commercial & industrial routes",
       "24/7 storm response",
-      "GPS service documentation",
+      "Reliable, documented service",
     ] as const,
   },
 
   process: {
-    eyebrow: "Commercial contract process",
-    headline: "From site assessment to industrial storm response",
+    eyebrow: "Commercial Contract Process",
+    headline: "From assessment to storm-ready coverage",
     supporting:
       "A clear path for commercial and industrial accounts — from first walkthrough to season-long lot and yard coverage.",
     steps: [
       {
-        title: "Commercial site walkthrough",
-        body: "We map your lot layout, docks, fire lanes, employee entrances, and snow-storage limits on the industrial or commercial site.",
+        title: "Site walkthrough",
+        body: "We map your lot layout, docks, fire lanes, employee entrances, and snow-storage areas.",
       },
       {
-        title: "Written winter proposal",
-        body: "You receive a clear seasonal quote for plowing, ice control, sidewalks, and haul-outs sized to your property.",
+        title: "Written proposal",
+        body: "A clear seasonal quote for plowing, ice control, sidewalks, and haul-outs, sized to your property.",
       },
       {
-        title: "Storm dispatch",
-        body: "When winter hits, contract commercial sites get priority crews so staff, freight, and customers can move.",
+        title: "Priority storm response",
+        body: "When winter hits, contracted sites get priority crews so staff, freight, and customers can keep moving.",
       },
       {
-        title: "Season-long account support",
-        body: "One commercial contact manages your industrial or plaza account all winter — questions, extras, and service reports.",
+        title: "Season-long support",
+        body: "One point of contact manages your account all winter — questions, extras, and service updates.",
       },
     ],
   },
@@ -72,9 +72,9 @@ export const snowTest = {
     panelTitle: "Industrial & commercial properties",
     panelBody:
       "Plowing, salting, sidewalks, docks, and haul-outs — contract coverage for sites that can’t afford to shut down after a storm.",
-    panelCta: "Prefer to talk? Call the storm desk",
+    panelCta: "Call Now",
     submitLabel: "Request My Commercial Quote",
-    unsureLink: "Not sure we serve your industrial site? Call our storm-response team.",
+    unsureLink: `Not sure we serve your industrial site? Call ${site.phoneDisplay}.`,
     towns: [
       "Midland",
       "Penetanguishene",
