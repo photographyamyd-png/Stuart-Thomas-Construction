@@ -21,7 +21,7 @@ export const snowLanding = {
     supporting:
       "Factories, warehouses, offices, and retail lots across Midland & North Simcoe — 24/7 commercial storm response for industrial yards, docks, and parking.",
     primaryCta: "Request a Commercial Quote",
-    secondaryCta: "Call Storm Desk",
+    secondaryCta: "Call Now",
     imageAlt:
       "Loader clearing snow on a commercial parking lot — North Simcoe industrial winter service",
     statValue: "24/7",
@@ -33,8 +33,8 @@ export const snowLanding = {
     items: [
       "Commercial liability insured",
       "Industrial & commercial sites",
-      "Storm activation for businesses",
-      "GPS-documented commercial service",
+      "Priority service for businesses",
+      "Season-long commercial coverage",
     ] as const,
   },
 
@@ -68,21 +68,21 @@ export const snowLanding = {
     headline: "Built for commercial & industrial property managers",
     points: [
       {
-        title: "Commercial storm activation",
-        body: "Crews are scheduled before conditions disrupt factory shifts, shipping, or retail hours.",
+        title: "Proactive winter response",
+        body: "We plan ahead so your commercial site stays open when weather turns.",
       },
       {
-        title: "Documented commercial service",
-        body: "Photos, timestamps, and completion records for each commercial site visit.",
+        title: "Clear, reliable service",
+        body: "Consistent commercial clearing you can count on after every storm.",
       },
       {
-        title: "One accountable commercial partner",
-        body: "A dedicated contact manages your industrial or commercial property all season.",
+        title: "One point of contact",
+        body: "A dedicated partner for your industrial or commercial property all season.",
       },
     ],
     testimonial: {
       quote:
-        "Every commercial storm was handled before our tenants arrived. The service reports made everything easy to track.",
+        "Every commercial storm was handled before our tenants arrived. Dependable service made winter much easier to manage.",
       name: "Commercial Property Manager",
       role: "Regional Retail Center",
     },
@@ -96,20 +96,14 @@ export const snowLanding = {
     addressLabel: "Commercial property address",
     addressPlaceholder: "Street address, industrial or commercial site",
     submitLabel: "Get a Commercial Quote",
-    panelEyebrow: "Commercial storm desk",
+    panelEyebrow: "Commercial coverage",
     panelHeadline: "Industrial sites. Commercial lots. Covered.",
     panelSupporting:
-      "Call our commercial storm-response team if you need coverage confirmed for a factory, warehouse, or business plaza.",
-    unsureLink: "Not sure if we serve your commercial property? Call the storm desk.",
+      "Call our commercial team if you need coverage confirmed for a factory, warehouse, or business plaza.",
+    unsureLink: "Not sure if we serve your commercial property? Call us.",
     phoneLabel: "24/7 Commercial Storm Response",
-    towns: [
-      "Midland",
-      "Penetanguishene",
-      "Tay Township",
-      "Tiny Township",
-      "Wasaga Beach",
-    ] as const,
-    mapLabel: "Commercial service territory — North Simcoe",
+    towns: ["Midland", "Penetanguishene"] as const,
+    mapLabel: "Commercial service territory — Midland & Penetanguishene",
     propertyTypes: [
       "Factory / Industrial",
       "Warehouse / Logistics",
@@ -117,6 +111,11 @@ export const snowLanding = {
       "Retail / Plaza",
       "Other commercial",
     ] as const,
+  },
+
+  faqSection: {
+    eyebrow: "Commercial FAQs",
+    headline: "Answers for property managers",
   },
 
   faqs: [

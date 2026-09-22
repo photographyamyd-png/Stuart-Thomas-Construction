@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useId, useState, type FormEvent } from "react";
 import {
   CheckCircle2,
@@ -9,21 +8,17 @@ import {
   ChevronRight,
   Container,
   Footprints,
-  Menu,
   Navigation,
-  Phone,
   Quote,
   Shield,
   Snowflake,
   Truck,
-  X,
   type LucideIcon,
 } from "lucide-react";
 import { snowLanding } from "@/data/snow-page";
 import { site } from "@/data/site";
 import { EMAIL_PATTERN } from "@/lib/contact-email";
 import { submitContactForm } from "@/lib/submit-contact-client";
-import { Wordmark } from "../primitives";
 
 type Props = {
   heroSrc: string;
@@ -36,19 +31,16 @@ const serviceIcons: LucideIcon[] = [Truck, Snowflake, Footprints, Container];
 const proofIcons: LucideIcon[] = [CheckCircle2, Navigation, Shield];
 
 const TOWN_PINS = [
-  { name: "Midland", cx: 230, cy: 150 },
-  { name: "Penetanguishene", cx: 200, cy: 120 },
-  { name: "Tay", cx: 270, cy: 165 },
-  { name: "Tiny", cx: 175, cy: 175 },
-  { name: "Wasaga", cx: 300, cy: 210 },
+  { name: "Penetanguishene", cx: 175, cy: 95 },
+  { name: "Midland", cx: 235, cy: 130 },
 ] as const;
 
 /**
- * Condensed commercial snow landing — sticky chrome, six sections, quote form.
+ * Condensed commercial snow landing — six sections + quote form.
+ * Uses standard site header/footer via MarketingShell.
  */
 export function SnowLandingClient({ heroSrc, heroAlt, proofSrc, coverageSrc }: Props) {
   const formId = useId();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
@@ -118,73 +110,6 @@ export function SnowLandingClient({ heroSrc, heroAlt, proofSrc, coverageSrc }: P
 
   return (
     <div className="stc-snow-landing">
-      <header className="stc-snow-landing__bar">
-        <div className="stc-snow-landing__bar-inner">
-          <div className="stc-snow-landing__bar-logo">
-            <Wordmark />
-          </div>
-
-          <nav className="stc-snow-landing__bar-nav" aria-label="Page">
-            {snowLanding.nav.links.map((link) =>
-              link.href.startsWith("/") ? (
-                <Link key={link.href} href={link.href}>
-                  {link.label}
-                </Link>
-              ) : (
-                <a key={link.href} href={link.href}>
-                  {link.label}
-                </a>
-              ),
-            )}
-          </nav>
-
-          <div className="stc-snow-landing__bar-actions">
-            <a href={`tel:${site.phoneTel}`} className="stc-snow-landing__bar-phone">
-              {site.phoneDisplay}
-            </a>
-            <a href="#quote-form" className="btn-accent stc-snow-landing__bar-cta">
-              {snowLanding.nav.cta}
-            </a>
-            <a
-              href={`tel:${site.phoneTel}`}
-              className="stc-snow-landing__bar-phone-icon"
-              aria-label={`Call ${site.phoneDisplay}`}
-            >
-              <Phone size={18} strokeWidth={2} aria-hidden />
-            </a>
-            <button
-              type="button"
-              className="stc-snow-landing__bar-toggle"
-              aria-expanded={menuOpen}
-              aria-controls="snow-landing-menu"
-              onClick={() => setMenuOpen((v) => !v)}
-            >
-              {menuOpen ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
-              <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
-            </button>
-          </div>
-        </div>
-
-        {menuOpen ? (
-          <nav id="snow-landing-menu" className="stc-snow-landing__bar-drawer" aria-label="Mobile">
-            {snowLanding.nav.links.map((link) =>
-              link.href.startsWith("/") ? (
-                <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
-                  {link.label}
-                </Link>
-              ) : (
-                <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
-                  {link.label}
-                </a>
-              ),
-            )}
-            <a href="#quote-form" className="btn-accent" onClick={() => setMenuOpen(false)}>
-              {snowLanding.nav.cta}
-            </a>
-          </nav>
-        ) : null}
-      </header>
-
       <section className="stc-snow-landing__hero" aria-labelledby="snow-landing-heading">
         <div className="container stc-snow-landing__hero-grid">
           <div className="stc-snow-landing__hero-copy">
@@ -467,7 +392,7 @@ export function SnowLandingClient({ heroSrc, heroAlt, proofSrc, coverageSrc }: P
                   <rect width="400" height="220" className="stc-snow-landing__map-base" />
                   <path
                     className="stc-snow-landing__map-poly"
-                    d="M48 150 L120 40 L210 60 L250 30 L340 75 L360 140 L280 190 L140 195 Z"
+                    d="M95 145 L130 70 L185 55 L250 80 L280 130 L245 165 L165 170 Z"
                   />
                   {TOWN_PINS.map((pin) => (
                     <g key={pin.name}>
@@ -502,70 +427,71 @@ export function SnowLandingClient({ heroSrc, heroAlt, proofSrc, coverageSrc }: P
 
       <section
         id="close"
-        className="stc-snow-landing__close turner-band turner-band--dark"
+        className="stc-snow-landing__close"
         aria-labelledby="snow-landing-close"
       >
-        <div className="container stc-snow-landing__close-inner">
-          <div className="stc-snow-landing__faq">
-            {snowLanding.faqs.map((item, i) => {
-              const open = openFaq === i;
-              return (
-                <div key={item.q} className={`stc-snow-landing__faq-item${open ? " is-open" : ""}`}>
-                  <button
-                    type="button"
-                    className="stc-snow-landing__faq-q"
-                    aria-expanded={open}
-                    onClick={() => setOpenFaq(open ? null : i)}
-                  >
-                    <span>{item.q}</span>
-                    <ChevronDown className="stc-snow-landing__faq-chevron" size={18} aria-hidden />
-                  </button>
-                  {open ? (
-                    <div className="stc-snow-landing__faq-a">
-                      <p className="wf-type-supporting">{item.a}</p>
-                    </div>
-                  ) : null}
+        <div className="stc-snow-landing__close-split">
+          <div className="stc-snow-landing__close-faq-pane">
+            <div className="stc-snow-landing__close-pane-inner">
+              <header className="stc-snow-landing__faq-head">
+                <p className="eyebrow">{snowLanding.faqSection.eyebrow}</p>
+                <h2 className="stc-snow-landing__faq-title">{snowLanding.faqSection.headline}</h2>
+              </header>
+              <div className="stc-snow-landing__faq-stack">
+                <div className="stc-snow-landing__faq">
+                  {snowLanding.faqs.map((item, i) => {
+                    const open = openFaq === i;
+                    const n = String(i + 1).padStart(2, "0");
+                    return (
+                      <div
+                        key={item.q}
+                        className={`stc-snow-landing__faq-item${open ? " is-open" : ""}`}
+                      >
+                        <button
+                          type="button"
+                          className="stc-snow-landing__faq-q"
+                          aria-expanded={open}
+                          onClick={() => setOpenFaq(open ? null : i)}
+                        >
+                          <span className="stc-snow-landing__faq-index" aria-hidden>
+                            {n}
+                          </span>
+                          <span className="stc-snow-landing__faq-q-text">{item.q}</span>
+                          <span className="stc-snow-landing__faq-toggle" aria-hidden>
+                            <ChevronDown className="stc-snow-landing__faq-chevron" size={16} />
+                          </span>
+                        </button>
+                        {open ? (
+                          <div className="stc-snow-landing__faq-a">
+                            <p className="wf-type-supporting">{item.a}</p>
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
-          </div>
-
-          <div className="stc-snow-landing__close-cta">
-            <p className="eyebrow eyebrow--on-dark">{snowLanding.close.eyebrow}</p>
-            <h2 id="snow-landing-close" className="text-display text-display--section">
-              {snowLanding.close.headline}
-            </h2>
-            <p className="wf-type-supporting stc-snow-landing__close-support">
-              {snowLanding.close.supporting}
-            </p>
-            <a href="#quote-form" className="btn-accent btn-accent--lg">
-              {snowLanding.close.primaryCta}
-            </a>
-            <p className="stc-snow-landing__storm-line">
-              <span className="eyebrow eyebrow--on-dark">{snowLanding.close.phoneLabel}</span>
-              <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
-            </p>
-          </div>
-
-          <footer className="stc-snow-landing__foot">
-            <div className="stc-snow-landing__foot-brand">
-              <Wordmark />
-              <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
-              <Link href="/contact#contact">Contact</Link>
+              </div>
             </div>
-            <ul className="stc-snow-landing__foot-links">
-              <li>
-                <a href={snowLanding.footer.areasHref}>{snowLanding.footer.areasLabel}</a>
-              </li>
-              <li>
-                <Link href={snowLanding.footer.privacyHref}>Privacy</Link>
-              </li>
-              <li>
-                <Link href={snowLanding.footer.termsHref}>Terms</Link>
-              </li>
-            </ul>
-            <p className="stc-snow-landing__foot-copy">{snowLanding.footer.copyright}</p>
-          </footer>
+          </div>
+
+          <div className="stc-snow-landing__close-cta-pane">
+            <div className="stc-snow-landing__close-pane-inner stc-snow-landing__close-cta">
+              <p className="eyebrow eyebrow--on-dark">{snowLanding.close.eyebrow}</p>
+              <h2 id="snow-landing-close" className="text-display text-display--section">
+                {snowLanding.close.headline}
+              </h2>
+              <p className="wf-type-supporting stc-snow-landing__close-support">
+                {snowLanding.close.supporting}
+              </p>
+              <a href="#quote-form" className="btn-accent btn-accent--lg">
+                {snowLanding.close.primaryCta}
+              </a>
+              <p className="stc-snow-landing__storm-line">
+                <span className="eyebrow eyebrow--on-dark">{snowLanding.close.phoneLabel}</span>
+                <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>

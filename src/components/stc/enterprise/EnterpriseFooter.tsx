@@ -1,16 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { footerColumns, cta } from "@/data/nav";
 import { site } from "@/data/site";
-import { CONTACT_FORM_HREF, PREVIEW_3013_PATH } from "@/lib/contact-paths";
+import { CONTACT_FORM_HREF } from "@/lib/contact-paths";
 import { CtaLink } from "./primitives";
 
 export function EnterpriseFooter() {
-  const pathname = usePathname();
-  if (pathname === PREVIEW_3013_PATH) return null;
-
   return (
     <footer className="turner-footer">
       <div className="container turner-footer__grid">
